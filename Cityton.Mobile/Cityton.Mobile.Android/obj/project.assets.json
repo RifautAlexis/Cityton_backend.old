@@ -1999,24 +1999,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M0rph0s\\.nuget\\packages\\": {},
+    "C:\\Users\\Morphos\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\M0rph0s\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\Cityton.Mobile.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\Cityton.Mobile.Android.csproj",
       "projectName": "Cityton.Mobile.Android",
-      "projectPath": "C:\\Users\\M0rph0s\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\Cityton.Mobile.Android.csproj",
-      "packagesPath": "C:\\Users\\M0rph0s\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\M0rph0s\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\obj\\",
+      "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\Cityton.Mobile.Android.csproj",
+      "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\M0rph0s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Morphos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2030,8 +2030,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\M0rph0s\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
-              "projectPath": "C:\\Users\\M0rph0s\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj"
+            "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
+              "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj"
             }
           }
         }
