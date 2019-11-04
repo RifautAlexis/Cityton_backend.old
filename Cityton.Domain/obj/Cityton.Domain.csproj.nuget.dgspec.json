@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {}
+    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {
+    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
         "projectName": "Cityton.Domain",
-        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
-        "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\obj\\",
+        "projectPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
+        "packagesPath": "C:\\Users\\M0rph0s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morphos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\M0rph0s\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -42,28 +42,11 @@
       },
       "frameworks": {
         "netstandard2.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            }
-          },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }

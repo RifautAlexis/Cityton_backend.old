@@ -10,10 +10,11 @@ namespace Cityton.Domain.Company
 
         public CompanyMap(EntityTypeBuilder<Company> entityBuilder)
         {
-            entityBuilder.HasKey(c => c.Id);
+            entityBuilder.HasKey(c => c.Id); // ???
             entityBuilder.Property(c => c.MinGroupSize).IsRequired();
             entityBuilder.Property(c => c.MaxGroupSize).IsRequired();
             entityBuilder.Property(c => c.CreatedAt).IsRequired();
+            entityBuilder.Ignore(c => c.Users);
         }
 
     }
