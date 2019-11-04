@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {}
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\test\\test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj": {
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\test\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
-        "projectName": "Cityton.Domain",
-        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\Cityton.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\test\\test.csproj",
+        "projectName": "test",
+        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\test\\test.csproj",
         "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,14 +23,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
+          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -41,11 +41,13 @@
         }
       },
       "frameworks": {
-        "netstandard2.1": {
+        "netstandard2.0": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
           "imports": [
@@ -58,11 +60,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }

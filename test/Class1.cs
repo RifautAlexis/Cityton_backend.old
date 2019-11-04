@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cityton.Domain
+namespace test
 {
     public class Class1
     {
