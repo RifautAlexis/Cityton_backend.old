@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Cityton.Data.Models;
 
-namespace Cityton.Domain.Company
+namespace Cityton.Data.Mapping
 {
     class CompanyMap
     {
 
         public CompanyMap(EntityTypeBuilder<Company> entityBuilder)
         {
-            entityBuilder.HasKey(c => c.Id); // ???
+            entityBuilder.HasKey(c => c.Id);
             entityBuilder.Property(c => c.MinGroupSize).IsRequired();
             entityBuilder.Property(c => c.MaxGroupSize).IsRequired();
             entityBuilder.Property(c => c.CreatedAt).IsRequired();

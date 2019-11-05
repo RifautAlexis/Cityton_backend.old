@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cityton.Domain
+namespace Cityton.Data
 {
     class BaseEntities
     {

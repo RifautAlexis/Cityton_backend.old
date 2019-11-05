@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj": {}
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj": {
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
         "projectName": "Cityton.Service",
-        "projectPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
-        "packagesPath": "C:\\Users\\M0rph0s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Service\\obj\\",
+        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
+        "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\M0rph0s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Morphos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -51,10 +51,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj": {}
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj": {
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj",
         "projectName": "Cityton.Mobile.iOS",
-        "projectPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj",
-        "packagesPath": "C:\\Users\\M0rph0s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\obj\\",
+        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\Cityton.Mobile.iOS.csproj",
+        "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\M0rph0s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Morphos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
-                "projectPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj"
+              "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
+                "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj"
               }
             }
           }
@@ -65,21 +65,21 @@
         }
       }
     },
-    "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
+    "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj",
+        "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj",
         "projectName": "Cityton.Mobile",
-        "projectPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj",
-        "packagesPath": "C:\\Users\\M0rph0s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\M0rph0s\\Source\\Repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\obj\\",
+        "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\Cityton.Mobile.csproj",
+        "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Mobile\\Cityton.Mobile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\M0rph0s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Morphos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -120,10 +120,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
