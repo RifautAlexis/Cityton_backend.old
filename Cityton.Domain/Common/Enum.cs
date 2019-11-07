@@ -17,4 +17,11 @@ namespace Cityton.Data.Common
         Validated,
         Rejected
     }
+
+    public enum Role
+    {
+        Member,
+        Checker,
+        Admin
+    }
 }

@@ -6,6 +6,7 @@ namespace Cityton.Data.Models
     class Company: BaseEntities
     {
 
+        public string  Name { get; set; }
         public int MinGroupSize { get; set; }
         public int MaxGroupSize { get; set; }
         public DateTime CreatedAt { get; set; }
