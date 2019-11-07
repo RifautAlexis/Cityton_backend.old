@@ -1,0 +1,11 @@
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\bin\Debug\netstandard2.0\Cityton.Mobile.deps.json
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\bin\Debug\netstandard2.0\Cityton.Mobile.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\bin\Debug\netstandard2.0\Cityton.Mobile.pdb
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\Cityton.Mobile.csprojAssemblyReference.cache
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\Cityton.Mobile.AssemblyInfoInputs.cache
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\Cityton.Mobile.AssemblyInfo.cs
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\Cityton.Mobile.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Mobile\Cityton.Mobile\obj\Debug\netstandard2.0\Cityton.Mobile.pdb

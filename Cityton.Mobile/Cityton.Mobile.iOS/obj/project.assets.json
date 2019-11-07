@@ -151,7 +151,7 @@
       },
       "Cityton.Mobile/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Xamarin.Essentials": "1.1.0",
           "Xamarin.Forms": "4.1.0.555618"
@@ -314,7 +314,7 @@
       },
       "Cityton.Mobile/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Xamarin.Essentials": "1.1.0",
           "Xamarin.Forms": "4.1.0.555618"
@@ -477,7 +477,7 @@
       },
       "Cityton.Mobile/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Xamarin.Essentials": "1.1.0",
           "Xamarin.Forms": "4.1.0.555618"
@@ -640,7 +640,7 @@
       },
       "Cityton.Mobile/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "Xamarin.Essentials": "1.1.0",
           "Xamarin.Forms": "4.1.0.555618"

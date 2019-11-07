@@ -10,6 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using FluentValidation.AspNetCore;
+using Cityton.Service.Validators;
+using Cityton.Data.Models;
+using FluentValidation;
 
 namespace Cityton.Ui
 {
@@ -26,6 +30,16 @@ namespace Cityton.Ui
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            /*
+             * Allow to configure FluentValidation
+             */
+            services.AddMvc().AddFluentValidation();
+
+            /*
+             * Add here all Fluent validators
+             */
+            services.AddTransient <IValidator<Company>, CompanyValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
