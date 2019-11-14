@@ -8,7 +8,7 @@ namespace Cityton.Data.Models
     public class ChallengeGiven : BaseEntities
     {
 
-        public StatusChallenge Status { get; set; }
+        public StatusChallenge Status { get; set; } = StatusChallenge.InProgress;
 
         /*****/
 

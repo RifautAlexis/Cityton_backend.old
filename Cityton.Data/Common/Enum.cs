@@ -24,4 +24,11 @@ namespace Cityton.Data.Common
         Checker,
         Admin
     }
+
+    public enum AllowedExtension
+    {
+        PNG,
+        JPNG,
+        GIF
+    }
 }

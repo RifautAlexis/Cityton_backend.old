@@ -11,9 +11,9 @@ namespace Cityton.Service.Validators
 
         public GroupValidator()
         {
-            RuleFor(user => user.Name).MinimumLength(3);
-            RuleFor(user => user.Picture).NotEmpty();
-            RuleFor(user => user.CreatedAt).NotEmpty();
+            RuleFor(group => group.Name).NotEmpty().MinimumLength(3);
+            RuleFor(group => group.Picture).NotEmpty();
+            RuleFor(group => group.CreatedAt).NotNull();
         }
 
     }

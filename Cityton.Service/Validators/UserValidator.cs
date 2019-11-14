@@ -12,13 +12,13 @@ namespace Cityton.Service.Validators
 
         public UserValidator()
         {
-            RuleFor(user => user.Username).MinimumLength(3);
-            RuleFor(user => user.PhoneNumber).MinimumLength (10);
-            RuleFor(user => user.Email).EmailAddress();
+            RuleFor(user => user.Username).NotEmpty().MinimumLength(3);
+            RuleFor(user => user.PhoneNumber).NotEmpty().MinimumLength (10);
+            RuleFor(user => user.Email).NotEmpty().EmailAddress();
             RuleFor(user => user.PasswordHash).NotEmpty();
             RuleFor(user => user.PasswordSalt).NotEmpty();
             RuleFor(user => user.Picture).NotEmpty();
-            RuleFor(user => user.Role).NotEmpty().IsInEnum();
+            RuleFor(user => user.Role).NotNull().IsInEnum();
         }
 
     }

@@ -13,7 +13,7 @@ namespace Cityton.Service.Validators
         {
             RuleFor(company => company.MinGroupSize).GreaterThanOrEqualTo(1).LessThanOrEqualTo(company => company.MaxGroupSize);
             RuleFor(company => company.MaxGroupSize).GreaterThanOrEqualTo(company => company.MinGroupSize);
-            RuleFor(company => company.CreatedAt).NotEmpty();
+            RuleFor(company => company.CreatedAt).NotNull();
         }
 
     }

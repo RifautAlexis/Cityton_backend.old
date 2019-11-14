@@ -12,7 +12,7 @@ namespace Cityton.Service.Validators
         public ParticipantGroupValidator()
         {
             RuleFor(participantGroup => participantGroup.IsCreator).NotNull();
-            RuleFor(participantGroup => participantGroup.Status).NotEmpty().IsInEnum();
+            RuleFor(participantGroup => participantGroup.Status).NotNull().IsInEnum();
         }
 
     }
