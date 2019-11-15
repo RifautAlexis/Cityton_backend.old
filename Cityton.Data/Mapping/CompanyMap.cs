@@ -21,6 +21,10 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
+            entityBuilder.HasMany(c => c.Users).WithOne(u => u.Company);
+
+            /*****/
+
             entityBuilder.Ignore(c => c.Users);
         }
 

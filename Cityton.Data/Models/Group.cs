@@ -14,7 +14,7 @@ namespace Cityton.Data.Models
         /*****/
 
         public virtual ICollection<ParticipantGroup> Members { get; set; }
-        public virtual ICollection<ChallengeGiven> ChallengeGivens { get; set; }
+        public virtual ICollection<ChallengeGiven> ChallengesGiven { get; set; }
 
     }
 }

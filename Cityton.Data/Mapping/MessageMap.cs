@@ -17,6 +17,10 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
+            entityBuilder.HasOne(m => m.Media).WithOne(m => m.ContainedIn);
+
+            /*****/
+
             entityBuilder.Ignore(m => m.Author);
             entityBuilder.Ignore(m => m.Discussion);
             entityBuilder.Ignore(m => m.Media);

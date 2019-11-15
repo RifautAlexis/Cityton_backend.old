@@ -15,8 +15,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(a => a.Challenges);
-            entityBuilder.Ignore(a => a.ChallengedGroups);
+            entityBuilder.Ignore(a => a.Challenge);
+            entityBuilder.Ignore(a => a.ChallengedGroup);
         }
 
     }

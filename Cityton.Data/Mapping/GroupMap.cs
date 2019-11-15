@@ -20,8 +20,13 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
+            entityBuilder.HasMany(g => g.Members).WithOne(pg => pg.BelongingGroup);
+            entityBuilder.HasMany(g => g.ChallengesGiven).WithOne(cg => cg.ChallengedGroup);
+
+            /*****/
+
             entityBuilder.Ignore(g => g.Members);
-            entityBuilder.Ignore(g => g.ChallengeGivens);
+            entityBuilder.Ignore(g => g.ChallengesGiven);
         }
 
     }

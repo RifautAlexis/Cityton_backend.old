@@ -20,6 +20,11 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
+            entityBuilder.HasMany(c => c.ChallengeGivens).WithOne(cg => cg.Challenge);
+            entityBuilder.HasMany(c => c.Achievements).WithOne(a => a.FromChallenge);
+
+            /*****/
+
             entityBuilder.Ignore(c => c.Author);
             entityBuilder.Ignore(c => c.Achievements);
             entityBuilder.Ignore(c => c.ChallengeGivens);

@@ -11,7 +11,7 @@ namespace Cityton.Data.Models
 
         /*****/
 
-        public ICollection<UserInDiscussion> UserInDiscussion { get; set; }
+        public ICollection<UserInDiscussion> UsersInDiscussion { get; set; }
         public ICollection<Message> Messages { get; set; }
 
     }

@@ -16,7 +16,12 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(d => d.UserInDiscussion);
+            entityBuilder.HasMany(d => d.UsersInDiscussion).WithOne(uid => uid.Discussion);
+            entityBuilder.HasMany(d => d.Messages).WithOne(m => m.Discussion);
+
+            /*****/
+
+            entityBuilder.Ignore(d => d.UsersInDiscussion);
             entityBuilder.Ignore(d => d.Messages);
         }
 

@@ -21,10 +21,10 @@ namespace Cityton.Data.Models
         /*****/
 
         public virtual Company Company { get; set; }
-        public virtual ICollection<ParticipantGroup> ParticipantGroup { get; set; }
+        public virtual ICollection<ParticipantGroup> ParticipantGroups { get; set; }
         public virtual ICollection<Challenge> Challenges { get; set; }
         public virtual ICollection<Achievement> Achievements { get; set; }
-        public virtual ICollection<UserInDiscussion> UserInDiscussion { get; set; }
+        public virtual ICollection<UserInDiscussion> UsersInDiscussion { get; set; }
         public virtual ICollection<Message> MessagesWriten { get; set; }
 
 

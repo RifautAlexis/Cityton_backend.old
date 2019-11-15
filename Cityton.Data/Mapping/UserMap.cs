@@ -29,11 +29,19 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
+            entityBuilder.HasMany(u => u.ParticipantGroups).WithOne(pg => pg.User);
+            entityBuilder.HasMany(u => u.Challenges).WithOne(c => c.Author);
+            entityBuilder.HasMany(u => u.Achievements).WithOne(a => a.Winner);
+            entityBuilder.HasMany(u => u.UsersInDiscussion).WithOne(uid => uid.Participant);
+            entityBuilder.HasMany(u => u.MessagesWriten).WithOne(m => m.Author);
+
+            /*****/
+
             entityBuilder.Ignore(u => u.Company);
-            entityBuilder.Ignore(u => u.ParticipantGroup);
+            entityBuilder.Ignore(u => u.ParticipantGroups);
             entityBuilder.Ignore(u => u.Challenges);
             entityBuilder.Ignore(u => u.Achievements);
-            entityBuilder.Ignore(u => u.UserInDiscussion);
+            entityBuilder.Ignore(u => u.UsersInDiscussion);
             entityBuilder.Ignore(u => u.MessagesWriten);
         }
     }
