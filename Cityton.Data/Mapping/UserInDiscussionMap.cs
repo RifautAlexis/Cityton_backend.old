@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class UserInDiscussionMap
+    public class UserInDiscussionMap
     {
 
         public UserInDiscussionMap(EntityTypeBuilder<UserInDiscussion> entityBuilder)
@@ -16,8 +16,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(uid => uid.Participant);
-            entityBuilder.Ignore(uid => uid.Discussion);
+            //entityBuilder.Ignore(uid => uid.Participant);
+            //entityBuilder.Ignore(uid => uid.Discussion);
         }
 
     }

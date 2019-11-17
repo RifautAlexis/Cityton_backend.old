@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class MessageMap
+    public class MessageMap
     {
 
         public MessageMap(EntityTypeBuilder<Message> entityBuilder)
@@ -17,13 +17,13 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.HasOne(m => m.Media).WithOne(m => m.ContainedIn);
+            entityBuilder.HasOne(mes => mes.Media).WithOne(med => med.ContainedIn).HasForeignKey<Media>(med => med.MessageId);
 
             /*****/
 
-            entityBuilder.Ignore(m => m.Author);
-            entityBuilder.Ignore(m => m.Discussion);
-            entityBuilder.Ignore(m => m.Media);
+            //entityBuilder.Ignore(m => m.Author);
+            //entityBuilder.Ignore(m => m.Discussion);
+            //entityBuilder.Ignore(m => m.Media);
         }
 
     }

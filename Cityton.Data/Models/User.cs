@@ -17,7 +17,6 @@ namespace Cityton.Data.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 
-
         /*****/
 
         public virtual Company Company { get; set; }

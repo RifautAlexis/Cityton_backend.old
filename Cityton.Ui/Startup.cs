@@ -13,7 +13,11 @@ using Microsoft.Extensions.Options;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators;
 using Cityton.Data.Models;
+using Cityton.Repository;
 using FluentValidation;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace Cityton.Ui
 {
@@ -29,8 +33,6 @@ namespace Cityton.Ui
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
             /*
              * Allow to configure FluentValidation
              */
@@ -40,10 +42,14 @@ namespace Cityton.Ui
              * Add here all Fluent validators
              */
             services.AddTransient <IValidator<Company>, CompanyValidator>();
+
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -55,7 +61,12 @@ namespace Cityton.Ui
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseStaticFiles();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

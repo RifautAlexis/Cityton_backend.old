@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class ChallengeGivenMap
+    public class ChallengeGivenMap
     {
         public ChallengeGivenMap(EntityTypeBuilder<ChallengeGiven> entityBuilder)
         {
@@ -15,8 +15,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(a => a.Challenge);
-            entityBuilder.Ignore(a => a.ChallengedGroup);
+            //entityBuilder.Ignore(a => a.Challenge);
+            //entityBuilder.Ignore(a => a.ChallengedGroup);
         }
 
     }

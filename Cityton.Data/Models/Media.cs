@@ -15,6 +15,7 @@ namespace Cityton.Data.Models
 
         /*****/
 
+        public int? MessageId { get; set; }
         public virtual Message ContainedIn { get; set; }
 
 

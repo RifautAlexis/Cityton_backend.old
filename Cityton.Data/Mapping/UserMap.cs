@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class UserMap
+    public class UserMap
     {
 
         public UserMap(EntityTypeBuilder<User> entityBuilder)
@@ -37,12 +37,12 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(u => u.Company);
-            entityBuilder.Ignore(u => u.ParticipantGroups);
-            entityBuilder.Ignore(u => u.Challenges);
-            entityBuilder.Ignore(u => u.Achievements);
-            entityBuilder.Ignore(u => u.UsersInDiscussion);
-            entityBuilder.Ignore(u => u.MessagesWriten);
+            //entityBuilder.Ignore(u => u.Company);
+            //entityBuilder.Ignore(u => u.ParticipantGroups);
+            //entityBuilder.Ignore(u => u.Challenges);
+            //entityBuilder.Ignore(u => u.Achievements);
+            //entityBuilder.Ignore(u => u.UsersInDiscussion);
+            //entityBuilder.Ignore(u => u.MessagesWriten);
         }
     }
 }

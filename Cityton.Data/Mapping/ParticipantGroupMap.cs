@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class ParticipantGroupMap
+    public class ParticipantGroupMap
     {
 
         public ParticipantGroupMap(EntityTypeBuilder<ParticipantGroup> entityBuilder)
@@ -17,8 +17,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(pg => pg.BelongingGroup);
-            entityBuilder.Ignore(pg => pg.User);
+            //entityBuilder.Ignore(pg => pg.BelongingGroup);
+            //entityBuilder.Ignore(pg => pg.User);
         }
 
     }

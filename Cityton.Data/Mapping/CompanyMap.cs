@@ -6,7 +6,7 @@ using Cityton.Data.Models;
 
 namespace Cityton.Data.Mapping
 {
-    class CompanyMap
+    public class CompanyMap
     {
 
         public CompanyMap(EntityTypeBuilder<Company> entityBuilder)
@@ -25,7 +25,7 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(c => c.Users);
+            //entityBuilder.Ignore(c => c.Users);
         }
 
     }

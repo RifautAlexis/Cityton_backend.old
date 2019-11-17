@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class MediaMap
+    public class MediaMap
     {
         public MediaMap(EntityTypeBuilder<Media> entityBuilder)
         {
@@ -21,7 +21,7 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(m => m.ContainedIn);
+            //entityBuilder.Ignore(m => m.ContainedIn);
         }
 
     }

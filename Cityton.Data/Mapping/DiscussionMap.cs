@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Data.Mapping
 {
-    class DiscussionMap
+    public class DiscussionMap
     {
 
         public DiscussionMap(EntityTypeBuilder<Discussion> entityBuilder)
@@ -21,8 +21,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(d => d.UsersInDiscussion);
-            entityBuilder.Ignore(d => d.Messages);
+            //entityBuilder.Ignore(d => d.UsersInDiscussion);
+            //entityBuilder.Ignore(d => d.Messages);
         }
 
     }

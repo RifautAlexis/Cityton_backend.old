@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Cityton.Data.Mapping
 {
-    class GroupMap
+    public class GroupMap
     {
 
         public GroupMap(EntityTypeBuilder<Group> entityBuilder)
@@ -25,8 +25,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.Ignore(g => g.Members);
-            entityBuilder.Ignore(g => g.ChallengesGiven);
+            //entityBuilder.Ignore(g => g.Members);
+            //entityBuilder.Ignore(g => g.ChallengesGiven);
         }
 
     }
