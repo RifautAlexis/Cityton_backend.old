@@ -7,7 +7,7 @@ using Cityton.Data.Common;
 
 namespace Cityton.Service.Validators
 {
-    class MediaValidator : AbstractValidator<Media>
+    public class MediaValidator : AbstractValidator<Media>
     {
 
         public MediaValidator()

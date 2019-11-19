@@ -7,7 +7,7 @@ using FluentValidation;
 
 namespace Cityton.Service.Validators
 {
-    class UserValidator : AbstractValidator<User>
+    public class UserValidator : AbstractValidator<User>
     {
 
         public UserValidator()

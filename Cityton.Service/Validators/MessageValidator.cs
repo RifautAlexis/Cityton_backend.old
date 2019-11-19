@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Service.Validators
 {
-    class MessageValidator : AbstractValidator<Message>
+    public class MessageValidator : AbstractValidator<Message>
     {
 
         public MessageValidator()

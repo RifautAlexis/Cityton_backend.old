@@ -6,7 +6,7 @@ using Cityton.Data.Models;
 
 namespace Cityton.Service.Validators
 {
-    class ChallengeGivenValidator : AbstractValidator<ChallengeGiven>
+    public class ChallengeGivenValidator : AbstractValidator<ChallengeGiven>
     {
 
         public ChallengeGivenValidator()

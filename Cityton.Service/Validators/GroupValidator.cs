@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cityton.Service.Validators
 {
-    class GroupValidator : AbstractValidator<Group>
+    public class GroupValidator : AbstractValidator<Group>
     {
 
         public GroupValidator()

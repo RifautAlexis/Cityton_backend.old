@@ -32,7 +32,7 @@ namespace Cityton.Repository
                 new User { Id = 7, Username = "member02", PhoneNumber = "7419635802", Email = "member02@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
                 new User { Id = 8, Username = "member03", PhoneNumber = "0172839976", Email = "member03@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
                 new User { Id = 9, Username = "member04", PhoneNumber = "7538527419", Email = "member04@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 10, Username = "member05", PhoneNumber = "9638520153", Email = "member05@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
+                new User { Id = 10, Username = "member05", PhoneNumber = "9638520153", Email = "member05@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] }
             );
 
             modelBuilder.Entity<Challenge>().HasData(

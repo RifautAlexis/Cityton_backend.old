@@ -6,7 +6,7 @@ using Cityton.Data.Models;
 
 namespace Cityton.Service.Validators
 {
-    class DiscussionValidator : AbstractValidator<Discussion>
+    public class DiscussionValidator : AbstractValidator<Discussion>
     {
 
         public DiscussionValidator()

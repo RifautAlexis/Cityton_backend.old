@@ -6,7 +6,7 @@ using Cityton.Data.Models;
 
 namespace Cityton.Service.Validators
 {
-    class AchievementValidator : AbstractValidator<Achievement>
+    public class AchievementValidator : AbstractValidator<Achievement>
     {
 
         public AchievementValidator()

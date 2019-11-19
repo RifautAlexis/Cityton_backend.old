@@ -42,6 +42,17 @@ namespace Cityton.Ui
              * Add here all Fluent validators
              */
             services.AddTransient <IValidator<Company>, CompanyValidator>();
+            services.AddTransient<IValidator<User>, UserValidator>();
+            services.AddTransient<IValidator<Challenge>, ChallengeValidator>();
+            services.AddTransient<IValidator<Achievement>, AchievementValidator>();
+            services.AddTransient<IValidator<Group>, GroupValidator>();
+            services.AddTransient<IValidator<ParticipantGroup>, ParticipantGroupValidator>();
+            services.AddTransient<IValidator<ChallengeGiven>, ChallengeGivenValidator>();
+            services.AddTransient<IValidator<Discussion>, DiscussionValidator>();
+            services.AddTransient<IValidator<UserInDiscussion>, UserInDiscussionValidator>();
+            services.AddTransient<IValidator<Message>, MessageValidator>();
+            services.AddTransient<IValidator<Media>, MediaValidator>();
+
 
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
