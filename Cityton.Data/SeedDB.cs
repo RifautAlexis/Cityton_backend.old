@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Cityton.Repository
 {
-    public static class ModelBuilderExtensions
+    public static class SeedDB
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {

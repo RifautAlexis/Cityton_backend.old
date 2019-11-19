@@ -12,12 +12,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators;
+using Cityton.Data;
 using Cityton.Data.Models;
 using Cityton.Repository;
 using FluentValidation;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cityton.Ui
 {
@@ -41,7 +43,7 @@ namespace Cityton.Ui
             /*
              * Add here all Fluent validators
              */
-            services.AddTransient <IValidator<Company>, CompanyValidator>();
+            services.AddTransient<IValidator<Company>, CompanyValidator>();
             services.AddTransient<IValidator<User>, UserValidator>();
             services.AddTransient<IValidator<Challenge>, ChallengeValidator>();
             services.AddTransient<IValidator<Achievement>, AchievementValidator>();
@@ -53,10 +55,11 @@ namespace Cityton.Ui
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<Media>, MediaValidator>();
 
-
+            /*
+             * Register Context
+             */
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +76,11 @@ namespace Cityton.Ui
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
