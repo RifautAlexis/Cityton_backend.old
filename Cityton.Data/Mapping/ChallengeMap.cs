@@ -20,8 +20,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.HasMany(c => c.ChallengeGivens).WithOne(cg => cg.Challenge);
-            entityBuilder.HasMany(c => c.Achievements).WithOne(a => a.FromChallenge);
+            entityBuilder.HasMany(c => c.ChallengeGivens).WithOne(cg => cg.Challenge).HasForeignKey(cg => cg.ChallengeId);
+            entityBuilder.HasMany(c => c.Achievements).WithOne(a => a.FromChallenge).HasForeignKey(a => a.FromChallengeId);
 
             /*****/
 

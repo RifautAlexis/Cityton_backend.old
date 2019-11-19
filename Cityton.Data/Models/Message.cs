@@ -16,6 +16,12 @@ namespace Cityton.Data.Models
         public virtual Discussion Discussion { get; set; }
         public virtual Media Media { get; set; }
 
+        /*****/
+
+        public int AuthorId { get; set; }
+        public int DiscussionId { get; set; }
+        public int MediaId { get; set; }
+
 
     }
 }

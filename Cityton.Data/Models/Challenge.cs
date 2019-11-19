@@ -19,5 +19,9 @@ namespace Cityton.Data.Models
         public virtual ICollection<Achievement> Achievements { get; set; }
         public virtual ICollection<ChallengeGiven> ChallengeGivens { get; set; }
 
+        /*****/
+
+        public int AuthorId { get; set; }
+
     }
 }

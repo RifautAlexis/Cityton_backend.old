@@ -21,7 +21,7 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.HasMany(c => c.Users).WithOne(u => u.Company);
+            entityBuilder.HasMany(c => c.Users).WithOne(u => u.Company).HasForeignKey(u => u.CompanyId);
 
             /*****/
 

@@ -26,6 +26,10 @@ namespace Cityton.Data.Models
         public virtual ICollection<UserInDiscussion> UsersInDiscussion { get; set; }
         public virtual ICollection<Message> MessagesWriten { get; set; }
 
+        /*****/
+
+        public int CompanyId { get; set; }
+
 
     }
 }

@@ -13,8 +13,13 @@ namespace Cityton.Data.Models
 
         /*****/
 
-        public Group BelongingGroup { get; set; }
-        public User User { get; set; }
+        public virtual Group BelongingGroup { get; set; }
+        public virtual User User { get; set; }
+
+        /*****/
+
+        public int BelongingGroupId { get; set; }
+        public int UserId { get; set; }
 
     }
 }

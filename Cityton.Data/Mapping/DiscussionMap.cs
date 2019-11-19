@@ -16,8 +16,8 @@ namespace Cityton.Data.Mapping
 
             /*****/
 
-            entityBuilder.HasMany(d => d.UsersInDiscussion).WithOne(uid => uid.Discussion);
-            entityBuilder.HasMany(d => d.Messages).WithOne(m => m.Discussion);
+            entityBuilder.HasMany(d => d.UsersInDiscussion).WithOne(uid => uid.Discussion).HasForeignKey(uid => uid.DiscussionId);
+            entityBuilder.HasMany(d => d.Messages).WithOne(m => m.Discussion).HasForeignKey(m => m.DiscussionId);
 
             /*****/
 

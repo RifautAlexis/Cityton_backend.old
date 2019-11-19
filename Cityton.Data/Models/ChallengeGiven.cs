@@ -14,6 +14,11 @@ namespace Cityton.Data.Models
 
         public virtual Challenge Challenge { get; set; }
         public virtual Group ChallengedGroup { get; set; }
+
+        /*****/
+
+        public int ChallengeId { get; set; }
+        public int ChallengedGroupId { get; set; }
     }
 }
 
