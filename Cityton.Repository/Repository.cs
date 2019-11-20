@@ -4,10 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Cityton.Repository
 {
-    class Repository<T> : IRepository<T> where T : BaseEntities
+
+    public interface IRepository<T> where T : BaseEntities
+    {
+
+        IAsyncEnumerable<T> GetAll();
+        Task<T> Get(int id);
+        void Insert(T entity);
+        void Update(T entity);
+        void Delete(T entity);
+        void Remove(T entity);
+        void SaveChanges();
+
+    }
+
+    public class Repository<T> : IRepository<T> where T : BaseEntities
     {
         private readonly ApplicationContext context;
         private DbSet<T> entities;
@@ -19,14 +34,14 @@ namespace Cityton.Repository
             this.context = context;
             entities = context.Set<T>();
         }
-        public IEnumerable<T> GetAll()
+        public IAsyncEnumerable<T> GetAll()
         {
-            return entities.AsEnumerable();
+            return entities.AsAsyncEnumerable();
         }
 
-        public T Get(long id)
+        public Task<T> Get(int id)
         {
-            return entities.SingleOrDefault(s => s.Id == id);
+            return entities.FindAsync(id).AsTask();
         }
         public void Insert(T entity)
         {
@@ -34,8 +49,8 @@ namespace Cityton.Repository
             {
                 throw new ArgumentNullException("entity");
             }
-            entities.Add(entity);
-            context.SaveChanges();
+            entities.AddAsync(entity);
+            context.SaveChangesAsync();
         }
 
         public void Update(T entity)
@@ -44,7 +59,7 @@ namespace Cityton.Repository
             {
                 throw new ArgumentNullException("entity");
             }
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
 
         public void Delete(T entity)
@@ -54,7 +69,7 @@ namespace Cityton.Repository
                 throw new ArgumentNullException("entity");
             }
             entities.Remove(entity);
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
         public void Remove(T entity)
         {
@@ -67,7 +82,7 @@ namespace Cityton.Repository
 
         public void SaveChanges()
         {
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
     }
 }

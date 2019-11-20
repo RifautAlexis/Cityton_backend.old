@@ -19,6 +19,7 @@ namespace Cityton.Service.Validators
             RuleFor(user => user.PasswordSalt).NotEmpty();
             RuleFor(user => user.Picture).NotEmpty();
             RuleFor(user => user.Role).NotNull().IsInEnum();
+            RuleFor(user => user.Token).NotEmpty();
         }
 
     }

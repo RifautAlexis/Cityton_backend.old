@@ -26,6 +26,7 @@ namespace Cityton.Data.Mapping
             entityBuilder.Property(u => u.Role).IsRequired();
             entityBuilder.Property(u => u.PasswordHash).IsRequired();
             entityBuilder.Property(u => u.PasswordSalt).IsRequired();
+            entityBuilder.HasIndex(u => u.Token).IsUnique();
 
             /*****/
 

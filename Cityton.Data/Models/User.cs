@@ -16,6 +16,7 @@ namespace Cityton.Data.Models
         public Role Role { get; set; } = Role.Member;
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public string Token { get; set; }
 
         /*****/
 

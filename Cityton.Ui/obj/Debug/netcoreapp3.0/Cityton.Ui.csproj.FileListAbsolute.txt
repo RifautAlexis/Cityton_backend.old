@@ -120,6 +120,7 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtime
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll

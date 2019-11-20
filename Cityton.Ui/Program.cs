@@ -31,7 +31,14 @@ namespace Cityton.Ui
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddJsonFile(
+                        "appsettings.json", optional: false, reloadOnChange: true);
+                    config.AddJsonFile(
+                        "appsettings.{env.EnvironmentName}.json", optional: false, reloadOnChange: true);
 
+                })
+                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
     }
 }
