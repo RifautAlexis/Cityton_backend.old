@@ -14,11 +14,11 @@ namespace Cityton.Repository
 
         IAsyncEnumerable<T> GetAll();
         Task<T> Get(int id);
-        void Insert(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        Task Insert(T entity);
+        Task Update(T entity);
+        Task Delete(T entity);
         void Remove(T entity);
-        void SaveChanges();
+        Task SaveChanges();
 
     }
 
@@ -34,6 +34,7 @@ namespace Cityton.Repository
             this.context = context;
             entities = context.Set<T>();
         }
+
         public IAsyncEnumerable<T> GetAll()
         {
             return entities.AsAsyncEnumerable();
@@ -43,33 +44,34 @@ namespace Cityton.Repository
         {
             return entities.FindAsync(id).AsTask();
         }
-        public void Insert(T entity)
+
+        public async Task Insert(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
-            entities.AddAsync(entity);
-            context.SaveChangesAsync();
+            await entities.AddAsync(entity);
+            await context.SaveChangesAsync();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
-        public void Delete(T entity)
+        public async Task Delete(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
             entities.Remove(entity);
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
         public void Remove(T entity)
         {
@@ -80,9 +82,9 @@ namespace Cityton.Repository
             entities.Remove(entity);
         }
 
-        public void SaveChanges()
+        public async Task SaveChanges()
         {
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
     }
 }

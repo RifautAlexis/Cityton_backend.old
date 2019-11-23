@@ -20,7 +20,7 @@ namespace Cityton.Data.Mapping
             entityBuilder.HasIndex(u => u.PhoneNumber).IsUnique();
 
             entityBuilder.Property(u => u.Email).IsRequired();
-            entityBuilder.HasIndex(u => u.PhoneNumber).IsUnique();
+            entityBuilder.HasIndex(u => u.Email).IsUnique();
 
             entityBuilder.Property(u => u.Picture).IsRequired();
             entityBuilder.Property(u => u.Role).IsRequired();

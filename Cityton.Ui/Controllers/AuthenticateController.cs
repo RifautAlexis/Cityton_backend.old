@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Cityton.Data.DTOs;
+using Cityton.Data;
 using System.Security.Claims;
 using System.Text;
 using Cityton.Service;
@@ -14,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators.DTOs;
+using Cityton.Data.Models;
 
 namespace Cityton.Ui.Controllers
 {
@@ -36,6 +38,14 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("test")]
+        public IActionResult Test()
+        {
+            return Ok("LOL");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [Route("login")]
@@ -47,29 +57,8 @@ namespace Cityton.Ui.Controllers
             var user = await _authService.Authenticate(data.Email, data.Password);
 
             if (user != null) { return Unauthorized(); }
-            
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.GetValue<string>("JWT:Secret"));
-            
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.Username),
-                    new Claim("PHONE", user.PhoneNumber),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim("PICTURE", user.Picture),
-                    new Claim("ROLE", user.Role.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-
-            user.Token = tokenString;
+            user.CreateToken(_appSettings);
 
             _userService.Update(user);
 
@@ -80,7 +69,7 @@ namespace Cityton.Ui.Controllers
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
                 Role = user.Role.ToString(),
-                Token = tokenString
+                Token = user.Token
             });
         }
 
@@ -89,24 +78,28 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterDTO data)
         {
 
-            var validator = new RegisterDtoValidator();
-            var results = await validator.ValidateAsync(data);
-            results.AddToModelState(ModelState, "RegisterDTO");
+            //var validator = new RegisterDtoValidator(_userService);
+            //var results = await validator.ValidateAsync(data);
+            //results.AddToModelState(ModelState, "RegisterDTO");
 
-            if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
+            //if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
+            //if(_userService.GetByEmail(data.Email)) { return this.BadRequest("lol"); }
 
-            try
+            User newUser = data.ToUser();
+            newUser.CreateToken(_appSettings);
+
+            User user = await _authService.Register(newUser, data.Password);
+
+            return Ok(new
             {
-                // create user
-                _userService.Create(user, data.Password);
-                return Ok();
-            }
-            catch (AppException ex)
-            {
-                // return error message if there was an exception
-                return BadRequest(new { message = ex.Message });
-            }
+                Id = user.Id,
+                Username = user.Username,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                Token = user.Token
+            });
         }
 
     }

@@ -21,4 +21,3 @@ namespace Cityton.Data.Models
         public int ChallengedGroupId { get; set; }
     }
 }
-

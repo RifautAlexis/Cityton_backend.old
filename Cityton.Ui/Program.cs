@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -15,30 +13,14 @@ namespace Cityton.Ui
     {
         public static void Main(string[] args)
         {
-            var host = new HostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseIISIntegration()
-                    .UseStartup<Startup>();
-                })
-                .Build();
-
-
-
-            host.Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    config.AddJsonFile(
-                        "appsettings.json", optional: false, reloadOnChange: true);
-                    config.AddJsonFile(
-                        "appsettings.{env.EnvironmentName}.json", optional: false, reloadOnChange: true);
-
-                })
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                    webBuilder.UseStartup<Startup>().UseUrls("http://localhost:5000");
+                });
     }
 }

@@ -2,7 +2,9 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\C
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Service.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Service.pdb
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Data.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Repository.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Data.pdb
+C:\Users\Morphos\source\repos\Cityton\Cityton.Service\bin\Debug\netstandard2.1\Cityton.Repository.pdb
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\obj\Debug\netstandard2.1\Cityton.Service.csprojAssemblyReference.cache
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\obj\Debug\netstandard2.1\Cityton.Service.AssemblyInfoInputs.cache
 C:\Users\Morphos\source\repos\Cityton\Cityton.Service\obj\Debug\netstandard2.1\Cityton.Service.AssemblyInfo.cs

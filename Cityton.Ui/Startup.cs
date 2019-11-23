@@ -1,25 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Cityton.Repository;
+using Cityton.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using FluentValidation.AspNetCore;
-using Cityton.Service.Validators;
-using Cityton.Data;
-using Cityton.Data.Models;
-using Cityton.Repository;
-using FluentValidation;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Pomelo.EntityFrameworkCore.MySql;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Cityton.Data;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using Cityton.Data.Models;
+using Cityton.Service.Validators;
+using Cityton.Data.DTOs;
+using Cityton.Service.Validators.DTOs;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace Cityton.Ui
 {
@@ -36,14 +40,60 @@ namespace Cityton.Ui
         public void ConfigureServices(IServiceCollection services)
         {
 
-            /*
-             * Allow to configure FluentValidation
-             */
-            services.AddMvc().AddFluentValidation();
+            services.AddCors();
+            services.AddDbContext<ApplicationContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationContext>(x => x.UseMySql("server=remotemysql.com;user id=ol2EsK1Yz9;password=OOJ79dvEZa;port=3306;database=ol2EsK1Yz9;"));
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
-            /*
-             * Add here all Fluent validators
-             */
+            // configure strongly typed settings objects
+            var appSettingsSection = Configuration.GetSection("Settings");
+            services.Configure<Settings>(appSettingsSection);
+
+            // configure jwt authentication
+            var appSettings = appSettingsSection.Get<Settings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                        var userId = int.Parse(context.Principal.Identity.Name);
+                        var user = userService.Get(userId);
+                        if (user == null)
+                        {
+                            // return unauthorized if user no longer exists
+                            context.Fail("Unauthorized");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            // configure DI for application services
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(ICompanyRepository), typeof(CompanyRepository));
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAuthService, AuthService>();
+
+            services.AddControllers().AddFluentValidation();
+
             services.AddTransient<IValidator<Company>, CompanyValidator>();
             services.AddTransient<IValidator<User>, UserValidator>();
             services.AddTransient<IValidator<Challenge>, ChallengeValidator>();
@@ -55,12 +105,7 @@ namespace Cityton.Ui
             services.AddTransient<IValidator<UserInDiscussion>, UserInDiscussionValidator>();
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<Media>, MediaValidator>();
-
-            /*
-             * Register Context
-             */
-            services.AddDbContext<ApplicationContext>(options =>
-                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddTransient<IValidator<RegisterDTO>, RegisterDtoValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,17 +115,9 @@ namespace Cityton.Ui
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

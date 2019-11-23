@@ -10,41 +10,12 @@
       "Cityton.Repository/1.0.0": {
         "dependencies": {
           "Cityton.Data": "1.0.0",
-          "Pomelo.EntityFrameworkCore.MySql": "3.0.0-rc3.final"
+          "Microsoft.EntityFrameworkCore": "3.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
+          "Pomelo.EntityFrameworkCore.MySql": "3.0.0"
         },
         "runtime": {
           "Cityton.Repository.dll": {}
-        }
-      },
-      "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Cryptography.KeyDerivation/3.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.Internal": "3.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
-          "Microsoft.Extensions.Identity.Stores": "3.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
         }
       },
       "Microsoft.CSharp/4.5.0": {
@@ -171,31 +142,6 @@
           }
         }
       },
-      "Microsoft.Extensions.Identity.Core/3.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "3.0.0",
-          "Microsoft.Extensions.Logging": "3.0.0",
-          "Microsoft.Extensions.Options": "3.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
-        }
-      },
-      "Microsoft.Extensions.Identity.Stores/3.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Identity.Core": "3.0.0",
-          "Microsoft.Extensions.Logging": "3.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.19.46502"
-          }
-        }
-      },
       "Microsoft.Extensions.Logging/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.0.0",
@@ -259,7 +205,7 @@
           }
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/3.0.0-rc3.final": {
+      "Pomelo.EntityFrameworkCore.MySql/3.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
           "MySqlConnector": "0.61.0",
@@ -364,9 +310,7 @@
       },
       "Cityton.Data/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.0.0",
-          "Microsoft.EntityFrameworkCore": "3.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "3.0.0"
+          "Microsoft.EntityFrameworkCore": "3.0.0"
         },
         "runtime": {
           "Cityton.Data.dll": {}
@@ -379,27 +323,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.AspNetCore.Cryptography.Internal/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+rv53zsuvSYKFfW0LLswxHEXtu3fruU00AHcs1khYvnZAYi68Bdq6Ud/ukpnZsG0UjRJiz3KrfF4Rgvuogj48Q==",
-      "path": "microsoft.aspnetcore.cryptography.internal/3.0.0",
-      "hashPath": "microsoft.aspnetcore.cryptography.internal.3.0.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-TXOkNSIzeGT7yTAQMuu9iXlFXfAFv1wS0fYMkQ0HUC3BBuJUeZwW/0lNVara9BMjepFbvNt0Wr+M7Ja59HGBEA==",
-      "path": "microsoft.aspnetcore.cryptography.keyderivation/3.0.0",
-      "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.3.0.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-wcFdFphS6/Kr+u4HV8+OIbju0YsENKzIwqhMd0Aev4LwnEEkxzwcIsVVKWgsIDNA+shuEiEPyxIqobpRX3tTSg==",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/3.0.0",
-      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.3.0.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -485,20 +408,6 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Identity.Core/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jFsp3HwXWJvmyfQginRs5BAUu3PES7YgP16CdD9Vfrv3CAdzW10a8gvUkjFtheJ9KCQY5iOA2eGZL7GX3GGx/g==",
-      "path": "microsoft.extensions.identity.core/3.0.0",
-      "hashPath": "microsoft.extensions.identity.core.3.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Identity.Stores/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-184DYL6dMB2gu1QYsjYJVVbMkGBv9udqqQUdr6KC4wYrnZZM+w/035wVl9L/hazs6qM8oZxSdlBYNqphxiF+7w==",
-      "path": "microsoft.extensions.identity.stores/3.0.0",
-      "hashPath": "microsoft.extensions.identity.stores.3.0.0.nupkg.sha512"
-    },
     "Microsoft.Extensions.Logging/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -541,12 +450,12 @@
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
-    "Pomelo.EntityFrameworkCore.MySql/3.0.0-rc3.final": {
+    "Pomelo.EntityFrameworkCore.MySql/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JDxktZ2rzcUeUXp15Y88lotgNBc0KVaFJ/QkdbPBJcd27yIooB9SuRfIp02fjygPYEGp6doBIzszoWzKgOf12w==",
-      "path": "pomelo.entityframeworkcore.mysql/3.0.0-rc3.final",
-      "hashPath": "pomelo.entityframeworkcore.mysql.3.0.0-rc3.final.nupkg.sha512"
+      "sha512": "sha512-JybFRUYDdDd09Td/ZyUoKk/xJBx5KF5HT00B1Il2DODalTvO3L6Wlo0qo28e/Ibk6NY30EybI0H2ceDE4u0Nyw==",
+      "path": "pomelo.entityframeworkcore.mysql/3.0.0",
+      "hashPath": "pomelo.entityframeworkcore.mysql.3.0.0.nupkg.sha512"
     },
     "Pomelo.JsonObject/2.2.0": {
       "type": "package",

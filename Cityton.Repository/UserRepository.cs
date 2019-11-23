@@ -13,6 +13,8 @@ namespace Cityton.Repository
     {
 
         Task<User> GetByEmail(string email);
+        Task<User> GetByUsername(string username);
+        Task<User> GetByPhoneNumber(string phoneNumber);
 
     }
 
@@ -28,9 +30,18 @@ namespace Cityton.Repository
 
         public async Task<User> GetByEmail(string email)
         {
-            return await _context.Users.Where(u => u.Email == email).SingleOrDefaultAsync();
+            return await _context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
         }
 
+        public async Task<User> GetByUsername(string username)
+        {
+            return await _context.Users.Where(user => user.Username == username).FirstOrDefaultAsync();
+        }
+
+        public async Task<User> GetByPhoneNumber(string phoneNumber)
+        {
+            return await _context.Users.Where(u => u.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
+        }
 
     }
 }

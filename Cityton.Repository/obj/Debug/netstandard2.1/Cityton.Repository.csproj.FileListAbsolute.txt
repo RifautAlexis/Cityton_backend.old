@@ -1,11 +1,11 @@
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\bin\Debug\netstandard2.1\Cityton.Repository.deps.json
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\bin\Debug\netstandard2.1\Cityton.Repository.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\bin\Debug\netstandard2.1\Cityton.Repository.pdb
-C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.AssemblyInfoInputs.cache
-C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.AssemblyInfo.cs
-C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.pdb
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\bin\Debug\netstandard2.1\Cityton.Data.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\bin\Debug\netstandard2.1\Cityton.Data.pdb
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.csprojAssemblyReference.cache
+C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.AssemblyInfoInputs.cache
+C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.AssemblyInfo.cs
 C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.csproj.CopyComplete
+C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Repository\obj\Debug\netstandard2.1\Cityton.Repository.pdb

@@ -1,14 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Cityton.Data
 {
-    public class BaseEntities
+    public class Settings
     {
-
-        public int Id { get; set; }
-
+        public string Secret { get; set; }
     }
 }

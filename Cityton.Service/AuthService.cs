@@ -11,16 +11,19 @@ namespace Cityton.Service
     public interface IAuthService
     {
         Task<User> Authenticate(string email, string password);
+        Task<User> Register(User user, string password);
     }
 
     public class AuthService : IAuthService
     {
 
         private IUserRepository userRepository;
+        private ICompanyRepository companyRepository;
 
-        public AuthService(IUserRepository userRepository)
+        public AuthService(IUserRepository userRepository, ICompanyRepository companyRepository)
         {
             this.userRepository = userRepository;
+            this.companyRepository = companyRepository;
         }
 
         public async Task<User> Authenticate(string email, string password)
@@ -31,7 +34,29 @@ namespace Cityton.Service
 
             if (user == null) { return null; }
 
-            if (!AuthHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) { return null; }
+            if (!user.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) { return null; }
+
+            return user;
+
+        }
+
+        public async Task<User> Register(User user, string password)
+        {
+
+            user.CreatePasswordHash(password);
+
+            //user.Company = await companyRepository.Get(user.CompanyId);
+            await companyRepository.Get(user.CompanyId);
+
+            await userRepository.Insert(user);
+
+            Company company = await companyRepository.Get(1);
+
+            user.Company = company;
+            company.Users.Add(user);
+
+            await companyRepository.Update(company);
+            await userRepository.Update(user);
 
             return user;
 
@@ -39,43 +64,4 @@ namespace Cityton.Service
 
     }
 
-    class AuthHelper
-    {
-
-        public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            if (password == null) throw new ArgumentNullException("password");
-
-            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
-
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-            }
-        }
-
-        public static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
-        {
-            if (password == null) throw new ArgumentNullException("password");
-
-            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
-
-            if (storedHash.Length != 64) throw new ArgumentException("Invalid length of password hash (64 bytes expected).", "passwordHash");
-
-            if (storedSalt.Length != 128) throw new ArgumentException("Invalid length of password salt (128 bytes expected).", "passwordHash");
-
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
-            {
-                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != storedHash[i]) return false;
-                }
-            }
-
-            return true;
-        }
-
-    }
 }

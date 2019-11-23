@@ -208,7 +208,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/3.0.0-rc3.final": {
+      "Pomelo.EntityFrameworkCore.MySql/3.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
@@ -325,8 +325,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "3.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "3.0.0"
+          "Microsoft.EntityFrameworkCore": "3.0.0"
         },
         "compile": {
           "bin/placeholder/Cityton.Data.dll": {}
@@ -678,15 +677,15 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/3.0.0-rc3.final": {
-      "sha512": "JDxktZ2rzcUeUXp15Y88lotgNBc0KVaFJ/QkdbPBJcd27yIooB9SuRfIp02fjygPYEGp6doBIzszoWzKgOf12w==",
+    "Pomelo.EntityFrameworkCore.MySql/3.0.0": {
+      "sha512": "JybFRUYDdDd09Td/ZyUoKk/xJBx5KF5HT00B1Il2DODalTvO3L6Wlo0qo28e/Ibk6NY30EybI0H2ceDE4u0Nyw==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/3.0.0-rc3.final",
+      "path": "pomelo.entityframeworkcore.mysql/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll",
-        "pomelo.entityframeworkcore.mysql.3.0.0-rc3.final.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.3.0.0.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -997,7 +996,9 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Cityton.Data >= 1.0.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 3.0.0-rc3.final"
+      "Microsoft.EntityFrameworkCore >= 3.0.0",
+      "Microsoft.EntityFrameworkCore.Relational >= 3.0.0",
+      "Pomelo.EntityFrameworkCore.MySql >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -1048,9 +1049,17 @@
     "frameworks": {
       "netstandard2.1": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-            "version": "[3.0.0-rc3.final, )"
+            "version": "[3.0.0, )"
           }
         },
         "imports": [
@@ -1068,7 +1077,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

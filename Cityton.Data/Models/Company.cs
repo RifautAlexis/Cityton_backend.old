@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Cityton.Data.Models
 {
-    public class Company: BaseEntities
+    public class Company : BaseEntities
     {
 
         public string Name { get; set; }

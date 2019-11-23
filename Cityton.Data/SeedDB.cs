@@ -23,7 +23,7 @@ namespace Cityton.Repository
             );
 
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "admin01", PhoneNumber = "0123456789", Email = "admin01@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0] , PasswordSalt = new byte[0] },
+                new User { Id = 1, Username = "admin01", PhoneNumber = "0123456789", Email = "admin01@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
                 new User { Id = 2, Username = "admin02", PhoneNumber = "9876543210", Email = "admin02@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
                 new User { Id = 3, Username = "admin03", PhoneNumber = "0147852963", Email = "admin03@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
                 new User { Id = 4, Username = "checker01", PhoneNumber = "3692581470", Email = "checker01@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = new byte[0], PasswordSalt = new byte[0] },

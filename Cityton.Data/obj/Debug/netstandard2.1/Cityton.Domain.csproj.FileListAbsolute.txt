@@ -1,5 +1,0 @@
-C:\Users\Morphos\source\repos\Cityton\Cityton.Domain\bin\Debug\netstandard2.1\Cityton.Domain.deps.json
-C:\Users\Morphos\source\repos\Cityton\Cityton.Domain\bin\Debug\netstandard2.1\Cityton.Domain.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Domain\obj\Debug\netstandard2.1\Cityton.Domain.csprojAssemblyReference.cache
-C:\Users\Morphos\source\repos\Cityton\Cityton.Domain\obj\Debug\netstandard2.1\Cityton.Domain.AssemblyInfoInputs.cache
-C:\Users\Morphos\source\repos\Cityton\Cityton.Domain\obj\Debug\netstandard2.1\Cityton.Domain.AssemblyInfo.cs
