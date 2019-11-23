@@ -56,7 +56,7 @@ namespace Cityton.Ui.Controllers
 
             var user = await _authService.Authenticate(data.Email, data.Password);
 
-            if (user != null) { return Unauthorized(); }
+            if (user == null) { return Unauthorized(); }
 
             user.CreateToken(_appSettings);
 
