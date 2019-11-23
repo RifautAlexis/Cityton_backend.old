@@ -1,0 +1,129 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Cityton.Repository;
+using Cityton.Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Cityton.Data;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using Cityton.Data.Models;
+using Cityton.Service.Validators;
+using Cityton.Data.DTOs;
+using Cityton.Service.Validators.DTOs;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+
+namespace Cityton.Ui
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+
+            services.AddCors();
+            services.AddDbContext<ApplicationContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationContext>(x => x.UseMySql("server=remotemysql.com;user id=ol2EsK1Yz9;password=OOJ79dvEZa;port=3306;database=ol2EsK1Yz9;"));
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
+
+            // configure strongly typed settings objects
+            var appSettingsSection = Configuration.GetSection("Settings");
+            services.Configure<Settings>(appSettingsSection);
+
+            // configure jwt authentication
+            var appSettings = appSettingsSection.Get<Settings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                        var userId = int.Parse(context.Principal.Identity.Name);
+                        var user = userService.Get(userId);
+                        if (user == null)
+                        {
+                            // return unauthorized if user no longer exists
+                            context.Fail("Unauthorized");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            // configure DI for application services
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(ICompanyRepository), typeof(CompanyRepository));
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAuthService, AuthService>();
+
+            services.AddControllers().AddFluentValidation();
+
+            services.AddTransient<IValidator<Company>, CompanyValidator>();
+            services.AddTransient<IValidator<User>, UserValidator>();
+            services.AddTransient<IValidator<Challenge>, ChallengeValidator>();
+            services.AddTransient<IValidator<Achievement>, AchievementValidator>();
+            services.AddTransient<IValidator<Group>, GroupValidator>();
+            services.AddTransient<IValidator<ParticipantGroup>, ParticipantGroupValidator>();
+            services.AddTransient<IValidator<ChallengeGiven>, ChallengeGivenValidator>();
+            services.AddTransient<IValidator<Discussion>, DiscussionValidator>();
+            services.AddTransient<IValidator<UserInDiscussion>, UserInDiscussionValidator>();
+            services.AddTransient<IValidator<Message>, MessageValidator>();
+            services.AddTransient<IValidator<Media>, MediaValidator>();
+            //services.AddTransient<IValidator<RegisterDTO>, RegisterDtoValidator>();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
+    }
+}
