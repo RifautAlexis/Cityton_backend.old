@@ -97,8 +97,8 @@ namespace Cityton.Ui.Controllers
                 Username = user.Username,
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
-                Role = user.Role.ToString(),
-                Token = user.Token
+                Picture = user.Picture,
+                Role = user.Role.ToString()
             });
         }
 
