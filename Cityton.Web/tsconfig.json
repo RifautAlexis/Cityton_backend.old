@@ -11,6 +11,9 @@
       ],
       "@features/*": [
         "src/app/features/*"
+      ],
+      "@material/*": [
+        "src/app/material-ui/*"
       ]
     },
     "outDir": "./dist/out-tsc",

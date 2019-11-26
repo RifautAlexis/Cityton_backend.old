@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(userLogin.email, userLogin.password).subscribe(
       (data: User) => {
-        this.router.navigate(['settings']);
+        this.router.navigate(['chat']);
       },
       (error: any) => {
         console.log(error);

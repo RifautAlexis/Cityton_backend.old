@@ -4,15 +4,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialUiModule } from "@material/material-ui.module";
 
-import { LoginRoutingModule } from './login-routing.module';
+import { ChatRoutingModule } from './chat-routing.module';
 
-import { LoginComponent } from './pages/login/login.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [ChatComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
+    ChatRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
@@ -21,4 +21,4 @@ import { LoginComponent } from './pages/login/login.component';
   providers: [],
 })
 
-export class LoginModule { }
+export class ChatModule { }

@@ -1,0 +1,99 @@
+<mat-sidenav-container>
+
+  <mat-sidenav mode="side" opened>
+
+    <mat-list>
+      <mat-list-item> Settings </mat-list-item>
+      <mat-list-item> chat </mat-list-item>
+      <mat-list-item> Groups </mat-list-item>
+      <mat-list-item> Challenges </mat-list-item>
+      <mat-list-item> Pictures & videos </mat-list-item>
+      <mat-list-item> Admin space </mat-list-item>
+      <mat-list-item> Logout </mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-sidenav-container>
+
+      <mat-sidenav mode="side" opened>
+
+        <ng-container [ngSwitch]="selectedMenu">
+
+          <ng-container *ngSwitchCase="'Settings'">
+
+            <mat-list>
+              <mat-list-item> Modify informations </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Chat'">
+            <p>search field</p>
+            <mat-list>
+              <ng-container *ngFor="let thread of threads">
+                <mat-list-item> threads01 </mat-list-item>
+              </ng-container>
+              <mat-list-item> add </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Groups'">
+
+            <mat-list>
+              <mat-list-item> See all groups </mat-list-item>
+              <mat-list-item> My group </mat-list-item>
+              <mat-list-item> Create a group </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Challenges'">
+
+            <mat-list>
+              <mat-list-item> All challenges </mat-list-item>
+              <mat-list-item> Create a challenge </mat-list-item>
+              <mat-list-item> Global stats </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Challenges'">
+
+            <mat-list>
+              <mat-list-item> All challenges </mat-list-item>
+              <mat-list-item> Create a challenge </mat-list-item>
+              <mat-list-item> Global stats </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Picture & videos'">
+
+            <p>Filter</p>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'Admin space'">
+
+            <mat-list>
+              <mat-list-item> Groups </mat-list-item>
+              <mat-list-item> Challenges </mat-list-item>
+              <mat-list-item> Import data </mat-list-item>
+              <mat-list-item> User management </mat-list-item>
+            </mat-list>
+
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <p>DEFAULT</p>
+          </ng-container>
+        </ng-container>
+
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

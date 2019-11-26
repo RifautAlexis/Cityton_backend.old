@@ -4,25 +4,30 @@ import { SharedModule } from './../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MaterialUiModule } from "@material/material-ui.module";
 
 import { AuthService } from './services/auth.service';
 
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+
+
 @NgModule({
-  declarations: [],
+  declarations: [NavMenuComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MaterialUiModule
   ],
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   exports: [
-
+    NavMenuComponent
   ]
 })
 

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterModule } from './register/register.module';
     RouterModule,
     HomeModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    ChatModule
   ]
 })
 

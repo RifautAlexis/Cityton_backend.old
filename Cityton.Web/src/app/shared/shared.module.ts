@@ -5,11 +5,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
-
 @NgModule({
   declarations: [
-    MatFormFieldModule
   ],
   entryComponents: [
   ],
@@ -26,8 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule,
-    MatFormFieldModule
+    RouterModule
   ]
 })
 

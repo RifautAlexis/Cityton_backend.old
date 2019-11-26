@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { RegisterRoutingModule } from './register-routing.module';
+import { MaterialUiModule } from "@material/material-ui.module";
 
 import { RegisterComponent } from './pages/register/register.component';
 
@@ -10,7 +11,8 @@ import { RegisterComponent } from './pages/register/register.component';
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialUiModule
   ],
   providers: [],
 })
