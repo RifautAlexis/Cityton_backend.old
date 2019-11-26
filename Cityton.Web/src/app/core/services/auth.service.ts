@@ -15,16 +15,14 @@ export class AuthService {
   private currentUser: BehaviorSubject<User>;
   public currentUser$: Observable<User>;
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
+  constructor(private http: HttpClient) {
     const data = JSON.parse(sessionStorage.getItem('currentUser'));
 
     this.currentUser = new BehaviorSubject<User>(data ? data : null);
     this.currentUser$ = this.currentUser.asObservable();
   }
 
-  public get currentUserValue(){
+  public get currentUserValue() {
     return this.currentUser.value;
   }
 
