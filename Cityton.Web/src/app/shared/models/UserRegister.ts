@@ -3,4 +3,5 @@ export interface IUserRegister {
   phoneNumber: string;
   email: string;
   password: string;
+  companyId: number;
 }

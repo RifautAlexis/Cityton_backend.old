@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
 
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -16,7 +18,8 @@ import { AuthService } from './services/auth.service';
     SharedModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   exports: [
 

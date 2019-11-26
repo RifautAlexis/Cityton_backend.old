@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
+import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -22,15 +23,29 @@ export class AuthService {
     this.currentUser$ = this.currentUser.asObservable();
   }
 
-  public get currentUserValue() {
+  currentUserValue() {
     return this.currentUser.value;
   }
 
   login(email: string, password: string): Observable<User> {
     return this.http.post<User>(environment.apiUrl + 'authenticate/login', { email, password })
       .pipe(map((user: User) => {
-        console.log(this.currentUser.value);
-        console.log(user);
+
+        if (user) {
+          sessionStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUser.next(user);
+        }
+
+        return user;
+      })
+
+      )
+  }
+
+  register(userRegister: UserRegister): Observable<User> {
+    return this.http.post<User>(environment.apiUrl + 'authenticate/register', userRegister)
+      .pipe(map((user: User) => {
+
         if (user) {
           sessionStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUser.next(user);

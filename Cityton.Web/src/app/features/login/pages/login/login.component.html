@@ -1,18 +1,18 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-  <div>
+  <mat-form-field>
     <label>Email :</label>
-    <input type="text" formControlName="email">
-  </div>
+    <input matNativeControl type="text" formControlName="email">
+  </mat-form-field>
 
-  <div>
+  <mat-form-field>
     <label>Password:</label>
-    <input type="password" formControlName="password">
-  </div>
+    <input matNativeControl type="password" formControlName="password">
+  </mat-form-field>
 
-  <div>
+  <mat-form-field>
     <button type="submit" [disabled]="!loginForm.valid"> Submit </button>
     <button (click)="cancel()"> Cancel </button>
-  </div>
+  </mat-form-field>
 
 </form>

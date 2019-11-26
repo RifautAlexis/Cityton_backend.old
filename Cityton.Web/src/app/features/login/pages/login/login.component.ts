@@ -11,6 +11,7 @@ import { AuthService } from '@core/services/auth.service';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(userLogin.email, userLogin.password).subscribe(
       (data: User) => {
-        this.router.navigate(['']);
+        this.router.navigate(['settings']);
       },
       (error: any) => {
         console.log(error);
