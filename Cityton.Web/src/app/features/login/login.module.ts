@@ -4,15 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialUiModule } from "@material/material-ui.module";
 
-import { LoginRoutingModule } from './login-routing.module';
-
 import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
