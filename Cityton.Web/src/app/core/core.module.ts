@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialUiModule } from "@material/material-ui.module";
 
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
@@ -24,6 +25,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
   ],
   providers: [
     AuthService,
+    UserService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   exports: [

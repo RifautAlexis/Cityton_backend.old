@@ -10,7 +10,7 @@ namespace Cityton.Service
 
     public interface IUserService
     {
-        void Update(User user);
+        Task Update(User user);
         Task<User> Get(int id);
         Task<User> GetByUsername(string username);
         Task<User> GetByEmail(string email);
@@ -27,9 +27,10 @@ namespace Cityton.Service
             this.userRepository = userRepository;
         }
 
-        public void Update(User user)
+        public async Task Update(User user)
         {
-            userRepository.Update(user);
+            await userRepository.Update(user);
+            await userRepository.Insert(user);
         }
 
         public async Task<User> Get(int id)

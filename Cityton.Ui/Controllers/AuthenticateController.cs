@@ -38,14 +38,6 @@ namespace Cityton.Ui.Controllers
 
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("test")]
-        public IActionResult Test()
-        {
-            return Ok("LOL");
-        }
-
         [HttpPost]
         [AllowAnonymous]
         [Route("login")]

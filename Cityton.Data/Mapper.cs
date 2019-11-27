@@ -27,5 +27,24 @@ namespace Cityton.Data
                 CompanyId = 1
             };
         }
+
+        public static User ToUser(this UserDTO data)
+        {
+            if (data == null) return null;
+
+            return new User
+            {
+                Id = data.Id,
+                Username = data.Username,
+                PhoneNumber = data.PhoneNumber,
+                Email = data.Email,
+                Picture = data.Picture,
+                Role = data.Role,
+                PasswordHash = null,
+                PasswordSalt = null,
+                Token = data.Token,
+                CompanyId = 1
+            };
+        }
     }
 }

@@ -14,17 +14,19 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
   private currentUser: BehaviorSubject<User>;
-  public currentUser$: Observable<User>;
 
   constructor(private http: HttpClient) {
     const data = JSON.parse(sessionStorage.getItem('currentUser'));
 
     this.currentUser = new BehaviorSubject<User>(data ? data : null);
-    this.currentUser$ = this.currentUser.asObservable();
   }
 
   currentUserValue() {
     return this.currentUser.value;
+  }
+
+  currentTokenValue() {
+    return sessionStorage.getItem('currentUser');
   }
 
   login(email: string, password: string): Observable<User> {
@@ -32,6 +34,7 @@ export class AuthService {
       .pipe(map((user: User) => {
 
         if (user) {
+
           sessionStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUser.next(user);
         }

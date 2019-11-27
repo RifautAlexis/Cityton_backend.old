@@ -8,6 +8,7 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ChatModule } from './chat/chat.module';
 import { SettingsModule } from './settings/settings.module';
+import { AdminSpaceModule } from './admin-space/admin-space.module';
 
 import { FeaturesRoutingModule } from './features-routing.module';
 
@@ -29,7 +30,8 @@ import { FeaturesRoutingModule } from './features-routing.module';
     LoginModule,
     RegisterModule,
     ChatModule,
-    SettingsModule
+    SettingsModule,
+    AdminSpaceModule
   ]
 })
 

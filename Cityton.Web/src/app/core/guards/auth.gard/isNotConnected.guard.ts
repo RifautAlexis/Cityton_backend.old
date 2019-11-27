@@ -12,7 +12,7 @@ export class IsNotConnectedGuard implements CanActivate {
 
     if (!currentUser) { return true; }
 
-    this.router.navigate(['chat']);
+    this.router.navigate(['']);
 
     return false;
   }

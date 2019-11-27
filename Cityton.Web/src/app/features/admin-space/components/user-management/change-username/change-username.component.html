@@ -1,0 +1,12 @@
+<h1>Change username</h1>
+<form [formGroup]="usernameForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <label>Username :</label>
+    <input matNativeControl type="text" formControlName="username">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!usernameForm.valid"> Submit </button>
+  <button (click)="cancel(usernameForm)"> Cancel </button>
+
+</form>

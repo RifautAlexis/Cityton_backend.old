@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/pages/register/register.component'
 
 import { ChatComponent } from './chat/pages/chat/chat.component';
 import { SettingsComponent } from './settings/pages/settings/settings.component';
+import { IODataComponent } from './admin-space/pages/IO-data/IO-data.component';
+import { UserManagementComponent } from './admin-space/pages/user-management/user-management.component';
 
 
 
@@ -28,14 +30,19 @@ const routes: Routes = [
     path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [
 
       { path: 'chat', component: ChatComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'adminSpace', component: UserManagementComponent },
+      { path: 'adminSpace/IOData', component: IODataComponent },
+      { path: 'adminSpace/userManagement', component: UserManagementComponent }
 
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule]
 })
 

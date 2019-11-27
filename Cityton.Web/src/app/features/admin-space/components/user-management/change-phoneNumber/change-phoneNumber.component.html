@@ -1,0 +1,12 @@
+<h1>Change phone number</h1>
+<form [formGroup]="phoneNumberForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <label>Phone number :</label>
+    <input matNativeControl type="text" formControlName="phoneNumber">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!phoneNumberForm.valid"> Submit </button>
+  <button (click)="cancel(phoneNumberForm)"> Cancel </button>
+
+</form>

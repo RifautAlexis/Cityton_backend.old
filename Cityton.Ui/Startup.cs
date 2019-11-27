@@ -59,21 +59,23 @@ namespace Cityton.Ui
             })
             .AddJwtBearer(x =>
             {
-                x.Events = new JwtBearerEvents
-                {
-                    OnTokenValidated = context =>
-                    {
-                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-                        var userId = int.Parse(context.Principal.Identity.Name);
-                        var user = userService.Get(userId);
-                        if (user == null)
-                        {
-                            // return unauthorized if user no longer exists
-                            context.Fail("Unauthorized");
-                        }
-                        return Task.CompletedTask;
-                    }
-                };
+                //x.Events = new JwtBearerEvents
+                //{
+                //    OnTokenValidated = context =>
+                //    {
+                //        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                //        Console.WriteLine("DDDDDDDDDDDDDDDDDDDDD");
+                //        var userId = int.Parse(context.Principal.Identity.Name);
+                //        Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
+                //        var user = userService.Get(userId);
+                //        if (user == null)
+                //        {
+                //            // return unauthorized if user no longer exists
+                //            context.Fail("Unauthorized");
+                //        }
+                //        return Task.CompletedTask;
+                //    }
+                //};
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
