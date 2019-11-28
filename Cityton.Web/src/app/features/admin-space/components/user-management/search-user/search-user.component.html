@@ -1,0 +1,36 @@
+<h1>Search</h1>
+
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input matNativeControl type="search" formControlName="search">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!searchForm.valid"> Submit </button>
+
+</form>
+
+<mat-button-toggle-group name="securityLevel" value="All" aria-label="Font Style">
+  <mat-button-toggle value="All" (change)="onChange('All')">All</mat-button-toggle>
+  <mat-button-toggle value="Member" (change)="onChange('Member')">Member</mat-button-toggle>
+  <mat-button-toggle value="Checker" (change)="onChange('Checker')">Checker</mat-button-toggle>
+  <mat-button-toggle value="Admin" (change)="onChange('Admin')">Admin</mat-button-toggle>
+</mat-button-toggle-group>
+
+<section *ngIf="users">
+
+  <mat-list>
+
+    <ng-container *ngFor="let user of users | async">
+
+      <mat-list-item>
+
+        <p> user.username </p>
+
+      </mat-list-item>
+
+    </ng-container>
+
+  </mat-list>
+
+</section>

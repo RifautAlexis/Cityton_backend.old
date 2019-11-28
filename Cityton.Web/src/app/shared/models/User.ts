@@ -1,3 +1,5 @@
+import { Role } from './Enum';
+
 export interface IUser {
   id: number;
   username: string;

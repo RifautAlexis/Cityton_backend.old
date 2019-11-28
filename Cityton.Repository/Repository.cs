@@ -24,7 +24,7 @@ namespace Cityton.Repository
 
     public class Repository<T> : IRepository<T> where T : BaseEntities
     {
-        private readonly ApplicationContext context;
+        protected readonly ApplicationContext context;
         private DbSet<T> entities;
 
         string errorMessage = string.Empty;

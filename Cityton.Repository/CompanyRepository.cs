@@ -16,12 +16,7 @@ namespace Cityton.Repository
     public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
 
-        private readonly ApplicationContext _context;
-
-        public CompanyRepository(ApplicationContext context) : base(context)
-        {
-            _context = context;
-        }
+        public CompanyRepository(ApplicationContext context) : base(context) {  }
 
     }
 }

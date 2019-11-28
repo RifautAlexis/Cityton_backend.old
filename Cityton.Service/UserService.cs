@@ -15,6 +15,7 @@ namespace Cityton.Service
         Task<User> GetByUsername(string username);
         Task<User> GetByEmail(string email);
         Task<User> GetByPhoneNumber(string phoneNumber);
+        Task<List<User>> Search(string q, string sl);
     }
 
     public class UserService : IUserService
@@ -51,6 +52,11 @@ namespace Cityton.Service
         public async Task<User> GetByPhoneNumber(string phoneNumber)
         {
             return await userRepository.GetByPhoneNumber(phoneNumber);
+        }
+
+        public async Task<List<User>> Search(string q, string sl)
+        {
+            return await userRepository.GetByUsernameRole(q, sl);
         }
 
     }

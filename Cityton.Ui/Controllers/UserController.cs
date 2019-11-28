@@ -35,10 +35,19 @@ namespace Cityton.Ui.Controllers
 
         }
 
-        [HttpPut("test/{id}")]
-        public string Test(int id, UserDTO userToUpdate)
+        [HttpGet("searchUser")]
+        public async Task<IActionResult> SearchUser(string q, string sl)
         {
-            return "OKOKOKOK";
+
+            if (string.IsNullOrEmpty(q) || string.IsNullOrEmpty(sl))
+            {
+                return BadRequest();
+            }
+
+            List<User> user = await _userService.Search(q, sl);
+
+            return Ok(user);
+
         }
 
         [HttpPut("update/{id}")]
@@ -83,10 +92,10 @@ namespace Cityton.Ui.Controllers
 
             await _userService.Update(userInDb);
 
-            User testUser = await _userService.Get(id);
-
-            return Ok(testUser);
+            return Ok(userInDb);
         }
+
+
 
     }
 }

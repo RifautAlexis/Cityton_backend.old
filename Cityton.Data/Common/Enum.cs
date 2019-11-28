@@ -20,9 +20,9 @@ namespace Cityton.Data.Common
 
     public enum Role
     {
-        Member,
-        Checker,
-        Admin
+        Member = 0,
+        Checker = 1,
+        Admin = 2
     }
 
     public enum AllowedExtension

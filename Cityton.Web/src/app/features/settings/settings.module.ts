@@ -5,8 +5,22 @@ import { MaterialUiModule } from "@material/material-ui.module";
 
 import { SettingsComponent } from './pages/settings/settings.component';
 
+import { ChangeUsernameComponent } from './components/settings/change-username/change-username.component';
+import { ChangePhoneNumberComponent } from './components/settings/change-phoneNumber/change-phoneNumber.component';
+import { ChangeEmailComponent } from './components/settings/change-email/change-email.component';
+import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
+import { ChangePictureComponent } from './components/settings/change-picture/change-picture.component';
+
+
 @NgModule({
-  declarations: [SettingsComponent],
+  declarations: [
+    ChangeUsernameComponent,
+    ChangePhoneNumberComponent,
+    ChangeEmailComponent,
+    ChangePasswordComponent,
+    ChangePictureComponent,
+    SettingsComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

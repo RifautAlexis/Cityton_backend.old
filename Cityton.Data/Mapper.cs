@@ -10,6 +10,12 @@ namespace Cityton.Data
     public static class Mapper
     {
 
+        public static Role ToRole(this string role)
+        {
+            Enum.TryParse(role, out Role roleToReturn);
+            return roleToReturn;
+        }
+
         public static User ToUser(this RegisterDTO data)
         {
             if (data == null) return null;

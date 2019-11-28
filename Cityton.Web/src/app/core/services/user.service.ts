@@ -1,9 +1,9 @@
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
-import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
+import { Role } from '@shared/models/Enum';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -29,6 +29,15 @@ export class UserService {
       })
 
       )
+  }
+
+  searchUser(username: string, securityLevel: string):Observable<User[]> {
+
+    let params = new HttpParams()
+                  .set('q', username) //q => query
+                  .set('sl', securityLevel); //sl => securityLevel
+
+    return this.http.get<User[]>(environment.apiUrl + 'user/searchUser', { params });
   }
 
 }
