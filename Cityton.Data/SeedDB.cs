@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 namespace Cityton.Repository
 {
@@ -22,17 +25,39 @@ namespace Cityton.Repository
                 }
             );
 
+            byte[] passwordHash, passwordSalt;
+
+            CreatePasswordHash("123", out passwordHash, out passwordSalt);
+
+            List<User> users = new List<User>(){
+                new User { Id = 1, Username = "admin01", PhoneNumber = "6019911684 ", Email = "admin01@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 2, Username = "admin02", PhoneNumber = "3069338796 ", Email = "admin02@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 3, Username = "admin03", PhoneNumber = "105989609 ", Email = "admin03@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 4, Username = "admin04", PhoneNumber = "4866078694 ", Email = "admin04@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 5, Username = "admin05", PhoneNumber = "8659710084 ", Email = "admin05@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 6, Username = "checker01", PhoneNumber = "5844956388 ", Email = "checker01@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 7, Username = "checker02", PhoneNumber = "1669765414 ", Email = "checker02@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 8, Username = "checker03", PhoneNumber = "5598781614 ", Email = "checker03@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 9, Username = "member01", PhoneNumber = "3272464106 ", Email = "member01@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 10, Username = "member02", PhoneNumber = "5414887288 ", Email = "member02@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 11, Username = "member03", PhoneNumber = "4786399505 ", Email = "member03@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 12, Username = "member04", PhoneNumber = "2358305614 ", Email = "member04@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 13, Username = "member05", PhoneNumber = "1064846605 ", Email = "member05@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 14, Username = "member06", PhoneNumber = "4686272886 ", Email = "member06@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 15, Username = "member07", PhoneNumber = "5071973872 ", Email = "member07@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 16, Username = "member08", PhoneNumber = "334355105 ", Email = "member08@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 17, Username = "member09", PhoneNumber = "5471673152 ", Email = "member09@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 18, Username = "member10", PhoneNumber = "8758801056", Email = "member10@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 }
+            };
+
+            foreach (var user in users)
+            {
+               CreateToken(user);
+
+            }
+
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Username = "admin01", PhoneNumber = "0123456789", Email = "admin01@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 2, Username = "admin02", PhoneNumber = "9876543210", Email = "admin02@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 3, Username = "admin03", PhoneNumber = "0147852963", Email = "admin03@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 4, Username = "checker01", PhoneNumber = "3692581470", Email = "checker01@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 5, Username = "checker02", PhoneNumber = "7539518524", Email = "checker02@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 6, Username = "member01", PhoneNumber = "4568521593", Email = "member01@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 7, Username = "member02", PhoneNumber = "7419635802", Email = "member02@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 8, Username = "member03", PhoneNumber = "0172839976", Email = "member03@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 9, Username = "member04", PhoneNumber = "7538527419", Email = "member04@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] },
-                new User { Id = 10, Username = "member05", PhoneNumber = "9638520153", Email = "member05@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = new byte[0], PasswordSalt = new byte[0] }
+                users
             );
 
             modelBuilder.Entity<Challenge>().HasData(
@@ -44,6 +69,41 @@ namespace Cityton.Repository
             );
 
             //modelBuilder.Entity<Achievement>().HasDa
+        }
+
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            if (password == null) throw new ArgumentNullException("password");
+
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            }
+
+        }
+
+        private static void CreateToken(User user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes("[35919A8D-76AA-4C29-926C-48E05D317F21]");
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+
+            user.Token = tokenString;
         }
     }
 }

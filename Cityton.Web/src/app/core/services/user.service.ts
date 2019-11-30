@@ -31,13 +31,24 @@ export class UserService {
       )
   }
 
-  searchUser(username: string, securityLevel: string):Observable<User[]> {
+  searchUser(username: string, securityLevel: string): Observable<User[]> {
 
     let params = new HttpParams()
-                  .set('q', username) //q => query
-                  .set('sl', securityLevel); //sl => securityLevel
+      .set('q', username) //q => query
+      .set('sl', securityLevel); //sl => securityLevel
 
     return this.http.get<User[]>(environment.apiUrl + 'user/searchUser', { params });
+  }
+
+  uploadPicture(file: File, userId: number) {
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.put<string>(environment.apiUrl + 'user/uploadPicture/' + userId, formData)
+      .subscribe(res => {
+        console.log(res);
+      })
   }
 
 }

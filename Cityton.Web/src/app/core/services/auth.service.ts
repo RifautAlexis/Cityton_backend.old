@@ -34,7 +34,7 @@ export class AuthService {
       .pipe(map((user: User) => {
 
         if (user) {
-
+          console.log(user);
           sessionStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUser.next(user);
         }

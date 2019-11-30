@@ -52,7 +52,7 @@ namespace Cityton.Ui.Controllers
 
             user.CreateToken(_appSettings);
 
-            _userService.Update(user);
+            await _userService.Update(user);
 
             return Ok(new
             {

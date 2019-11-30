@@ -39,7 +39,7 @@ namespace Cityton.Repository
             new MessageMap(modelBuilder.Entity<Message>());
             new MediaMap(modelBuilder.Entity<Media>());
 
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
 
     }

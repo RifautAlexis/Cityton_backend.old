@@ -1,1 +1,7 @@
 <h1>Change picture</h1>
+
+<img [src]="url ? url : ''">
+
+<input #fileInput id="fileInput" type='file' (click)="fileInput.value = null" value=""  (change)="preview($event.target.files)">
+<button class="btn btn-default" *ngIf="url" (click)="onSelectFile()">submit</button>
+<button class="btn btn-default" *ngIf="url" (click)="delete()">delete</button>

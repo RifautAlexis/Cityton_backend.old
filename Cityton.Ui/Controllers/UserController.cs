@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
+using System.IO;
 
 namespace Cityton.Ui.Controllers
 {
@@ -93,6 +94,34 @@ namespace Cityton.Ui.Controllers
             await _userService.Update(userInDb);
 
             return Ok(userInDb);
+        }
+
+        [HttpPut("uploadPicture/{id}")]
+        public async Task<IActionResult> UploadPicture(int userId, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Please select profile picture");
+
+            var folderName = Path.Combine("Resources", "ProfilePics");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+
+            var uniqueFileName = $"{userId}_profilepic.png";
+
+            var dbPath = Path.Combine(folderName, uniqueFileName);
+
+            using (var fileStream = new FileStream(Path.Combine(filePath, uniqueFileName), FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            return Ok( new {
+                path = dbPath
+            });
         }
 
 

@@ -31,7 +31,6 @@ namespace Cityton.Service
         public async Task Update(User user)
         {
             await userRepository.Update(user);
-            await userRepository.Insert(user);
         }
 
         public async Task<User> Get(int id)
