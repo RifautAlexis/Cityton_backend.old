@@ -41,17 +41,16 @@ namespace Cityton.Repository
             return await context.Users.Where(u => u.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
         }
 
-        public async Task<List<User>> GetByUsernameRole(string username, string filterRole)
+        public async Task<List<User>> GetByUsernameRole(string filterRole, string username = "")
         {
+
             if (!filterRole.Equals("All"))
             {
                 Role role = filterRole.ToRole();
-                Console.WriteLine(role);
-                Console.WriteLine(username);
                 return await context.Users.Where(u => (u.Username.Contains(username)) && (u.Role == role)).ToListAsync();
             }
 
-            return await context.Users.Where(user => user.Username == username).ToListAsync();
+            return await context.Users.Where(user => user.Username.Contains(username)).ToListAsync();
         }
 
     }

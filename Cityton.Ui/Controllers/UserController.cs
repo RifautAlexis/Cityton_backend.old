@@ -37,15 +37,18 @@ namespace Cityton.Ui.Controllers
         }
 
         [HttpGet("searchUser")]
-        public async Task<IActionResult> SearchUser(string q, string sl)
+        public async Task<IActionResult> SearchUser(string sl, string q = null)
         {
 
-            if (string.IsNullOrEmpty(q) || string.IsNullOrEmpty(sl))
+            if (string.IsNullOrEmpty(sl))
             {
                 return BadRequest();
             }
-
-            List<User> user = await _userService.Search(q, sl);
+            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            Console.WriteLine(q);
+            Console.WriteLine(sl);
+            Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+            List<User> user = await _userService.Search(sl, q);
 
             return Ok(user);
 

@@ -29,11 +29,12 @@ const routes: Routes = [
   {
     path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [
 
+      { path: 'chat:id', component: ChatComponent },
       { path: 'chat', component: ChatComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'adminSpace', component: UserManagementComponent },
-      { path: 'adminSpace/IOData', component: IODataComponent },
-      { path: 'adminSpace/userManagement', component: UserManagementComponent }
+      { path: 'admin', component: UserManagementComponent },
+      { path: 'admin/data', component: IODataComponent },
+      { path: 'admin/user', component: UserManagementComponent }
 
     ]
   }

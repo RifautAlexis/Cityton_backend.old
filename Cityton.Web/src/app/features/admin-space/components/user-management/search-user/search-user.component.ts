@@ -14,15 +14,16 @@ import { Observable } from 'rxjs';
 export class SearchUserComponent implements OnInit {
 
   searchForm: FormGroup;
-  selectedSecurity: string;
+  selectedSecurity: string = "All";
   users: Observable<User[]>;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
+    console.log(this.users);
   }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
-      search: ['', Validators.required]
+      search: ['']
     });
   }
 
@@ -35,11 +36,9 @@ export class SearchUserComponent implements OnInit {
       return;
     }
 
-    let search: any = {
-      username: this.searchForm.controls.search.value
-    }
-
-    this.users = this.userService.searchUser(search.username, this.selectedSecurity);
+    let username: string = this.searchForm.controls.search.value ? this.searchForm.controls.search.value : "";
+    console.log(username);
+    this.users = this.userService.searchUser(username, this.selectedSecurity);
   }
 
 }

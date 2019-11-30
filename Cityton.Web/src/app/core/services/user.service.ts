@@ -34,8 +34,8 @@ export class UserService {
   searchUser(username: string, securityLevel: string): Observable<User[]> {
 
     let params = new HttpParams()
-      .set('q', username) //q => query
-      .set('sl', securityLevel); //sl => securityLevel
+      .set('sl', securityLevel) //sl => securityLevel
+      .set('q', username); //q => query
 
     return this.http.get<User[]>(environment.apiUrl + 'user/searchUser', { params });
   }
