@@ -23,7 +23,27 @@
 
     <ng-container *ngFor="let user of users | async">
 
-      <mat-list-item>
+      <mat-list-item class="searchResults">
+
+        <mat-card>
+          <mat-card-header>
+            <img mat-card-avatar src=>
+            <mat-card-title> {{ user.username }} </mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+              <button mat-mini-fab>
+                  <i class="material-icons">
+                    build
+                  </i>
+                </button>
+            <button mat-mini-fab>
+                <i class="material-icons">
+                  delete
+                </i>
+              </button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
 
         <p> {{ user.username }} </p>
 
