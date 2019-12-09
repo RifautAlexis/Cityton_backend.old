@@ -44,60 +44,68 @@ namespace Cityton.Ui.Controllers
             {
                 return BadRequest();
             }
-            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            Console.WriteLine(q);
-            Console.WriteLine(sl);
-            Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
-            List<User> user = await _userService.Search(sl, q);
 
-            return Ok(user);
+            List<User> users = await _userService.Search(sl, q);
+
+            List<SearchUserDTO> searchedUsers = new List<SearchUserDTO>();
+
+            //foreach (var user in users)
+            //{
+            //    PhysicalFileResult file = this._userService.GetProfilePicture(user.Id);
+            //    searchedUsers.Add(new SearchUserDTO
+            //    {
+            //        Id = user.Id,
+            //        Username = user.Username,
+            //        Picture = file != null ? file.FileName : null,
+            //        Role = user.Role
+            //    });
+            //}
+
+            return Ok(users);
 
         }
 
-        [HttpPut("update/{id}")]
-        public async Task<IActionResult> Update(int id, UserDTO userToUpdate, string password)
-        {
-            if (id != userToUpdate.Id)
-            {
-                return BadRequest();
-            }
-            
-            User userInDb = await _userService.Get(id);
+        // [HttpPut("update/{id}")]
+        // public void Update(int id, [FromBody] UserDTO userToUpdate)
+        // {
 
-            if (userInDb == null)
-            {
-                return NotFound();
-            }
+        //     User userInDb = await _userService.Get(id);
 
-            //validator sur userToUpdate
+        //     if (userInDb == null)
+        //     {
+        //        return NotFound();
+        //     }
 
-            User user = userToUpdate.ToUser();
+        //     //validator sur userToUpdate
 
-            if (string.IsNullOrEmpty(password))
-            {
-                user.PasswordHash = userInDb.PasswordHash;
-                user.PasswordSalt  = userInDb.PasswordSalt;
-            } 
-            else {
-                user.CreatePasswordHash(password);
-            }
+        //     User user = userToUpdate.ToUser();
 
-            user.CreateToken(_appSettings);
+        //     if (string.IsNullOrEmpty(password))
+        //     {
+        //        user.PasswordHash = userInDb.PasswordHash;
+        //        user.PasswordSalt  = userInDb.PasswordSalt;
+        //     } 
+        //     else {
+        //        user.CreatePasswordHash(password);
+        //     }
 
-            //validator sur user
+        //     user.CreateToken(_appSettings);
 
-            userInDb.Username = user.Username;
-            userInDb.PhoneNumber = user.PhoneNumber;
-            userInDb.Email = user.Email;
-            userInDb.Picture = user.Picture;
-            userInDb.PasswordHash = user.PasswordHash;
-            userInDb.PasswordSalt = user.PasswordSalt;
-            userInDb.Token = user.Token;
+        //     //validator sur user
+        //     Console.WriteLine(user.Picture);
 
-            await _userService.Update(userInDb);
+        //     userInDb.Username = user.Username;
+        //     userInDb.PhoneNumber = user.PhoneNumber;
+        //     userInDb.Email = user.Email;
+        //     userInDb.Picture = user.Picture;
+        //     userInDb.PasswordHash = user.PasswordHash;
+        //     userInDb.PasswordSalt = user.PasswordSalt;
+        //     userInDb.Token = user.Token;
 
-            return Ok(userInDb);
-        }
+        //     await _userService.Update(userInDb);
+        //     Console.WriteLine(userInDb.Picture);
+        //     return Ok(userInDb);
+        // }
 
         [HttpPut("uploadPicture/{id}")]
         public async Task<IActionResult> UploadPicture(int userId, IFormFile file)
@@ -105,27 +113,49 @@ namespace Cityton.Ui.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("Please select profile picture");
 
-            var folderName = Path.Combine("Resources", "ProfilePics");
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            // Stream stream = file.OpenReadStream();
 
-            if (!Directory.Exists(filePath))
-            {
-                Directory.CreateDirectory(filePath);
-            }
+            // await this._userService.UploadProfilePicture(userId, stream);
 
-            var uniqueFileName = $"{userId}_profilepic.png";
+            // var folderName = Path.Combine("wwwroot", "images/profile");
+            // var filePath = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
-            var dbPath = Path.Combine(folderName, uniqueFileName);
+            // if (!Directory.Exists(filePath))
+            // {
+            //     Directory.CreateDirectory(filePath);
+            // }
 
-            using (var fileStream = new FileStream(Path.Combine(filePath, uniqueFileName), FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
+            // var uniqueFileName = $"{userId}_profilePicture.png";
 
-            return Ok( new {
-                path = dbPath
-            });
+            // var dbPath = Path.Combine(folderName, uniqueFileName);
+
+            // using (var fileStream = new FileStream(Path.Combine(filePath, uniqueFileName), FileMode.Create))
+            // {
+            //     await file.CopyToAsync(fileStream);
+            // }
+
+            // return Ok( new {
+            //     path = dbPath
+            // });
+
+            return Ok(await this._userService.UploadProfilePicture(userId, file));
         }
+
+        // [HttpGet("getProfilePicture/{userId}")]
+        // public async Task<IActionResult> GetProfilePicture(int userId)
+        // {
+        //     //PhysicalFileResult profilepicture = this._userService.GetProfilePicture(userId);
+
+        //     //if (profilepicture == null)
+        //     //{
+        //     //    return BadRequest();
+        //     //}
+
+        //     //return profilepicture;
+
+        //     return Ok(this._userService.GetProfilePicture(userId));
+
+        // }
 
 
 
