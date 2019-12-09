@@ -27,8 +27,10 @@ export class ChangeUsernameComponent implements OnInit {
     if (this.usernameForm.invalid) {
       return;
     }
+    console.log(this.authService.currentUserValue());
 
     let currentUser: User = this.authService.currentUserValue();
+    let obj: User = JSON.parse(this.authService.currentTokenValue());
 
     let user: User = {
       id: currentUser.id,
@@ -37,8 +39,10 @@ export class ChangeUsernameComponent implements OnInit {
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: this.authService.currentTokenValue()
+      token: currentUser.token
     };
+
+    console.log(user);
 
     this.userService.update(user).subscribe(
       (data: User) => {

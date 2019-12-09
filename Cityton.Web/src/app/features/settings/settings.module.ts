@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
-import { MaterialUiModule } from "@material/material-ui.module";
 
 import { SettingsComponent } from './pages/settings/settings.component';
 
@@ -10,7 +9,6 @@ import { ChangePhoneNumberComponent } from './components/settings/change-phoneNu
 import { ChangeEmailComponent } from './components/settings/change-email/change-email.component';
 import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
 import { ChangePictureComponent } from './components/settings/change-picture/change-picture.component';
-
 
 @NgModule({
   declarations: [
@@ -23,8 +21,7 @@ import { ChangePictureComponent } from './components/settings/change-picture/cha
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    MaterialUiModule
+    SharedModule
   ],
   providers: [],
 })

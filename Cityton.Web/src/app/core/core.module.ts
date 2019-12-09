@@ -4,7 +4,6 @@ import { SharedModule } from './../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MaterialUiModule } from "@material/material-ui.module";
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -20,8 +19,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    SharedModule,
-    MaterialUiModule
+    SharedModule
   ],
   providers: [
     AuthService,

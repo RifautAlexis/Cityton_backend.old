@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
+import { ISearchUser as SearchUser } from '@shared/models/SearchUser';
 import { Role } from '@shared/models/Enum';
 
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -48,7 +49,7 @@ export class UserService {
     return this.http.put<string>(environment.apiUrl + 'user/uploadPicture/' + userId, formData)
       .subscribe(res => {
         console.log(res);
-      })
+      });
   }
 
 }

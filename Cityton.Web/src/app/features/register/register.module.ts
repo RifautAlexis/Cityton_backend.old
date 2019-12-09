@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
-import { MaterialUiModule } from "@material/material-ui.module";
 
 import { RegisterComponent } from './pages/register/register.component';
 
@@ -9,8 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
   declarations: [RegisterComponent],
   imports: [
     CommonModule,
-    SharedModule,
-    MaterialUiModule
+    SharedModule
   ],
   providers: [],
 })

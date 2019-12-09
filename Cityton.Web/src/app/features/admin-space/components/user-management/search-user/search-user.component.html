@@ -17,19 +17,26 @@
   <mat-button-toggle value="Admin" (change)="onChange('Admin')">Admin</mat-button-toggle>
 </mat-button-toggle-group>
 
-<section *ngIf="users">
+<section *ngIf="users$">
 
-  <mat-list>
+  <!-- <mat-list> -->
 
-    <ng-container *ngFor="let user of users | async">
+    <ng-container *ngFor="let user of users$ | async">
 
-      <mat-list-item class="searchResults">
+      <!-- <mat-list-item class="searchResults"> -->
 
         <mat-card>
           <mat-card-header>
-            <img mat-card-avatar src=>
+            <!-- <img mat-card-avatar src='{{ user.picture }}'> -->
             <mat-card-title> {{ user.username }} </mat-card-title>
           </mat-card-header>
+          <mat-card-content>
+            <mat-select (selectionChange)="changeSecurityLevel(user.id, $event.value)" >
+              <mat-option value="Membre">Member</mat-option>
+              <mat-option value="Checker">Checker</mat-option>
+              <mat-option value="Admin">Admin</mat-option>
+            </mat-select>
+          </mat-card-content>
           <mat-card-actions>
               <button mat-mini-fab>
                   <i class="material-icons">
@@ -41,16 +48,13 @@
                   delete
                 </i>
               </button>
-          <button mat-button>SHARE</button>
           </mat-card-actions>
         </mat-card>
 
-        <p> {{ user.username }} </p>
-
-      </mat-list-item>
+      <!-- </mat-list-item> -->
 
     </ng-container>
 
-  </mat-list>
+  <!-- </mat-list> -->
 
 </section>
