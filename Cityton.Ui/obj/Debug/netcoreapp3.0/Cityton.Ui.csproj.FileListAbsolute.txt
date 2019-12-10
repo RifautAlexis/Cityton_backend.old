@@ -7,6 +7,7 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Cityton
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Cityton.Ui.runtimeconfig.dev.json
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Cityton.Ui.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Cityton.Ui.pdb
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\CloudinaryDotNet.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\FluentValidation.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\FluentValidation.AspNetCore.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -20,11 +21,13 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microso
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.Workspaces.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.Data.SqlClient.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.Identity.Client.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
