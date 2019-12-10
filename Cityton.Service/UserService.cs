@@ -106,10 +106,23 @@ namespace Cityton.Service
 
             stream.Close();
 
-            // int connectedUserId = _httpContextAccessor.HttpContext.User.GetLoggedInUserId<int>();
-            int connectedUserId = 1;
-            User user = await this.Get(connectedUserId);
+            System.Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAA");
+            System.Console.WriteLine(uploadResult);
+            System.Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZ");
+            System.Console.WriteLine(userId);
+
+
+            //int connectedUserId = 1;
+            User user = await this.Get(userId);
+            System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFFFFFFF");
+            System.Console.WriteLine(user.Username);
+            System.Console.WriteLine(uploadResult.SecureUri.AbsoluteUri);
+            System.Console.WriteLine("GGGGGGGGGGGGGGGGGGGGGGGGGG");
+
             user.Picture = uploadResult.SecureUri.AbsoluteUri;
+            System.Console.WriteLine("QQQQQQQQQQQQQQQQQQQQQQ");
+            System.Console.WriteLine(user.Picture);
+            System.Console.WriteLine("SSSSSSSSSSSSSSSSSSSSSS");
             await userRepository.SaveChanges();
             //return userId + " " + filePath + " " + uploadParams.File.FilePath + " " + uploadParams.File.FileName;
             return uploadResult.SecureUri.AbsoluteUri;

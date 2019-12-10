@@ -20,6 +20,7 @@ export class ChangePictureComponent implements OnInit {
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.url = this.authService.currentUserValue().picture;
   }
 
   preview(files: FileList) {
@@ -46,7 +47,17 @@ export class ChangePictureComponent implements OnInit {
 
       let currentUser: User = this.authService.currentUserValue();
 
-      this.userService.uploadPicture(this.fileData, currentUser.id);
+      this.userService.uploadPicture(this.fileData, currentUser.id)
+      .subscribe(
+        (pathPicture: string) => {
+          console.log(pathPicture);
+          // currentUser.picture = pathPicture;
+          // this.url = pathPicture;
+          // this.authService.updateCurrentUser(currentUser);
+        }
+      );
+
+      console.log(this.authService.currentUserValue());
 
     }
   }

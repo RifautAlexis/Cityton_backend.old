@@ -41,15 +41,12 @@ export class UserService {
     return this.http.get<User[]>(environment.apiUrl + 'user/searchUser', { params });
   }
 
-  uploadPicture(file: File, userId: number) {
+  uploadPicture(file: File, userId: number): Observable<string> {
 
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.put<string>(environment.apiUrl + 'user/uploadPicture/' + userId, formData)
-      .subscribe(res => {
-        console.log(res);
-      });
+    return this.http.put<string>(environment.apiUrl + 'user/uploadPicture/' + userId, formData);
   }
 
 }

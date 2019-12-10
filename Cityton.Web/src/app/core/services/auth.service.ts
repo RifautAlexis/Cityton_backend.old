@@ -25,6 +25,10 @@ export class AuthService {
     return this.currentUser.value;
   }
 
+  updateCurrentUser(user: User) {
+    this.currentUser.next(user);
+  }
+
   currentTokenValue() {
     return sessionStorage.getItem('currentUser');
   }

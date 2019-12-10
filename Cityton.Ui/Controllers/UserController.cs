@@ -23,6 +23,7 @@ namespace Cityton.Ui.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [Produces("application/json")]
     public class UserController : ControllerBase
     {
 
@@ -107,38 +108,15 @@ namespace Cityton.Ui.Controllers
         //     return Ok(userInDb);
         // }
 
-        [HttpPut("uploadPicture/{id}")]
+        [HttpPut("uploadPicture/{userId}")]
         public async Task<IActionResult> UploadPicture(int userId, IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("Please select profile picture");
 
-            // Stream stream = file.OpenReadStream();
+            string pictureURL = await this._userService.UploadProfilePicture(userId, file);
 
-            // await this._userService.UploadProfilePicture(userId, stream);
-
-            // var folderName = Path.Combine("wwwroot", "images/profile");
-            // var filePath = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-            // if (!Directory.Exists(filePath))
-            // {
-            //     Directory.CreateDirectory(filePath);
-            // }
-
-            // var uniqueFileName = $"{userId}_profilePicture.png";
-
-            // var dbPath = Path.Combine(folderName, uniqueFileName);
-
-            // using (var fileStream = new FileStream(Path.Combine(filePath, uniqueFileName), FileMode.Create))
-            // {
-            //     await file.CopyToAsync(fileStream);
-            // }
-
-            // return Ok( new {
-            //     path = dbPath
-            // });
-
-            return Ok(await this._userService.UploadProfilePicture(userId, file));
+            return Ok(pictureURL);
         }
 
         // [HttpGet("getProfilePicture/{userId}")]

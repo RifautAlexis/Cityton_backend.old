@@ -60,6 +60,7 @@ namespace Cityton.Ui.Controllers
                 Username = user.Username,
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
+                Picture = user.Picture,
                 Role = user.Role.ToString(),
                 Token = user.Token
             });
