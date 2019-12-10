@@ -14,6 +14,7 @@ namespace Cityton.Data.DTOs
         public string Picture { get; set; } = "Have to define a location to default picture !";
         public Role Role { get; set; } = Role.Member;
         public string Token { get; set; }
+        public string Password { get; set; }
 
     }
 }

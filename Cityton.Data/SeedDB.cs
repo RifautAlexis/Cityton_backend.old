@@ -30,24 +30,24 @@ namespace Cityton.Repository
             CreatePasswordHash("123", out passwordHash, out passwordSalt);
 
             List<User> users = new List<User>(){
-                new User { Id = 1, Username = "admin01", PhoneNumber = "6019911684 ", Email = "admin01@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 2, Username = "admin02", PhoneNumber = "3069338796 ", Email = "admin02@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 3, Username = "admin03", PhoneNumber = "105989609 ", Email = "admin03@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 4, Username = "admin04", PhoneNumber = "4866078694 ", Email = "admin04@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 5, Username = "admin05", PhoneNumber = "8659710084 ", Email = "admin05@gmail.com", Picture = "do\\not\\know", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 6, Username = "checker01", PhoneNumber = "5844956388 ", Email = "checker01@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 7, Username = "checker02", PhoneNumber = "1669765414 ", Email = "checker02@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 8, Username = "checker03", PhoneNumber = "5598781614 ", Email = "checker03@gmail.com", Picture = "do\\not\\know", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 9, Username = "member01", PhoneNumber = "3272464106 ", Email = "member01@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 10, Username = "member02", PhoneNumber = "5414887288 ", Email = "member02@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 11, Username = "member03", PhoneNumber = "4786399505 ", Email = "member03@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 12, Username = "member04", PhoneNumber = "2358305614 ", Email = "member04@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 13, Username = "member05", PhoneNumber = "1064846605 ", Email = "member05@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 14, Username = "member06", PhoneNumber = "4686272886 ", Email = "member06@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 15, Username = "member07", PhoneNumber = "5071973872 ", Email = "member07@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 16, Username = "member08", PhoneNumber = "334355105 ", Email = "member08@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 17, Username = "member09", PhoneNumber = "5471673152 ", Email = "member09@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
-                new User { Id = 18, Username = "member10", PhoneNumber = "8758801056", Email = "member10@gmail.com", Picture = "do\\not\\know", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 }
+                new User { Id = 1, Username = "admin01", PhoneNumber = "6019911684 ", Email = "admin01@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 2, Username = "admin02", PhoneNumber = "3069338796 ", Email = "admin02@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 3, Username = "admin03", PhoneNumber = "105989609 ", Email = "admin03@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 4, Username = "admin04", PhoneNumber = "4866078694 ", Email = "admin04@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 5, Username = "admin05", PhoneNumber = "8659710084 ", Email = "admin05@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 6, Username = "checker01", PhoneNumber = "5844956388 ", Email = "checker01@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 7, Username = "checker02", PhoneNumber = "1669765414 ", Email = "checker02@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 8, Username = "checker03", PhoneNumber = "5598781614 ", Email = "checker03@gmail.com", Role = Role.Checker, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 9, Username = "member01", PhoneNumber = "3272464106 ", Email = "member01@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 10, Username = "member02", PhoneNumber = "5414887288 ", Email = "member02@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 11, Username = "member03", PhoneNumber = "4786399505 ", Email = "member03@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 12, Username = "member04", PhoneNumber = "2358305614 ", Email = "member04@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 13, Username = "member05", PhoneNumber = "1064846605 ", Email = "member05@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 14, Username = "member06", PhoneNumber = "4686272886 ", Email = "member06@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 15, Username = "member07", PhoneNumber = "5071973872 ", Email = "member07@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 16, Username = "member08", PhoneNumber = "334355105 ", Email = "member08@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 17, Username = "member09", PhoneNumber = "5471673152 ", Email = "member09@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
+                new User { Id = 18, Username = "member10", PhoneNumber = "8758801056", Email = "member10@gmail.com", Role = Role.Member, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 }
             };
 
             foreach (var user in users)

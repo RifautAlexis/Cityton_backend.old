@@ -12,7 +12,7 @@ namespace Cityton.Data.Models
         public string Username { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string Picture { get; set; } = "Have to define a location to default picture !";
+        public string Picture { get; set; } = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png";
         public Role Role { get; set; } = Role.Member;
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
