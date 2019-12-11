@@ -10,13 +10,16 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
+using Cityton.Data.DTOs;
+using Cityton.Data;
 
 namespace Cityton.Service
 {
 
     public interface IUserService
     {
-        Task Update(User user);
+        Task<User> UpdateToken(User user);
+        Task<UserDTO> Update(UserUpdateDTO userToUpdate);
         Task<User> Get(int id);
         Task<User> GetByUsername(string username);
         Task<User> GetByEmail(string email);
@@ -30,7 +33,7 @@ namespace Cityton.Service
 
         private readonly IHttpContextAccessor _httpContextAccessor;
         private IUserRepository userRepository;
-        private readonly IConfiguration _config;
+        private readonly IConfiguration _appSettings;
 
         public UserService(
             IUserRepository userRepository,
@@ -38,13 +41,65 @@ namespace Cityton.Service
             IHttpContextAccessor httpContextAccessor)
         {
             this.userRepository = userRepository;
-            this._config = config;
+            this._appSettings = config;
             this._httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task Update(User user)
+        public async Task<User> UpdateToken(User user)
         {
-            await userRepository.Update(user);
+            string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
+            user.CreateToken(tokenSecret);
+
+            await userRepository.SaveChanges();
+
+            return user;
+        }
+
+        public async Task<UserDTO> Update(UserUpdateDTO userToUpdate)
+        {
+
+            //validator sur userToUpdate
+
+            User userInDb = await this.Get(userToUpdate.Id);
+
+            if (userInDb == null) return null;
+
+            userInDb.DeepCopy(userToUpdate);
+
+            if (!string.IsNullOrEmpty(userToUpdate.Password))
+            {
+               userInDb.CreatePasswordHash(userToUpdate.Password);
+            }
+
+            //validator sur user
+            string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
+
+            userInDb.CreateToken(tokenSecret);
+
+            System.Console.WriteLine("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
+            System.Console.WriteLine(userInDb.Id);
+            System.Console.WriteLine(userInDb.Username);
+            System.Console.WriteLine(userInDb.PhoneNumber);
+            System.Console.WriteLine(userInDb.Email);
+            System.Console.WriteLine(userInDb.Role);
+            System.Console.WriteLine(userInDb.Picture);
+            System.Console.WriteLine(userInDb.Token);
+            System.Console.WriteLine("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+
+            await userRepository.Update(userInDb);
+
+            User test = await this.userRepository.Get(userInDb.Id);
+            System.Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            System.Console.WriteLine(test.Id);
+            System.Console.WriteLine(test.Username);
+            System.Console.WriteLine(test.PhoneNumber);
+            System.Console.WriteLine(test.Email);
+            System.Console.WriteLine(test.Role);
+            System.Console.WriteLine(test.Picture);
+            System.Console.WriteLine(test.Token);
+            System.Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+
+            return userInDb.ToDTO();
         }
 
         public async Task<User> Get(int id)
@@ -77,16 +132,10 @@ namespace Cityton.Service
 
         public async Task<string> UploadProfilePicture(int userId, IFormFile file)
         {
-            // var folderName = Path.Combine("wwwroot", "images\\profile\\" + userId + "_profilePicture.png");
-            // var filePath = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-            // if (!File.Exists(filePath))
-            // {
-            //     return null;
-            // }
 
-            string cloudName = this._config.GetSection("Cloudinary:cloudName").Value;
-            string apiKey = this._config.GetSection("Cloudinary:apiKey").Value;
-            string apiSecret = this._config.GetSection("Cloudinary:apiSecret").Value;
+            string cloudName = this._appSettings.GetSection("Cloudinary:cloudName").Value;
+            string apiKey = this._appSettings.GetSection("Cloudinary:apiKey").Value;
+            string apiSecret = this._appSettings.GetSection("Cloudinary:apiSecret").Value;
 
             Account account = new Account(cloudName, apiKey, apiSecret);
 
@@ -96,35 +145,19 @@ namespace Cityton.Service
 
             var uploadParams = new ImageUploadParams()
             {
-                // File = new FileDescription(filePath),
                 File = new FileDescription("1_profilePicture", stream),
                 PublicId = "1_profilePicture"
-                // UseFilename = true
             };
 
             ImageUploadResult uploadResult = await cloudinary.UploadAsync(uploadParams);
 
             stream.Close();
 
-            System.Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAA");
-            System.Console.WriteLine(uploadResult);
-            System.Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZ");
-            System.Console.WriteLine(userId);
-
-
-            //int connectedUserId = 1;
             User user = await this.Get(userId);
-            System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFFFFFFF");
-            System.Console.WriteLine(user.Username);
-            System.Console.WriteLine(uploadResult.SecureUri.AbsoluteUri);
-            System.Console.WriteLine("GGGGGGGGGGGGGGGGGGGGGGGGGG");
 
             user.Picture = uploadResult.SecureUri.AbsoluteUri;
-            System.Console.WriteLine("QQQQQQQQQQQQQQQQQQQQQQ");
-            System.Console.WriteLine(user.Picture);
-            System.Console.WriteLine("SSSSSSSSSSSSSSSSSSSSSS");
             await userRepository.SaveChanges();
-            //return userId + " " + filePath + " " + uploadParams.File.FilePath + " " + uploadParams.File.FileName;
+            
             return uploadResult.SecureUri.AbsoluteUri;
         }
 

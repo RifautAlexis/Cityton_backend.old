@@ -50,20 +50,9 @@ namespace Cityton.Ui.Controllers
 
             if (user == null) { return Unauthorized(); }
 
-            user.CreateToken(_appSettings);
+            User userUpdate = await _userService.UpdateToken(user);
 
-            await _userService.Update(user);
-
-            return Ok(new
-            {
-                Id = user.Id,
-                Username = user.Username,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                Picture = user.Picture,
-                Role = user.Role.ToString(),
-                Token = user.Token
-            });
+            return Ok(userUpdate.ToDTO());
         }
 
         [AllowAnonymous]
@@ -80,7 +69,9 @@ namespace Cityton.Ui.Controllers
             //if(_userService.GetByEmail(data.Email)) { return this.BadRequest("lol"); }
 
             User newUser = data.ToUser();
-            newUser.CreateToken(_appSettings);
+
+            string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
+            newUser.CreateToken(tokenSecret);
 
             User user = await _authService.Register(newUser, data.Password);
 

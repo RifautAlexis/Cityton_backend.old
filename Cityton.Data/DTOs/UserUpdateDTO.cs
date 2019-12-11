@@ -1,11 +1,11 @@
-﻿using Cityton.Data.Common;
+using Cityton.Data.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Cityton.Data.DTOs
 {
-    public class UserDTO
+    public class UserUpdateDTO
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -14,6 +14,7 @@ namespace Cityton.Data.DTOs
         public string Picture { get; set; }
         public Role Role { get; set; } = Role.Member;
         public string Token { get; set; }
+        public string Password { get; set; }
 
     }
 }

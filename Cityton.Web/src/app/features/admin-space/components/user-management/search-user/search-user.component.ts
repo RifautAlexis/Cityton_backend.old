@@ -6,6 +6,7 @@ import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { UserService } from '@core/services/user.service';
 
 import { IUser as User } from '@shared/models/User';
+import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 import { ISearchUser as SearchUser } from '@shared/models/SearchUser';
 import { Role } from '@shared/models/Enum';
 import { Observable } from 'rxjs';
@@ -54,7 +55,18 @@ export class SearchUserComponent implements OnInit {
     let user: User = this.users.find(user => user.id.toString() == id);
     user.role = Role[newSecurityLevel];
 
-    this.userService.update(user);
+    let userToUpdate: UserToUpdate = {
+      id: user.id,
+      username: user.username,
+      phoneNumber: user.phoneNumber,
+      email: user.email,
+      picture: user.picture,
+      role: user.role,
+      token: user.token,
+      password: ""
+    };
+
+    this.userService.update(userToUpdate);
   }
 
 }

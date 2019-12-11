@@ -53,10 +53,10 @@ namespace Cityton.Service
             return true;
         }
 
-        public static string CreateToken(this User user, IConfiguration _appSettings)
+        public static string CreateToken(this User user, string tokenSecret)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.GetValue<string>("Settings:Secret"));
+            var key = Encoding.ASCII.GetBytes(tokenSecret);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

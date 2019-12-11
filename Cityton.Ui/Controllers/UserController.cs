@@ -66,47 +66,16 @@ namespace Cityton.Ui.Controllers
 
         }
 
-        // [HttpPut("update/{id}")]
-        // public void Update(int id, [FromBody] UserDTO userToUpdate)
-        // {
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UserUpdateDTO userToUpdate)
+        {
 
-        //     User userInDb = await _userService.Get(id);
+          if (id != userToUpdate.Id) return BadRequest();
 
-        //     if (userInDb == null)
-        //     {
-        //        return NotFound();
-        //     }
+          UserDTO user = await _userService.Update(userToUpdate);
 
-        //     //validator sur userToUpdate
-
-        //     User user = userToUpdate.ToUser();
-
-        //     if (string.IsNullOrEmpty(password))
-        //     {
-        //        user.PasswordHash = userInDb.PasswordHash;
-        //        user.PasswordSalt  = userInDb.PasswordSalt;
-        //     } 
-        //     else {
-        //        user.CreatePasswordHash(password);
-        //     }
-
-        //     user.CreateToken(_appSettings);
-
-        //     //validator sur user
-        //     Console.WriteLine(user.Picture);
-
-        //     userInDb.Username = user.Username;
-        //     userInDb.PhoneNumber = user.PhoneNumber;
-        //     userInDb.Email = user.Email;
-        //     userInDb.Picture = user.Picture;
-        //     userInDb.PasswordHash = user.PasswordHash;
-        //     userInDb.PasswordSalt = user.PasswordSalt;
-        //     userInDb.Token = user.Token;
-
-        //     await _userService.Update(userInDb);
-        //     Console.WriteLine(userInDb.Picture);
-        //     return Ok(userInDb);
-        // }
+          return Ok(user);
+        }
 
         [HttpPut("uploadPicture/{userId}")]
         public async Task<IActionResult> UploadPicture(int userId, IFormFile file)

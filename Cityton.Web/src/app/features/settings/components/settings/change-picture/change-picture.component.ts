@@ -50,10 +50,9 @@ export class ChangePictureComponent implements OnInit {
       this.userService.uploadPicture(this.fileData, currentUser.id)
       .subscribe(
         (pathPicture: string) => {
-          console.log(pathPicture);
-          // currentUser.picture = pathPicture;
-          // this.url = pathPicture;
-          // this.authService.updateCurrentUser(currentUser);
+          currentUser.picture = pathPicture;
+          this.url = pathPicture;
+          this.authService.updateCurrentUser(currentUser);
         }
       );
 

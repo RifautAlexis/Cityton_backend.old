@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
+import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 import { ISearchUser as SearchUser } from '@shared/models/SearchUser';
 import { Role } from '@shared/models/Enum';
 
@@ -17,19 +18,9 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  update(userToUpdate: User, password: string = ""): Observable<User> {
-
-    return this.http.put<User>(environment.apiUrl + 'user/update/' + userToUpdate.id, { userToUpdate, password })
-      .pipe(map((user: User) => {
-
-        if (user) {
-          return user;
-        }
-
-        return null;
-      })
-
-      )
+  update(userToUpdate: UserToUpdate): Observable<User> {
+    console.log(userToUpdate);
+    return this.http.put<User>(environment.apiUrl + 'user/update/' + userToUpdate.id, userToUpdate);
   }
 
   searchUser(username: string, securityLevel: string): Observable<User[]> {

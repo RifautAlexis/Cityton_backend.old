@@ -6,6 +6,7 @@ import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
+import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 
 @Component({
   selector: 'app-change-username',
@@ -32,14 +33,15 @@ export class ChangeUsernameComponent implements OnInit {
     let currentUser: User = this.authService.currentUserValue();
     let obj: User = JSON.parse(this.authService.currentTokenValue());
 
-    let user: User = {
+    let user: UserToUpdate = {
       id: currentUser.id,
       username: this.usernameForm.controls.username.value,
       phoneNumber: currentUser.phoneNumber,
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: currentUser.token
+      token: currentUser.token,
+      password: ""
     };
 
     console.log(user);

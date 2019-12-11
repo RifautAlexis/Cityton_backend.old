@@ -6,6 +6,7 @@ import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
+import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 
 @Component({
   selector: 'app-change-email',
@@ -31,18 +32,20 @@ export class ChangeEmailComponent implements OnInit {
 
     let currentUser: User = this.authService.currentUserValue();
 
-    let user: User = {
+    let user: UserToUpdate = {
       id: currentUser.id,
       username: currentUser.username,
       phoneNumber: currentUser.phoneNumber,
       email: this.emailForm.controls.email.value,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: this.authService.currentTokenValue()
+      token: this.authService.currentTokenValue(),
+      password: ""
     };
 
     this.userService.update(user).subscribe(
-      (data: User) => {
+      (user: User) => {
+        this.authService.updateCurrentUser(user);
         // this.router.navigate(['chat']);
       },
       (error: any) => {
