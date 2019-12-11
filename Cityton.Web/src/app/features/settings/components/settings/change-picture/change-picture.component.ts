@@ -41,7 +41,6 @@ export class ChangePictureComponent implements OnInit {
   }
 
   onSelectFile() {
-    console.log(this.fileData);
 
     if (this.fileData) {
 
@@ -55,8 +54,6 @@ export class ChangePictureComponent implements OnInit {
           this.authService.updateCurrentUser(currentUser);
         }
       );
-
-      console.log(this.authService.currentUserValue());
 
     }
   }

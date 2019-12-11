@@ -4,11 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { ISearchUser as SearchUser } from '@shared/models/SearchUser';
-import { Role } from '@shared/models/Enum';
 
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +16,6 @@ export class UserService {
   }
 
   update(userToUpdate: UserToUpdate): Observable<User> {
-    console.log(userToUpdate);
     return this.http.put<User>(environment.apiUrl + 'user/update/' + userToUpdate.id, userToUpdate);
   }
 

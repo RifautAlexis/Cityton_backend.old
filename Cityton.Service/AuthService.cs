@@ -45,7 +45,6 @@ namespace Cityton.Service
 
             user.CreatePasswordHash(password);
 
-            //user.Company = await companyRepository.Get(user.CompanyId);
             await companyRepository.Get(user.CompanyId);
 
             await userRepository.Insert(user);

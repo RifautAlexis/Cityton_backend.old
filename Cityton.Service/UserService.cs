@@ -76,28 +76,9 @@ namespace Cityton.Service
 
             userInDb.CreateToken(tokenSecret);
 
-            System.Console.WriteLine("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
-            System.Console.WriteLine(userInDb.Id);
-            System.Console.WriteLine(userInDb.Username);
-            System.Console.WriteLine(userInDb.PhoneNumber);
-            System.Console.WriteLine(userInDb.Email);
-            System.Console.WriteLine(userInDb.Role);
-            System.Console.WriteLine(userInDb.Picture);
-            System.Console.WriteLine(userInDb.Token);
-            System.Console.WriteLine("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-
             await userRepository.Update(userInDb);
 
             User test = await this.userRepository.Get(userInDb.Id);
-            System.Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            System.Console.WriteLine(test.Id);
-            System.Console.WriteLine(test.Username);
-            System.Console.WriteLine(test.PhoneNumber);
-            System.Console.WriteLine(test.Email);
-            System.Console.WriteLine(test.Role);
-            System.Console.WriteLine(test.Picture);
-            System.Console.WriteLine(test.Token);
-            System.Console.WriteLine("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
 
             return userInDb.ToDTO();
         }
