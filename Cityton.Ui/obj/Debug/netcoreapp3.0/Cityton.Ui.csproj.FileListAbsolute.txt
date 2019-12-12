@@ -134,3 +134,11 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.csproj.CopyComplete
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.pdb
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\EPPlus.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll

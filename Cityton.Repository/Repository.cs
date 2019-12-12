@@ -12,7 +12,7 @@ namespace Cityton.Repository
     public interface IRepository<T> where T : BaseEntities
     {
 
-        IAsyncEnumerable<T> GetAll();
+        Task<List<T>> GetAll();
         Task<T> Get(int id);
         Task Insert(T entity);
         Task Update(T entity);
@@ -35,9 +35,9 @@ namespace Cityton.Repository
             entities = context.Set<T>();
         }
 
-        public IAsyncEnumerable<T> GetAll()
+        public async Task<List<T>> GetAll()
         {
-            return entities.AsAsyncEnumerable();
+            return await entities.ToListAsync();
         }
 
         public Task<T> Get(int id)

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
 
-
 @NgModule({
   declarations: [
   ],
@@ -18,7 +17,6 @@ import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
     MaterialUiModule
   ],
   exports: [

@@ -50,18 +50,6 @@ namespace Cityton.Ui.Controllers
 
             List<SearchUserDTO> searchedUsers = new List<SearchUserDTO>();
 
-            //foreach (var user in users)
-            //{
-            //    PhysicalFileResult file = this._userService.GetProfilePicture(user.Id);
-            //    searchedUsers.Add(new SearchUserDTO
-            //    {
-            //        Id = user.Id,
-            //        Username = user.Username,
-            //        Picture = file != null ? file.FileName : null,
-            //        Role = user.Role
-            //    });
-            //}
-
             return Ok(users);
 
         }
