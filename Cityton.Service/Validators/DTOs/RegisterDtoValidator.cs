@@ -1,43 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cityton.Data.DTOs;
-using Cityton.Data.Models;
+﻿using Cityton.Data.DTOs;
 using FluentValidation;
+using Cityton.Service.Validators.ExtensionsMethod;
 
 namespace Cityton.Service.Validators.DTOs
 {
-    public class RegisterDtoValidator : AbstractValidator<RegisterDTO>
+    public class RegisterDTOValidator : AbstractValidator<RegisterDTO>
     {
 
-        private IUserService _userService;
-
-        public RegisterDtoValidator(IUserService userService)
+        public RegisterDTOValidator()
         {
-            _userService = userService;
 
-            RuleFor(user => user.Username).NotEmpty().MinimumLength(3);
-            RuleFor(user => user.Username).Must(username => UniqueUsername(username)).WithMessage("Username déjà pésent !");
-            RuleFor(user => user.PhoneNumber).NotEmpty().MinimumLength(10);
-            RuleFor(user => user.PhoneNumber).Must(phoneNumber => UniqueEmail(phoneNumber)).WithMessage("Phone number déjà pésent !");
-            RuleFor(user => user.Email).NotEmpty().EmailAddress();
-            RuleFor(user => user.Email).Must(email => UniquePhoneNumber(email)).WithMessage("Email déjà pésent !");
-            RuleFor(user => user.Password).NotEmpty();
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
+            RuleFor(user => user.Username)
+                .UsernameValidation()
+                .MustAsync(async (username, cancellation) => await UserService.IsUniqueUsername(username));
+            RuleFor(user => user.PhoneNumber)
+                .PhoneNumberValidation()
+                .When(pn => pn != null).MustAsync(async (phonenumber, cancellation) => await UserService.IsUniquePhoneNumber(phonenumber));
+            RuleFor(user => user.Email)
+                .EmailValidation()
+                .MustAsync(async (phonenumber, cancellation) => await UserService.IsUniqueEmail(phonenumber));
+            RuleFor(user => user.Password).PasswordValidation();
         }
 
-        private bool UniqueUsername(string username)
-        {
-            return _userService.GetByUsername(username) == null;
-        }
-
-        private bool UniqueEmail(string email)
-        {
-            return _userService.GetByEmail(email) == null;
-        }
-
-        private bool UniquePhoneNumber(string phoneNumber)
-        {
-            return _userService.GetByPhoneNumber(phoneNumber) == null;
-        }
     }
 }

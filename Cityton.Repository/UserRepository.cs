@@ -15,8 +15,11 @@ namespace Cityton.Repository
     {
 
         Task<User> GetByEmail(string email);
+        Task<List<User>> GetAllByEmail(string email);
         Task<User> GetByUsername(string username);
+        Task<List<User>> GetAllByUsername(string email);
         Task<User> GetByPhoneNumber(string phoneNumber);
+        Task<List<User>> GetAllByPhoneNumber(string email);
         Task<List<User>> GetByUsernameRole(string username, string filterRole);
 
     }
@@ -31,14 +34,29 @@ namespace Cityton.Repository
             return await context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
         }
 
+        public async Task<List<User>> GetAllByEmail(string email)
+        {
+            return await context.Users.Where(u => u.Email == email).ToListAsync();
+        }
+
         public async Task<User> GetByUsername(string username)
         {
             return await context.Users.Where(user => user.Username == username).FirstOrDefaultAsync();
         }
 
+        public async Task<List<User>> GetAllByUsername(string username)
+        {
+            return await context.Users.Where(u => u.Username == username).ToListAsync();
+        }
+
         public async Task<User> GetByPhoneNumber(string phoneNumber)
         {
             return await context.Users.Where(u => u.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<User>> GetAllByPhoneNumber(string phoneNumber)
+        {
+            return await context.Users.Where(u => u.PhoneNumber == phoneNumber).ToListAsync();
         }
 
         public async Task<List<User>> GetByUsernameRole(string filterRole, string username = "")

@@ -108,7 +108,10 @@ namespace Cityton.Ui
             services.AddTransient<IValidator<UserInDiscussion>, UserInDiscussionValidator>();
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<Media>, MediaValidator>();
-            //services.AddTransient<IValidator<RegisterDTO>, RegisterDtoValidator>();
+            services.AddTransient<IValidator<RegisterDTO>, RegisterDTOValidator>();
+            services.AddTransient<IValidator<LoginDTO>, LoginDTOValidator>();
+            services.AddTransient<IValidator<UserUpdateDTO>, UserUpdateDTOValidator>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

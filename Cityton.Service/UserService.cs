@@ -26,23 +26,23 @@ namespace Cityton.Service
         Task<User> GetByPhoneNumber(string phoneNumber);
         Task<List<User>> Search(string sl, string q);
         Task<string> UploadProfilePicture(int userId, IFormFile file);
+        Task<bool> IsUniqueUsername(string username);
+        Task<bool> IsUniquePhoneNumber(string username);
+        Task<bool> IsUniqueEmail(string email);
     }
 
     public class UserService : IUserService
     {
 
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private IUserRepository userRepository;
         private readonly IConfiguration _appSettings;
 
         public UserService(
             IUserRepository userRepository,
-            IConfiguration config,
-            IHttpContextAccessor httpContextAccessor)
+            IConfiguration config)
         {
             this.userRepository = userRepository;
             this._appSettings = config;
-            this._httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<User> UpdateToken(User user)
@@ -140,6 +140,38 @@ namespace Cityton.Service
             await userRepository.SaveChanges();
             
             return uploadResult.SecureUri.AbsoluteUri;
+        }
+        
+
+        async Task<bool> IUserService.IsUniqueUsername(string username)
+        {
+            return await userRepository.GetByUsername(username) == null;
+        }
+
+        public static async Task<bool> IsUniqueUsername(string username)
+        {
+            return await IsUniqueUsername(username);
+        }
+
+        async Task<bool> IUserService.IsUniquePhoneNumber(string phoneNumber)
+        {
+            return await userRepository.GetByPhoneNumber(phoneNumber) == null;
+        }
+
+        public static async Task<bool> IsUniquePhoneNumber(string phoneNumber)
+        {
+            return await IsUniquePhoneNumber(phoneNumber);
+        }
+
+        async Task<bool> IUserService.IsUniqueEmail(string email)
+        {
+            List<User> list = await userRepository.GetAllByEmail(email);
+            return list.Count == 1;
+        }
+
+        public static async Task<bool> IsUniqueEmail(string email)
+        {
+            return await IsUniqueEmail(email);
         }
 
     }

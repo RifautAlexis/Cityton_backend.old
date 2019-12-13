@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
+using FluentValidation.Results;
 
 namespace Cityton.Ui.Controllers
 {
@@ -44,7 +45,12 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDTO data)
         {
 
-            //ModelState.IsValid
+            //LoginDTOValidator validator = new LoginDTOValidator();
+            //ValidationResult results = await validator.ValidateAsync(data);
+
+            //results.AddToModelState(ModelState, "LoginDTO");
+
+            //if (!ModelState.IsValid) return BadRequest();
 
             var user = await _authService.Authenticate(data.Email, data.Password);
 
@@ -60,11 +66,11 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterDTO data)
         {
 
-            //var validator = new RegisterDtoValidator(_userService);
-            //var results = await validator.ValidateAsync(data);
-            //results.AddToModelState(ModelState, "RegisterDTO");
+            var validator = new RegisterDTOValidator();
+            var results = await validator.ValidateAsync(data);
+            results.AddToModelState(ModelState, "RegisterDTO");
 
-            //if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
+            if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
             //if(_userService.GetByEmail(data.Email)) { return this.BadRequest("lol"); }
 

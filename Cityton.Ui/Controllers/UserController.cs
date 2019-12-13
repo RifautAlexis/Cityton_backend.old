@@ -58,11 +58,17 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Update(int id, [FromBody] UserUpdateDTO userToUpdate)
         {
 
-          if (id != userToUpdate.Id) return BadRequest();
+            var validator = new UserUpdateDTOValidator();
+            var results = await validator.ValidateAsync(userToUpdate);
+            results.AddToModelState(ModelState, "UserUpdateDTO");
 
-          UserDTO user = await _userService.Update(userToUpdate);
+            if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
-          return Ok(user);
+            if (id != userToUpdate.Id) return BadRequest();
+
+            UserDTO user = await _userService.Update(userToUpdate);
+
+            return Ok(user);
         }
 
         [HttpPut("uploadPicture/{userId}")]

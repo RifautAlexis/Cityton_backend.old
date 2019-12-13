@@ -12,6 +12,8 @@ namespace Cityton.Service.Validators
 
         public CompanyValidator()
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(company => company.MinGroupSize).GreaterThanOrEqualTo(1).LessThanOrEqualTo(company => company.MaxGroupSize);
             RuleFor(company => company.MaxGroupSize).GreaterThanOrEqualTo(company => company.MinGroupSize);
             RuleFor(company => company.CreatedAt).NotNull();
