@@ -4,7 +4,15 @@
   <mat-form-field>
     <label>Phone number :</label>
     <input matNativeControl type="text" formControlName="phoneNumber">
+
+    <mat-error *ngIf="phoneNumberForm.get('phoneNumber').hasError('required')"> Password required </mat-error>
+    <mat-error *ngIf="phoneNumberForm.get('phoneNumber').hasError('minlength')"> Password required </mat-error>
+
   </mat-form-field>
+
+  <ng-container *ngIf="this.phoneNumberForm.errors">
+    <mat-error *ngIf="this.phoneNumberForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
+  </ng-container>
 
   <button type="submit" [disabled]="!phoneNumberForm.valid"> Submit </button>
   <button (click)="cancel(phoneNumberForm)"> Cancel </button>

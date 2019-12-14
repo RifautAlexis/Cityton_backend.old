@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
+
+import { UniquePhoneNumberValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-phoneNumber',
@@ -17,11 +18,22 @@ export class ChangePhoneNumberComponent implements OnInit {
 
   phoneNumberForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private authService: AuthService,
+    private uniquePhoneNumberValidator: UniquePhoneNumberValidator) { }
 
   ngOnInit() {
     this.phoneNumberForm = this.formBuilder.group({
-      phoneNumber: ['', Validators.required]
+      phoneNumber: ['',
+        {
+          validators: [
+            Validators.required,
+            Validators.minLength(10)
+          ],
+          asyncValidators: [this.uniquePhoneNumberValidator.validate]
+        }
+      ]
     });
   }
 

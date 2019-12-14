@@ -4,7 +4,15 @@
   <mat-form-field>
     <label>Username :</label>
     <input matNativeControl type="text" formControlName="username">
+
+    <mat-error *ngIf="usernameForm.get('username').hasError('required')"> Username required </mat-error>
+    <mat-error *ngIf="usernameForm.get('username').hasError('minlength')"> At least 3 characters required </mat-error>
+
   </mat-form-field>
+
+  <ng-container *ngIf="this.usernameForm.get('username').invalid">
+    <mat-error *ngIf="this.usernameForm.get('username').errors?.uniqueUsername"> This username is already taken </mat-error>
+  </ng-container>
 
   <button type="submit" [disabled]="!usernameForm.valid"> Submit </button>
   <button (click)="cancel(usernameForm)"> Cancel </button>

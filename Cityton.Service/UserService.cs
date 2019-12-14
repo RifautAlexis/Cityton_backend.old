@@ -165,8 +165,7 @@ namespace Cityton.Service
 
         async Task<bool> IUserService.IsUniqueEmail(string email)
         {
-            List<User> list = await userRepository.GetAllByEmail(email);
-            return list.Count == 1;
+            return await userRepository.GetByEmail(email);
         }
 
         public static async Task<bool> IsUniqueEmail(string email)

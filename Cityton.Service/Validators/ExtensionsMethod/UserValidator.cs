@@ -30,7 +30,7 @@ namespace Cityton.Service.Validators.ExtensionsMethod
         {
             return rule
                 .NotEmpty()
-                .MinimumLength(3)
+                .MinimumLength(10)
                 .NotStartEndWithWhiteSpace();
         }
 

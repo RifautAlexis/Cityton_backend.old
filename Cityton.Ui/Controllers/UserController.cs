@@ -98,7 +98,32 @@ namespace Cityton.Ui.Controllers
 
         // }
 
+        [HttpGet("isUniqueEmail/{email}")]
+        public async Task<IActionResult> IsUniqueEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return BadRequest("");
 
+            return Ok(this.userService.IsUniqueEmail(email));
+        }
+
+        [HttpGet("isUniquePhoneNumber/{phoneNumber}")]
+        public async Task<IActionResult> IsUniquePhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrEmpty(phoneNumber))
+                return BadRequest("");
+
+            return Ok(this.userService.IsUniquePhoneNumber(phoneNumber));
+        }
+
+        [HttpGet("isUniqueUsername/{username}")]
+        public async Task<IActionResult> IsUniqueUsername(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+                return BadRequest("");
+
+            return Ok(this.userService.IsUniqueUsername(username));
+        }
 
     }
 }
