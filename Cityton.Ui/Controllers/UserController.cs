@@ -104,7 +104,7 @@ namespace Cityton.Ui.Controllers
             if (string.IsNullOrEmpty(email))
                 return BadRequest("");
 
-            return Ok(this.userService.IsUniqueEmail(email));
+            return Ok(await this._userService.IsUniqueEmail(email));
         }
 
         [HttpGet("isUniquePhoneNumber/{phoneNumber}")]
@@ -113,7 +113,7 @@ namespace Cityton.Ui.Controllers
             if (string.IsNullOrEmpty(phoneNumber))
                 return BadRequest("");
 
-            return Ok(this.userService.IsUniquePhoneNumber(phoneNumber));
+            return Ok(await this._userService.IsUniquePhoneNumber(phoneNumber));
         }
 
         [HttpGet("isUniqueUsername/{username}")]
@@ -122,7 +122,7 @@ namespace Cityton.Ui.Controllers
             if (string.IsNullOrEmpty(username))
                 return BadRequest("");
 
-            return Ok(this.userService.IsUniqueUsername(username));
+            return Ok(await this._userService.IsUniqueUsername(username));
         }
 
     }

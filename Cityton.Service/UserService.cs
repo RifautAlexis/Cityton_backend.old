@@ -160,17 +160,17 @@ namespace Cityton.Service
 
         public static async Task<bool> IsUniquePhoneNumber(string phoneNumber)
         {
-            return await IsUniquePhoneNumber(phoneNumber);
+            return await IsUniquePhoneNumber(phoneNumber) == null;
         }
 
         async Task<bool> IUserService.IsUniqueEmail(string email)
         {
-            return await userRepository.GetByEmail(email);
+            return await userRepository.GetByEmail(email) == null;
         }
 
         public static async Task<bool> IsUniqueEmail(string email)
         {
-            return await IsUniqueEmail(email);
+            return await IsUniqueEmail(email) == null;
         }
 
     }
