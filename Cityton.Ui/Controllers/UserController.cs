@@ -125,5 +125,19 @@ namespace Cityton.Ui.Controllers
             return Ok(await this._userService.IsUniqueUsername(username));
         }
 
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> Delete(int userId)
+        {
+            if (userId > 0) return BadRequest("");
+
+            User user = await this._userService.Get(userId);
+
+            if (user == null) return BadRequest("");
+
+            await this._userService.Delete(user);
+
+            return Ok();
+        }
+
     }
 }

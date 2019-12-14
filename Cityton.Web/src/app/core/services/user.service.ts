@@ -48,4 +48,8 @@ export class UserService {
     return this.http.get<boolean>(environment.apiUrl + 'user/isUniqueUsername/' + username);
   }
 
+  deleteUser(userId: string) {
+    return this.http.delete(environment.apiUrl + 'user/' + userId);
+  }
+
 }

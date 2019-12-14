@@ -29,6 +29,7 @@ namespace Cityton.Service
         Task<bool> IsUniqueUsername(string username);
         Task<bool> IsUniquePhoneNumber(string username);
         Task<bool> IsUniqueEmail(string email);
+        Task Delete(User user);
     }
 
     public class UserService : IUserService
@@ -141,7 +142,6 @@ namespace Cityton.Service
             
             return uploadResult.SecureUri.AbsoluteUri;
         }
-        
 
         async Task<bool> IUserService.IsUniqueUsername(string username)
         {
@@ -160,7 +160,7 @@ namespace Cityton.Service
 
         public static async Task<bool> IsUniquePhoneNumber(string phoneNumber)
         {
-            return await IsUniquePhoneNumber(phoneNumber) == null;
+            return await IsUniquePhoneNumber(phoneNumber);
         }
 
         async Task<bool> IUserService.IsUniqueEmail(string email)
@@ -170,7 +170,12 @@ namespace Cityton.Service
 
         public static async Task<bool> IsUniqueEmail(string email)
         {
-            return await IsUniqueEmail(email) == null;
+            return await IsUniqueEmail(email);
+        }
+
+        public async Task Delete(User user)
+        {
+            await userRepository.Delete(user);
         }
 
     }
