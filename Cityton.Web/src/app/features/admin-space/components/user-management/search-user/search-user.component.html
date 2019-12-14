@@ -21,39 +21,41 @@
 
   <!-- <mat-list> -->
 
-    <ng-container *ngFor="let user of users$ | async">
+  <ng-container *ngFor="let user of users$ | async">
 
-      <!-- <mat-list-item class="searchResults"> -->
+    <!-- <mat-list-item class="searchResults"> -->
 
-        <mat-card>
-          <mat-card-header>
-            <!-- <img mat-card-avatar src='{{ user.picture }}'> -->
-            <mat-card-title> {{ user.username }} </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <mat-select (selectionChange)="changeSecurityLevel(user.id, $event.value)" value='user.role'>
-              <mat-option value="Membre">Member</mat-option>
-              <mat-option value="Checker">Checker</mat-option>
-              <mat-option value="Admin">Admin</mat-option>
-            </mat-select>
-          </mat-card-content>
-          <mat-card-actions>
-              <button mat-mini-fab>
-                  <i class="material-icons">
-                    build
-                  </i>
-                </button>
-            <button mat-mini-fab (click)="DeleteUser()">
-                <i class="material-icons">
-                  delete
-                </i>
-              </button>
-          </mat-card-actions>
-        </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <!-- <img mat-card-avatar src='{{ user.picture }}'> -->
+        <mat-card-title> {{ user.username }} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-select (selectionChange)="changeSecurityLevel(user.id, $event.value)" placeholder="{{Role[user.role]}}">
+            <mat-option value="Member">Member</mat-option>
+            <mat-option value="Checker">Checker</mat-option>
+            <mat-option value="Admin">Admin</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-mini-fab>
+          <i class="material-icons">
+            build
+          </i>
+        </button>
+        <button mat-mini-fab (click)="DeleteUser()">
+          <i class="material-icons">
+            delete
+          </i>
+        </button>
+      </mat-card-actions>
+    </mat-card>
 
-      <!-- </mat-list-item> -->
+    <!-- </mat-list-item> -->
 
-    </ng-container>
+  </ng-container>
 
   <!-- </mat-list> -->
 

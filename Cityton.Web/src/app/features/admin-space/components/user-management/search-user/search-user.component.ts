@@ -22,6 +22,7 @@ export class SearchUserComponent implements OnInit {
   selectedSecurity: string = "All";
   users$: Observable<User[]>;
   users: User[];
+  Role = Role;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
   }
