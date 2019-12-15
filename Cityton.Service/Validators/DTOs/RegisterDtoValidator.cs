@@ -14,13 +14,13 @@ namespace Cityton.Service.Validators.DTOs
 
             RuleFor(user => user.Username)
                 .UsernameValidation()
-                .MustAsync(async (username, cancellation) => await UserService.IsUniqueUsername(username));
+                .MustAsync(async (username, cancellation) => !(await UserService.ExistUsername(username)));
             RuleFor(user => user.PhoneNumber)
                 .PhoneNumberValidation()
-                .When(pn => pn != null).MustAsync(async (phonenumber, cancellation) => await UserService.IsUniquePhoneNumber(phonenumber));
+                .When(pn => pn != null).MustAsync(async (phonenumber, cancellation) => !(await UserService.ExistPhoneNumber(phonenumber)));
             RuleFor(user => user.Email)
                 .EmailValidation()
-                .MustAsync(async (phonenumber, cancellation) => await UserService.IsUniqueEmail(phonenumber));
+                .MustAsync(async (phonenumber, cancellation) => !(await UserService.ExistEmail(phonenumber)));
             RuleFor(user => user.Password).PasswordValidation();
         }
 

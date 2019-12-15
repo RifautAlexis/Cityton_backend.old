@@ -50,7 +50,6 @@ export class ChangePasswordComponent implements OnInit {
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: this.authService.currentTokenValue(),
       password: (password ? password : "")
     };
 

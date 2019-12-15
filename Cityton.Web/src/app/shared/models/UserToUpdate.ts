@@ -7,6 +7,5 @@ export interface IUserToUpdate {
   email: string;
   picture: string;
   role: Role;
-  token: string;
   password: string;
 }

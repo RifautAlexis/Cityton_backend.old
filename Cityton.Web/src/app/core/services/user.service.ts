@@ -36,20 +36,24 @@ export class UserService {
     return this.http.put<string>(environment.apiUrl + 'user/uploadPicture/' + userId, formData);
   }
 
-  isUniqueEmail(email: string) {
-    return this.http.get<boolean>(environment.apiUrl + 'user/isUniqueEmail/' + email);
+  existEmail(email: string) {
+    return this.http.get<boolean>(environment.apiUrl + 'user/existEmail/' + email);
   }
 
-  isUniquePhoneNumber(phoneNumber: string) {
-    return this.http.get<boolean>(environment.apiUrl + 'user/isUniquePhoneNumber/' + phoneNumber);
+  existPhoneNumber(phoneNumber: string) {
+    return this.http.get<boolean>(environment.apiUrl + 'user/existPhoneNumber/' + phoneNumber);
   }
 
-  isUniqueUsername(username: string) {
-    return this.http.get<boolean>(environment.apiUrl + 'user/isUniqueUsername/' + username);
+  existUsername(username: string) {
+    return this.http.get<boolean>(environment.apiUrl + 'user/existUsername/' + username);
   }
 
   deleteUser(userId: string) {
     return this.http.delete(environment.apiUrl + 'user/' + userId);
+  }
+
+  async get(userId: string): Promise<User> {
+    return this.http.get<User>(environment.apiUrl + 'user/' + userId).toPromise();
   }
 
 }

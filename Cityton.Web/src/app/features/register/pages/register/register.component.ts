@@ -7,9 +7,9 @@ import { AuthService } from '@core/services/auth.service';
 import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
 import { IUser as User } from '@shared/models/User';
 
-import { UniqueUsernameValidator,
-  UniquePhoneNumberValidator,
-  UniqueEmailValidator,
+import { ExistUsernameValidator,
+  ExistPhoneNumberValidator,
+  ExistEmailValidator,
   equalPasswordsValidator } from '@shared/form-validators/user';
 
 @Component({
@@ -24,9 +24,9 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private uniqueUsernameValidator: UniqueUsernameValidator,
-    private uniquePhoneNumberValidator: UniquePhoneNumberValidator,
-    private uniqueEmailValidator: UniqueEmailValidator) { }
+    private existUsernameValidator: ExistUsernameValidator,
+    private existPhoneNumberValidator: ExistPhoneNumberValidator,
+    private existEmailValidator: ExistEmailValidator) { }
 
   ngOnInit() {
 
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
             Validators.required,
             Validators.minLength(3)
           ],
-          asyncValidators: [this.uniqueUsernameValidator.validate]
+          asyncValidators: [this.existUsernameValidator.validate]
         }
       ],
       phoneNumber: ['',
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
             Validators.required,
             Validators.minLength(10)
           ],
-          asyncValidators: [this.uniquePhoneNumberValidator.validate]
+          asyncValidators: [this.existPhoneNumberValidator.validate]
         }
       ],
       email: ['',
@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
             Validators.required,
             Validators.email
           ],
-          asyncValidators: [this.uniqueEmailValidator.validate]
+          asyncValidators: [this.existEmailValidator.validate]
         }
       ],
       password: ['', [

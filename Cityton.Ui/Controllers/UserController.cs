@@ -37,6 +37,18 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> Get(int userId)
+        {
+            if (userId < 1) return BadRequest();
+
+            User user = await this._userService.Get(userId);
+
+            if (user == null) return BadRequest();
+
+            return Ok(user.ToDTO());
+        }
+
         [HttpGet("searchUser")]
         public async Task<IActionResult> SearchUser(string sl, string q = null)
         {
@@ -98,31 +110,31 @@ namespace Cityton.Ui.Controllers
 
         // }
 
-        [HttpGet("isUniqueEmail/{email}")]
-        public async Task<IActionResult> IsUniqueEmail(string email)
+        [HttpGet("existEmail/{email}")]
+        public async Task<IActionResult> ExistEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
                 return BadRequest("");
 
-            return Ok(await this._userService.IsUniqueEmail(email));
+            return Ok(await this._userService.ExistEmail(email));
         }
 
-        [HttpGet("isUniquePhoneNumber/{phoneNumber}")]
-        public async Task<IActionResult> IsUniquePhoneNumber(string phoneNumber)
+        [HttpGet("existPhoneNumber/{phoneNumber}")]
+        public async Task<IActionResult> ExistPhoneNumber(string phoneNumber)
         {
             if (string.IsNullOrEmpty(phoneNumber))
                 return BadRequest("");
 
-            return Ok(await this._userService.IsUniquePhoneNumber(phoneNumber));
+            return Ok(await this._userService.ExistPhoneNumber(phoneNumber));
         }
 
-        [HttpGet("isUniqueUsername/{username}")]
-        public async Task<IActionResult> IsUniqueUsername(string username)
+        [HttpGet("existUsername/{username}")]
+        public async Task<IActionResult> ExistUsername(string username)
         {
             if (string.IsNullOrEmpty(username))
                 return BadRequest("");
 
-            return Ok(await this._userService.IsUniqueUsername(username));
+            return Ok(await this._userService.ExistUsername(username));
         }
 
         [HttpDelete("{userId}")]

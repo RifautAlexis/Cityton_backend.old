@@ -13,7 +13,6 @@ namespace Cityton.Data.DTOs
         public string Email { get; set; }
         public string Picture { get; set; }
         public Role Role { get; set; } = Role.Member;
-        public string Token { get; set; }
         public string Password { get; set; }
 
     }

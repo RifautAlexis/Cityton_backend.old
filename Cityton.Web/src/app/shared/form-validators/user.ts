@@ -12,29 +12,25 @@ export function equalPasswordsValidator(formGroup: FormGroup): ValidationErrors 
 }
 
 @Injectable({ providedIn: 'root' })
-export class UniqueEmailValidator implements AsyncValidator {
+export class ExistEmailValidator implements AsyncValidator {
   constructor(private userService: UserService) {}
 
   validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    return this.userService.isUniqueEmail(ctrl.value).pipe(
+    return this.userService.existEmail(ctrl.value).pipe(
       map((isEmailTaken: boolean) => {
-        console.log(isEmailTaken);
+
         return (isEmailTaken ? { uniqueEmail: true } : null)
       }),
       catchError(() => null)
     );
   }
-}
 
-@Injectable({ providedIn: 'root' })
-export class UniquePhoneNumberValidator implements AsyncValidator {
-  constructor(private userService: UserService) {}
+  validateEdit = (ctrl: AbstractControl, actualEmail: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return this.userService.existEmail(ctrl.value).pipe(
+      map((isEmailTaken: boolean) => {
 
-  validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    return this.userService.isUniquePhoneNumber(ctrl.value).pipe(
-      map((isPhoneNumberTaken: boolean) => {
-        console.log(isPhoneNumberTaken);
-        return (isPhoneNumberTaken ? { uniquePhoneNumber: true } : null)
+        if(ctrl.value !== actualEmail) return (isEmailTaken ? { uniqueEmail: true } : null)
+        return null;
       }),
       catchError(() => null)
     );
@@ -42,14 +38,52 @@ export class UniquePhoneNumberValidator implements AsyncValidator {
 }
 
 @Injectable({ providedIn: 'root' })
-export class UniqueUsernameValidator implements AsyncValidator {
+export class ExistPhoneNumberValidator implements AsyncValidator {
   constructor(private userService: UserService) {}
 
   validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    return this.userService.isUniqueUsername(ctrl.value).pipe(
+    return this.userService.existPhoneNumber(ctrl.value).pipe(
+      map((isPhoneNumberTaken: boolean) => {
+
+        return (isPhoneNumberTaken ? { uniquePhoneNumber: true } : null)
+      }),
+      catchError(() => null)
+    );
+  }
+
+  validateEdit = (ctrl: AbstractControl, actualPhoneNumber: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return this.userService.existPhoneNumber(ctrl.value).pipe(
+      map((isPhoneNumberTaken: boolean) => {
+
+        if(ctrl.value !== actualPhoneNumber) return (isPhoneNumberTaken ? { uniquePhoneNumber: true } : null)
+        return null;
+      }),
+      catchError(() => null)
+    );
+  }
+}
+
+@Injectable({ providedIn: 'root' })
+export class ExistUsernameValidator implements AsyncValidator {
+  constructor(private userService: UserService) {}
+
+  validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return this.userService.existUsername(ctrl.value).pipe(
       map((isUsernameTaken: boolean) => {
+        console.log(ctrl.value);
         console.log(isUsernameTaken);
         return (isUsernameTaken ? { uniqueUsername: true } : null)
+      }),
+      catchError(() => null)
+    );
+  }
+
+  validateEdit = (ctrl: AbstractControl, actualUsername: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return this.userService.existUsername(ctrl.value).pipe(
+      map((isUsernameTaken: boolean) => {
+
+        if(ctrl.value !== actualUsername) return (isUsernameTaken ? { uniqueUsername: true } : null)
+        return null;
       }),
       catchError(() => null)
     );

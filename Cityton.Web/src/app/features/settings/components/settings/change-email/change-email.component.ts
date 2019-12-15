@@ -7,7 +7,7 @@ import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { UniqueEmailValidator } from '@shared/form-validators/user';
+import { ExistEmailValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-email',
@@ -22,7 +22,7 @@ export class ChangeEmailComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-    private uniqueEmailValidator: UniqueEmailValidator) { }
+    private existEmailValidator: ExistEmailValidator) { }
 
   ngOnInit() {
     this.emailForm = this.formBuilder.group({
@@ -32,7 +32,7 @@ export class ChangeEmailComponent implements OnInit {
             Validators.required,
             Validators.email
           ],
-          asyncValidators: [this.uniqueEmailValidator.validate]
+          asyncValidators: [this.existEmailValidator.validate]
         }
       ]
     });
@@ -52,7 +52,6 @@ export class ChangeEmailComponent implements OnInit {
       email: this.emailForm.controls.email.value,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: this.authService.currentTokenValue(),
       password: ""
     };
 

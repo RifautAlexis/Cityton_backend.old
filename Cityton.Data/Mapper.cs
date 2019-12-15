@@ -17,7 +17,6 @@ namespace Cityton.Data
             user.Email = userToUpdate.Email;
             user.Picture = userToUpdate.Picture;
             user.Role = userToUpdate.Role;
-            user.Token = userToUpdate.Token;
         }
 
         public static Role ToRole(this string role)
@@ -53,8 +52,7 @@ namespace Cityton.Data
                 PhoneNumber = data.PhoneNumber,
                 Email = data.Email,
                 Picture = data.Picture,
-                Role = Role.Member,
-                Token = data.Token
+                Role = Role.Member
             };
         }
 

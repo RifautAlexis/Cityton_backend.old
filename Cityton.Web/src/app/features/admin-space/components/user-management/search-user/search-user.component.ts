@@ -1,14 +1,15 @@
-import { map } from 'rxjs/operators';
-import { ImportDatalComponent } from './../../IO-data/import-data/import-data.component';
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { UserService } from '@core/services/user.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { ISearchUser as SearchUser } from '@shared/models/SearchUser';
 import { Role } from '@shared/models/Enum';
+import { MatDialog } from '@angular/material';
+import { EditUserComponent } from '../edit-user/edit-user.component';
+
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -24,8 +25,10 @@ export class SearchUserComponent implements OnInit {
   users: User[];
   Role = Role;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
@@ -63,7 +66,6 @@ export class SearchUserComponent implements OnInit {
       email: user.email,
       picture: user.picture,
       role: user.role,
-      token: user.token,
       password: ""
     };
 
@@ -72,6 +74,27 @@ export class SearchUserComponent implements OnInit {
 
   DeleteUser(userId: string) {
     this.userService.deleteUser(userId);
+  }
+
+  async openDialog(userId: string) {
+    let user: User = null;
+
+    await this.userService.get(userId).then(
+      (data: User) => {
+
+        user = data;
+      },
+      err => console.log(err)
+    );
+
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      width: '250px',
+      data: user
+    });
+
+    dialogRef.afterClosed().subscribe((data: UserToUpdate) => {
+      if (data) this.userService.update(data);
+    });
   }
 
 }

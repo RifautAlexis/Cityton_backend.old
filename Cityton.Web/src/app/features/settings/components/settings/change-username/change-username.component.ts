@@ -7,7 +7,7 @@ import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { UniqueUsernameValidator } from '@shared/form-validators/user';
+import { ExistUsernameValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-username',
@@ -20,7 +20,7 @@ export class ChangeUsernameComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-    private uniqueUsernameValidator: UniqueUsernameValidator) { }
+    private existUsernameValidator: ExistUsernameValidator) { }
 
   ngOnInit() {
     this.usernameForm = this.formBuilder.group({
@@ -30,7 +30,7 @@ export class ChangeUsernameComponent implements OnInit {
             Validators.required,
             Validators.minLength(3)
           ],
-          asyncValidators: [this.uniqueUsernameValidator.validate]
+          asyncValidators: [this.existUsernameValidator.validate]
         }
       ]
     });
@@ -51,7 +51,6 @@ export class ChangeUsernameComponent implements OnInit {
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: currentUser.token,
       password: ""
     };
 

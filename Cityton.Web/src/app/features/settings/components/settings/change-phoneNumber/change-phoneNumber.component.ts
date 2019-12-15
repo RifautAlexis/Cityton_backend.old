@@ -7,7 +7,7 @@ import { AuthService } from '@core/services/auth.service';
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 
-import { UniquePhoneNumberValidator } from '@shared/form-validators/user';
+import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-phoneNumber',
@@ -21,7 +21,7 @@ export class ChangePhoneNumberComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-    private uniquePhoneNumberValidator: UniquePhoneNumberValidator) { }
+    private existPhoneNumberValidator: ExistPhoneNumberValidator) { }
 
   ngOnInit() {
     this.phoneNumberForm = this.formBuilder.group({
@@ -31,7 +31,7 @@ export class ChangePhoneNumberComponent implements OnInit {
             Validators.required,
             Validators.minLength(10)
           ],
-          asyncValidators: [this.uniquePhoneNumberValidator.validate]
+          asyncValidators: [this.existPhoneNumberValidator.validate]
         }
       ]
     });
@@ -51,7 +51,6 @@ export class ChangePhoneNumberComponent implements OnInit {
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
-      token: this.authService.currentTokenValue(),
       password: ""
     };
 

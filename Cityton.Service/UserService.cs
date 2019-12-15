@@ -26,9 +26,9 @@ namespace Cityton.Service
         Task<User> GetByPhoneNumber(string phoneNumber);
         Task<List<User>> Search(string sl, string q);
         Task<string> UploadProfilePicture(int userId, IFormFile file);
-        Task<bool> IsUniqueUsername(string username);
-        Task<bool> IsUniquePhoneNumber(string username);
-        Task<bool> IsUniqueEmail(string email);
+        Task<bool> ExistUsername(string username);
+        Task<bool> ExistPhoneNumber(string username);
+        Task<bool> ExistEmail(string email);
         Task Delete(User user);
     }
 
@@ -143,34 +143,34 @@ namespace Cityton.Service
             return uploadResult.SecureUri.AbsoluteUri;
         }
 
-        async Task<bool> IUserService.IsUniqueUsername(string username)
+        async Task<bool> IUserService.ExistUsername(string username)
         {
-            return await userRepository.GetByUsername(username) == null;
+            return await userRepository.GetByUsername(username) != null;
         }
 
-        public static async Task<bool> IsUniqueUsername(string username)
+        public static async Task<bool> ExistUsername(string username)
         {
-            return await IsUniqueUsername(username);
+            return await ExistUsername(username);
         }
 
-        async Task<bool> IUserService.IsUniquePhoneNumber(string phoneNumber)
+        async Task<bool> IUserService.ExistPhoneNumber(string phoneNumber)
         {
-            return await userRepository.GetByPhoneNumber(phoneNumber) == null;
+            return await userRepository.GetByPhoneNumber(phoneNumber) != null;
         }
 
-        public static async Task<bool> IsUniquePhoneNumber(string phoneNumber)
+        public static async Task<bool> ExistPhoneNumber(string phoneNumber)
         {
-            return await IsUniquePhoneNumber(phoneNumber);
+            return await ExistPhoneNumber(phoneNumber);
         }
 
-        async Task<bool> IUserService.IsUniqueEmail(string email)
+        async Task<bool> IUserService.ExistEmail(string email)
         {
-            return await userRepository.GetByEmail(email) == null;
+            return await userRepository.GetByEmail(email) != null;
         }
 
-        public static async Task<bool> IsUniqueEmail(string email)
+        public static async Task<bool> ExistEmail(string email)
         {
-            return await IsUniqueEmail(email);
+            return await ExistEmail(email);
         }
 
         public async Task Delete(User user)
