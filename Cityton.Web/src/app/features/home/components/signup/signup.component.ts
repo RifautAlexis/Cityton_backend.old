@@ -7,17 +7,21 @@ import { AuthService } from '@core/services/auth.service';
 import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
 import { IUser as User } from '@shared/models/User';
 
-import { ExistUsernameValidator,
+import {
+  ExistUsernameValidator,
   ExistPhoneNumberValidator,
   ExistEmailValidator,
-  equalPasswordsValidator } from '@shared/form-validators/user';
+  equalPasswordsValidator
+} from '@shared/form-validators/user';
+
+import { MatDialogRef } from '@angular/material';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html'
+  selector: 'app-signup',
+  templateUrl: './signup.component.html'
 })
 
-export class RegisterComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   registerForm: FormGroup;
 
@@ -26,7 +30,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private existUsernameValidator: ExistUsernameValidator,
     private existPhoneNumberValidator: ExistPhoneNumberValidator,
-    private existEmailValidator: ExistEmailValidator) { }
+    private existEmailValidator: ExistEmailValidator,
+    public dialogRef: MatDialogRef<SignupComponent>) { }
 
   ngOnInit() {
 
@@ -91,12 +96,14 @@ export class RegisterComponent implements OnInit {
         (error: any) => {
           console.log(error);
         }
-      )
+      );
+
+    this.dialogRef.close();
 
   }
 
   cancel() {
-    this.router.navigate(['']);
+    this.dialogRef.close();
   }
 
 }

@@ -1,2 +1,16 @@
-<button mat-raised-button [routerLink]='["login"]'>Sign in</button>
-<button mat-raised-button [routerLink]="['register']">Sign up</button>
+<section>
+
+  <h1> Cityton </h1>
+  <h2> Join this great adventure </h2>
+  <p>
+    The holy trinity
+    <br>
+    Free, Funny and F...
+  </p>
+
+</section>
+
+<section>
+  <button mat-raised-button (click)="openLogin()">Sign in</button>
+  <button mat-raised-button (click)="openSignup()">Sign up</button>
+</section>

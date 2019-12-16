@@ -7,6 +7,8 @@ import { IUser as User } from '@shared/models/User';
 
 import { AuthService } from '@core/services/auth.service';
 
+import { MatDialogRef } from '@angular/material';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
@@ -16,7 +18,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
 
@@ -49,6 +54,8 @@ export class LoginComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.dialogRef.close();
 
   }
 

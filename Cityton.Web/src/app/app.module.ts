@@ -11,8 +11,6 @@ import { CoreModule } from '@core/core.module';
 import{ AdminSpaceModule } from '@features/admin-space/admin-space.module';
 import{ ChatModule } from '@features/chat/chat.module';
 import{ HomeModule } from '@features/home/home.module';
-import{ LoginModule } from '@features/login/login.module';
-import{ RegisterModule } from '@features/register/register.module';
 import{ SettingsModule } from '@features/settings/settings.module';
 
 
@@ -29,8 +27,6 @@ import{ SettingsModule } from '@features/settings/settings.module';
     AdminSpaceModule,
     ChatModule,
     HomeModule,
-    LoginModule,
-    RegisterModule,
     SettingsModule
   ],
   providers: [],
