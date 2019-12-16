@@ -5,3 +5,18 @@
 button {
   margin: 100px;
 }
+
+#first-half {
+
+  height: 75vh;
+  width: 100vw;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-image: url("/assets/home.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  // background-position: center;
+}
