@@ -1,37 +1,42 @@
-<p>
-  Hey you, come in !
-  <br>
-  Happy to see you again !
-</p>
+<section>
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h1>
+    Hey you !
+  </h1>
+  <h2>
+    Happy to see you again !
+  </h2>
 
-  <div mat-dialog-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    <mat-form-field>
-      <mat-label>Email *</mat-label>
-      <input matNativeControl type="text" formControlName="email">
+    <div mat-dialog-content>
 
-      <mat-error *ngIf="loginForm.get('email').hasError('required')"> Email required </mat-error>
-      <mat-error *ngIf="loginForm.get('email').hasError('email')"> Wrong format email </mat-error>
+      <mat-form-field>
+        <label>Email *</label>
+        <input matNativeControl type="text" formControlName="email">
 
-    </mat-form-field>
+        <mat-error *ngIf="loginForm.get('email').hasError('required')"> Email required </mat-error>
+        <mat-error *ngIf="loginForm.get('email').hasError('email')"> Wrong format email </mat-error>
 
-    <mat-form-field>
-      <mat-label>Password *</mat-label>
-      <input matNativeControl type="password" formControlName="password">
+      </mat-form-field>
 
-      <mat-error *ngIf="loginForm.get('password').hasError('required')"> Password required </mat-error>
+      <mat-form-field>
+        <label>Password *</label>
+        <input matNativeControl type="password" formControlName="password">
 
-    </mat-form-field>
+        <mat-error *ngIf="loginForm.get('password').hasError('required')"> Password required </mat-error>
 
-  </div>
+      </mat-form-field>
 
-  <div mat-dialog-actions>
+    </div>
 
-    <button type="submit" [disabled]="!loginForm.valid"> Submit </button>
-    <button (click)="cancel()"> Cancel </button>
+    <div mat-dialog-actions>
 
-  </div>
+      <button mat-raised-button color="accent" (click)="cancel()"> Cancel </button>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!loginForm.valid"> Submit </button>
 
-</form>
+    </div>
+
+  </form>
+
+</section>

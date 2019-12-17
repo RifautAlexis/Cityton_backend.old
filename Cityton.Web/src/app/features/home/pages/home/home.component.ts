@@ -22,13 +22,13 @@ export class HomeComponent implements OnInit {
 
   openLogin(): void {
     this.dialog.open(LoginComponent, {
-      width: '250px'
+      width: 'auto'
     });
   }
 
   openSignup(): void {
     this.dialog.open(SignupComponent, {
-      width: '250px'
+      width: 'auto'
     });
   }
 

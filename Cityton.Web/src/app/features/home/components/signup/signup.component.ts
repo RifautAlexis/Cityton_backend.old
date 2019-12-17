@@ -18,7 +18,8 @@ import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html'
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
 
 export class SignupComponent implements OnInit {
@@ -48,7 +49,6 @@ export class SignupComponent implements OnInit {
       phoneNumber: ['',
         {
           validators: [
-            Validators.required,
             Validators.minLength(10)
           ],
           asyncValidators: [this.existPhoneNumberValidator.validate]
