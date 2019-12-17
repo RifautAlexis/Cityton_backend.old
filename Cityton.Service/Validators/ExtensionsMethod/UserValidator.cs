@@ -29,7 +29,7 @@ namespace Cityton.Service.Validators.ExtensionsMethod
         public static IRuleBuilderOptions<T, string> PhoneNumberValidation<T>(this IRuleBuilder<T, string> rule)
         {
             return rule
-                .When(pn => !string.IsNullOrEmpty(pn))
+                // .When(pn => !string.IsNullOrEmpty(pn))
                 .NotEmpty()
                 .MinimumLength(10)
                 .NotStartEndWithWhiteSpace();

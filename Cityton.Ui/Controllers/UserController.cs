@@ -111,6 +111,7 @@ namespace Cityton.Ui.Controllers
         // }
 
         [HttpGet("existEmail/{email}")]
+        [AllowAnonymous]
         public async Task<IActionResult> ExistEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
@@ -120,6 +121,7 @@ namespace Cityton.Ui.Controllers
         }
 
         [HttpGet("existPhoneNumber/{phoneNumber}")]
+        [AllowAnonymous]
         public async Task<IActionResult> ExistPhoneNumber(string phoneNumber)
         {
             if (string.IsNullOrEmpty(phoneNumber))
@@ -129,6 +131,7 @@ namespace Cityton.Ui.Controllers
         }
 
         [HttpGet("existUsername/{username}")]
+        [AllowAnonymous]
         public async Task<IActionResult> ExistUsername(string username)
         {
             if (string.IsNullOrEmpty(username))
