@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
           validators: [
             Validators.minLength(10)
           ],
-          asyncValidators: [this.existPhoneNumberValidator.validate]
+          asynValidators: [this.existPhoneNumberValidator.validate]
         }
       ],
       email: ['',
@@ -88,7 +88,7 @@ export class SignupComponent implements OnInit {
       companyId: 1
     };
 
-    this.authService.register(this.registerForm.value)
+    this.authService.register(userRegister)
       .subscribe(
         (data: User) => {
           this.router.navigate(['chat']);
