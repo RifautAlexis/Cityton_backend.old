@@ -16,7 +16,7 @@ export class ExistEmailValidator implements AsyncValidator {
   constructor(private userService: UserService) { }
 
   validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    if (ctrl.value !== null && ctrl.value === "") {
+    if (ctrl.value !== null && ctrl.value !== "") {
 
       return this.userService.existEmail(ctrl.value).pipe(
         map((isEmailTaken: boolean) => {
@@ -31,7 +31,7 @@ export class ExistEmailValidator implements AsyncValidator {
   }
 
   validateEdit = (ctrl: AbstractControl, actualEmail: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    if (ctrl.value !== null && ctrl.value === "") {
+    if (ctrl.value !== null && ctrl.value !== "") {
 
       return this.userService.existEmail(ctrl.value).pipe(
         map((isEmailTaken: boolean) => {
@@ -67,7 +67,7 @@ export class ExistPhoneNumberValidator implements AsyncValidator {
   }
 
   validateEdit = (ctrl: AbstractControl, actualPhoneNumber: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    if (ctrl.value !== null && ctrl.value === "") {
+    if (ctrl.value !== null && ctrl.value !== "") {
 
       return this.userService.existPhoneNumber(ctrl.value).pipe(
         map((isPhoneNumberTaken: boolean) => {
@@ -88,7 +88,7 @@ export class ExistUsernameValidator implements AsyncValidator {
   constructor(private userService: UserService) { }
 
   validate = (ctrl: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    if (ctrl.value !== null && ctrl.value === "") {
+    if (ctrl.value !== null && ctrl.value !== "") {
 
       return this.userService.existUsername(ctrl.value).pipe(
         map((isUsernameTaken: boolean) => {
@@ -104,7 +104,7 @@ export class ExistUsernameValidator implements AsyncValidator {
   }
 
   validateEdit = (ctrl: AbstractControl, actualUsername: string): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    if (ctrl.value !== null && ctrl.value === "") {
+    if (ctrl.value !== null && ctrl.value !== "") {
 
       return this.userService.existUsername(ctrl.value).pipe(
         map((isUsernameTaken: boolean) => {

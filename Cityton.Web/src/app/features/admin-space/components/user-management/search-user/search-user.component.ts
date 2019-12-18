@@ -72,7 +72,7 @@ export class SearchUserComponent implements OnInit {
     this.userService.deleteUser(userId);
   }
 
-  async openDialog(userId: string) {
+  async openEdit(userId: string) {
     let user: User = null;
 
     await this.userService.get(userId).then(
