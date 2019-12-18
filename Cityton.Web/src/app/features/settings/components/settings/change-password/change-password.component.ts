@@ -12,7 +12,8 @@ import { equalPasswordsValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-password',
-  templateUrl: './change-password.component.html'
+  templateUrl: './change-password.component.html',
+  styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit {
 
@@ -81,12 +82,3 @@ export class ChangePasswordComponent implements OnInit {
   }
 
 }
-
-// export const passwordsNotEqual: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
-//   const password = control.get('password');
-//   const confirmPassword = control.get('confirmPassword');
-
-//   console.log("identityRevealedValidator Called")
-
-//   return password && confirmPassword && password.value === confirmPassword.value ? { 'passwordsNotEqual': true } : null;
-// };

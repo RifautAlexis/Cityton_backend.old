@@ -6,7 +6,8 @@ import { UserService } from '@core/services/user.service';
 
 @Component({
   selector: 'app-userManagement',
-  templateUrl: './user-management.component.html'
+  templateUrl: './user-management.component.html',
+  styleUrls: ['./user-management.component.scss']
 })
 
 export class UserManagementComponent implements OnInit {

@@ -11,7 +11,8 @@ import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-phoneNumber',
-  templateUrl: './change-phoneNumber.component.html'
+  templateUrl: './change-phoneNumber.component.html',
+  styleUrls: ['./change-phoneNumber.component.scss']
 })
 
 export class ChangePhoneNumberComponent implements OnInit {

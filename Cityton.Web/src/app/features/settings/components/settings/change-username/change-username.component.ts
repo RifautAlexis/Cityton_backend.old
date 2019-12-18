@@ -11,7 +11,8 @@ import { ExistUsernameValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-username',
-  templateUrl: './change-username.component.html'
+  templateUrl: './change-username.component.html',
+  styleUrls: ['./change-username.component.scss']
 })
 export class ChangeUsernameComponent implements OnInit {
 

@@ -11,7 +11,8 @@ import { ExistEmailValidator } from '@shared/form-validators/user';
 
 @Component({
   selector: 'app-change-email',
-  templateUrl: './change-email.component.html'
+  templateUrl: './change-email.component.html',
+  styleUrls: ['./change-email.component.scss']
 })
 
 export class ChangeEmailComponent implements OnInit {

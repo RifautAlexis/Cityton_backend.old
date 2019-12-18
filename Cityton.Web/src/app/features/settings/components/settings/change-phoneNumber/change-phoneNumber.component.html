@@ -1,8 +1,8 @@
-<h1>Change phone number</h1>
+<h1> Change phone number </h1>
 <form [formGroup]="phoneNumberForm" (ngSubmit)="onSubmit()">
 
   <mat-form-field>
-    <label>Phone number :</label>
+    <label> Phone number </label>
     <input matNativeControl type="text" formControlName="phoneNumber">
 
     <mat-error *ngIf="phoneNumberForm.get('phoneNumber').hasError('required')"> Password required </mat-error>
@@ -13,6 +13,8 @@
   <ng-container *ngIf="this.phoneNumberForm.errors">
     <mat-error *ngIf="this.phoneNumberForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
   </ng-container>
+
+  <br>
 
   <button mat-raised-button color="accent" type="submit" [disabled]="!phoneNumberForm.valid"> Submit </button>
   <button mat-raised-button color="accent" type="button" (click)="cancel(phoneNumberForm)"> Cancel </button>
