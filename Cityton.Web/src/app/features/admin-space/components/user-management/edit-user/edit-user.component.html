@@ -38,14 +38,12 @@
       <mat-error *ngIf="this.editUserForm.get('email').errors?.uniqueEmail"> Email is already taken. </mat-error>
     </ng-container>
 
-
-
   </div>
 
   <div mat-dialog-actions>
 
-    <button mat-button (click)="close()"> Cancel </button>
-    <button mat-button [disabled]="!editUserForm.valid" [mat-dialog-close]="data" cdkFocusInitial> Apply
+    <button mat-raised-button color="accent" type="button" (click)="close()"> Cancel </button>
+    <button mat-raised-button color="accent" type="button"  [disabled]="!editUserForm.valid" [mat-dialog-close]="data" cdkFocusInitial> Apply
     </button>
 
   </div>

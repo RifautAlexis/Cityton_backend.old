@@ -3,5 +3,5 @@
 <img [src]="url">
 
 <input #fileInput id="fileInput" type='file' (click)="fileInput.value = null" value=""  (change)="preview($event.target.files)">
-<button class="btn btn-default" *ngIf="url" (click)="onSelectFile()">submit</button>
-<button class="btn btn-default" *ngIf="url" (click)="delete()">delete</button>
+<button mat-raised-button color="accent" class="btn btn-default" *ngIf="url" (click)="onSelectFile()">submit</button>
+<button mat-raised-button color="accent" class="btn btn-default" *ngIf="url" (click)="delete()">delete</button>

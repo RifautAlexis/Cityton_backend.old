@@ -15,7 +15,7 @@
     <mat-error *ngIf="this.emailForm.get('email').errors?.uniqueEmail"> Email is already taken. </mat-error>
   </ng-container>
 
-  <button type="submit" [disabled]="!emailForm.valid"> Submit </button>
-  <button (click)="cancel(emailForm)"> Cancel </button>
+  <button mat-raised-button color="accent" type="submit" [disabled]="!emailForm.valid"> Submit </button>
+  <button mat-raised-button color="accent" type="button" (click)="cancel(emailForm)"> Cancel </button>
 
 </form>

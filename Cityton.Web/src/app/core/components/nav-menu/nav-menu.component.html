@@ -1,52 +1,52 @@
 <mat-sidenav-container>
 
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav mode="side" opened id="menu">
 
     <mat-list>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Settings')">
+        <button mat-fab (click)="selectMenu('Settings')">
           <i class="material-icons">
             build
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Chat')">
+        <button mat-fab (click)="selectMenu('Chat')">
           <i class="material-icons">
             chat
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Groups')">
+        <button mat-fab (click)="selectMenu('Groups')">
           <i class="material-icons">
             group
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Challenges')">
+        <button mat-fab (click)="selectMenu('Challenges')">
           <i class="material-icons">
             stars
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Medias')">
+        <button mat-fab (click)="selectMenu('Medias')">
           <i class="material-icons">
             perm_media
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="selectMenu('Admin space')">
+        <button mat-fab (click)="selectMenu('Admin space')">
           <i class="material-icons">
             security
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-mini-fab (click)="logout()">
+        <button mat-fab (click)="logout()">
           <i class="material-icons">
             power_settings_new
           </i>
@@ -119,7 +119,7 @@
 
       </mat-sidenav>
 
-      <mat-sidenav-content>
+      <mat-sidenav-content id="content">
         <router-outlet></router-outlet>
       </mat-sidenav-content>
 

@@ -14,7 +14,7 @@
     <mat-error *ngIf="this.phoneNumberForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
   </ng-container>
 
-  <button type="submit" [disabled]="!phoneNumberForm.valid"> Submit </button>
-  <button (click)="cancel(phoneNumberForm)"> Cancel </button>
+  <button mat-raised-button color="accent" type="submit" [disabled]="!phoneNumberForm.valid"> Submit </button>
+  <button mat-raised-button color="accent" type="button" (click)="cancel(phoneNumberForm)"> Cancel </button>
 
 </form>

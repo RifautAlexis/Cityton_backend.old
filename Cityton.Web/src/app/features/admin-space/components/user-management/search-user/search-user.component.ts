@@ -14,12 +14,14 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-user',
-  templateUrl: './search-user.component.html'
+  templateUrl: './search-user.component.html',
+  styleUrls: ['./search-user.component.scss']
 })
 
 export class SearchUserComponent implements OnInit {
 
-  searchForm: FormGroup;
+  searchField: string;
+
   selectedSecurity: string = "All";
   users$: Observable<User[]>;
   users: User[];
@@ -31,9 +33,6 @@ export class SearchUserComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.searchForm = this.formBuilder.group({
-      search: ['']
-    });
   }
 
   onChange(security: string) {
@@ -41,11 +40,8 @@ export class SearchUserComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.searchForm.invalid) {
-      return;
-    }
 
-    let username: string = this.searchForm.controls.search.value ? this.searchForm.controls.search.value : "";
+    let username: string = this.searchField ? this.searchField : "";
 
     this.users$ = this.userService.searchUser(username, this.selectedSecurity)
       .pipe(map((users: User[]) => {
