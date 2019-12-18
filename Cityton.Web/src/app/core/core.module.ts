@@ -7,8 +7,10 @@ import { RouterModule } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { IODataService } from './services/IOData.service';
 
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 
@@ -24,7 +26,10 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
   providers: [
     AuthService,
     UserService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    IODataService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+
   ],
   exports: [
     NavMenuComponent
