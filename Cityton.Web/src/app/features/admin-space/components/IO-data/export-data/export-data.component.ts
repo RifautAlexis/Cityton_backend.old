@@ -6,7 +6,8 @@ import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-export-data',
-  templateUrl: './export-data.component.html'
+  templateUrl: './export-data.component.html',
+  styleUrls: ['./export-data.component.scss']
 })
 
 export class ExportDataComponent implements OnInit {
