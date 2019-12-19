@@ -75,7 +75,8 @@
             <p>search field</p>
             <mat-list>
               <ng-container *ngFor="let thread of threads">
-                <mat-list-item [routerLink]="['/register', thread.id]"> threads01 </mat-list-item>
+                <!-- <mat-list-item [routerLink]="['/register', thread.id]"> threads01 </mat-list-item> -->
+                <mat-list-item> threads01 </mat-list-item>
               </ng-container>
               <mat-list-item> add </mat-list-item>
             </mat-list>
@@ -84,29 +85,37 @@
           <ng-container *ngSwitchCase="'Groups'">
 
             <mat-list>
-              <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
-              <mat-list-item [routerLink]="['/myGroup']"> My group </mat-list-item>
+              <!-- <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
+              <mat-list-item [routerLink]="['/myGroup']"> My group </mat-list-item> -->
+              <mat-list-item> See all groups </mat-list-item>
+              <mat-list-item> My group </mat-list-item>
             </mat-list>
 
           </ng-container>
           <ng-container *ngSwitchCase="'Challenges'">
 
             <mat-list>
-              <mat-list-item [routerLink]="['/challenges']"> All challenges </mat-list-item>
-              <mat-list-item [routerLink]="['/challenges/stats']"> Global stats </mat-list-item>
+              <!-- <mat-list-item [routerLink]="['/challenges']"> All challenges </mat-list-item>
+              <mat-list-item [routerLink]="['/challenges/stats']"> Global stats </mat-list-item> -->
+              <mat-list-item> All challenges </mat-list-item>
+              <mat-list-item> Global stats </mat-list-item>
             </mat-list>
 
           </ng-container>
           <ng-container *ngSwitchCase="'Medias'">
 
-            <a [routerLink]="['/medias']">Filter</a>
+            <!-- <a [routerLink]="['/medias']">Filter</a> -->
+            <a>Filter</a>
+
 
           </ng-container>
           <ng-container *ngSwitchCase="'Admin space'">
 
             <mat-list>
-              <mat-list-item [routerLink]="['/admin/groups']"> Groups </mat-list-item>
-              <mat-list-item [routerLink]="['/admin/challenges']"> Challenges </mat-list-item>
+              <!-- <mat-list-item [routerLink]="['/admin/groups']"> Groups </mat-list-item>
+              <mat-list-item [routerLink]="['/admin/challenges']"> Challenges </mat-list-item> -->
+              <mat-list-item> Groups </mat-list-item>
+              <mat-list-item> Challenges </mat-list-item>
               <mat-list-item [routerLink]="['/admin/data']"> Data management </mat-list-item>
               <mat-list-item [routerLink]="['/admin/user']"> User management </mat-list-item>
             </mat-list>
