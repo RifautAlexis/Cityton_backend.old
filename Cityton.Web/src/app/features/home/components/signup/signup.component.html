@@ -27,7 +27,7 @@
           <label>Phone number</label>
           <input matNativeControl type="text" formControlName="phoneNumber">
 
-          <mat-error *ngIf="registerForm.get('phoneNumber').hasError('minlength')"> Password required </mat-error>
+          <mat-error *ngIf="registerForm.get('phoneNumber').hasError('minlength')"> At least 10 characters required </mat-error>
 
         </mat-form-field>
 

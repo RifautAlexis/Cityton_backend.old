@@ -143,35 +143,35 @@ namespace Cityton.Service
             return uploadResult.SecureUri.AbsoluteUri;
         }
 
-        async Task<bool> IUserService.ExistUsername(string username)
+        public async Task<bool> ExistUsername(string username)
         {
             return await userRepository.GetByUsername(username) != null;
         }
 
-        public static async Task<bool> ExistUsername(string username)
-        {
-            return await ExistUsername(username);
-        }
+        // public static async Task<bool> ExistUsername(string username)
+        // {
+        //     return await ExistUsername(username);
+        // }
 
-        async Task<bool> IUserService.ExistPhoneNumber(string phoneNumber)
+        public async Task<bool> ExistPhoneNumber(string phoneNumber)
         {
             return await userRepository.GetByPhoneNumber(phoneNumber) != null;
         }
 
-        public static async Task<bool> ExistPhoneNumber(string phoneNumber)
-        {
-            return await ExistPhoneNumber(phoneNumber);
-        }
+        // public static async Task<bool> ExistPhoneNumber(string phoneNumber)
+        // {
+        //     return await ExistPhoneNumber(phoneNumber);
+        // }
 
-        async Task<bool> IUserService.ExistEmail(string email)
+        public async Task<bool> ExistEmail(string email)
         {
             return await userRepository.GetByEmail(email) != null;
         }
 
-        public static async Task<bool> ExistEmail(string email)
-        {
-            return await ExistEmail(email);
-        }
+        // public static async Task<bool> ExistEmail(string email)
+        // {
+        //     return await ExistEmail(email);
+        // }
 
         public async Task Delete(User user)
         {

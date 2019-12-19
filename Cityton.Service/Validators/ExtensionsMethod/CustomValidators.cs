@@ -11,6 +11,7 @@ namespace Cityton.Service.Validators
         public static IRuleBuilderOptions<T, string> NotStartEndWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)
         {
             return ruleBuilder.NotStartWithWhiteSpace().NotEndWithWhiteSpace();
+            // return ruleBuilder.Must(x => x != null && !x.StartsWith(" ") && !x.EndsWith(" "));
         }
 
         public static IRuleBuilderOptions<T, string> NotStartWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)

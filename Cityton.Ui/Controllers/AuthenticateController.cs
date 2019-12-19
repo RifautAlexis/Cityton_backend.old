@@ -63,19 +63,17 @@ namespace Cityton.Ui.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]RegisterDTO data)
+        public async Task<IActionResult> Register([FromBody] RegisterDTO data)
         {
 
-            var validator = new RegisterDTOValidator();
+            var validator = new RegisterDTOValidator(this._userService);
             var results = await validator.ValidateAsync(data);
             results.AddToModelState(ModelState, "RegisterDTO");
 
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
-            //if(_userService.GetByEmail(data.Email)) { return this.BadRequest("lol"); }
-
             User newUser = data.ToUser();
-
+            
             string tokenSecret = this._appSettings.GetSection("Settings:Secret").Value;
             newUser.CreateToken(tokenSecret);
 
@@ -92,6 +90,5 @@ namespace Cityton.Ui.Controllers
 				Token = user.Token
             });
         }
-
     }
 }

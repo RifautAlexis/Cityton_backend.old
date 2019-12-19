@@ -22,32 +22,31 @@ namespace Cityton.Service.Validators.ExtensionsMethod
         {
             return rule
                 .NotEmpty()
-                .MinimumLength(3)
-                .NotStartEndWithWhiteSpace();
+                .MinimumLength(3);
+                // .NotStartEndWithWhiteSpace();
         }
 
         public static IRuleBuilderOptions<T, string> PhoneNumberValidation<T>(this IRuleBuilder<T, string> rule)
         {
             return rule
-                // .When(pn => !string.IsNullOrEmpty(pn))
                 .NotEmpty()
-                .MinimumLength(10)
-                .NotStartEndWithWhiteSpace();
+                .MinimumLength(10);
+                // .NotStartEndWithWhiteSpace();
         }
 
         public static IRuleBuilderOptions<T, string> EmailValidation<T>(this IRuleBuilder<T, string> rule)
         {
             return rule
                 .NotEmpty()
-                .NotStartEndWithWhiteSpace()
+                // .NotStartEndWithWhiteSpace()
                 .EmailAddress();
         }
 
         public static IRuleBuilderOptions<T, string> PictureValidation<T>(this IRuleBuilder<T, string> rule)
         {
             return rule
-                .NotEmpty()
-                .NotStartEndWithWhiteSpace();
+                .NotEmpty();
+                // .NotStartEndWithWhiteSpace();
         }
 
         public static IRuleBuilderOptions<T, Role> RoleValidation<T>(this IRuleBuilder<T, Role> rule)
@@ -60,8 +59,8 @@ namespace Cityton.Service.Validators.ExtensionsMethod
         public static IRuleBuilderOptions<T, string> TokenValidation<T>(this IRuleBuilder<T, string> rule)
         {
             return rule
-                .NotEmpty()
-                .NotStartEndWithWhiteSpace();
+                .NotEmpty();
+                // .NotStartEndWithWhiteSpace();
         }
 
         /*
@@ -71,8 +70,8 @@ namespace Cityton.Service.Validators.ExtensionsMethod
         {
             return rule
                 .NotEmpty()
-                .MinimumLength(3)
-                .NotStartEndWithWhiteSpace();
+                .MinimumLength(3);
+                // .NotStartEndWithWhiteSpace();
         }
 
     }
