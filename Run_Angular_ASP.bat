@@ -1,4 +1,4 @@
-cd Cityton.Web
+cd WebUi
 start "ng serve" ng serve --watch=true
 
 cd ..\Cityton.Ui
