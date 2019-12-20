@@ -66,7 +66,7 @@ export class ChangePasswordComponent implements OnInit {
     );
   }
 
-  cancel(formToReset: NgForm) {
+  cancel(formToReset: FormGroup) {
     formToReset.reset();
   }
 

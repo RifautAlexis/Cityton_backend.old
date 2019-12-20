@@ -7,58 +7,56 @@ import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { ExistEmailValidator } from '@shared/form-validators/user';
+import { ExistUsernameValidator } from '@shared/form-validators/user';
 
 @Component({
-  selector: 'app-change-email',
-  templateUrl: './change-email.component.html',
-  styleUrls: ['./change-email.component.scss']
+  selector: 'app-change-username',
+  templateUrl: './change-username.component.html',
+  styleUrls: ['./change-username.component.scss']
 })
+export class ChangeUsernameComponent implements OnInit {
 
-export class ChangeEmailComponent implements OnInit {
+  usernameForm: FormGroup;
 
-  emailForm: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-    private existEmailValidator: ExistEmailValidator) { }
+    private existUsernameValidator: ExistUsernameValidator) { }
 
   ngOnInit() {
-    this.emailForm = this.formBuilder.group({
-      email: ['',
+    this.usernameForm = this.formBuilder.group({
+      username: ['',
         {
           validators: [
             Validators.required,
-            Validators.email
+            Validators.minLength(3)
           ],
-          asyncValidators: [this.existEmailValidator.validate]
+          asyncValidators: [this.existUsernameValidator.validate]
         }
       ]
     });
   }
 
   onSubmit() {
-    if (this.emailForm.invalid) {
+    if (this.usernameForm.invalid) {
       return;
     }
 
     let currentUser: User = this.authService.currentUserValue();
+    let obj: User = JSON.parse(this.authService.currentTokenValue());
 
     let user: UserToUpdate = {
       id: currentUser.id,
-      username: currentUser.username,
+      username: this.usernameForm.controls.username.value,
       phoneNumber: currentUser.phoneNumber,
-      email: this.emailForm.controls.email.value,
+      email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
       password: ""
     };
 
     this.userService.update(user).subscribe(
-      (user: User) => {
-        this.authService.updateCurrentUser(user);
+      (data: User) => {
         // this.router.navigate(['chat']);
       },
       (error: any) => {
@@ -67,7 +65,7 @@ export class ChangeEmailComponent implements OnInit {
     );
   }
 
-  cancel(formToReset: NgForm) {
+  cancel(formToReset: FormGroup) {
     formToReset.reset();
   }
 

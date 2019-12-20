@@ -10,8 +10,8 @@
 
   </mat-form-field>
 
-  <ng-container *ngIf="this.usernameForm.get('username').invalid">
-    <mat-error *ngIf="this.usernameForm.get('username').errors?.uniqueUsername"> This username is already taken </mat-error>
+  <ng-container *ngIf="usernameForm.get('username').invalid">
+    <mat-error *ngIf="usernameForm.get('username').errors?.uniqueUsername"> This username is already taken </mat-error>
   </ng-container>
 
   <br>

@@ -11,8 +11,8 @@
 
   </mat-form-field>
 
-  <ng-container *ngIf="this.emailForm.get('email').invalid">
-    <mat-error *ngIf="this.emailForm.get('email').errors?.uniqueEmail"> Email is already taken. </mat-error>
+  <ng-container *ngIf="emailForm.get('email').invalid">
+    <mat-error *ngIf="emailForm.get('email').errors?.uniqueEmail"> Email is already taken. </mat-error>
   </ng-container>
 
   <br>

@@ -10,8 +10,8 @@
 
   </mat-form-field>
 
-  <ng-container *ngIf="this.phoneNumberForm.errors">
-    <mat-error *ngIf="this.phoneNumberForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
+  <ng-container *ngIf="phoneNumberForm.errors">
+    <mat-error *ngIf="phoneNumberForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
   </ng-container>
 
   <br>

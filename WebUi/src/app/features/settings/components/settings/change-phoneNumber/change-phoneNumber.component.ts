@@ -1,54 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
-import { ExistUsernameValidator } from '@shared/form-validators/user';
+
+import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
 
 @Component({
-  selector: 'app-change-username',
-  templateUrl: './change-username.component.html',
-  styleUrls: ['./change-username.component.scss']
+  selector: 'app-change-phoneNumber',
+  templateUrl: './change-phoneNumber.component.html',
+  styleUrls: ['./change-phoneNumber.component.scss']
 })
-export class ChangeUsernameComponent implements OnInit {
 
-  usernameForm: FormGroup;
+export class ChangePhoneNumberComponent implements OnInit {
+
+  phoneNumberForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService,
-    private existUsernameValidator: ExistUsernameValidator) { }
+    private existPhoneNumberValidator: ExistPhoneNumberValidator) { }
 
   ngOnInit() {
-    this.usernameForm = this.formBuilder.group({
-      username: ['',
+    this.phoneNumberForm = this.formBuilder.group({
+      phoneNumber: ['',
         {
           validators: [
             Validators.required,
-            Validators.minLength(3)
+            Validators.minLength(10)
           ],
-          asyncValidators: [this.existUsernameValidator.validate]
+          asyncValidators: [this.existPhoneNumberValidator.validate]
         }
       ]
     });
   }
 
   onSubmit() {
-    if (this.usernameForm.invalid) {
+    if (this.phoneNumberForm.invalid) {
       return;
     }
 
     let currentUser: User = this.authService.currentUserValue();
-    let obj: User = JSON.parse(this.authService.currentTokenValue());
 
     let user: UserToUpdate = {
       id: currentUser.id,
-      username: this.usernameForm.controls.username.value,
-      phoneNumber: currentUser.phoneNumber,
+      username: currentUser.username,
+      phoneNumber: this.phoneNumberForm.controls.username.value,
       email: currentUser.email,
       picture: currentUser.picture,
       role: currentUser.role,
@@ -56,7 +56,9 @@ export class ChangeUsernameComponent implements OnInit {
     };
 
     this.userService.update(user).subscribe(
-      (data: User) => {
+      (user: User) => {
+        this.authService.updateCurrentUser(user);
+
         // this.router.navigate(['chat']);
       },
       (error: any) => {
@@ -65,7 +67,7 @@ export class ChangeUsernameComponent implements OnInit {
     );
   }
 
-  cancel(formToReset: NgForm) {
+  cancel(formToReset: FormGroup) {
     formToReset.reset();
   }
 
