@@ -146,3 +146,11 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microso
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.NodeServices.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\web.config
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\appsettings.Development.json
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\appsettings.json
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\Cityton.Ui.deps.json
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\Cityton.Ui.runtimeconfig.json

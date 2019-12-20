@@ -25,6 +25,7 @@ using Cityton.Data.DTOs;
 using Cityton.Service.Validators.DTOs;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cityton.Ui
 {
@@ -119,6 +120,11 @@ namespace Cityton.Ui
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
 
+            // In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration => {
+                configuration.RootPath = "./publish/webui";
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -139,6 +145,9 @@ namespace Cityton.Ui
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+
             app.UseRouting();
 
             app.UseCors(options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
@@ -149,6 +158,14 @@ namespace Cityton.Ui
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                // spa.Options.SourcePath = "dist";
             });
         }
     }

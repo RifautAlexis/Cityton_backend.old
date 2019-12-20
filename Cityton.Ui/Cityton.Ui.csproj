@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <SpaRoot>..\WebUi\</SpaRoot>
+    <!-- <DefaultItemExcludes>.git*;ClientApp\*;$(DefaultItemExcludes)</DefaultItemExcludes> -->
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,11 +26,28 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Cityton.Data\Cityton.Data.csproj" />
     <ProjectReference Include="..\Cityton.Service\Cityton.Service.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+      <Content Include="..\WebUi\dist\**" CopyToPublishDirectory="Always"/>
+  </ItemGroup>
+
+  <!-- <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    
+    <ItemGroup>
+      <DistFiles Include="..\WebUi\dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+
+  </Target> -->
 
 </Project>
