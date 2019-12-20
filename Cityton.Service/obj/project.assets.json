@@ -8891,11 +8891,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
+      "projectUniqueName": "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
       "projectName": "Cityton.Service",
-      "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
+      "projectPath": "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\Cityton.Service.csproj",
       "packagesPath": "C:\\Users\\Morphos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\obj\\",
+      "outputPath": "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8916,11 +8916,11 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Data\\Cityton.Data.csproj": {
-              "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Data\\Cityton.Data.csproj"
+            "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Data\\Cityton.Data.csproj": {
+              "projectPath": "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Data\\Cityton.Data.csproj"
             },
-            "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Repository\\Cityton.Repository.csproj": {
-              "projectPath": "C:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Repository\\Cityton.Repository.csproj"
+            "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Repository\\Cityton.Repository.csproj": {
+              "projectPath": "c:\\Users\\Morphos\\source\\repos\\Cityton\\Cityton.Repository\\Cityton.Repository.csproj"
             }
           }
         }

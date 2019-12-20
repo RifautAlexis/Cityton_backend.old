@@ -1,10 +1,11 @@
 {
-  "name": "cityton.web",
+  "name": "cityton.ui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng run Cityton.Ui:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,7 +21,9 @@
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.7",
     "@angular/platform-browser-dynamic": "~8.2.7",
+    "@angular/platform-server": "8.0.0",
     "@angular/router": "~8.2.7",
+    "aspnet-prerendering": "^3.0.1",
     "@cloudinary/angular-5.x": "^1.0.3",
     "@types/file-saver": "^2.0.1",
     "cloudinary-core": "^2.8.0",
