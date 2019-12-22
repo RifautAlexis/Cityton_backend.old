@@ -1,13 +1,14 @@
-﻿using Cityton.Data.Common;
+using Cityton.Data.Common;
 using Cityton.Data.DTOs;
+using Cityton.Data;
 using Cityton.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cityton.Data
+namespace Cityton.Data.Mapper
 {
-    public static class Mapper
+    public static class UserMapper
     {
 
         public static void DeepCopy(this User user, UserUpdateDTO userToUpdate)

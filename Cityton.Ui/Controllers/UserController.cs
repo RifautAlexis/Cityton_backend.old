@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using FluentValidation.AspNetCore;
 using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
+using Cityton.Data.Mapper;
 using System.IO;
 
 namespace Cityton.Ui.Controllers

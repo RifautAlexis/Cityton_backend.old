@@ -12,8 +12,7 @@ import{ AdminSpaceModule } from '@features/admin-space/admin-space.module';
 import{ ChatModule } from '@features/chat/chat.module';
 import{ HomeModule } from '@features/home/home.module';
 import{ SettingsModule } from '@features/settings/settings.module';
-
-
+import{ GroupsModule } from '@features/groups/groups.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,8 @@ import{ SettingsModule } from '@features/settings/settings.module';
     AdminSpaceModule,
     ChatModule,
     HomeModule,
-    SettingsModule
+    SettingsModule,
+    GroupsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
