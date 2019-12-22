@@ -15,7 +15,10 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\FluentV
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.NodeServices.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -35,6 +38,7 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microso
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -50,6 +54,9 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Newtons
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\NuGet.Frameworks.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.Composition.AttributedModel.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.Composition.Convention.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\System.Composition.Hosting.dll
@@ -142,15 +149,3 @@ C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.csproj.CopyComplete
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.dll
 C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\obj\Debug\netcoreapp3.0\Cityton.Ui.pdb
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.NodeServices.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\web.config
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\appsettings.Development.json
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\appsettings.json
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\Cityton.Ui.deps.json
-C:\Users\Morphos\source\repos\Cityton\Cityton.Ui\bin\Debug\netcoreapp3.0\publish\Cityton.Ui.runtimeconfig.json
