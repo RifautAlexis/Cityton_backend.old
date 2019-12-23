@@ -10,6 +10,7 @@ namespace Cityton.Data.Models
 
         public Boolean IsCreator { get; set; }
         public Status Status { get; set; } = Status.Waiting;
+        public DateTime CreatedAt { get; set; }
 
         /*****/
 

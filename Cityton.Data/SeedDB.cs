@@ -14,6 +14,10 @@ namespace Cityton.Repository
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+
+            /*
+            *   Company
+            */
             modelBuilder.Entity<Company>().HasData(
                 new Company
                 {
@@ -25,11 +29,14 @@ namespace Cityton.Repository
                 }
             );
 
+            /*
+            *   User
+            */
             byte[] passwordHash, passwordSalt;
 
             CreatePasswordHash("123", out passwordHash, out passwordSalt);
 
-            List<User> users = new List<User>(){
+            User[] users = new User[] {
                 new User { Id = 1, Username = "admin01", PhoneNumber = "6019911684 ", Email = "admin01@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
                 new User { Id = 2, Username = "admin02", PhoneNumber = "3069338796 ", Email = "admin02@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
                 new User { Id = 3, Username = "admin03", PhoneNumber = "105989609 ", Email = "admin03@gmail.com", Role = Role.Admin, PasswordHash = passwordHash, PasswordSalt = passwordSalt, CompanyId = 1 },
@@ -52,7 +59,7 @@ namespace Cityton.Repository
 
             foreach (var user in users)
             {
-               CreateToken(user);
+                CreateToken(user);
 
             }
 
@@ -60,6 +67,9 @@ namespace Cityton.Repository
                 users
             );
 
+            /*
+            *   Challenge
+            */
             modelBuilder.Entity<Challenge>().HasData(
                 new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
                 new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
@@ -68,7 +78,54 @@ namespace Cityton.Repository
                 new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 04), AuthorId = 9 }
             );
 
-            //modelBuilder.Entity<Achievement>().HasDa
+            /*
+            *   Achieve;ent
+            */
+
+
+            /*
+            *   ChallengeGiven
+            */
+
+
+            /*
+            *   Group
+            */
+            Group[] groups = new Group[] {
+                new Group { Id = 1, Name = "group01", CreatedAt = new DateTime(2019, 01, 02) }
+            };
+
+            modelBuilder.Entity<Group>().HasData(
+                groups
+            );
+
+            /*
+            *   ParticipantGroup
+            */
+            ParticipantGroup[] ParticipantsGroup = new ParticipantGroup[] {
+                new ParticipantGroup { Id = 1, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 02) }
+            };
+            
+            modelBuilder.Entity<ParticipantGroup>().HasData(
+                ParticipantsGroup
+            );
+
+            /*
+            *   Discussion
+            */
+
+            /*
+            *   UserInDiscussion
+            */
+
+            /*
+            *   Message
+            */
+
+            /*
+            *   Media
+            */
+
         }
 
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
