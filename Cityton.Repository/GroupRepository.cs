@@ -13,7 +13,7 @@ namespace Cityton.Repository
 
     public interface IGroupRepository : IRepository<Group>
     {
-
+        
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository

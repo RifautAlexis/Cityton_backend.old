@@ -18,6 +18,7 @@ using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
 using System.IO;
 using Cityton.Data.Mapper;
+using FluentValidation.Results;
 
 namespace Cityton.Ui.Controllers
 {
@@ -30,11 +31,17 @@ namespace Cityton.Ui.Controllers
 
         private readonly IConfiguration _appSettings;
         private IGroupService _groupService;
+        private IUserService _userService;
 
-        public GroupController(IConfiguration config, IGroupService groupService)
+        public GroupController(
+            IConfiguration config,
+            IGroupService groupService,
+            IUserService userService
+        )
         {
             _appSettings = config;
             _groupService = groupService;
+            _userService = userService;
 
         }
 
@@ -55,9 +62,17 @@ namespace Cityton.Ui.Controllers
 
             if (group == null) return BadRequest();
 
-            // await this._groupService.;
+            User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
-            return Ok();
+            ValidationResult result = await this._groupService.MembershipRequest(groupId, connectedUser);
+
+            if (result != null)
+            {
+                result.AddToModelState(ModelState, "MembershipRequest");
+                return this.BadRequest(this.ModelState);
+            }
+
+            return Ok(true);
         }
 
     }
