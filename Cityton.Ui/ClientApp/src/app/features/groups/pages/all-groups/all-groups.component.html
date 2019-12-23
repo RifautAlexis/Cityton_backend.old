@@ -1,6 +1,6 @@
 <mat-list>
 
-  <mat-list-item *ngFor="let group of groups | async">
+  <mat-list-item *ngFor="let group of groups$ | async">
 
     <mat-card>
 
@@ -15,7 +15,7 @@
 
         <mat-nav-list>
           <mat-list-item *ngFor="let member of group.members">
-            {{ member }}
+            {{ member.username }}
           </mat-list-item>
         </mat-nav-list>
 
@@ -27,7 +27,7 @@
             add_circle_outline
           </i>
         </button>
-        <a mat-button [routerLink]="['/groups/information', group.id]">
+        <a mat-button [routerLink]="['/groups', group.id]">
           <i class="material-icons">
             help_outline
           </i>

@@ -35,7 +35,7 @@ namespace Cityton.Repository
             entities = context.Set<T>();
         }
 
-        public async Task<List<T>> GetAll()
+        virtual public async Task<List<T>> GetAll()
         {
             return await entities.ToListAsync();
         }
