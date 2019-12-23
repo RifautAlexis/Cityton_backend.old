@@ -3,15 +3,21 @@ import { SharedModule } from '@shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ChatRoutingModule } from './chat-routing.module';
+
+
 import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
-  declarations: [ChatComponent],
+  declarations: [
+    ChatComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    ChatRoutingModule
   ],
   providers: [],
 })

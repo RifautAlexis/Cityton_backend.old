@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 
+import { SettingsRoutingModule } from './settings-routing.module';
+
 import { SettingsComponent } from './pages/settings/settings.component';
 
 import { ChangeUsernameComponent } from './components/settings/change-username/change-username.component';
@@ -21,7 +23,8 @@ import { ChangePictureComponent } from './components/settings/change-picture/cha
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    SettingsRoutingModule
   ],
   providers: [],
 })

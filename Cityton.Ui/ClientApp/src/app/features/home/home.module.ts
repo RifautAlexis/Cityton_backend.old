@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '@shared/shared.module';
 
+import { HomeRoutingModule } from './home-routing.module';
+
+
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -18,7 +21,8 @@ import { SignupComponent } from './components/signup/signup.component';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    HomeRoutingModule
   ],
   entryComponents: [
     LoginComponent,

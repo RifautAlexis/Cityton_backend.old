@@ -7,10 +7,11 @@ import { IsNotConnectedGuard } from '@core/guards/auth.gard/isNotConnected.guard
 import { NavMenuComponent } from '@core/components/nav-menu/nav-menu.component';
 import { HomeComponent } from '@features/home/pages/home/home.component';
 
-import { ChatComponent } from '@features/chat/pages/chat/chat.component';
-import { SettingsComponent } from '@features/settings/pages/settings/settings.component';
-import { IODataComponent } from '@features/admin-space/pages/IO-data/IO-data.component';
-import { UserManagementComponent } from '@features/admin-space/pages/user-management/user-management.component';
+import { ChatModule } from '@features/chat/chat.module';
+import { SettingsModule } from '@features/settings/settings.module';
+import { AdminSpaceModule } from '@features/admin-space/admin-space.module';
+import { GroupsModule } from '@features/groups/groups.module';
+
 
 const routes: Routes = [
 
@@ -20,12 +21,10 @@ const routes: Routes = [
   {
     path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [
 
-      { path: 'chat:id', component: ChatComponent },
-      { path: 'chat', component: ChatComponent },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'admin', component: UserManagementComponent },
-      { path: 'admin/data', component: IODataComponent },
-      { path: 'admin/user', component: UserManagementComponent }
+      { path: 'chat', loadChildren: () => ChatModule },
+      { path: 'settings', loadChildren: () => SettingsModule },
+      { path: 'admin', loadChildren: () => AdminSpaceModule },
+      { path: 'groups', loadChildren: () => GroupsModule }
 
     ]
   }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { CommonModule } from '@angular/common';
 
+import { AdminSpaceRoutingModule } from './admin-space-routing.module';
+
 import { IODataComponent } from './pages/IO-data/IO-data.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 
@@ -23,7 +25,8 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AdminSpaceRoutingModule
   ],
   entryComponents: [
     EditUserComponent
