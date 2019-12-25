@@ -50,14 +50,18 @@ namespace Cityton.Ui.Controllers
         {
 
             List<Group> groups = await this._groupService.GetAll();
-            // Group group = groups.First();
+            
             return Ok(groups.ToDTO());
-            // return Ok(groups);
-            // if (group.Members == null)
-            // {
-            //     return Ok("NULL => " + group.Id);
-            // }
-            // return Ok(group.Id + " " + group.Name + " " + group.Picture + " " + group.Members.ToString());
+
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+
+            Group groups = await this._groupService.Get(id);
+            
+            return Ok(groups.ToDTO());
 
         }
 

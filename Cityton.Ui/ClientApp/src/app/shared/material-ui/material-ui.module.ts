@@ -11,8 +11,17 @@ import {
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
-  MatDividerModule
+  MatDividerModule,
+  MatGridListModule
 } from '@angular/material';
+
+import {
+  LayoutModule
+} from '@angular/cdk/layout';
+
+import {
+  FlexLayoutModule
+} from '@angular/flex-layout';
 
 const modules = [
   MatListModule,
@@ -25,7 +34,10 @@ const modules = [
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
-  MatDividerModule
+  MatDividerModule,
+  MatGridListModule,
+  LayoutModule,
+  FlexLayoutModule
 ];
 
 @NgModule({

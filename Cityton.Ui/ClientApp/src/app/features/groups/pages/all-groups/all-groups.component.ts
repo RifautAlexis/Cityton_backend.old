@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs';
 
 import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-all-groups',
@@ -15,13 +15,14 @@ export class AllGroupsComponent implements OnInit {
 
   groups$: Observable<Group[]>
 
-  constructor(private groupService: GroupService) { }
+  constructor(private groupService: GroupService) {
+  }
 
   ngOnInit() {
     this.groups$ = this.groupService.getAll();
   }
 
-  sendRequest(groupId : string) {
+  sendRequest(groupId: string) {
     this.groupService.membershipRequest(groupId);
   }
 

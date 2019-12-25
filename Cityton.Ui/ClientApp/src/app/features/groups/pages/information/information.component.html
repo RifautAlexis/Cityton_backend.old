@@ -1,3 +1,50 @@
+<h1> Members </h1>
+
+<ng-container *ngFor="let member of group.members">
+
+
+  <mat-grid-tile> {{member.username}} </mat-grid-tile>
+
+
+</ng-container>
+
+<mat-divider></mat-divider>
+
+<h1> Informations </h1>
+
 <p>
-  information works!
+  Name : {{group.name}}
+  Creator : {{creator}}
+  Creation date : {{group.createdAt}}
 </p>
+
+<mat-divider></mat-divider>
+
+<h1> Challenges succeed </h1>
+
+<p> In progress </p>
+
+<mat-divider></mat-divider>
+
+<h1> Membership request </h1>
+
+<mat-list>
+
+  <mat-list-item>
+    Jhon Snow
+    <button> OK </button>
+    <button> NOT OK </button>
+  </mat-list-item>
+
+</mat-list>
+
+<h1> Action </h1>
+
+<mat-list>
+
+  <mat-list-item>
+    <button> Leave this group </button>
+    <button> Delete the group </button>
+  </mat-list-item>
+
+</mat-list>

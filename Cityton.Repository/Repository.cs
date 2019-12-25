@@ -40,7 +40,7 @@ namespace Cityton.Repository
             return await entities.ToListAsync();
         }
 
-        public Task<T> Get(int id)
+        virtual public Task<T> Get(int id)
         {
             return entities.FindAsync(id).AsTask();
         }

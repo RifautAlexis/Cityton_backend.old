@@ -21,6 +21,7 @@ namespace Cityton.Data.Mapper
                 Id = data.Id,
                 Name = data.Name,
                 Picture = data.Picture,
+                CreatedAt = data.CreatedAt,
                 Members = data.Members.ToDTO()
             };
         }

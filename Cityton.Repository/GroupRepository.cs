@@ -28,5 +28,13 @@ namespace Cityton.Repository
                     .ThenInclude(pg => pg.User)
                 .ToListAsync();
         }
+
+        override public async Task<Group> Get(int id)
+        {
+            return await context.Groups
+                .Include(g => g.Members)
+                    .ThenInclude(pg => pg.User)
+                .FirstOrDefaultAsync();
+        }
     }
 }

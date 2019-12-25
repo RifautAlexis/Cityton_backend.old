@@ -1,6 +1,8 @@
-<mat-list>
+<section>
 
-  <mat-list-item *ngFor="let group of groups$ | async">
+  <h1> All Groups </h1>
+
+  <ng-container *ngFor="let group of groups$ | async">
 
     <mat-card>
 
@@ -13,11 +15,15 @@
 
       <mat-card-content>
 
-        <mat-nav-list>
-          <mat-list-item *ngFor="let member of group.members">
+        <div *ngFor="let member of group.members" class="username">
+          {{ member.username }}
+        </div>
+
+        <!-- <mat-list>
+          <mat-list-item *ngFor="let member of group.members" class="username">
             {{ member.username }}
           </mat-list-item>
-        </mat-nav-list>
+        </mat-list> -->
 
       </mat-card-content>
 
@@ -36,6 +42,6 @@
 
     </mat-card>
 
-  </mat-list-item>
+  </ng-container>
 
-</mat-list>
+</section>
