@@ -522,3 +522,8 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/angular,aspnetcore,visualstudio,xamarinstudio,visualstudiocode
+
+# Custom rules
+*.dll
+*.pdb
+*.cache
