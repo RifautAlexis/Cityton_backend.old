@@ -32,6 +32,7 @@ namespace Cityton.Repository
         override public async Task<Group> Get(int id)
         {
             return await context.Groups
+                .Where(g => g.Id == id)
                 .Include(g => g.Members)
                     .ThenInclude(pg => pg.User)
                 .FirstOrDefaultAsync();

@@ -5,7 +5,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { GroupService } from '@core/services/group.service';
 
-import { IGroup as Group } from '@shared/models/Group';
+import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
 
 @Component({
   selector: 'app-information',
@@ -14,7 +14,7 @@ import { IGroup as Group } from '@shared/models/Group';
 })
 export class InformationComponent implements OnInit {
 
-  group: Group;
+  group: GroupDetails;
   creator: string;
 
   constructor(private groupService: GroupService, private activatedRoute: ActivatedRoute) { }
@@ -23,25 +23,27 @@ export class InformationComponent implements OnInit {
 
     var id: number;
 
-    // Route parameters
     await this.activatedRoute.params.subscribe(params => {
       id = params.id;
     });
 
-    console.log(id);
-
-    // URL query parameters
-    // this.activatedRoute.queryParams.subscribe( params => {
-    //   this.queryParams = params;
-    // });
-
     this.groupService.get(id).subscribe(
-      (group: Group) => {
+      (group: GroupDetails) => {
+        console.log(group);
+        console.log(group.membershipRequests);
         this.group = group;
         this.creator = group.members.find(user => user.isCreator == true).username;
       }
     );
 
+  }
+
+  acceptRequest(requestId: number) {
+    this.groupService.acceptRequest(requestId);
+  }
+
+  declineRequest(requestId: number) {
+    this.groupService.declineRequest(requestId);
 
   }
 

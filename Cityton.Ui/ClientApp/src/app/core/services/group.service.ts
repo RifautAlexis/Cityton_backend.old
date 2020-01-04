@@ -24,4 +24,14 @@ export class GroupService {
     return this.http.post<any>(environment.apiUrl + 'group/membershipRequest/', groupId);
   }
 
+  acceptRequest(requestId): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + 'group/acceptRequest/', requestId);
+
+  }
+
+  declineRequest(requestId): Observable<any> {
+    return this.http.delete<any>(environment.apiUrl + 'group/declinRequest/' + requestId);
+
+  }
+
 }

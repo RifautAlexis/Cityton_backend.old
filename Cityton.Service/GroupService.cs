@@ -26,6 +26,10 @@ namespace Cityton.Service
         Task<Group> Get(int id);
         Task<ValidationResult> MembershipRequest(int groupId, User connectedUser);
         Task<bool> ExistRequest(ParticipantGroup data);
+        Task<bool> AlreadyAccepted(int userId);
+        Task<ParticipantGroup> GetRequest(int id);
+        Task AcceptRequest(ParticipantGroup participantGroup);
+        Task DeclineRequest(ParticipantGroup participantGroup);
     }
 
     public class GroupService : IGroupService
@@ -83,13 +87,44 @@ namespace Cityton.Service
         public async Task<bool> ExistRequest(ParticipantGroup data)
         {
             ParticipantGroup participantGroup = await this.participantGroupRepository.Get(data.BelongingGroupId, data.UserId);
-        
-            if(participantGroup == null) return false;
 
-            if(data.Status == participantGroup.Status) return true;
+            if (participantGroup == null) return false;
+
+            if (data.Status == participantGroup.Status) return true;
 
             return false;
 
+        }
+
+        public async Task<bool> AlreadyAccepted(int userId)
+        {
+            ParticipantGroup participantGroup = await this.participantGroupRepository.AlreadyAccepted(userId);
+
+            return participantGroup != null;
+        }
+
+        public async Task<ParticipantGroup> GetRequest(int id)
+        {
+            return await this.participantGroupRepository.Get(id);
+        }
+
+        public async Task AcceptRequest(ParticipantGroup participantGroup)
+        {
+            participantGroup.Status = Status.Accepted;
+            await this.participantGroupRepository.Update(participantGroup);
+
+            List<ParticipantGroup> allRequests = await this.participantGroupRepository.GetByUser(participantGroup.UserId);
+            foreach (var request in allRequests)
+            {
+                this.participantGroupRepository.Remove(request);
+            }
+
+            await this.participantGroupRepository.SaveChanges();
+        }
+
+        public async Task DeclineRequest(ParticipantGroup participantGroup)
+        {
+            await this.participantGroupRepository.Delete(participantGroup);
         }
 
     }

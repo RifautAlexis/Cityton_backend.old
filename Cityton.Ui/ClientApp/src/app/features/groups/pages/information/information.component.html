@@ -1,50 +1,62 @@
-<h1> Members </h1>
+<section *ngIf="group">
 
-<ng-container *ngFor="let member of group.members">
+  <h1> Members </h1>
 
+  <mat-grid-list cols="2" rowHeight="40px">
 
-  <mat-grid-tile> {{member.username}} </mat-grid-tile>
+    <ng-container *ngFor="let member of group.members">
 
+      <mat-grid-tile> {{member.username}} </mat-grid-tile>
 
-</ng-container>
+    </ng-container>
 
-<mat-divider></mat-divider>
+  </mat-grid-list>
 
-<h1> Informations </h1>
+  <mat-divider></mat-divider>
 
-<p>
-  Name : {{group.name}}
-  Creator : {{creator}}
-  Creation date : {{group.createdAt}}
-</p>
+  <h1> Informations </h1>
 
-<mat-divider></mat-divider>
+  <p>
+    Name : {{group.name}}
+    <br>
+    <span>Creator : {{creator}}</span>
+    <br>
+    Creation date : {{group.createdAt}}
+  </p>
 
-<h1> Challenges succeed </h1>
+  <mat-divider></mat-divider>
 
-<p> In progress </p>
+  <h1> Challenges succeed </h1>
 
-<mat-divider></mat-divider>
+  <p> In progress </p>
 
-<h1> Membership request </h1>
+  <mat-divider></mat-divider>
 
-<mat-list>
+  <h1> Membership request </h1>
 
-  <mat-list-item>
-    Jhon Snow
-    <button> OK </button>
-    <button> NOT OK </button>
-  </mat-list-item>
+  <mat-list *ngIf="group.membershipRequests.length > 0">
 
-</mat-list>
+    <ng-container *ngFor="let request of group.membershipRequests">
 
-<h1> Action </h1>
+      <mat-list-item>
+        {{request.username}}
+        <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.id)"> Accept </button>
+        <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.id)"> Decline </button>
+      </mat-list-item>
 
-<mat-list>
+    </ng-container>
 
-  <mat-list-item>
-    <button> Leave this group </button>
-    <button> Delete the group </button>
-  </mat-list-item>
+  </mat-list>
 
-</mat-list>
+  <h1> Action </h1>
+
+  <mat-list>
+
+    <mat-list-item>
+      <button> Leave this group </button>
+      <button> Delete the group </button>
+    </mat-list-item>
+
+  </mat-list>
+
+</section>

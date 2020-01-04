@@ -3,3 +3,8 @@ export enum Role {
   Checker = 1,
   Admin = 2
 }
+
+export enum Status {
+  Waiting = 0,
+  Accepted = 1
+}

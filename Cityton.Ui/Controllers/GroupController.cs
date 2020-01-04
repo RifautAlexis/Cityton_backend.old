@@ -19,6 +19,7 @@ using Cityton.Data.Models;
 using System.IO;
 using Cityton.Data.Mapper;
 using FluentValidation.Results;
+using Cityton.Data.Common;
 
 namespace Cityton.Ui.Controllers
 {
@@ -59,9 +60,11 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Get(int id)
         {
 
-            Group groups = await this._groupService.Get(id);
+            Group group = await this._groupService.Get(id);
+
+            if(group == null) return BadRequest();
             
-            return Ok(groups.ToDTO());
+            return Ok(group.ToGroupDetailsDTO());
 
         }
 
@@ -75,6 +78,11 @@ namespace Cityton.Ui.Controllers
 
             User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
+            bool alreadyAccepted = await this._groupService.AlreadyAccepted(connectedUser.Id);
+
+            if (alreadyAccepted) return BadRequest("A user can't send membership request if he is already accepted in a group !");
+
+
             ValidationResult result = await this._groupService.MembershipRequest(groupId, connectedUser);
 
             if (result != null)
@@ -84,6 +92,36 @@ namespace Cityton.Ui.Controllers
             }
 
             return Ok(true);
+        }
+
+        [HttpDelete("acceptRequest")]
+        public async Task<IActionResult> AcceptRequest(int requestId)
+        {
+
+            ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
+
+            if(participantGroup == null) return BadRequest();
+
+            await this._groupService.AcceptRequest(participantGroup);
+            
+            return Ok(true);
+
+        }
+
+        [HttpDelete("declineRequest/{requestId}")]
+        public async Task<IActionResult> DeclineRequest(int requestId)
+        {
+
+            ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
+
+            if(participantGroup == null) return BadRequest();
+
+            if(participantGroup.Status == Status.Accepted) return BadRequest("Can't decline someone who is already in the group");
+
+            await this._groupService.DeclineRequest(participantGroup);
+            
+            return Ok(true);
+
         }
 
     }
