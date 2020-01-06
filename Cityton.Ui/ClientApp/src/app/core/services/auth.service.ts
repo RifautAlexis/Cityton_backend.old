@@ -16,7 +16,7 @@ export class AuthService {
   private currentUser: BehaviorSubject<User>;
 
   constructor(private http: HttpClient) {
-    const data = JSON.parse(sessionStorage.getItem('currentUser'));
+    const data = JSON.parse(localStorage.getItem('currentUser'));
 
     this.currentUser = new BehaviorSubject<User>(data ? data : null);
   }
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   currentTokenValue() {
-    return sessionStorage.getItem('currentUser');
+    return localStorage.getItem('currentUser');
   }
 
   login(email: string, password: string): Observable<User> {
@@ -38,7 +38,7 @@ export class AuthService {
       .pipe(map((user: User) => {
 
         if (user) {
-          sessionStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user.token));
           this.currentUser.next(user);
         }
 
@@ -53,7 +53,7 @@ export class AuthService {
       .pipe(map((user: User) => {
 
         if (user) {
-          sessionStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user.token));
           this.currentUser.next(user);
         }
 
@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUser');
     this.currentUser.next(null);
   }
 
