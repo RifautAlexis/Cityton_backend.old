@@ -84,16 +84,7 @@ namespace Cityton.Repository
             foreach (var user in users)
             {
                 CreateToken(user);
-
             }
-
-            modelBuilder.Entity<Challenge>().HasData(
-                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
-                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
-                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Name = "Ô belles boules", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 4 },
-                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Name = "Grande mais petite", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 03), AuthorId = 4 },
-                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 04), AuthorId = 9 }
-            );
 
             List<Group> groups = new List<Group> {
                 new Group { Id = 1, Name = "group01", CreatedAt = new DateTime(2019, 02, 01) },
@@ -131,45 +122,16 @@ namespace Cityton.Repository
                 new ParticipantGroup { Id = 24, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 06, 27), BelongingGroupId = 6, UserId = 35 }
             };
 
-            // List<ParticipantGroup> participantsGroup = new List<ParticipantGroup> {
-            //     new ParticipantGroup { Id = 1, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 02, 01), BelongingGroupId = 1, UserId = 9, BelongingGroup = groups.Find(g => g.Id == 1), User = users.Find(u => u.Id == 9) },
-            //     new ParticipantGroup { Id = 2, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 02, 04), BelongingGroupId = 1, UserId = 7, BelongingGroup = groups.Find(g => g.Id == 1), User = users.Find(u => u.Id == 7) },
-            //     new ParticipantGroup { Id = 3, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 15), BelongingGroupId = 1, UserId = 3, BelongingGroup = groups.Find(g => g.Id == 1), User = users.Find(u => u.Id == 3) },
-            //     new ParticipantGroup { Id = 4, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 22), BelongingGroupId = 1, UserId = 4, BelongingGroup = groups.Find(g => g.Id == 1), User = users.Find(u => u.Id == 4) },
-            //     new ParticipantGroup { Id = 5, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 02, 10), BelongingGroupId = 2, UserId = 10, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 10) },
-            //     new ParticipantGroup { Id = 6, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 02, 11), BelongingGroupId = 2, UserId = 20, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 20) },
-            //     new ParticipantGroup { Id = 7, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 02, 11), BelongingGroupId = 2, UserId = 18, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 18) },
-            //     new ParticipantGroup { Id = 8, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 18), BelongingGroupId = 2, UserId = 1, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 1) },
-            //     new ParticipantGroup { Id = 9, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 24), BelongingGroupId = 2, UserId = 17, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 17) },
-            //     new ParticipantGroup { Id = 10, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 11), BelongingGroupId = 3, UserId = 12, BelongingGroup = groups.Find(g => g.Id == 3), User = users.Find(u => u.Id == 12) },
-            //     new ParticipantGroup { Id = 11, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 11), BelongingGroupId = 4, UserId = 13, BelongingGroup = groups.Find(g => g.Id == 4), User = users.Find(u => u.Id == 13) },
-            //     new ParticipantGroup { Id = 12, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 03, 19), BelongingGroupId = 4, UserId = 14, BelongingGroup = groups.Find(g => g.Id == 4), User = users.Find(u => u.Id == 14) },
-            //     new ParticipantGroup { Id = 13, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 03), BelongingGroupId = 5, UserId = 5, BelongingGroup = groups.Find(g => g.Id == 5), User = users.Find(u => u.Id == 5) },
-            //     new ParticipantGroup { Id = 14, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 06), BelongingGroupId = 5, UserId = 16, BelongingGroup = groups.Find(g => g.Id == 5), User = users.Find(u => u.Id == 16) },
-            //     new ParticipantGroup { Id = 15, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 09), BelongingGroupId = 5, UserId = 15, BelongingGroup = groups.Find(g => g.Id == 5), User = users.Find(u => u.Id == 15) },
-            //     new ParticipantGroup { Id = 16, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 26), BelongingGroupId = 5, UserId = 19, BelongingGroup = groups.Find(g => g.Id == 5), User = users.Find(u => u.Id == 19) },
-            //     new ParticipantGroup { Id = 17, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 05, 05), BelongingGroupId = 6, UserId = 2, BelongingGroup = groups.Find(g => g.Id == 6), User = users.Find(u => u.Id == 2) },
-            //     new ParticipantGroup { Id = 18, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 02, 03), BelongingGroupId = 1, UserId = 40, BelongingGroup = groups.Find(g => g.Id == 1), User = users.Find(u => u.Id == 40) },
-            //     new ParticipantGroup { Id = 19, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 04, 09), BelongingGroupId = 2, UserId = 36, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 36) },
-            //     new ParticipantGroup { Id = 20, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 04, 30), BelongingGroupId = 2, UserId = 26, BelongingGroup = groups.Find(g => g.Id == 2), User = users.Find(u => u.Id == 26) },
-            //     new ParticipantGroup { Id = 21, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 03, 12), BelongingGroupId = 3, UserId = 22, BelongingGroup = groups.Find(g => g.Id == 3), User = users.Find(u => u.Id == 22) },
-            //     new ParticipantGroup { Id = 22, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 03, 20), BelongingGroupId = 3, UserId = 28, BelongingGroup = groups.Find(g => g.Id == 3), User = users.Find(u => u.Id == 28) },
-            //     new ParticipantGroup { Id = 23, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 03, 21), BelongingGroupId = 3, UserId = 31, BelongingGroup = groups.Find(g => g.Id == 3), User = users.Find(u => u.Id == 31) },
-            //     new ParticipantGroup { Id = 24, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 06, 27), BelongingGroupId = 6, UserId = 35, BelongingGroup = groups.Find(g => g.Id == 6), User = users.Find(u => u.Id == 35) }
-            // };
-
-            // foreach (var group in groups)
-            // {
-            //     group.Members = participantsGroup.FindAll(pg => pg.BelongingGroupId == group.Id);
-            // }
-
-            // foreach (var user in users)
-            // {
-            //     user.ParticipantGroups = participantsGroup.FindAll(pg => pg.UserId == user.Id);
-            // } 
-
             modelBuilder.Entity<User>().HasData(
                 users
+            );
+
+            modelBuilder.Entity<Challenge>().HasData(
+                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
+                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
+                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Name = "Ô belles boules", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 4 },
+                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Name = "Grande mais petite", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 03), AuthorId = 4 },
+                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 04), AuthorId = 9 }
             );
 
             modelBuilder.Entity<Group>().HasData(
