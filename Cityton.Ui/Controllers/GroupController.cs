@@ -46,28 +46,31 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
 
             List<Group> groups = await this._groupService.GetAll();
-            
+
             return Ok(groups.ToDTO());
 
         }
 
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
 
             Group group = await this._groupService.Get(id);
 
-            if(group == null) return BadRequest();
-            
+            if (group == null) return BadRequest();
+
             return Ok(group.ToGroupDetailsDTO());
 
         }
 
+        [Authorized(Role.Member)]
         [HttpPost("membershipRequest")]
         public async Task<IActionResult> MembershipRequest([FromBody] int groupId)
         {
@@ -94,32 +97,34 @@ namespace Cityton.Ui.Controllers
             return Ok(true);
         }
 
+        [Authorized(Role.Member)]
         [HttpDelete("acceptRequest")]
         public async Task<IActionResult> AcceptRequest(int requestId)
         {
 
             ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
 
-            if(participantGroup == null) return BadRequest();
+            if (participantGroup == null) return BadRequest();
 
             await this._groupService.AcceptRequest(participantGroup);
-            
+
             return Ok(true);
 
         }
 
+        [Authorized(Role.Member)]
         [HttpDelete("declineRequest/{requestId}")]
         public async Task<IActionResult> DeclineRequest(int requestId)
         {
 
             ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
 
-            if(participantGroup == null) return BadRequest();
+            if (participantGroup == null) return BadRequest();
 
-            if(participantGroup.Status == Status.Accepted) return BadRequest("Can't decline someone who is already in the group");
+            if (participantGroup.Status == Status.Accepted) return BadRequest("Can't decline someone who is already in the group");
 
             await this._groupService.DeclineRequest(participantGroup);
-            
+
             return Ok(true);
 
         }

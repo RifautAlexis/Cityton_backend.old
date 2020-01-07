@@ -18,6 +18,7 @@ using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
 using Cityton.Data.Mapper;
 using System.IO;
+using Cityton.Data.Common;
 
 namespace Cityton.Ui.Controllers
 {
@@ -38,6 +39,7 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [Authorized(Role.Admin)]
         [HttpGet("{userId}")]
         public async Task<IActionResult> Get(int userId)
         {
@@ -50,6 +52,8 @@ namespace Cityton.Ui.Controllers
             return Ok(user.ToDTO());
         }
 
+
+        [Authorized(Role.Admin)]
         [HttpGet("searchUser")]
         public async Task<IActionResult> SearchUser(string sl, string q = null)
         {
@@ -67,6 +71,8 @@ namespace Cityton.Ui.Controllers
 
         }
 
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpPut("update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UserUpdateDTO userToUpdate)
         {
@@ -84,6 +90,8 @@ namespace Cityton.Ui.Controllers
             return Ok(user);
         }
 
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpPut("uploadPicture/{userId}")]
         public async Task<IActionResult> UploadPicture(int userId, IFormFile file)
         {
@@ -141,6 +149,8 @@ namespace Cityton.Ui.Controllers
             return Ok(await this._userService.ExistUsername(username));
         }
 
+
+        [Authorized(Role.Admin)]
         [HttpDelete("{userId}")]
         public async Task<IActionResult> Delete(int userId)
         {

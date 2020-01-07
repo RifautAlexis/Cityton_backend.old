@@ -17,6 +17,8 @@ using FluentValidation.AspNetCore;
 using Cityton.Service.Validators.DTOs;
 using Cityton.Data.Models;
 using System.IO;
+using Cityton.Data.Common;
+using Cityton.Data.Mapper;
 
 namespace Cityton.Ui.Controllers
 {
@@ -34,7 +36,7 @@ namespace Cityton.Ui.Controllers
             _dataService = dataService;
         }
 
-        [AllowAnonymous]
+        [Authorized(Role.Admin)]
         [HttpGet("user")]
         public IActionResult UserTable()
         {
