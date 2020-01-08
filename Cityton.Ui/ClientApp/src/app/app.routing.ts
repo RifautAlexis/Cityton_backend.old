@@ -15,20 +15,23 @@ import { GroupsModule } from '@features/groups/groups.module';
 
 const routes: Routes = [
 
-  { path: '', component: HomeComponent, canActivate: [IsNotConnectedGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [IsNotConnectedGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [IsNotConnectedGuard]},
 
-  {
-    path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [
+  // {
+    // path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [
 
-      { path: 'chat', loadChildren: () => ChatModule },
-      { path: 'settings', loadChildren: () => SettingsModule },
-      { path: 'admin', loadChildren: () => AdminSpaceModule },
-      { path: 'groups', loadChildren: () => GroupsModule }
+      { path: 'chat', component: NavMenuComponent, loadChildren: () => ChatModule, canActivate: [IsConnectedGuard] },
+      { path: 'settings', component: NavMenuComponent, loadChildren: () => SettingsModule, canActivate: [IsConnectedGuard] },
+      { path: 'admin', component: NavMenuComponent, loadChildren: () => AdminSpaceModule, canActivate: [IsConnectedGuard] },
+      { path: 'groups', component: NavMenuComponent, loadChildren: () => GroupsModule, canActivate: [IsConnectedGuard] },
 
-    ]
-  }
-];
+    // ]
+  // },
+
+
+
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
