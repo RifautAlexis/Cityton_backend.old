@@ -26,7 +26,7 @@ namespace Cityton.Service
         Task<Group> Get(int id);
         Task<ValidationResult> MembershipRequest(int groupId, User connectedUser);
         Task<bool> ExistRequest(ParticipantGroup data);
-        Task<bool> AlreadyAccepted(int userId);
+        Task<bool> IsAccepted(int userId);
         Task<ParticipantGroup> GetRequest(int id);
         Task AcceptRequest(ParticipantGroup participantGroup);
         Task DeclineRequest(ParticipantGroup participantGroup);
@@ -96,9 +96,9 @@ namespace Cityton.Service
 
         }
 
-        public async Task<bool> AlreadyAccepted(int userId)
+        public async Task<bool> IsAccepted(int userId)
         {
-            ParticipantGroup participantGroup = await this.participantGroupRepository.AlreadyAccepted(userId);
+            ParticipantGroup participantGroup = await this.participantGroupRepository.IsAccepted(userId);
 
             return participantGroup != null;
         }

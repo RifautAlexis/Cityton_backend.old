@@ -15,7 +15,7 @@ namespace Cityton.Repository
     {
         Task<ParticipantGroup> Get(int groupId, int participantId);
 
-        Task<ParticipantGroup> AlreadyAccepted(int userId);
+        Task<ParticipantGroup> IsAccepted(int userId);
         Task<List<ParticipantGroup>> GetByUser(int userId);
     }
 
@@ -29,7 +29,7 @@ namespace Cityton.Repository
             return await context.ParticipantGroups.Where(pg => pg.BelongingGroupId == groupId && pg.UserId == participantId).FirstOrDefaultAsync();
         }
 
-        public async Task<ParticipantGroup> AlreadyAccepted(int userId)
+        public async Task<ParticipantGroup> IsAccepted(int userId)
         {
             return await context.ParticipantGroups.Where(pg => pg.Status == Status.Accepted).FirstOrDefaultAsync();
         }

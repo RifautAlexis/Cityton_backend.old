@@ -21,7 +21,10 @@ namespace Cityton.Service.Validators
 
             RuleFor(participantGroup => participantGroup.IsCreator).NotNull();
             RuleFor(participantGroup => participantGroup.Status).NotNull().IsInEnum();
-            RuleFor(participantGroup => participantGroup.User.Role == Role.Member);
+            RuleFor(participantGroup => participantGroup.User).Must(user => user.Role == Role.Member).WithMessage("Must be a Member !");
+            RuleFor(participantGroup => participantGroup.User)
+                .MustAsync(async (data, cancellation) => !(await IsInAGroup(data)))
+                .WithMessage("Is already in a group !");
             RuleFor(participantGroup => participantGroup)
                 .Must(IdenticalGroupId)
                 .Must(IdenticalUserId)
@@ -42,6 +45,11 @@ namespace Cityton.Service.Validators
         private async Task<bool> ExistRequest(ParticipantGroup data)
         {
             return await this.groupService.ExistRequest(data);
+        }
+
+        private async Task<bool> IsInAGroup(User data)
+        {
+            return await this.groupService.IsAccepted(data.Id);
         }
 
     }

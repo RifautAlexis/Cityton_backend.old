@@ -81,9 +81,9 @@ namespace Cityton.Ui.Controllers
 
             User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
-            bool alreadyAccepted = await this._groupService.AlreadyAccepted(connectedUser.Id);
+            bool isAccepted = await this._groupService.IsAccepted(connectedUser.Id);
 
-            if (alreadyAccepted) return BadRequest("A user can't send membership request if he is already accepted in a group !");
+            if (isAccepted) return BadRequest("A user can't send membership request if he is already accepted in a group !");
 
 
             ValidationResult result = await this._groupService.MembershipRequest(groupId, connectedUser);
