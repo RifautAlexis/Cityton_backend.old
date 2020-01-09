@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Cityton.Data.Common;
 
 namespace Cityton.Service.Validators
 {
@@ -20,6 +21,7 @@ namespace Cityton.Service.Validators
 
             RuleFor(participantGroup => participantGroup.IsCreator).NotNull();
             RuleFor(participantGroup => participantGroup.Status).NotNull().IsInEnum();
+            RuleFor(participantGroup => participantGroup.User.Role == Role.Member);
             RuleFor(participantGroup => participantGroup)
                 .Must(IdenticalGroupId)
                 .Must(IdenticalUserId)
