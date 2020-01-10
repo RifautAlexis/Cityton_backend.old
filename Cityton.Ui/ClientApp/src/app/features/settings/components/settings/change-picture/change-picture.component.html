@@ -1,6 +1,9 @@
 <h1> Change picture </h1>
 
-<img [src]="url" >
+<ng-container *ngIf="connectedUser">
+  <img [src]="url" >
+</ng-container>
+
 
 <br>
 

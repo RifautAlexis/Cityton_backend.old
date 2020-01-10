@@ -6,6 +6,7 @@ import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IUser as User } from '@shared/models/User';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-change-picture',
@@ -15,14 +16,22 @@ import { IUser as User } from '@shared/models/User';
 
 export class ChangePictureComponent implements OnInit {
 
-  @Input() connectedUser: User;
+  @Input() connectedUser$: Observable<User>;
+  connectedUser: User;
+
   url: string | ArrayBuffer = '';
   fileData: File;
 
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.url = this.connectedUser.picture;
+
+    this.connectedUser$.subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+        this.url = user.picture;
+      }
+    );
   }
 
   preview(files: FileList) {
@@ -46,12 +55,10 @@ export class ChangePictureComponent implements OnInit {
 
     if (this.fileData) {
 
-      let currentUser: User = this.connectedUser;
-
-      this.userService.uploadPicture(this.fileData, currentUser.id)
+      this.userService.uploadPicture(this.fileData, this.connectedUser.id)
       .subscribe(
         (pathPicture: string) => {
-          currentUser.picture = pathPicture;
+          this.connectedUser.picture = pathPicture;
           this.url = pathPicture;
         }
       );

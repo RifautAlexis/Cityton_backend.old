@@ -8,6 +8,7 @@ import { AuthService } from '@core/services/auth.service';
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 import { ExistEmailValidator } from '@shared/form-validators/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-change-email',
@@ -17,7 +18,9 @@ import { ExistEmailValidator } from '@shared/form-validators/user';
 
 export class ChangeEmailComponent implements OnInit {
 
-  @Input() connectedUser: User;
+  @Input() connectedUser$: Observable<User>;
+  connectedUser: User;
+
   emailForm: FormGroup;
 
   constructor(
@@ -38,6 +41,12 @@ export class ChangeEmailComponent implements OnInit {
         }
       ]
     });
+
+    this.connectedUser$.subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+      }
+    );
   }
 
   onSubmit() {
@@ -45,15 +54,13 @@ export class ChangeEmailComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.connectedUser;
-
     let user: UserToUpdate = {
-      id: currentUser.id,
-      username: currentUser.username,
-      phoneNumber: currentUser.phoneNumber,
+      id: this.connectedUser.id,
+      username: this.connectedUser.username,
+      phoneNumber: this.connectedUser.phoneNumber,
       email: this.emailForm.controls.email.value,
-      picture: currentUser.picture,
-      role: currentUser.role,
+      picture: this.connectedUser.picture,
+      role: this.connectedUser.role,
       password: ""
     };
 

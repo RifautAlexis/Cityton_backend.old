@@ -9,6 +9,7 @@ import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 
 import { equalPasswordsValidator } from '@shared/form-validators/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-change-password',
@@ -17,12 +18,19 @@ import { equalPasswordsValidator } from '@shared/form-validators/user';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  @Input() connectedUser: User;
+  @Input() connectedUser$: Observable<User>;
+  connectedUser: User;
+
   passwordForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private authService: AuthService) {
+
+
+  }
+
+  ngOnInit() {
 
     this.passwordForm = this.formBuilder.group({
       password: ['', [
@@ -33,25 +41,29 @@ export class ChangePasswordComponent implements OnInit {
     });
 
     this.passwordForm.setValidators(equalPasswordsValidator);
-   }
 
-  ngOnInit() {  }
+    this.connectedUser$.subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+      }
+    );
+
+  }
 
   onSubmit() {
     if (this.passwordForm.invalid) {
       return;
     }
 
-    let currentUser: User = this.connectedUser;
     let password = this.passwordForm.controls.password.value;
 
     let user: UserToUpdate = {
-      id: currentUser.id,
-      username: currentUser.username,
-      phoneNumber: currentUser.phoneNumber,
-      email: currentUser.email,
-      picture: currentUser.picture,
-      role: currentUser.role,
+      id: this.connectedUser.id,
+      username: this.connectedUser.username,
+      phoneNumber: this.connectedUser.phoneNumber,
+      email: this.connectedUser.email,
+      picture: this.connectedUser.picture,
+      role: this.connectedUser.role,
       password: (password ? password : "")
     };
 

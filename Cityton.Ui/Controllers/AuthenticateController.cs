@@ -99,7 +99,7 @@ namespace Cityton.Ui.Controllers
 
             User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
-            return Ok(connectedUser);
+            return Ok(connectedUser.ToDTO());
         }
     }
 }

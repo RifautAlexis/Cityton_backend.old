@@ -8,6 +8,7 @@ import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 
 import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-change-phoneNumber',
@@ -17,7 +18,9 @@ import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
 
 export class ChangePhoneNumberComponent implements OnInit {
 
-  @Input() connectedUser: User;
+  @Input() connectedUser$: Observable<User>;
+  connectedUser: User;
+
   phoneNumberForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -37,6 +40,12 @@ export class ChangePhoneNumberComponent implements OnInit {
         }
       ]
     });
+
+    this.connectedUser$.subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+      }
+    );
   }
 
   onSubmit() {
@@ -44,15 +53,13 @@ export class ChangePhoneNumberComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.connectedUser;
-
     let user: UserToUpdate = {
-      id: currentUser.id,
-      username: currentUser.username,
+      id: this.connectedUser.id,
+      username: this.connectedUser.username,
       phoneNumber: this.phoneNumberForm.controls.username.value,
-      email: currentUser.email,
-      picture: currentUser.picture,
-      role: currentUser.role,
+      email: this.connectedUser.email,
+      picture: this.connectedUser.picture,
+      role: this.connectedUser.role,
       password: ""
     };
 

@@ -8,6 +8,7 @@ import { AuthService } from '@core/services/auth.service';
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 import { ExistUsernameValidator } from '@shared/form-validators/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-change-username',
@@ -16,7 +17,9 @@ import { ExistUsernameValidator } from '@shared/form-validators/user';
 })
 export class ChangeUsernameComponent implements OnInit {
 
-  @Input() connectedUser: User;
+  @Input() connectedUser$: Observable<User>;
+  connectedUser: User;
+
   usernameForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -36,6 +39,12 @@ export class ChangeUsernameComponent implements OnInit {
         }
       ]
     });
+
+    this.connectedUser$.subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+      }
+    );
   }
 
   onSubmit() {
@@ -43,15 +52,13 @@ export class ChangeUsernameComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.connectedUser;
-
     let user: UserToUpdate = {
-      id: currentUser.id,
+      id: this.connectedUser.id,
       username: this.usernameForm.controls.username.value,
-      phoneNumber: currentUser.phoneNumber,
-      email: currentUser.email,
-      picture: currentUser.picture,
-      role: currentUser.role,
+      phoneNumber: this.connectedUser.phoneNumber,
+      email: this.connectedUser.email,
+      picture: this.connectedUser.picture,
+      role: this.connectedUser.role,
       password: ""
     };
 

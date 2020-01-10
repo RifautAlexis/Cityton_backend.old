@@ -12,12 +12,13 @@ import { IUser as User } from '@shared/models/User';
 
 export class SettingsComponent implements OnInit {
 
-  connectedUser: Observable<User>;
+  connectedUser$: Observable<User>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.connectedUser = this.authService.getConnectedUser();
+    this.connectedUser$ = this.authService.getConnectedUser();
+
   }
 
 }
