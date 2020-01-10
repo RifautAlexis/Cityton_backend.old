@@ -2,7 +2,7 @@
 
   <h1> All Groups </h1>
 
-  <ng-container *ngFor="let group of groups$ | async">
+  <ng-container *ngFor="let group of groups">
 
     <mat-card>
 
@@ -28,7 +28,7 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-button (click)="sendRequest(group.id)">
+        <button mat-button *ngIf="!group.hasRequested" (click)="sendRequest(group.id)">
           <i class="material-icons">
             add_circle_outline
           </i>

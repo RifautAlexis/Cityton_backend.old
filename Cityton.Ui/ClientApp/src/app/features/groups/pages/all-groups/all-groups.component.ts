@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
+import { group } from '@angular/animations';
 
 @Component({
   selector: 'app-all-groups',
@@ -13,17 +14,26 @@ import { IGroup as Group } from '@shared/models/Group';
 })
 export class AllGroupsComponent implements OnInit {
 
-  groups$: Observable<Group[]>
+  // groups$: Observable<Group[]>
+  groups: Group[];
 
   constructor(private groupService: GroupService) {
   }
 
   ngOnInit() {
-    this.groups$ = this.groupService.getAll();
+    this.groupService.getAll().subscribe(
+      (groups: Group[]) => {
+        this.groups = groups;
+        console.log(groups);
+      }
+    );
   }
 
   sendRequest(groupId: string) {
-    this.groupService.membershipRequest(groupId);
+    if(this.groups.findIndex(group => group.id === Number(groupId) && !group.hasRequested))
+      this.groupService.membershipRequest(groupId).subscribe();
   }
+
+
 
 }

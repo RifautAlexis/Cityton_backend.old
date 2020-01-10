@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { IGroup as Group } from '@shared/models/Group';
+import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class GroupService {
     return this.http.get<Group[]>(environment.apiUrl + 'group');
   }
 
-  get(groupId: number): Observable<Group> {
-    return this.http.get<Group>(environment.apiUrl + 'group/' + groupId);
+  get(groupId: number): Observable<GroupDetails> {
+    return this.http.get<GroupDetails>(environment.apiUrl + 'group/' + groupId);
   }
 
   membershipRequest(groupId): Observable<any> {

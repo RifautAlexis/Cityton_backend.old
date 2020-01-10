@@ -12,6 +12,7 @@ namespace Cityton.Data.DTOs
         public string Picture { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<ParticipantGroupDTO> Members { get; set; }
+        public bool HasRequested { get; set; }
 
     }
 }

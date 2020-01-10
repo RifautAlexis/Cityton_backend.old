@@ -8,7 +8,7 @@ namespace Cityton.Data.DTOs
     public class MembershipRequestDTO
     {
 
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public Status Status { get; set; }
         public DateTime CreatedAt { get; set; }

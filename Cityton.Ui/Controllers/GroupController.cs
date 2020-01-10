@@ -53,7 +53,9 @@ namespace Cityton.Ui.Controllers
 
             List<Group> groups = await this._groupService.GetAll();
 
-            return Ok(groups.ToDTO());
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            return Ok(groups.ToDTO(connectedUserId));
 
         }
 

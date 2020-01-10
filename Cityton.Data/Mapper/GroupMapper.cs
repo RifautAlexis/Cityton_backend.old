@@ -12,7 +12,7 @@ namespace Cityton.Data.Mapper
     public static class GroupMapper
     {
 
-        public static GroupDTO ToDTO(this Group data)
+        public static GroupDTO ToDTO(this Group data, int userId)
         {
             if (data == null) return null;
 
@@ -22,13 +22,14 @@ namespace Cityton.Data.Mapper
                 Name = data.Name,
                 Picture = data.Picture,
                 CreatedAt = data.CreatedAt,
-                Members = data.Members.Where(pg => pg.Status == Status.Accepted).ToDTO()
+                Members = data.Members.Where(pg => pg.Status == Status.Accepted).ToDTO(),
+                HasRequested = data.Members.Any(pg => pg.UserId == userId && (pg.Status == Status.Accepted || pg.Status == Status.Waiting))
             };
         }
 
-        public static List<GroupDTO> ToDTO(this IEnumerable<Group> data)
+        public static List<GroupDTO> ToDTO(this IEnumerable<Group> data, int userId)
         {
-            return data.Select(g => g.ToDTO()).ToList();
+            return data.Select(g => g.ToDTO(userId)).ToList();
         }
 
         public static GroupDetailsDTO ToGroupDetailsDTO(this Group data)
@@ -69,7 +70,7 @@ namespace Cityton.Data.Mapper
 
             return new MembershipRequestDTO
             {
-                Id = data.User.Id,
+                UserId = data.User.Id,
                 Username = data.User.Username,
                 Status = data.Status,
                 CreatedAt = data.CreatedAt

@@ -29,8 +29,7 @@ export class InformationComponent implements OnInit {
 
     this.groupService.get(id).subscribe(
       (group: GroupDetails) => {
-        console.log(group);
-        console.log(group.membershipRequests);
+
         this.group = group;
         this.creator = group.members.find(user => user.isCreator == true).username;
       }

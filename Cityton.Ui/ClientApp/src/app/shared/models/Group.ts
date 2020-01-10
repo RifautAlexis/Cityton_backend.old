@@ -4,10 +4,11 @@ export interface IGroup {
   picture: string;
   members: User[];
   createdAt: Date;
+  hasRequested: boolean;
 }
 
 interface User {
   id: number;
-  username: string,
-  isCreator: boolean
+  username: string;
+  isCreator: boolean;
 }
