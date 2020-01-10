@@ -16,7 +16,6 @@ import { GroupsModule } from '@features/groups/groups.module';
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent, canActivate: [IsNotConnectedGuard]},
 
   // {
     // path: '', component: NavMenuComponent, canActivate: [IsConnectedGuard], children: [

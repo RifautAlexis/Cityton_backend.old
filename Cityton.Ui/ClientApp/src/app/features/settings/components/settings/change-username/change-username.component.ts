@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -16,6 +16,7 @@ import { ExistUsernameValidator } from '@shared/form-validators/user';
 })
 export class ChangeUsernameComponent implements OnInit {
 
+  @Input() connectedUser: User;
   usernameForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -42,8 +43,7 @@ export class ChangeUsernameComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.authService.currentUserValue();
-    let obj: User = JSON.parse(this.authService.currentTokenValue());
+    let currentUser: User = this.connectedUser;
 
     let user: UserToUpdate = {
       id: currentUser.id,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,13 +15,14 @@ import { IUser as User } from '@shared/models/User';
 
 export class ChangePictureComponent implements OnInit {
 
+  @Input() connectedUser: User;
   url: string | ArrayBuffer = '';
   fileData: File;
 
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.url = this.authService.currentUserValue().picture;
+    this.url = this.connectedUser.picture;
   }
 
   preview(files: FileList) {
@@ -45,14 +46,13 @@ export class ChangePictureComponent implements OnInit {
 
     if (this.fileData) {
 
-      let currentUser: User = this.authService.currentUserValue();
+      let currentUser: User = this.connectedUser;
 
       this.userService.uploadPicture(this.fileData, currentUser.id)
       .subscribe(
         (pathPicture: string) => {
           currentUser.picture = pathPicture;
           this.url = pathPicture;
-          this.authService.updateCurrentUser(currentUser);
         }
       );
 

@@ -11,7 +11,6 @@ export class AppComponent {
   title = 'Cityton.Web';
   isConnected: boolean;
 
-  constructor(private authService: AuthService) {
-    this.isConnected = authService.currentUserValue() != null;
+  constructor() {
   }
 }

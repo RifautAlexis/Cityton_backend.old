@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 
 import { UserService } from '@core/services/user.service';
@@ -17,6 +17,7 @@ import { ExistPhoneNumberValidator } from '@shared/form-validators/user';
 
 export class ChangePhoneNumberComponent implements OnInit {
 
+  @Input() connectedUser: User;
   phoneNumberForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -43,7 +44,7 @@ export class ChangePhoneNumberComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.authService.currentUserValue();
+    let currentUser: User = this.connectedUser;
 
     let user: UserToUpdate = {
       id: currentUser.id,
@@ -57,7 +58,6 @@ export class ChangePhoneNumberComponent implements OnInit {
 
     this.userService.update(user).subscribe(
       (user: User) => {
-        this.authService.updateCurrentUser(user);
 
         // this.router.navigate(['chat']);
       },

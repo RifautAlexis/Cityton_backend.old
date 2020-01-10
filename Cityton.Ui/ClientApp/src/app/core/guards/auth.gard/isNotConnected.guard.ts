@@ -3,14 +3,19 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from
 
 import { AuthService } from '@core/services/auth.service';
 
+import { IUser as User } from '@shared/models/User';
+
 @Injectable({ providedIn: 'root' })
 export class IsNotConnectedGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const currentUser = this.authService.currentUserValue();
 
-    if (!currentUser) { return true; }
+    let currentToken: User;
+
+    this.authService.currentTokenValue();
+
+    if (!currentToken) { return true; }
 
     // this.router.navigate(['']);
 

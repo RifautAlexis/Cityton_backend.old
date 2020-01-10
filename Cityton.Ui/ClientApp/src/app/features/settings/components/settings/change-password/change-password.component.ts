@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm, ValidatorFn, ValidationErrors, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { equalPasswordsValidator } from '@shared/form-validators/user';
 })
 export class ChangePasswordComponent implements OnInit {
 
+  @Input() connectedUser: User;
   passwordForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -41,7 +42,7 @@ export class ChangePasswordComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.authService.currentUserValue();
+    let currentUser: User = this.connectedUser;
     let password = this.passwordForm.controls.password.value;
 
     let user: UserToUpdate = {
@@ -56,7 +57,6 @@ export class ChangePasswordComponent implements OnInit {
 
     this.userService.update(user).subscribe(
       (user: User) => {
-        this.authService.updateCurrentUser(user);
 
         // this.router.navigate(['chat']);
       },

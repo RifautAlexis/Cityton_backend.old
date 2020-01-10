@@ -13,59 +13,61 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private currentUser: BehaviorSubject<User>;
+  private currentToken: BehaviorSubject<string>;
 
   constructor(private http: HttpClient) {
-    const data = JSON.parse(localStorage.getItem('currentUser'));
+    const data = JSON.parse(localStorage.getItem('currentToken'));
 
-    this.currentUser = new BehaviorSubject<User>(data ? data : null);
+    this.currentToken = new BehaviorSubject<string>(data ? data : null);
   }
 
-  currentUserValue() {
-    return this.currentUser.value;
-  }
-
-  updateCurrentUser(user: User) {
-    this.currentUser.next(user);
+  updateCurrentToken(token: string) {
+    this.currentToken.next(token);
   }
 
   currentTokenValue() {
-    return localStorage.getItem('currentUser');
+    return localStorage.getItem('currentToken');
   }
 
-  login(email: string, password: string): Observable<User> {
-    return this.http.post<User>(environment.apiUrl + 'authenticate/login', { email, password })
-      .pipe(map((user: User) => {
+  login(email: string, password: string): Observable<string> {
+    return this.http.post<string>(environment.apiUrl + 'authenticate/login', { email, password })
+      .pipe(map((data: any) => {
 
-        if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user.token));
-          this.currentUser.next(user);
+        let token = JSON.stringify(data.token);
+
+        if (token) {
+          localStorage.setItem('currentToken', token);
+          this.currentToken.next(token);
         }
 
-        return user;
+        return token;
       })
 
       )
   }
 
-  register(userRegister: UserRegister): Observable<User> {
-    return this.http.post<User>(environment.apiUrl + 'authenticate/register', userRegister)
-      .pipe(map((user: User) => {
+  register(userRegister: UserRegister): Observable<string> {
+    return this.http.post<string>(environment.apiUrl + 'authenticate/register', userRegister)
+      .pipe(map((token: string) => {
 
-        if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user.token));
-          this.currentUser.next(user);
+        if (token) {
+          localStorage.setItem('currentToken', JSON.stringify(token));
+          this.currentToken.next(token);
         }
 
-        return user;
+        return token;
       })
 
       )
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.currentUser.next(null);
+    localStorage.removeItem('currentToken');
+    this.currentToken.next(null);
+  }
+
+  getConnectedUser(): Observable<User> {
+    return this.http.get<User>(environment.apiUrl + 'authenticate');
   }
 
 }

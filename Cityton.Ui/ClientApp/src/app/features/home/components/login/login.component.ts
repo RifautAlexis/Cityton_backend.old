@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.login(userLogin.email, userLogin.password).subscribe(
-      (data: User) => {
+      (token: string) => {
         this.router.navigate(['chat']);
       },
       (error: any) => {

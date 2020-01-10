@@ -90,7 +90,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.register(userRegister)
       .subscribe(
-        (data: User) => {
+        (token: string) => {
           this.router.navigate(['chat']);
         },
         (error: any) => {

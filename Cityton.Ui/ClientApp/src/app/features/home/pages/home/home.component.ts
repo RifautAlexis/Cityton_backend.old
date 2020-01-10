@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.authService.currentUserValue) {
+    if (this.authService.currentTokenValue()) {
       this.router.navigate(['chat']);
     }
   }

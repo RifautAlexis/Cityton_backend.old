@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { ExistEmailValidator } from '@shared/form-validators/user';
 
 export class ChangeEmailComponent implements OnInit {
 
+  @Input() connectedUser: User;
   emailForm: FormGroup;
 
   constructor(
@@ -44,7 +45,7 @@ export class ChangeEmailComponent implements OnInit {
       return;
     }
 
-    let currentUser: User = this.authService.currentUserValue();
+    let currentUser: User = this.connectedUser;
 
     let user: UserToUpdate = {
       id: currentUser.id,
@@ -58,7 +59,6 @@ export class ChangeEmailComponent implements OnInit {
 
     this.userService.update(user).subscribe(
       (user: User) => {
-        this.authService.updateCurrentUser(user);
         // this.router.navigate(['chat']);
       },
       (error: any) => {

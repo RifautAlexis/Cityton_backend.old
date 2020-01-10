@@ -59,7 +59,7 @@ namespace Cityton.Ui.Controllers
 
             User userUpdate = await _userService.UpdateToken(user);
 
-            return Ok(userUpdate.ToDTO());
+            return Ok(new{token = userUpdate.Token});
         }
 
         [AllowAnonymous]
@@ -90,6 +90,16 @@ namespace Cityton.Ui.Controllers
                 Role = user.Role.ToString(),
 				Token = user.Token
             });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("")]
+        public async Task<IActionResult> GetConnectedUser()
+        {
+
+            User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
+
+            return Ok(connectedUser);
         }
     }
 }
