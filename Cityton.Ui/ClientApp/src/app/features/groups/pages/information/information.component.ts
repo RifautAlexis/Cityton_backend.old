@@ -4,8 +4,10 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { GroupService } from '@core/services/group.service';
+import { AuthService } from '@core/services/auth.service';
 
 import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
+import { IUser as User } from '@shared/models/User';
 
 @Component({
   selector: 'app-information',
@@ -16,8 +18,13 @@ export class InformationComponent implements OnInit {
 
   group: GroupDetails;
   creator: string;
+  isCreator: boolean;
+  connectedUser: User;
 
-  constructor(private groupService: GroupService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private groupService: GroupService,
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService) { }
 
   async ngOnInit() {
 
@@ -27,11 +34,18 @@ export class InformationComponent implements OnInit {
       id = params.id;
     });
 
+    this.authService.getConnectedUser().subscribe(
+      (user: User) => {
+        this.connectedUser = user;
+      }
+    );
+
     this.groupService.get(id).subscribe(
       (group: GroupDetails) => {
 
         this.group = group;
         this.creator = group.members.find(user => user.isCreator == true).username;
+        this.isCreator = group.members.find(user => user.isCreator == true).id == this.connectedUser.id;
       }
     );
 

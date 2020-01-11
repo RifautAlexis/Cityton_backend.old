@@ -40,8 +40,11 @@
 
       <mat-list-item>
         {{request.username}}
-        <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.id)"> Accept </button>
-        <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.id)"> Decline </button>
+        <ng-container *ngIf="isCreator">
+          <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.id)"> Accept </button>
+          <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.id)"> Decline </button>
+        </ng-container>
+
       </mat-list-item>
 
     </ng-container>
