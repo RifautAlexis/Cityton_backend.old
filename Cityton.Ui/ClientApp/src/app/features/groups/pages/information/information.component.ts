@@ -18,8 +18,10 @@ export class InformationComponent implements OnInit {
 
   group: GroupDetails;
   creator: string;
-  isCreator: boolean;
   connectedUser: User;
+
+  isCreator: boolean = false;
+  isMember: boolean = false;
 
   constructor(
     private groupService: GroupService,
@@ -46,6 +48,7 @@ export class InformationComponent implements OnInit {
         this.group = group;
         this.creator = group.members.find(user => user.isCreator == true).username;
         this.isCreator = group.members.find(user => user.isCreator == true).id == this.connectedUser.id;
+        group.members.find(user => user.id == this.connectedUser.id) === undefined ? this.isMember = false : this.isMember = true;
       }
     );
 
