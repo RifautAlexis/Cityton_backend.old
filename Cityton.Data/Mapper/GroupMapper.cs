@@ -38,7 +38,7 @@ namespace Cityton.Data.Mapper
 
             return new GroupDetailsDTO
             {
-                Id = data.Id,
+                GroupId = data.Id,
                 Name = data.Name,
                 Picture = data.Picture,
                 CreatedAt = data.CreatedAt,
@@ -53,7 +53,8 @@ namespace Cityton.Data.Mapper
 
             return new ParticipantGroupDTO
             {
-                Id = data.User.Id,
+                RequestId = data.Id,
+                UserId = data.User.Id,
                 Username = data.User.Username,
                 IsCreator = data.IsCreator
             };

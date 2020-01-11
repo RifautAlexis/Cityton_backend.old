@@ -125,9 +125,28 @@ namespace Cityton.Ui.Controllers
 
             if (participantGroup.Status == Status.Accepted) return BadRequest("Can't decline someone who is already in the group");
 
-            await this._groupService.DeclineRequest(participantGroup);
+            await this._groupService.DeleteRequest(participantGroup);
 
             return Ok(true);
+
+        }
+
+        [Authorized(Role.Member)]
+        [HttpDelete("leaveGroup/{requestId}")]
+        public async Task<IActionResult> LeaveGroup(int requestId)
+        {
+
+            ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
+
+            if (participantGroup == null) return BadRequest();
+            if (participantGroup.Status != Status.Accepted) return BadRequest("Must be an accepted request !");
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+            if(participantGroup.UserId != connectedUserId) return BadRequest("Current user is different from request user");
+
+            await this._groupService.DeleteRequest(participantGroup);
+
+            return Ok(requestId);
 
         }
 

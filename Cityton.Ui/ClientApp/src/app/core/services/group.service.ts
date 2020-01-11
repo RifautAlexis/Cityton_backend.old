@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -33,6 +33,10 @@ export class GroupService {
   declineRequest(requestId): Observable<any> {
     return this.http.delete<any>(environment.apiUrl + 'group/declinRequest/' + requestId);
 
+  }
+
+  leaveGroup(requestId: number) {
+    return this.http.delete<any>(environment.apiUrl + 'group/leaveGroup/' + requestId);
   }
 
 }

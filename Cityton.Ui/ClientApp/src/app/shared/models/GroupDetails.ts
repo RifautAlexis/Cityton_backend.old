@@ -5,19 +5,20 @@ export interface IGroupDetails {
   name: string;
   picture: string;
   createdAt: Date;
-  members: User[];
-  membershipRequests: Request[];
+  members: IUser[];
+  membershipRequests: IRequest[];
 }
 
-interface User {
-  id: number;
+interface IUser {
+  requestId: number;
+  userId: number;
   username: string;
   isCreator: boolean;
 
 }
 
-interface Request {
-  id: number;
+interface IRequest {
+  userId: number;
   username: string;
   status: Status;
   createdAt: Date;

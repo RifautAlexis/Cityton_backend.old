@@ -23,6 +23,8 @@ export class InformationComponent implements OnInit {
   isCreator: boolean = false;
   isMember: boolean = false;
 
+  requestId: number = -1; // From membership if the connected user is member of this group, else -1
+
   constructor(
     private groupService: GroupService,
     private activatedRoute: ActivatedRoute,
@@ -47,8 +49,13 @@ export class InformationComponent implements OnInit {
 
         this.group = group;
         this.creator = group.members.find(user => user.isCreator == true).username;
-        this.isCreator = group.members.find(user => user.isCreator == true).id == this.connectedUser.id;
-        group.members.find(user => user.id == this.connectedUser.id) === undefined ? this.isMember = false : this.isMember = true;
+        this.isCreator = group.members.find(user => user.isCreator == true).userId == this.connectedUser.id;
+
+        let currentMember: any = group.members.find(user => user.userId == this.connectedUser.id); // GroupDetails.IUser
+        if (currentMember !== undefined) {
+          this.isMember = true;
+          this.requestId = currentMember.requestId;
+        }
       }
     );
 
@@ -61,6 +68,13 @@ export class InformationComponent implements OnInit {
   declineRequest(requestId: number) {
     this.groupService.declineRequest(requestId);
 
+  }
+
+  leaveGroup() {
+    if (this.isMember) {
+      this.groupService.leaveGroup(this.requestId).subscribe();
+      this.ngOnInit();
+    }
   }
 
 }

@@ -41,8 +41,8 @@
       <mat-list-item>
         {{request.username}}
         <div id="requestButtons" *ngIf="isCreator">
-          <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.id)"> Accept </button>
-          <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.id)"> Decline </button>
+          <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.userId)"> Accept </button>
+          <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.userId)"> Decline </button>
         </div>
 
       </mat-list-item>
@@ -57,14 +57,9 @@
 
     <h1> Action </h1>
 
-    <mat-list>
+    <button mat-raised-button color="accent" type="button" (click)="leaveGroup()"> Leave group </button>
 
-      <mat-list-item>
-        <button mat-raised-button color="accent" type="button"> Leave this group </button>
-        <button mat-raised-button color="accent" type="button" id="deleteGroupButton" *ngIf="isCreator"> Delete the group </button>
-      </mat-list-item>
-
-    </mat-list>
+    <p *ngIf="isCreator">Warning : leaving your group will delete it !</p>
 
   </ng-container>
 

@@ -29,7 +29,7 @@ namespace Cityton.Service
         Task<bool> IsAccepted(int userId);
         Task<ParticipantGroup> GetRequest(int id);
         Task AcceptRequest(ParticipantGroup participantGroup);
-        Task DeclineRequest(ParticipantGroup participantGroup);
+        Task DeleteRequest(ParticipantGroup participantGroup);
     }
 
     public class GroupService : IGroupService
@@ -122,9 +122,22 @@ namespace Cityton.Service
             await this.participantGroupRepository.SaveChanges();
         }
 
-        public async Task DeclineRequest(ParticipantGroup participantGroup)
+        public async Task DeleteRequest(ParticipantGroup participantGroup)
         {
+
+            Group group = null;
+
+            if (participantGroup.IsCreator)
+            {
+                group = participantGroup.BelongingGroup;
+            }
+            
             await this.participantGroupRepository.Delete(participantGroup);
+
+            if (group != null)
+            {
+                await this.groupRepository.Delete(group);
+            }
         }
 
     }
