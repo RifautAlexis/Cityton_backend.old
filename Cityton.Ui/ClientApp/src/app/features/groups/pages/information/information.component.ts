@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Observable, BehaviorSubject, pipe } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { GroupService } from '@core/services/group.service';
 import { AuthService } from '@core/services/auth.service';
@@ -18,7 +18,7 @@ export class InformationComponent implements OnInit {
 
   group: GroupDetails;
   creator: string;
-  connectedUser: User;
+  connectedUserId: string;
 
   isCreator: boolean = false;
   isMember: boolean = false;
@@ -28,53 +28,65 @@ export class InformationComponent implements OnInit {
   constructor(
     private groupService: GroupService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
-  async ngOnInit() {
+  ngOnInit() {
 
-    var id: number;
+    this.connectedUserId = this.authService.getUserId();
 
-    await this.activatedRoute.params.subscribe(params => {
-      id = params.id;
-    });
+    this.refresh();
 
-    this.authService.getConnectedUser().subscribe(
-      (user: User) => {
-        this.connectedUser = user;
-      }
-    );
+  }
+
+  acceptRequest(requestId: number) {
+    if (this.isCreator) {
+      this.groupService.acceptRequest(requestId);
+      this.refresh();
+    }
+  }
+
+  declineRequest(requestId: number) {
+    if (this.isCreator) {
+      this.groupService.declineRequest(requestId);
+      this.refresh();
+    }
+  }
+
+  leaveGroup() {
+    if (this.isMember) {
+      this.groupService.leaveGroup(this.requestId).subscribe(
+        () => {
+          if (this.isCreator)
+            this.router.navigate(['groups']);
+          else
+            this.refresh();
+        }
+      );
+    }
+  }
+
+  private refresh() {
+
+    const id: string = this.activatedRoute.snapshot.paramMap.get("id");
 
     this.groupService.get(id).subscribe(
       (group: GroupDetails) => {
 
         this.group = group;
-        this.creator = group.members.find(user => user.isCreator == true).username;
-        this.isCreator = group.members.find(user => user.isCreator == true).userId == this.connectedUser.id;
+        this.isCreator = group.creatorId == Number(this.connectedUserId);
 
-        let currentMember: any = group.members.find(user => user.userId == this.connectedUser.id); // GroupDetails.IUser
+        let currentMember: any = group.members.find(user => user.userId == Number(this.connectedUserId)); // GroupDetails.IUser
         if (currentMember !== undefined) {
           this.isMember = true;
           this.requestId = currentMember.requestId;
+        } else {
+          this.isMember = false;
+          this.requestId = -1;
         }
+
       }
     );
-
-  }
-
-  acceptRequest(requestId: number) {
-    this.groupService.acceptRequest(requestId);
-  }
-
-  declineRequest(requestId: number) {
-    this.groupService.declineRequest(requestId);
-
-  }
-
-  leaveGroup() {
-    if (this.isMember) {
-      this.groupService.leaveGroup(this.requestId).subscribe();
-      this.ngOnInit();
-    }
   }
 
 }

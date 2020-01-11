@@ -17,7 +17,7 @@ import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialUiModule
+    MaterialUiModule,
   ],
   exports: [
     CommonModule,
@@ -25,7 +25,7 @@ import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    MaterialUiModule
+    MaterialUiModule,
   ]
 })
 

@@ -8,6 +8,8 @@ import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import * as jwtdecode from 'jwt-decode';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,4 +72,21 @@ export class AuthService {
     return this.http.get<User>(environment.apiUrl + 'authenticate');
   }
 
+  getUserId(): string {
+    let token: string = localStorage.getItem('currentToken');
+    let decodedToken: Token = jwtdecode(token);
+    return decodedToken.unique_name;
+  }
+
+  getUserRole(): string {
+    let token: string = localStorage.getItem('currentToken');
+    let decodedToken: Token = jwtdecode(token);
+    return decodedToken.role;
+  }
+
+}
+
+interface Token {
+  unique_name: string
+  role: string;
 }

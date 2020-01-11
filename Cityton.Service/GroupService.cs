@@ -114,6 +114,8 @@ namespace Cityton.Service
             await this.participantGroupRepository.Update(participantGroup);
 
             List<ParticipantGroup> allRequests = await this.participantGroupRepository.GetByUser(participantGroup.UserId);
+            allRequests.Remove(participantGroup);
+
             foreach (var request in allRequests)
             {
                 this.participantGroupRepository.Remove(request);
@@ -129,15 +131,23 @@ namespace Cityton.Service
 
             if (participantGroup.IsCreator)
             {
-                group = participantGroup.BelongingGroup;
-            }
-            
-            await this.participantGroupRepository.Delete(participantGroup);
+                // group = participantGroup.BelongingGroup;
+                group = await this.groupRepository.Get(participantGroup.BelongingGroupId);
 
-            if (group != null)
-            {
+                // foreach (var member in group.Members)
+                // {
+                //     this.participantGroupRepository.Remove(member);
+                // }
+                // await this.participantGroupRepository.SaveChanges();
+                
+                group.Members.Clear();
+
                 await this.groupRepository.Delete(group);
+
             }
+            else
+                await this.participantGroupRepository.Delete(participantGroup);
+
         }
 
     }

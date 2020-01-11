@@ -43,7 +43,8 @@ namespace Cityton.Data.Mapper
                 Picture = data.Picture,
                 CreatedAt = data.CreatedAt,
                 Members = data.Members.Where(pg => pg.Status == Status.Accepted).ToDTO(),
-                MembershipRequests = data.Members.Where(pg => pg.Status == Status.Waiting).ToMembershipRequestDTO()
+                MembershipRequests = data.Members.Where(pg => pg.Status == Status.Waiting).ToMembershipRequestDTO(),
+                CreatorId = data.Members.First(pg => pg.IsCreator).UserId
             };
         }
 

@@ -7,6 +7,7 @@ export interface IGroupDetails {
   createdAt: Date;
   members: IUser[];
   membershipRequests: IRequest[];
+  creatorId: number;
 }
 
 interface IUser {
