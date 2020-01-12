@@ -4,7 +4,7 @@
 
   <mat-grid-list cols="2" rowHeight="40px">
 
-    <ng-container *ngFor="let member of group.members">
+    <ng-container *ngFor="let member of group.groupDetails.members">
 
       <mat-grid-tile> {{member.username}} </mat-grid-tile>
 
@@ -17,11 +17,11 @@
   <h1> Informations </h1>
 
   <p>
-    Name : {{group.name}}
+    Name : {{group.groupDetails.name}}
     <br>
     <span>Creator : {{creator}}</span>
     <br>
-    Creation date : {{group.createdAt}}
+    Creation date : {{group.groupDetails.createdAt}}
   </p>
 
   <mat-divider></mat-divider>
@@ -34,15 +34,15 @@
 
   <h1> Membership request </h1>
 
-  <mat-list *ngIf="group.membershipRequests.length > 0">
+  <mat-list *ngIf="group.groupDetails.membershipRequests.length > 0">
 
-    <ng-container *ngFor="let request of group.membershipRequests">
+    <ng-container *ngFor="let request of group.groupDetails.membershipRequests">
 
       <mat-list-item>
         {{request.username}}
         <div id="requestButtons" *ngIf="isCreator">
-          <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.userId)"> Accept </button>
-          <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.userId)"> Decline </button>
+          <button mat-raised-button color="accent" type="button" (click)="acceptRequest(request.requestId)" *ngIf="group.groupDetails.members.length < group.maxGroupSize"> Accept </button>
+          <button mat-raised-button color="accent" type="button" (click)="declineRequest(request.requestId)"> Decline </button>
         </div>
 
       </mat-list-item>

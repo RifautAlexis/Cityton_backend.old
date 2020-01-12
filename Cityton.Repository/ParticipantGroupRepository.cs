@@ -17,6 +17,7 @@ namespace Cityton.Repository
 
         Task<ParticipantGroup> IsAccepted(int userId);
         Task<List<ParticipantGroup>> GetByUser(int userId);
+        Task<ParticipantGroup> GetRequestFromCreator(int groupId);
     }
 
     public class ParticipantGroupRepository : Repository<ParticipantGroup>, IParticipantGroupRepository
@@ -37,6 +38,13 @@ namespace Cityton.Repository
         public async Task<List<ParticipantGroup>> GetByUser(int userId)
         {
             return await context.ParticipantGroups.Where(pg => pg.UserId == userId).ToListAsync();
+        }
+
+        public async Task<ParticipantGroup> GetRequestFromCreator(int groupId)
+        {
+            return await context.ParticipantGroups.Where(pg => pg.BelongingGroupId == groupId && pg.IsCreator)
+               .Include(pg => pg.User)
+               .FirstOrDefaultAsync();
         }
 
     }

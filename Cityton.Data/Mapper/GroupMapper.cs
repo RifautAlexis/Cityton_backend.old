@@ -72,6 +72,7 @@ namespace Cityton.Data.Mapper
 
             return new MembershipRequestDTO
             {
+                RequestId = data.Id,
                 UserId = data.User.Id,
                 Username = data.User.Username,
                 Status = data.Status,

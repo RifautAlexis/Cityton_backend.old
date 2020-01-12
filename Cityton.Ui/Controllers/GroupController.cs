@@ -75,7 +75,13 @@ namespace Cityton.Ui.Controllers
 
             if (group == null) return BadRequest();
 
-            return Ok(group.ToGroupDetailsDTO());
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            User connectedUser = await this._userService.Get(connectedUserId);
+
+            Company company = await this._companyService.Get(connectedUser.CompanyId);
+
+            return Ok(new { maxGroupSize = company.MaxGroupSize, groupDetails = group.ToGroupDetailsDTO() });
 
         }
 
@@ -107,13 +113,19 @@ namespace Cityton.Ui.Controllers
         }
 
         [Authorized(Role.Member)]
-        [HttpDelete("acceptRequest")]
-        public async Task<IActionResult> AcceptRequest(int requestId)
+        [HttpPost("acceptRequest")]
+        public async Task<IActionResult> AcceptRequest([FromBody]int requestId)
         {
-
+            
             ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
 
-            if (participantGroup == null) return BadRequest();
+            if (participantGroup == null) return BadRequest("The request id is invalid");
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            User creator = await this._groupService.GetCreator(participantGroup.BelongingGroupId);
+            
+            if(creator.Id != connectedUserId) return BadRequest("You have to be the creator of the group !");
 
             await this._groupService.AcceptRequest(participantGroup);
 
@@ -149,7 +161,7 @@ namespace Cityton.Ui.Controllers
             if (participantGroup.Status != Status.Accepted) return BadRequest("Must be an accepted request !");
 
             int connectedUserId = int.Parse(User.Identity.Name);
-            if(participantGroup.UserId != connectedUserId) return BadRequest("Current user is different from request user");
+            if (participantGroup.UserId != connectedUserId) return BadRequest("Current user is different from request user");
 
             await this._groupService.DeleteRequest(participantGroup);
 

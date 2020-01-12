@@ -41,14 +41,14 @@ export class InformationComponent implements OnInit {
 
   acceptRequest(requestId: number) {
     if (this.isCreator) {
-      this.groupService.acceptRequest(requestId);
+      this.groupService.acceptRequest(requestId).subscribe();
       this.refresh();
     }
   }
 
   declineRequest(requestId: number) {
     if (this.isCreator) {
-      this.groupService.declineRequest(requestId);
+      this.groupService.declineRequest(requestId).subscribe();
       this.refresh();
     }
   }
@@ -74,9 +74,9 @@ export class InformationComponent implements OnInit {
       (group: GroupDetails) => {
 
         this.group = group;
-        this.isCreator = group.creatorId == Number(this.connectedUserId);
+        this.isCreator = group.groupDetails.creatorId == Number(this.connectedUserId);
 
-        let currentMember: any = group.members.find(user => user.userId == Number(this.connectedUserId)); // GroupDetails.IUser
+        let currentMember: any = group.groupDetails.members.find(user => user.userId == Number(this.connectedUserId)); // GroupDetails.IUser
         if (currentMember !== undefined) {
           this.isMember = true;
           this.requestId = currentMember.requestId;

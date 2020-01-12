@@ -1,13 +1,17 @@
 import { Status } from '@shared/models/Enum';
 
 export interface IGroupDetails {
-  id: number;
-  name: string;
-  picture: string;
-  createdAt: Date;
-  members: IUser[];
-  membershipRequests: IRequest[];
-  creatorId: number;
+  maxGroupSize: number;
+  groupDetails: {
+    id: number;
+    name: string;
+    picture: string;
+    createdAt: Date;
+    members: IUser[];
+    membershipRequests: IRequest[];
+    creatorId: number;
+  }
+
 }
 
 interface IUser {
@@ -19,6 +23,7 @@ interface IUser {
 }
 
 interface IRequest {
+  requestId: number;
   userId: number;
   username: string;
   status: Status;

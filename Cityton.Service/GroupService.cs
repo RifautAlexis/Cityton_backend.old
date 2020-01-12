@@ -30,6 +30,7 @@ namespace Cityton.Service
         Task<ParticipantGroup> GetRequest(int id);
         Task AcceptRequest(ParticipantGroup participantGroup);
         Task DeleteRequest(ParticipantGroup participantGroup);
+        Task<User> GetCreator(int groupId);
     }
 
     public class GroupService : IGroupService
@@ -131,14 +132,7 @@ namespace Cityton.Service
 
             if (participantGroup.IsCreator)
             {
-                // group = participantGroup.BelongingGroup;
                 group = await this.groupRepository.Get(participantGroup.BelongingGroupId);
-
-                // foreach (var member in group.Members)
-                // {
-                //     this.participantGroupRepository.Remove(member);
-                // }
-                // await this.participantGroupRepository.SaveChanges();
                 
                 group.Members.Clear();
 
@@ -148,6 +142,12 @@ namespace Cityton.Service
             else
                 await this.participantGroupRepository.Delete(participantGroup);
 
+        }
+
+        public async Task<User> GetCreator(int groupId) {
+            ParticipantGroup request = await this.participantGroupRepository.GetRequestFromCreator(groupId);
+
+            return request.User;
         }
 
     }
