@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 
 import { GroupService } from '@core/services/group.service';
 
-import { IGroup as Group } from '@shared/models/Group';
-import { group } from '@angular/animations';
+import { IGroupList as GroupList } from '@shared/models/GroupList';
 
 @Component({
   selector: 'app-all-groups',
@@ -15,22 +14,18 @@ import { group } from '@angular/animations';
 export class AllGroupsComponent implements OnInit {
 
   // groups$: Observable<Group[]>
-  groups: Group[];
+  groupList$: Observable<GroupList>;
 
   constructor(private groupService: GroupService) {
   }
 
   ngOnInit() {
-    this.groupService.getAll().subscribe(
-      (groups: Group[]) => {
-        this.groups = groups;
-        console.log(groups);
-      }
-    );
+    console.log("LOLOLOLOL");
+    this.groupList$ = this.groupService.getAll();
+    console.log("AZAZAZZAZAZ");
   }
 
   sendRequest(groupId: string) {
-    if(this.groups.findIndex(group => group.id === Number(groupId) && !group.hasRequested))
       this.groupService.membershipRequest(groupId).subscribe();
   }
 

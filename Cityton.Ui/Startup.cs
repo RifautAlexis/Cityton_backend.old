@@ -101,6 +101,7 @@ namespace Cityton.Ui
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IGroupService, GroupService>();
+            services.AddTransient<ICompanyService, CompanyService>();
 
             services.AddControllers().AddFluentValidation();
 

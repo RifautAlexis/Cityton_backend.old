@@ -33,16 +33,19 @@ namespace Cityton.Ui.Controllers
         private readonly IConfiguration _appSettings;
         private IGroupService _groupService;
         private IUserService _userService;
+        private ICompanyService _companyService;
 
         public GroupController(
             IConfiguration config,
             IGroupService groupService,
-            IUserService userService
+            IUserService userService,
+            ICompanyService companyService
         )
         {
             _appSettings = config;
             _groupService = groupService;
             _userService = userService;
+            _companyService = companyService;
 
         }
 
@@ -55,7 +58,11 @@ namespace Cityton.Ui.Controllers
 
             int connectedUserId = int.Parse(User.Identity.Name);
 
-            return Ok(groups.ToDTO(connectedUserId));
+            User connectedUser = await this._userService.Get(connectedUserId);
+
+            Company company = await this._companyService.Get(connectedUser.CompanyId);
+
+            return Ok(new { maxGroupSize = company.MaxGroupSize, groups = groups.ToDTO(connectedUserId) });
 
         }
 

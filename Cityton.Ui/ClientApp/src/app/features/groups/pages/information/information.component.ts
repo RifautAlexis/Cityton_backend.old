@@ -80,6 +80,7 @@ export class InformationComponent implements OnInit {
         if (currentMember !== undefined) {
           this.isMember = true;
           this.requestId = currentMember.requestId;
+
         } else {
           this.isMember = false;
           this.requestId = -1;
