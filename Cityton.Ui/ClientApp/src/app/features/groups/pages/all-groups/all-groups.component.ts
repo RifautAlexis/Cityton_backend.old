@@ -13,16 +13,13 @@ import { IGroupList as GroupList } from '@shared/models/GroupList';
 })
 export class AllGroupsComponent implements OnInit {
 
-  // groups$: Observable<Group[]>
   groupList$: Observable<GroupList>;
 
   constructor(private groupService: GroupService) {
   }
 
   ngOnInit() {
-    console.log("LOLOLOLOL");
     this.groupList$ = this.groupService.getAll();
-    console.log("AZAZAZZAZAZ");
   }
 
   sendRequest(groupId: string) {

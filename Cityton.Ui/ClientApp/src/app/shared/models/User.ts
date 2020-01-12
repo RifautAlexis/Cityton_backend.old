@@ -8,4 +8,5 @@ export interface IUser {
   picture: string;
   role: Role;
   token: string;
+  groupId: number;
 }

@@ -39,13 +39,13 @@ namespace Cityton.Ui.Controllers
 
         }
 
-        [Authorized(Role.Admin)]
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpGet("{userId}")]
         public async Task<IActionResult> Get(int userId)
         {
             if (userId < 1) return BadRequest();
 
-            User user = await this._userService.Get(userId);
+            User user = await this._userService.GetToTransformInDTO(userId);
 
             if (user == null) return BadRequest();
 

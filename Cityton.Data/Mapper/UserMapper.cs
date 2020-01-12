@@ -5,6 +5,7 @@ using Cityton.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Cityton.Data.Mapper
 {
@@ -37,8 +38,9 @@ namespace Cityton.Data.Mapper
                 PhoneNumber = data.PhoneNumber,
                 Email = data.Email,
                 Picture = data.Picture,
-                Role = Role.Member,
-                Token = data.Token
+                Role = data.Role,
+                Token = data.Token,
+                GroupId = data.ParticipantGroups.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.BelongingGroupId).FirstOrDefault()
             };
         }
 

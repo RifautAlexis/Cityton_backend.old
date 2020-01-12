@@ -22,6 +22,7 @@ namespace Cityton.Service
         Task<User> UpdateToken(User user);
         Task<UserDTO> Update(UserUpdateDTO userToUpdate);
         Task<User> Get(int id);
+        Task<User> GetToTransformInDTO(int id);
         Task<User> GetByUsername(string username);
         Task<User> GetByEmail(string email);
         Task<User> GetByPhoneNumber(string phoneNumber);
@@ -62,7 +63,7 @@ namespace Cityton.Service
 
             //validator sur userToUpdate
 
-            User userInDb = await this.Get(userToUpdate.Id);
+            User userInDb = await this.GetToTransformInDTO(userToUpdate.Id);
 
             if (userInDb == null) return null;
 
@@ -88,6 +89,10 @@ namespace Cityton.Service
         public async Task<User> Get(int id)
         {
             return await userRepository.Get(id);
+        }
+
+        public async Task<User> GetToTransformInDTO(int id) {
+            return await userRepository.GetToTransformInDTO(id);
         }
 
         public async Task<User> GetByUsername(string username)

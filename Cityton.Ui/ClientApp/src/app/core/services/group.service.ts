@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { IGroupList as GroupList } from '@shared/models/GroupList';
 import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
+import { IGroup as Group } from '@shared/models/Group';
 
 @Injectable({
   providedIn: 'root'

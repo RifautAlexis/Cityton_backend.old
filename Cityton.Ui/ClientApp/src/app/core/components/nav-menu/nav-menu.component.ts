@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
+
 import { AuthService } from '@core/services/auth.service';
+import { UserService } from '@core/services/user.service';
+
+import { IUser as User } from '@shared/models/User';
+import { Role } from '@shared/models/Enum';
 
 @Component({
   selector: 'app-nav-menu',
@@ -12,14 +18,50 @@ export class NavMenuComponent implements OnInit {
 
   selectedMenu: string = "Settings";
   threads: any;
+  info: any;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  isInAGroup: boolean;
+  isAMember: boolean;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+    console.log(this.info);
+
   }
 
   selectMenu(menu: string) {
+
+    switch (menu) {
+      case "Groups": {
+        this.authService.getConnectedUser().subscribe(
+          (user: User) => {
+            this.info = user;
+            this.isInAGroup = user.groupId > 0;
+            this.isAMember = user.role == Role.Member;
+            console.log(this.isInAGroup);
+            console.log(this.isAMember);
+            console.log(user.role);
+          }
+        );
+
+      }
+      default: {
+        //statements;
+        break;
+      }
+
+    }
+
     this.selectedMenu = menu;
+  }
+
+  ToMyGroup() {
+    this.router.navigate(['groups/details', this.info.groupId]);
   }
 
   logout() {
