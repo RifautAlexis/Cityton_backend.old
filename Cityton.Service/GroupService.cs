@@ -34,7 +34,7 @@ namespace Cityton.Service
         Task<User> GetCreator(int groupId);
         Task<Group> GetByName(string name);
         Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId);
-        Task<int> Create(string name);
+        Task<int> Create(Group newGroup, User connectedUser);
         Task<bool> ExistName(string name);
     }
 
@@ -168,17 +168,25 @@ namespace Cityton.Service
             return requests.Where(pg => pg.Status == Status.Accepted).FirstOrDefault();
         }
 
-        public async Task<int> Create(string name)
+        public async Task<int> Create(Group newGroup, User connectedUser)
         {
-            Group newGroup = new Group
-            {
-                Name = name,
-                CreatedAt = DateTime.Now
-            };
+            newGroup.CreatedAt = DateTime.Now;
 
             await this.groupRepository.Insert(newGroup);
 
-            Group group = await this.groupRepository.GetByName(name);
+            Group group = await this.groupRepository.GetByName(newGroup.Name);
+
+            var membershipCreator = new ParticipantGroup
+            {
+                IsCreator = true,
+                Status = Status.Accepted,
+                BelongingGroup = group,
+                User = connectedUser,
+                BelongingGroupId = group.Id,
+                UserId = connectedUser.Id
+            };
+
+            await this.participantGroupRepository.Insert(membershipCreator);
 
             return group.Id;
         }

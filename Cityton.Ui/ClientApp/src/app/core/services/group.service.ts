@@ -45,7 +45,13 @@ export class GroupService {
   }
 
   create(name: string): Observable<number> {
-    return this.http.post<number>(environment.apiUrl + 'group/create', name);
+
+    let group = {
+      name: name,
+      createdAt: new Date()
+    }
+
+    return this.http.post<number>(environment.apiUrl + 'group/create', group);
   }
 
 }

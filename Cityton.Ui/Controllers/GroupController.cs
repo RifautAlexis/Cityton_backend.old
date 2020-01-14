@@ -171,10 +171,9 @@ namespace Cityton.Ui.Controllers
 
         [Authorized(Role.Member, Role.Admin)]
         [HttpPost("create/")]
-        public async Task<IActionResult> Create(string name)
+        public async Task<IActionResult> Create(Group newGroup)
         {
-
-            Group group = await this._groupService.GetByName(name);
+            Group group = await this._groupService.GetByName(newGroup.Name);
 
             if (group != null) return BadRequest("This name already exist");
 
@@ -182,7 +181,9 @@ namespace Cityton.Ui.Controllers
             ParticipantGroup requestAccepted = await this._groupService.GetRequestAcceptedByUserId(connectedUserId);
             if (requestAccepted != null) return BadRequest("you are already in a group !");
 
-            int groupId = await this._groupService.Create(name);
+            User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
+
+            int groupId = await this._groupService.Create(newGroup, connectedUser);
 
             return Ok(groupId);
 
