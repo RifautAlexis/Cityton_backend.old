@@ -40,4 +40,12 @@ export class GroupService {
     return this.http.delete<any>(environment.apiUrl + 'group/leaveGroup/' + requestId);
   }
 
+  existName(name: string) {
+    return this.http.get<boolean>(environment.apiUrl + 'group/existName/' + name);
+  }
+
+  create(name: string): Observable<number> {
+    return this.http.post<number>(environment.apiUrl + 'group/create', name);
+  }
+
 }

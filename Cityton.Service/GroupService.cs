@@ -16,6 +16,7 @@ using Cityton.Data.Common;
 using Cityton.Service.Validators;
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
+using System.Linq;
 
 namespace Cityton.Service
 {
@@ -31,6 +32,10 @@ namespace Cityton.Service
         Task AcceptRequest(ParticipantGroup participantGroup);
         Task DeleteRequest(ParticipantGroup participantGroup);
         Task<User> GetCreator(int groupId);
+        Task<Group> GetByName(string name);
+        Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId);
+        Task<int> Create(string name);
+        Task<bool> ExistName(string name);
     }
 
     public class GroupService : IGroupService
@@ -133,7 +138,7 @@ namespace Cityton.Service
             if (participantGroup.IsCreator)
             {
                 group = await this.groupRepository.Get(participantGroup.BelongingGroupId);
-                
+
                 group.Members.Clear();
 
                 await this.groupRepository.Delete(group);
@@ -144,10 +149,43 @@ namespace Cityton.Service
 
         }
 
-        public async Task<User> GetCreator(int groupId) {
+        public async Task<User> GetCreator(int groupId)
+        {
             ParticipantGroup request = await this.participantGroupRepository.GetRequestFromCreator(groupId);
 
             return request.User;
+        }
+
+        public async Task<Group> GetByName(string name)
+        {
+            return await this.groupRepository.GetByName(name);
+        }
+
+        public async Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId)
+        {
+            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(connectedUserId);
+
+            return requests.Where(pg => pg.Status == Status.Accepted).FirstOrDefault();
+        }
+
+        public async Task<int> Create(string name)
+        {
+            Group newGroup = new Group
+            {
+                Name = name,
+                CreatedAt = DateTime.Now
+            };
+
+            await this.groupRepository.Insert(newGroup);
+
+            Group group = await this.groupRepository.GetByName(name);
+
+            return group.Id;
+        }
+
+        public async Task<bool> ExistName(string name)
+        {
+            return await this.groupRepository.GetByName(name) != null;
         }
 
     }

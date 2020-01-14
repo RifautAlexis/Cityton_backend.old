@@ -10,7 +10,6 @@ namespace Cityton.Data.DTOs
 
         public int GroupId { get; set; }
         public string Name { get; set; }
-        public string Picture { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<ParticipantGroupDTO> Members { get; set; }
         public List<MembershipRequestDTO> MembershipRequests { get; set; }

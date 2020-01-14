@@ -13,7 +13,7 @@ namespace Cityton.Repository
 
     public interface IGroupRepository : IRepository<Group>
     {
-
+        Task<Group> GetByName(string name);
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository
@@ -36,6 +36,11 @@ namespace Cityton.Repository
                 .Include(g => g.Members)
                     .ThenInclude(pg => pg.User)
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<Group> GetByName(string name)
+        {
+            return await context.Groups.Where(g => g.Name == name).FirstOrDefaultAsync();
         }
     }
 }

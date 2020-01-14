@@ -116,7 +116,7 @@ namespace Cityton.Ui.Controllers
         [HttpPost("acceptRequest")]
         public async Task<IActionResult> AcceptRequest([FromBody]int requestId)
         {
-            
+
             ParticipantGroup participantGroup = await this._groupService.GetRequest(requestId);
 
             if (participantGroup == null) return BadRequest("The request id is invalid");
@@ -124,8 +124,8 @@ namespace Cityton.Ui.Controllers
             int connectedUserId = int.Parse(User.Identity.Name);
 
             User creator = await this._groupService.GetCreator(participantGroup.BelongingGroupId);
-            
-            if(creator.Id != connectedUserId) return BadRequest("You have to be the creator of the group !");
+
+            if (creator.Id != connectedUserId) return BadRequest("You have to be the creator of the group !");
 
             await this._groupService.AcceptRequest(participantGroup);
 
@@ -167,6 +167,35 @@ namespace Cityton.Ui.Controllers
 
             return Ok(requestId);
 
+        }
+
+        [Authorized(Role.Member, Role.Admin)]
+        [HttpPost("create/")]
+        public async Task<IActionResult> Create(string name)
+        {
+
+            Group group = await this._groupService.GetByName(name);
+
+            if (group != null) return BadRequest("This name already exist");
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+            ParticipantGroup requestAccepted = await this._groupService.GetRequestAcceptedByUserId(connectedUserId);
+            if (requestAccepted != null) return BadRequest("you are already in a group !");
+
+            int groupId = await this._groupService.Create(name);
+
+            return Ok(groupId);
+
+        }
+
+        [Authorized(Role.Member, Role.Admin)]
+        [HttpGet("existName/{name}")]
+        public async Task<IActionResult> ExistName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return BadRequest("");
+
+            return Ok(await this._groupService.ExistName(name));
         }
 
     }

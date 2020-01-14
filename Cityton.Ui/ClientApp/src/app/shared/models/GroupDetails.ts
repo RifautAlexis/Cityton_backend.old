@@ -5,7 +5,6 @@ export interface IGroupDetails {
   groupDetails: {
     id: number;
     name: string;
-    picture: string;
     createdAt: Date;
     members: IUser[];
     membershipRequests: IRequest[];

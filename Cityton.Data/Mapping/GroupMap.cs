@@ -15,7 +15,6 @@ namespace Cityton.Data.Mapping
             entityBuilder.Property(g => g.Name).IsRequired();
             entityBuilder.HasIndex(g => g.Name).IsUnique();
 
-            entityBuilder.Property(g => g.Picture).IsRequired();
             entityBuilder.Property(g => g.CreatedAt).IsRequired();
 
             /*****/

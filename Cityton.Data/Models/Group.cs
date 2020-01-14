@@ -8,7 +8,6 @@ namespace Cityton.Data.Models
     {
 
         public string Name { get; set; }
-        public string Picture { get; set; } = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png";
         public DateTime CreatedAt { get; set; }
 
         /*****/

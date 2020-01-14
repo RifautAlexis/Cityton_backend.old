@@ -20,7 +20,6 @@ namespace Cityton.Data.Mapper
             {
                 Id = data.Id,
                 Name = data.Name,
-                Picture = data.Picture,
                 CreatedAt = data.CreatedAt,
                 Members = data.Members.Where(pg => pg.Status == Status.Accepted).ToDTO(),
                 HasRequested = data.Members.Any(pg => pg.UserId == userId && (pg.Status == Status.Accepted || pg.Status == Status.Waiting))
@@ -40,7 +39,6 @@ namespace Cityton.Data.Mapper
             {
                 GroupId = data.Id,
                 Name = data.Name,
-                Picture = data.Picture,
                 CreatedAt = data.CreatedAt,
                 Members = data.Members.Where(pg => pg.Status == Status.Accepted).ToDTO(),
                 MembershipRequests = data.Members.Where(pg => pg.Status == Status.Waiting).ToMembershipRequestDTO(),
