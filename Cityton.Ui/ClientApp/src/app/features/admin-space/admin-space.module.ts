@@ -6,6 +6,7 @@ import { AdminSpaceRoutingModule } from './admin-space-routing.module';
 
 import { IODataComponent } from './pages/IO-data/IO-data.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
+import { GroupsComponent } from './pages/groups/groups.component';
 
 import { SearchUserComponent } from './components/user-management/search-user/search-user.component';
 import { EditUserComponent } from './components/user-management/edit-user/edit-user.component';
@@ -21,7 +22,8 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
     EditUserComponent,
     ExportDataComponent,
     ImportDatalComponent,
-    ImportManualComponent
+    ImportManualComponent,
+    GroupsComponent
   ],
   imports: [
     CommonModule,
