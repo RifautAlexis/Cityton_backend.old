@@ -54,4 +54,12 @@ export class GroupService {
     return this.http.post<number>(environment.apiUrl + 'group/create', group);
   }
 
+  searchGroups(toSearch: string): Observable<Group[]> {
+
+    let params = new HttpParams()
+      .set('toSearch', toSearch)
+
+    return this.http.get<Group[]>(environment.apiUrl + 'group/searchGroups', { params });
+  }
+
 }

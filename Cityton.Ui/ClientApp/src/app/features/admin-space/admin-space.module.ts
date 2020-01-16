@@ -13,6 +13,7 @@ import { EditUserComponent } from './components/user-management/edit-user/edit-u
 import { ExportDataComponent } from './components/IO-data/export-data/export-data.component';
 import { ImportDatalComponent } from './components/IO-data/import-data/import-data.component';
 import { ImportManualComponent } from './components/IO-data/import-manual/import-manual.component';
+import { SearchGroupsComponent } from './components/groups/search-groups/search-groups.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
     ExportDataComponent,
     ImportDatalComponent,
     ImportManualComponent,
-    GroupsComponent
+    GroupsComponent,
+    SearchGroupsComponent
   ],
   imports: [
     CommonModule,

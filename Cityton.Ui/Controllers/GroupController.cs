@@ -199,5 +199,19 @@ namespace Cityton.Ui.Controllers
             return Ok(await this._groupService.ExistName(name));
         }
 
+        [Authorized(Role.Admin)]
+        [HttpGet("searchGroups")]
+        public async Task<IActionResult> SearchGroups(string toSearch)
+        {
+
+            if (string.IsNullOrEmpty(toSearch)) return BadRequest();
+            
+            List<Group> groups = await _groupService.Search(toSearch);
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            return Ok(groups.ToDTO(connectedUserId));
+        }
+
     }
 }

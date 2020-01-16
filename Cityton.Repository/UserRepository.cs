@@ -70,14 +70,15 @@ namespace Cityton.Repository
 
         public async Task<List<User>> GetByUsernameRole(string filterRole, string username = "")
         {
+            StringComparison comparison = StringComparison.OrdinalIgnoreCase;
 
             if (!filterRole.Equals("All"))
             {
                 Role role = filterRole.ToRole();
-                return await context.Users.Where(u => (u.Username.Contains(username)) && (u.Role == role)).ToListAsync();
+                return await context.Users.Where(u => (u.Username.Contains(username, comparison)) && (u.Role == role)).ToListAsync();
             }
 
-            return await context.Users.Where(user => user.Username.Contains(username)).ToListAsync();
+            return await context.Users.Where(user => user.Username.Contains(username, comparison)).ToListAsync();
         }
 
     }

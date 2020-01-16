@@ -65,8 +65,6 @@ namespace Cityton.Ui.Controllers
 
             List<User> users = await _userService.Search(sl, q);
 
-            List<SearchUserDTO> searchedUsers = new List<SearchUserDTO>();
-
             return Ok(users);
 
         }

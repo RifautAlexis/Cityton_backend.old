@@ -36,6 +36,7 @@ namespace Cityton.Service
         Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId);
         Task<int> Create(Group newGroup, User connectedUser);
         Task<bool> ExistName(string name);
+        Task<List<Group>> Search(string toSearch);
     }
 
     public class GroupService : IGroupService
@@ -194,6 +195,11 @@ namespace Cityton.Service
         public async Task<bool> ExistName(string name)
         {
             return await this.groupRepository.GetByName(name) != null;
+        }
+
+        public async Task<List<Group>> Search(string toSearch)
+        {
+            return await this.groupRepository.Search(toSearch);
         }
 
     }
