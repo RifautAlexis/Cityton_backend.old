@@ -213,5 +213,19 @@ namespace Cityton.Ui.Controllers
             return Ok(groups.ToDTO(connectedUserId));
         }
 
+        [Authorized(Role.Admin)]
+        [HttpDelete("{groupId}")]
+        public async Task<IActionResult> Delete(int groupId)
+        {
+
+            Group group = await this._groupService.Get(groupId);
+
+            if (group == null) return BadRequest("No group with this id !");
+
+            await this._groupService.Delete(group);
+
+            return Ok();
+        }
+
     }
 }

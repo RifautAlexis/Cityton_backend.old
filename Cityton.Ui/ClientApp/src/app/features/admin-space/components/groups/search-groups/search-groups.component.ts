@@ -29,4 +29,12 @@ export class SearchGroupsComponent implements OnInit {
     this.groups$ = this.groupService.searchGroups(toSearch);
   }
 
+  editGroup(groupId: string) {
+
+  }
+
+  deleteGroup(groupId: string) {
+    this.groupService.deleteGroup(groupId).subscribe();
+  }
+
 }

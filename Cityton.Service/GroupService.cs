@@ -37,6 +37,7 @@ namespace Cityton.Service
         Task<int> Create(Group newGroup, User connectedUser);
         Task<bool> ExistName(string name);
         Task<List<Group>> Search(string toSearch);
+        Task Delete(Group group);
     }
 
     public class GroupService : IGroupService
@@ -200,6 +201,10 @@ namespace Cityton.Service
         public async Task<List<Group>> Search(string toSearch)
         {
             return await this.groupRepository.Search(toSearch);
+        }
+
+        public async Task Delete(Group group) {
+            await this.groupRepository.Delete(group);
         }
 
     }

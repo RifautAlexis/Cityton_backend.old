@@ -62,4 +62,8 @@ export class GroupService {
     return this.http.get<Group[]>(environment.apiUrl + 'group/searchGroups', { params });
   }
 
+  deleteGroup(groupId: string) {
+    return this.http.delete(environment.apiUrl + 'group/' + groupId);
+  }
+
 }

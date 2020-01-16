@@ -68,7 +68,7 @@ export class SearchUserComponent implements OnInit {
     this.userService.update(userToUpdate);
   }
 
-  DeleteUser(userId: string) {
+  deleteUser(userId: string) {
     this.userService.deleteUser(userId);
   }
 
