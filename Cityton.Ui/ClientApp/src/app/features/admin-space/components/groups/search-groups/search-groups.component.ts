@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 
 import { GroupService } from '@core/services/group.service';
 
-import { IGroup as Group } from '@shared/models/Group'
-import { map } from 'rxjs/operators';
+import { IGroup as Group } from '@shared/models/Group';
 
 @Component({
   selector: 'app-search-groups',

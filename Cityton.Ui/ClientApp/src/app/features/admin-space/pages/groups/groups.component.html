@@ -1,4 +1,16 @@
-<section>
+<section *ngIf="(minorGroups$ | async) as minorGroups">
+
+  <!-- ALERT -->
+
+  <!-- Action -->
+
+  <ng-container *ngIf="minorGroups.length > 0">
+    <app-minor-groups [minorGroups]="minorGroups"></app-minor-groups>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+
+  <!-- Group missing minimal size -->
 
   <app-search-groups></app-search-groups>
 

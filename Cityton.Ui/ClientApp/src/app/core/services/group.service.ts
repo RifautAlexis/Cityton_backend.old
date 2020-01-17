@@ -66,4 +66,8 @@ export class GroupService {
     return this.http.delete(environment.apiUrl + 'group/' + groupId);
   }
 
+  getMinorGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(environment.apiUrl + 'group/getMinorGroups');
+  }
+
 }

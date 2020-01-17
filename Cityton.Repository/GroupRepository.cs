@@ -15,6 +15,7 @@ namespace Cityton.Repository
     {
         Task<Group> GetByName(string name);
         Task<List<Group>> Search(string toSearch);
+        Task<List<Group>> GetMinorGroups(int minimalGroupSize);
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository
@@ -56,6 +57,15 @@ namespace Cityton.Repository
             .Include(g => g.Members)
                 .ThenInclude(pg => pg.User)
             .ToListAsync();
+        }
+
+        public async Task<List<Group>> GetMinorGroups(int minimalGroupSize)
+        {
+            return await context.Groups
+                .Where(g => g.Members.Count(pg => pg.Status == Status.Accepted) < minimalGroupSize)
+                .Include(g => g.Members)
+                    .ThenInclude(pg => pg.User)
+                .ToListAsync();
         }
     }
 }

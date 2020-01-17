@@ -38,6 +38,7 @@ namespace Cityton.Service
         Task<bool> ExistName(string name);
         Task<List<Group>> Search(string toSearch);
         Task Delete(Group group);
+        Task<List<Group>> GetMinorGroups(int comapanyId);
     }
 
     public class GroupService : IGroupService
@@ -45,15 +46,18 @@ namespace Cityton.Service
 
         private IGroupRepository groupRepository;
         private IParticipantGroupRepository participantGroupRepository;
+        private ICompanyRepository companyRepository;
         private readonly IConfiguration _appSettings;
 
         public GroupService(
             IGroupRepository groupRepository,
             IParticipantGroupRepository participantGroupRepository,
+            ICompanyRepository companyRepository,
             IConfiguration config)
         {
             this.groupRepository = groupRepository;
             this.participantGroupRepository = participantGroupRepository;
+            this.companyRepository = companyRepository;
             this._appSettings = config;
         }
 
@@ -205,6 +209,11 @@ namespace Cityton.Service
 
         public async Task Delete(Group group) {
             await this.groupRepository.Delete(group);
+        }
+
+        public async Task<List<Group>> GetMinorGroups(int comapanyId) {
+            int minimalGroupSize = await this.companyRepository.getMinimalSize(comapanyId);
+            return await this.groupRepository.GetMinorGroups(4);
         }
 
     }

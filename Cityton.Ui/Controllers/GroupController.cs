@@ -227,5 +227,19 @@ namespace Cityton.Ui.Controllers
             return Ok();
         }
 
+        [Authorized(Role.Admin)]
+        [HttpGet("getMinorGroups")]
+        public async Task<IActionResult> GetMinorGroups()
+        {
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            User connectedUser = await this._userService.Get(connectedUserId);
+
+            List<Group> groups = await this._groupService.GetMinorGroups(connectedUser.CompanyId);
+
+            return Ok(groups.ToDTO(connectedUserId));
+        }
+
     }
 }
