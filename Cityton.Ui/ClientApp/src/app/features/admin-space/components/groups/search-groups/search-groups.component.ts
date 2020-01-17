@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
 import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { GroupService } from '@core/services/group.service';
 
@@ -12,17 +14,33 @@ import { IGroup as Group } from '@shared/models/Group';
 })
 export class SearchGroupsComponent implements OnInit {
 
+  @Output() parentDeleteGroup: EventEmitter<number> = new EventEmitter();
+
   groups$: Observable<Group[]>;
 
   searchField: string;
 
   constructor(
-    private groupService: GroupService) { }
+    private groupService: GroupService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
+
+    if(this.searchField !== "") {
+      this.search();
+    }
   }
 
   onSubmit() {
+    let toSearch: string = this.searchField ? this.searchField : "";
+
+    this.router.navigate(['admin/groups'], { queryParams: {toSearch: toSearch} });
+  }
+
+  private search() {
     let toSearch: string = this.searchField ? this.searchField : "";
 
     this.groups$ = this.groupService.searchGroups(toSearch);
@@ -33,7 +51,7 @@ export class SearchGroupsComponent implements OnInit {
   }
 
   deleteGroup(groupId: string) {
-    this.groupService.deleteGroup(groupId).subscribe();
+    this.parentDeleteGroup.emit(Number(groupId));
   }
 
 }
