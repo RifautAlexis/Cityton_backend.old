@@ -8,6 +8,7 @@ import { GroupsComponent } from './pages/groups/groups.component';
 const routes: Routes = [
     { path: '', component: UserManagementComponent },
     { path: 'groups', component: GroupsComponent },
+    { path: 'groups/toSearch', component: GroupsComponent },
     { path: 'data', component: IODataComponent },
     { path: 'user', component: UserManagementComponent }
 ];

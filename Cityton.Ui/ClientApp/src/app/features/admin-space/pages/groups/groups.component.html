@@ -1,17 +1,20 @@
-<section *ngIf="(minorGroups$ | async) as minorGroups">
+<section>
 
   <!-- ALERT -->
 
   <!-- Action -->
 
-  <ng-container *ngIf="minorGroups.length > 0">
-    <app-minor-groups [minorGroups]="minorGroups"></app-minor-groups>
+  <ng-container *ngIf="(minorGroups$ | async) as minorGroups">
+    <app-minor-groups *ngIf="minorGroups.length > 0" (parentDeleteGroup)="deleteGroup($event)"
+      [minorGroups]="minorGroups"></app-minor-groups>
 
     <mat-divider></mat-divider>
   </ng-container>
 
   <!-- Group missing minimal size -->
 
-  <app-search-groups></app-search-groups>
+  <ng-container *ngIf="(groups$ | async) as groups">
+    <app-search-groups (parentDeleteGroup)="deleteGroup($event)" [groups]="groups" [searchField]="searchField"></app-search-groups>
+  </ng-container>
 
 </section>

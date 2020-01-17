@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,9 +16,8 @@ export class SearchGroupsComponent implements OnInit {
 
   @Output() parentDeleteGroup: EventEmitter<number> = new EventEmitter();
 
-  groups$: Observable<Group[]>;
-
-  searchField: string;
+  @Input() groups: Group[];
+  @Input() searchField: string;
 
   constructor(
     private groupService: GroupService,
@@ -26,24 +25,12 @@ export class SearchGroupsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
-
-    if(this.searchField !== "") {
-      this.search();
-    }
   }
 
   onSubmit() {
     let toSearch: string = this.searchField ? this.searchField : "";
 
     this.router.navigate(['admin/groups'], { queryParams: {toSearch: toSearch} });
-  }
-
-  private search() {
-    let toSearch: string = this.searchField ? this.searchField : "";
-
-    this.groups$ = this.groupService.searchGroups(toSearch);
   }
 
   editGroup(groupId: string) {

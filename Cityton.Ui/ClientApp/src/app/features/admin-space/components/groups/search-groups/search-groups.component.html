@@ -9,7 +9,7 @@
 
 </section>
 
-<section *ngIf="(groups$ | async) as groups" id="results">
+<section *ngIf="groups" id="results">
 
   <ng-container *ngFor="let group of groups">
 

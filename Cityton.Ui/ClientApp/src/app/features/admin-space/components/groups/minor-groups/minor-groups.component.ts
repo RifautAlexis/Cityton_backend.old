@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { IGroup as Group } from '@shared/models/Group';
 
@@ -9,11 +9,17 @@ import { IGroup as Group } from '@shared/models/Group';
 })
 export class MinorGroupsComponent implements OnInit {
 
+  @Output() parentDeleteGroup: EventEmitter<number> = new EventEmitter();
+
   @Input() minorGroups: Group[];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  deleteGroup(groupId: string) {
+    this.parentDeleteGroup.emit(Number(groupId));
   }
 
 }
