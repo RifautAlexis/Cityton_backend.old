@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { IODataService } from './services/IOData.service';
 import { GroupService } from './services/group.service';
+import { CompanyService } from './services/company.service';
 
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -29,6 +30,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
     UserService,
     IODataService,
     GroupService,
+    CompanyService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
 

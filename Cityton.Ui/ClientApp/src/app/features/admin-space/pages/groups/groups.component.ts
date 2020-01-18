@@ -1,10 +1,15 @@
-import { Observable, of } from 'rxjs';
+import { CreateGroupsComponent } from './../../components/groups/create-groups/create-groups.component';
+import { CreateComponent } from './../../../groups/pages/create/create.component';
 import { Component, OnInit } from '@angular/core';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
-import { Router, ActivatedRoute } from '@angular/router';
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-groups',
@@ -16,19 +21,20 @@ export class GroupsComponent implements OnInit {
   minorGroups$: Observable<Group[]>;
   minorGroups: Group[];
 
-  groups$: Observable<Group[]>;
+  groups$: Observable<Group[]> = of([]);
   searchField: string;
 
   constructor(
     private groupService: GroupService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.refreshMinorGroups();
 
     this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
-    if(this.searchField !== "") {
+    if(this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0 ) {
       this.search();
     }
   }
@@ -40,6 +46,16 @@ export class GroupsComponent implements OnInit {
       this.refreshMinorGroups();
     }
 
+  }
+
+  openCreateGroup(): void {
+    const dialogRef = this.dialog.open(CreateGroupsComponent, {
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   private refreshMinorGroups() {

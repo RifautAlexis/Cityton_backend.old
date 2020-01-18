@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
+import { IUserMinimal as UserMinimal } from '@shared/models/UserMinimal';
 
 import { Observable } from 'rxjs';
 
@@ -54,6 +55,10 @@ export class UserService {
 
   async get(userId: string): Promise<User> {
     return this.http.get<User>(environment.apiUrl + 'user/' + userId).toPromise();
+  }
+
+  getUsersWithoutGroup(toSearch: string): Observable<UserMinimal[]> {
+    return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup' + toSearch);
   }
 
 }

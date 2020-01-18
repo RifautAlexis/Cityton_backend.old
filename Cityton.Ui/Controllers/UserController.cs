@@ -162,6 +162,16 @@ namespace Cityton.Ui.Controllers
 
             return Ok();
         }
+        
+        [Authorized(Role.Admin)]
+        [HttpGet("getUsersWithoutGroup/{toSearch}")]
+        [HttpGet("getUsersWithoutGroup")]
+        public async Task<IActionResult> GetUsersWithoutGroup(string toSearch = "")
+        {
+            
+            List<User> users = await this._userService.GetUsersWithoutGroup(toSearch);
 
+            return Ok(users.ToMinimalDTO());
+        }
     }
 }

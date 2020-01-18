@@ -95,5 +95,18 @@ namespace Cityton.Data.Mapper
                 CompanyId = 1
             };
         }
+
+        public static UserMinimal ToMinimalDTO(this User data)
+        {
+            return (new UserMinimal {
+                Id = data.Id,
+                Username = data.Username
+            });
+        }
+
+        public static List<UserMinimal> ToMinimalDTO(this IEnumerable<User> data)
+        {
+            return data.Select(u => u.ToMinimalDTO()).ToList();
+        }
     }
 }

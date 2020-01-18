@@ -15,6 +15,7 @@ import { ImportDatalComponent } from './components/IO-data/import-data/import-da
 import { ImportManualComponent } from './components/IO-data/import-manual/import-manual.component';
 import { SearchGroupsComponent } from './components/groups/search-groups/search-groups.component';
 import { MinorGroupsComponent } from './components/groups/minor-groups/minor-groups.component';
+import { CreateGroupsComponent } from './components/groups/create-groups/create-groups.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MinorGroupsComponent } from './components/groups/minor-groups/minor-gro
     ImportManualComponent,
     GroupsComponent,
     SearchGroupsComponent,
-    MinorGroupsComponent
+    MinorGroupsComponent,
+    CreateGroupsComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { MinorGroupsComponent } from './components/groups/minor-groups/minor-gro
     AdminSpaceRoutingModule
   ],
   entryComponents: [
-    EditUserComponent
+    EditUserComponent,
+    CreateGroupsComponent
   ],
   providers: [],
 })

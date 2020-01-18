@@ -23,13 +23,14 @@ namespace Cityton.Repository
         Task<User> GetByPhoneNumber(string phoneNumber);
         Task<List<User>> GetAllByPhoneNumber(string email);
         Task<List<User>> GetByUsernameRole(string username, string filterRole);
+        Task<List<User>> GetUsersWithoutGroup(string toSearch);
 
     }
 
     public class UserRepository : Repository<User>, IUserRepository
     {
 
-        public UserRepository(ApplicationContext context) : base(context) {  }
+        public UserRepository(ApplicationContext context) : base(context) { }
 
         public async Task<User> GetByEmail(string email)
         {
@@ -79,6 +80,14 @@ namespace Cityton.Repository
             }
 
             return await context.Users.Where(user => user.Username.Contains(username, comparison)).ToListAsync();
+        }
+
+        public async Task<List<User>> GetUsersWithoutGroup(string toSearch)
+        {
+
+            StringComparison comparison = StringComparison.OrdinalIgnoreCase;
+            
+            return await context.Users.Where(user => user.Username.Contains(toSearch, comparison) && user.Role == Role.Member && ( user.ParticipantGroups.Count() == 0 || user.ParticipantGroups.Any(pg => pg.Status != Status.Accepted))).ToListAsync();
         }
 
     }

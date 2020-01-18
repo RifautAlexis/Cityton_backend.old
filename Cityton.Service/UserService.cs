@@ -32,6 +32,7 @@ namespace Cityton.Service
         Task<bool> ExistPhoneNumber(string username);
         Task<bool> ExistEmail(string email);
         Task Delete(User user);
+        Task<List<User>> GetUsersWithoutGroup(string toSearch);
     }
 
     public class UserService : IUserService
@@ -71,7 +72,7 @@ namespace Cityton.Service
 
             if (!string.IsNullOrEmpty(userToUpdate.Password))
             {
-               userInDb.CreatePasswordHash(userToUpdate.Password);
+                userInDb.CreatePasswordHash(userToUpdate.Password);
             }
 
             //validator sur user
@@ -91,7 +92,8 @@ namespace Cityton.Service
             return await userRepository.Get(id);
         }
 
-        public async Task<User> GetToTransformInDTO(int id) {
+        public async Task<User> GetToTransformInDTO(int id)
+        {
             return await userRepository.GetToTransformInDTO(id);
         }
 
@@ -145,7 +147,7 @@ namespace Cityton.Service
 
             user.Picture = uploadResult.SecureUri.AbsoluteUri;
             await userRepository.SaveChanges();
-            
+
             return uploadResult.SecureUri.AbsoluteUri;
         }
 
@@ -182,6 +184,11 @@ namespace Cityton.Service
         public async Task Delete(User user)
         {
             await userRepository.Delete(user);
+        }
+
+        public async Task<List<User>> GetUsersWithoutGroup(string toSearch)
+        {
+            return await userRepository.GetUsersWithoutGroup(toSearch);
         }
 
     }
