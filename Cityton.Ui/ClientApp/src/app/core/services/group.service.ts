@@ -44,14 +44,26 @@ export class GroupService {
     return this.http.get<boolean>(environment.apiUrl + 'group/existName/' + name);
   }
 
-  create(name: string): Observable<number> {
+  createByMember(name: string): Observable<number> {
 
     let group = {
       name: name,
       createdAt: new Date()
     }
 
-    return this.http.post<number>(environment.apiUrl + 'group/create', group);
+    return this.http.post<number>(environment.apiUrl + 'group/createByMember', group);
+  }
+
+  createByAdmin(name: string, creatorId: number, membersId: number[]): Observable<number> {
+
+    let group = {
+      name: name,
+      creatorId: creatorId,
+      membersId: membersId,
+      createdAt: new Date()
+    }
+
+    return this.http.post<number>(environment.apiUrl + 'group/createByAdmin', group);
   }
 
   searchGroups(toSearch: string): Observable<Group[]> {

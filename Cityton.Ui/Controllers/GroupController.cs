@@ -100,7 +100,6 @@ namespace Cityton.Ui.Controllers
 
             if (isAccepted) return BadRequest("A user can't send membership request if he is already accepted in a group !");
 
-
             ValidationResult result = await this._groupService.MembershipRequest(groupId, connectedUser);
 
             if (result != null)
@@ -169,11 +168,11 @@ namespace Cityton.Ui.Controllers
 
         }
 
-        [Authorized(Role.Member, Role.Admin)]
-        [HttpPost("create/")]
-        public async Task<IActionResult> Create(Group newGroup)
+        [Authorized(Role.Member)]
+        [HttpPost("createByMember/")]
+        public async Task<IActionResult> Create(Group newGroupByMember)
         {
-            Group group = await this._groupService.GetByName(newGroup.Name);
+            Group group = await this._groupService.GetByName(newGroupByMember.Name);
 
             if (group != null) return BadRequest("This name already exist");
 
@@ -183,7 +182,25 @@ namespace Cityton.Ui.Controllers
 
             User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
-            int groupId = await this._groupService.Create(newGroup, connectedUser);
+            int groupId = await this._groupService.Create(newGroupByMember, connectedUser);
+
+            return Ok(groupId);
+
+        }
+
+        [Authorized(Role.Admin)]
+        [HttpPost("createByAdmin/")]
+        public async Task<IActionResult> Create(GroupByAdmin newGroupByAdmin)
+        {
+
+            GroupByAdminValidator validator = new GroupByAdminValidator(this._groupService);
+            ValidationResult results = await validator.ValidateAsync(newGroupByAdmin);
+
+            results.AddToModelState(ModelState, "GroupByAdmin");
+
+            if (!ModelState.IsValid) return BadRequest(this.ModelState);
+
+            int groupId = await this._groupService.CreateByAdmin(newGroupByAdmin);
 
             return Ok(groupId);
 

@@ -32,7 +32,7 @@ namespace Cityton.Repository
 
         public async Task<ParticipantGroup> IsAccepted(int userId)
         {
-            return await context.ParticipantGroups.Where(pg => pg.Status == Status.Accepted).FirstOrDefaultAsync();
+            return await context.ParticipantGroups.Where(pg => pg.UserId == userId && pg.Status == Status.Accepted).FirstOrDefaultAsync();
         }
 
         public async Task<List<ParticipantGroup>> GetByUser(int userId)

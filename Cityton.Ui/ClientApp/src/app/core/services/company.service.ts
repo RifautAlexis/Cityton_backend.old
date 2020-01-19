@@ -15,7 +15,7 @@ export class CompanyService {
   }
 
   getSettings(): Observable<Company> {
-    return this.http.get<Company>(environment.apiUrl + 'data/user/');
+    return this.http.get<Company>(environment.apiUrl + 'company');
   }
 
 

@@ -53,8 +53,8 @@ export class GroupsComponent implements OnInit {
       width: '450px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe((result: any) => {
+      this.groupService.createByAdmin(result.name, result.creator, result.members).subscribe();
     });
   }
 

@@ -57,8 +57,8 @@ export class UserService {
     return this.http.get<User>(environment.apiUrl + 'user/' + userId).toPromise();
   }
 
-  getUsersWithoutGroup(toSearch: string): Observable<UserMinimal[]> {
-    return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup' + toSearch);
+  getUsersWithoutGroup(): Observable<UserMinimal[]> {
+    return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup/' + "");
   }
 
 }

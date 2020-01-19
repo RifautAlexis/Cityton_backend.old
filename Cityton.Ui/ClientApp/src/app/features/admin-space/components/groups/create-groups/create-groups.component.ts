@@ -8,7 +8,7 @@ import { CompanyService } from '@core/services/company.service';
 import { IUserMinimal as UserMinimal } from '@shared/models/UserMinimal';
 import { ICompany as Company } from '@shared/models/Company';
 
-import { Observable, of } from 'rxjs';
+import { Observable, forkJoin, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-create-groups',
@@ -19,14 +19,12 @@ export class CreateGroupsComponent implements OnInit {
 
   name: string;
 
-  users$: Observable<UserMinimal[]>;
-  settings: Company;
+  resultSRequests$: Observable<[UserMinimal[], Company]>;
 
-  users: UserMinimal[];           // Base
   usersSelected: UserMinimal[] = [];
+  creatorSelected: UserMinimal;
 
-  usersRemaining: UserMinimal[];  // Removed from users selected
-  filteredUsers: UserMinimal[];   // Based on usersRemaining && string searched
+  isValidate: BehaviorSubject<boolean> = new BehaviorSubject(null);
 
   constructor(
     public dialogRef: MatDialogRef<CreateGroupsComponent>,
@@ -36,22 +34,27 @@ export class CreateGroupsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getUsersWithoutGroups("");
-
-    this.companyService.getSettings().subscribe(
-      (settings: Company) => {
-        this.settings = settings;
-      }
-    );
+    this.resultSRequests$ = forkJoin(this.userService.getUsersWithoutGroup(), this.companyService.getSettings());
 
   }
 
-  selectUser(choices: MatListOption[]) {
+  selectMembers(choices: MatListOption[]) {
 
     this.usersSelected = choices.map(choice => choice.value);
-    this.usersSelected.forEach(element => {
-      console.log(element.id);
-    });
+
+    if ((this.creatorSelected !== null && this.creatorSelected !== undefined) && !this.usersSelected.some(user => user.id == this.creatorSelected.id)) {
+      this.creatorSelected = null;
+    }
+
+  }
+
+  selectCreator(choices: MatListOption[]) {
+
+    if (choices[0] === undefined) {
+      this.creatorSelected = null;
+    } else {
+      this.creatorSelected = choices[0].value;
+    }
 
   }
 
@@ -59,65 +62,24 @@ export class CreateGroupsComponent implements OnInit {
     return this.usersSelected.some(user => user.id === userId)
   }
 
-  // ***************************************** //
-
-  // usersToAdd(): FormArray {
-  //   return this.createGroupForm.get("usersToAdd") as FormArray
-  // }
-
-  // newField(): FormGroup {
-  //   return this.formBuilder.group({
-  //     id: ''
-  //   })
-  // }
-
-  // addField() {
-  //   this.usersToAdd().push(this.newField());
-  // }
-
-  // removeField(index:number) {
-  // //   if (condition) {
-  // //     this.createGroupForm.controls['usersToAdd']
-  // //   }
-  //   console.log(this.createGroupForm.controls['usersToAdd'].value[index]);
-  //   this.usersToAdd().removeAt(index);
-  // }
+  isGroupValidate(minGroupSize: number, maxGroupSize: number): boolean {
+    return (this.name !== undefined && this.name.length >= 3 &&
+      this.usersSelected.length >= minGroupSize && this.usersSelected.length <= maxGroupSize &&
+      this.creatorSelected != undefined && this.creatorSelected != null);
+  }
 
   // ***************************************** //
 
   submit() {
     this.dialogRef.close({
-      // name: this.name,
-      // creator: this.creator.id
-      // members: this.selectedUsers
+      name: this.name,
+      creator: this.creatorSelected.id,
+      members: this.usersSelected.map(user => user.id)
     });
   }
 
   cancel() {
     this.dialogRef.close();
   }
-
-  // ***************************************** //
-
-  getUsersWithoutGroups(toSearch: string) {
-    this.users$ = this.userService.getUsersWithoutGroup(toSearch);
-  }
-
-  // selectUser(userId: number) {
-  //   // this.createGroupForm.controls['usersToAdd'].value[indexField] = userId;
-  //   this.filteredUsers = this.usersRemaining = this.usersRemaining.filter(option => option.id != userId);
-  //   // console.log(this.createGroupForm.controls['usersToAdd'].value[indexField]);
-  //   console.log(this.createGroupForm.controls['creator'].value);
-  // }
-
-  // filter(toSearch: string) {
-  //   const filterValue = toSearch.toLowerCase();
-
-  //   this.filteredUsers = this.usersRemaining.filter(option => option.username.toLowerCase().includes(filterValue));
-  // }
-
-  // resetCreator() {
-  //   this.createGroupForm.controls['creator'].reset();
-  // }
 
 }
