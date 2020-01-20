@@ -18,7 +18,7 @@ namespace Cityton.Service.Validators.DTOs
                 .MustAsync(async (name, cancellation) => !(await groupService.ExistName(name)));
             RuleFor(gba => gba.CreatorId).MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)));
             RuleForEach(gba => gba.MembersId).MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)));
-
+            // Verifier taille groupe (min et max) !!!
         }
 
     }

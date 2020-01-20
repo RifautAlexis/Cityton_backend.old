@@ -190,6 +190,7 @@ namespace Cityton.Service
 
         public async Task<int> CreateByAdmin(GroupByAdmin newGroupByAdmin)
         {
+            
             var newGroup = new Group
             {
                 Name = newGroupByAdmin.Name,
@@ -199,14 +200,16 @@ namespace Cityton.Service
             await this.groupRepository.Insert(newGroup);
 
             Group group = await this.groupRepository.GetByName(newGroup.Name);
-            User user = await this.userRepository.Get(newGroupByAdmin.CreatorId);
+            User user = await this.userRepository.GetWithRequests(newGroupByAdmin.CreatorId);
 
             await this.CreateAcceptedMembership(true, group, user);
 
-            foreach (var membership in newGroupByAdmin.MembersId)
+            foreach (var membershipId in newGroupByAdmin.MembersId)
             {
-                user = await this.userRepository.Get(newGroupByAdmin.CreatorId);
+                user = await this.userRepository.GetWithRequests(membershipId);
+
                 await this.CreateAcceptedMembership(false, group, user);
+
             }
 
             return group.Id;
@@ -242,6 +245,8 @@ namespace Cityton.Service
             {
                 this.participantGroupRepository.Remove(request);
             }
+
+            await this.participantGroupRepository.SaveChanges();
 
             var membershipCreator = new ParticipantGroup
             {

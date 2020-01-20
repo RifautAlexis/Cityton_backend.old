@@ -9,7 +9,7 @@ import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
 
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-groups',
@@ -34,7 +34,7 @@ export class GroupsComponent implements OnInit {
     this.refreshMinorGroups();
 
     this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
-    if(this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0 ) {
+    if (this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0) {
       this.search();
     }
   }
@@ -54,7 +54,12 @@ export class GroupsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.groupService.createByAdmin(result.name, result.creator, result.members).subscribe();
+      let creatorId: number = result.creator;
+
+      let membersWithoutCreator: Array<number> = result.members;
+      membersWithoutCreator = membersWithoutCreator.filter(id => id !== creatorId);
+
+      this.groupService.createByAdmin(result.name, creatorId, membersWithoutCreator).subscribe();
     });
   }
 

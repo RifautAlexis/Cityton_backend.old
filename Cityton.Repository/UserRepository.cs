@@ -15,7 +15,7 @@ namespace Cityton.Repository
     public interface IUserRepository : IRepository<User>
     {
 
-        Task<User> GetToTransformInDTO(int id);
+        Task<User> GetWithRequests(int id);
         Task<User> GetByEmail(string email);
         Task<List<User>> GetAllByEmail(string email);
         Task<User> GetByUsername(string username);
@@ -37,7 +37,7 @@ namespace Cityton.Repository
             return await context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
         }
 
-        public async Task<User> GetToTransformInDTO(int id)
+        public async Task<User> GetWithRequests(int id)
         {
             return await context.Users.Where(u => u.Id == id)
                 .Include(u => u.ParticipantGroups)

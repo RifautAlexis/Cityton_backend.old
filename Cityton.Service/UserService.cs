@@ -94,7 +94,7 @@ namespace Cityton.Service
 
         public async Task<User> GetToTransformInDTO(int id)
         {
-            return await userRepository.GetToTransformInDTO(id);
+            return await userRepository.GetWithRequests(id);
         }
 
         public async Task<User> GetByUsername(string username)
