@@ -63,7 +63,7 @@ export class GroupsComponent implements OnInit {
     });
   }
 
-  editGroup(data: GroupToEdit) {
+  editGroup(data: any) {
     this.groupService.edit(data).subscribe();
   }
 

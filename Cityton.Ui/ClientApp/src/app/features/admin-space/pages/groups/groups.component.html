@@ -6,7 +6,7 @@
 
   <ng-container *ngIf="(minorGroups$ | async) as minorGroups">
     <app-minor-groups *ngIf="minorGroups.length > 0" (parentDeleteGroup)="deleteGroup($event)"
-      (toEdit)="editGroup($event.target.value)" [minorGroups]="minorGroups"></app-minor-groups>
+      (toEdit)="editGroup($event)" [minorGroups]="minorGroups"></app-minor-groups>
 
     <mat-divider></mat-divider>
   </ng-container>

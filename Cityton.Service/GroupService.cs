@@ -42,6 +42,7 @@ namespace Cityton.Service
         Task<List<Group>> Search(string toSearch);
         Task Delete(Group group);
         Task<List<Group>> GetMinorGroups(int comapanyId);
+        Task Edit(GroupInfosEdit groupToEdit);
     }
 
     public class GroupService : IGroupService
@@ -193,7 +194,7 @@ namespace Cityton.Service
 
             Group group = await this.groupRepository.GetByName(newGroup.Name);
 
-            await this.CreateAcceptedMembership(true, group, connectedUser);
+            await this.CreateAcceptedMembership(true, group, connectedUser.Id);
 
             // delete request Waiting
 
@@ -212,15 +213,13 @@ namespace Cityton.Service
             await this.groupRepository.Insert(newGroup);
 
             Group group = await this.groupRepository.GetByName(newGroup.Name);
-            User user = await this.userRepository.GetWithRequests(newGroupByAdmin.CreatorId);
 
-            await this.CreateAcceptedMembership(true, group, user);
+            await this.CreateAcceptedMembership(true, group, newGroupByAdmin.CreatorId);
 
             foreach (var membershipId in newGroupByAdmin.MembersId)
             {
-                user = await this.userRepository.GetWithRequests(membershipId);
 
-                await this.CreateAcceptedMembership(false, group, user);
+                await this.CreateAcceptedMembership(false, group, membershipId);
 
             }
 
@@ -248,15 +247,84 @@ namespace Cityton.Service
             return await this.groupRepository.GetMinorGroups(4);
         }
 
-        public async Task<bool> Edit()
+        public async Task Edit(GroupInfosEdit groupToEdit)
         {
+            Group group = await this.groupRepository.Get(groupToEdit.Id);
+
+            Group orignalGroup = await this.groupRepository.GetWithRequestUser(groupToEdit.Id);
+
+            List<int> originalMembers = orignalGroup.Members.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.User).Select(user => user.Id).ToList();
+
+            List<int> currentMembers = groupToEdit.Members.Select(pg => pg.Id).ToList();
+            currentMembers.Add(groupToEdit.Creator.Id);
+
+            List<int> membersToDelete = originalMembers.Except(currentMembers).ToList();
+            membersToDelete.ForEach(
+                (userId) =>
+                {
+                    ParticipantGroup requestAccepted = group.Members.FirstOrDefault(pg => pg.UserId == userId);
+                    group.Members.Remove(requestAccepted);
+                    // await this.DeleteRequests(userId);
+                }
+            );
+
+            List<int> membersToAdd = currentMembers.Except(originalMembers).ToList();
+            membersToAdd.ForEach(
+                (userId) =>
+                {
+                    // User user = await this.userRepository.Get(userId);
+
+                    if (userId != groupToEdit.Creator.Id)
+                    {
+                        group.Members.Add(new ParticipantGroup
+                        {
+                            IsCreator = false,
+                            Status = Status.Accepted,
+                            BelongingGroup = group,
+                            BelongingGroupId = group.Id,
+                            UserId = userId
+                        });
+                        // await this.CreateAcceptedMembership(false, orignalGroup, userId);
+                    }
+                    else
+                    {
+                        group.Members.Add(new ParticipantGroup
+                        {
+                            IsCreator = true,
+                            Status = Status.Accepted,
+                            BelongingGroup = group,
+                            BelongingGroupId = group.Id,
+                            UserId = userId
+                        });
+                        // await this.CreateAcceptedMembership(true, orignalGroup, userId);
+                    }
+                }
+            );
+
             
+            group.Name = groupToEdit.Name;
+
+            await this.groupRepository.Update(group);
         }
 
         /* ************************************************** */
 
-        private async Task CreateAcceptedMembership(bool isCreator, Group group, User user)
+        private async Task DeleteRequests(int userId)
         {
+            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(userId);
+
+            foreach (var request in requests)
+            {
+                this.participantGroupRepository.Remove(request);
+            }
+
+            await this.participantGroupRepository.SaveChanges();
+        }
+
+        private async Task CreateAcceptedMembership(bool isCreator, Group group, int userId)
+        {
+
+            User user = await this.userRepository.GetWithRequests(userId);
 
             foreach (var request in user.ParticipantGroups)
             {

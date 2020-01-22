@@ -97,6 +97,7 @@ export class EditGroupsComponent implements OnInit {
 
   submit() {
     this.dialogRef.close({
+      id: this.data.id,
       name: this.name,
       creator: this.selectedCreator[0],
       members: this.selectedUsers.filter(user => user.id != this.selectedCreator[0].id)
