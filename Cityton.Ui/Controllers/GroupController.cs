@@ -222,7 +222,7 @@ namespace Cityton.Ui.Controllers
         {
 
             if (string.IsNullOrEmpty(toSearch)) return BadRequest();
-            
+
             List<Group> groups = await _groupService.Search(toSearch);
 
             int connectedUserId = int.Parse(User.Identity.Name);
@@ -256,6 +256,32 @@ namespace Cityton.Ui.Controllers
             List<Group> groups = await this._groupService.GetMinorGroups(connectedUser.CompanyId);
 
             return Ok(groups.ToDTO(connectedUserId));
+        }
+
+        [Authorized(Role.Member, Role.Admin)]
+        [HttpGet("getInfosEdit/{groupId}")]
+        public async Task<IActionResult> GetInfosEdit(int groupId)
+        {
+            
+            Group group = await this._groupService.GetWithRequestUser(groupId);
+            
+            return Ok(group.ToGroupInfosEdit());
+        }
+
+        [Authorized(Role.Member, Role.Admin)]
+        [HttpGet("edit/{groupId}")]
+        public async Task<IActionResult> Edit(int groupId)
+        {
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            User connectedUser = await this._userService.GetWithRequest(connectedUserId);
+
+            if (!(connectedUser.Role == Role.Member && connectedUser.ParticipantGroups.Any(pg => pg.IsCreator))) return BadRequest("You are not an admin or the creator of this group !");
+            
+            Group group = await this._groupService.Edit(groupId);
+            
+            return Ok(true);
         }
 
     }

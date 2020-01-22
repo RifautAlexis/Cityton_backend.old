@@ -16,6 +16,9 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
 import { SearchGroupsComponent } from './components/groups/search-groups/search-groups.component';
 import { MinorGroupsComponent } from './components/groups/minor-groups/minor-groups.component';
 import { CreateGroupsComponent } from './components/groups/create-groups/create-groups.component';
+import { EditGroupsComponent } from './components/groups/edit-groups/edit-groups.component';
+
+import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { CreateGroupsComponent } from './components/groups/create-groups/create-
     GroupsComponent,
     SearchGroupsComponent,
     MinorGroupsComponent,
-    CreateGroupsComponent
+    CreateGroupsComponent,
+    EditGroupsComponent
   ],
   imports: [
     CommonModule,
@@ -38,9 +42,13 @@ import { CreateGroupsComponent } from './components/groups/create-groups/create-
   ],
   entryComponents: [
     EditUserComponent,
-    CreateGroupsComponent
+    CreateGroupsComponent,
+    EditGroupsComponent
   ],
-  providers: [],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: {} }
+  ],
 })
 
 export class AdminSpaceModule { }

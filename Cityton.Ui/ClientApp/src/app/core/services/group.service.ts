@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { IGroupList as GroupList } from '@shared/models/GroupList';
 import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
 import { IGroup as Group } from '@shared/models/Group';
+import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,12 @@ export class GroupService {
     return this.http.get<GroupList>(environment.apiUrl + 'group');
   }
 
-  get(groupId: string): Observable<GroupDetails> {
+  getDetails(groupId: number): Observable<GroupDetails> {
     return this.http.get<GroupDetails>(environment.apiUrl + 'group/' + groupId);
+  }
+
+  getMinimal(groupId: number): Observable<GroupToEdit> {
+    return this.http.get<GroupToEdit>(environment.apiUrl + 'group/getInfosEdit/' + groupId);
   }
 
   membershipRequest(groupId): Observable<any> {
@@ -64,6 +69,10 @@ export class GroupService {
     }
 
     return this.http.post<number>(environment.apiUrl + 'group/createByAdmin', group);
+  }
+
+  edit(group: GroupToEdit): Observable<GroupDetails>{
+    return this.http.post<GroupDetails>(environment.apiUrl + 'group/edit', group);
   }
 
   searchGroups(toSearch: string): Observable<Group[]> {

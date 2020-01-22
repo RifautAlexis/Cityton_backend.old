@@ -24,8 +24,6 @@ export class CreateGroupsComponent implements OnInit {
   usersSelected: UserMinimal[] = [];
   creatorSelected: UserMinimal;
 
-  isValidate: BehaviorSubject<boolean> = new BehaviorSubject(null);
-
   constructor(
     public dialogRef: MatDialogRef<CreateGroupsComponent>,
     private userService: UserService,

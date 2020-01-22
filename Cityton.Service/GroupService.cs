@@ -25,6 +25,8 @@ namespace Cityton.Service
     {
         Task<List<Group>> GetAll();
         Task<Group> Get(int id);
+        Task<Group> GetWithRequest(int id);
+        Task<Group> GetWithRequestUser(int id);
         Task<ValidationResult> MembershipRequest(int groupId, User connectedUser);
         Task<bool> ExistRequest(ParticipantGroup data);
         Task<bool> IsAccepted(int userId);
@@ -73,6 +75,16 @@ namespace Cityton.Service
         public async Task<Group> Get(int id)
         {
             return await this.groupRepository.Get(id);
+        }
+
+        public async Task<Group> GetWithRequest(int id)
+        {
+            return await this.groupRepository.GetWithRequest(id);
+        }
+
+        public Task<Group> GetWithRequestUser(int id)
+        {
+            return this.groupRepository.GetWithRequestUser(id);
         }
 
         public async Task<ValidationResult> MembershipRequest(int groupId, User connectedUser)
@@ -142,7 +154,7 @@ namespace Cityton.Service
 
             if (participantGroup.IsCreator)
             {
-                group = await this.groupRepository.Get(participantGroup.BelongingGroupId);
+                group = await this.groupRepository.GetWithRequestUser(participantGroup.BelongingGroupId);
 
                 group.Members.Clear();
 
@@ -190,7 +202,7 @@ namespace Cityton.Service
 
         public async Task<int> CreateByAdmin(GroupByAdmin newGroupByAdmin)
         {
-            
+
             var newGroup = new Group
             {
                 Name = newGroupByAdmin.Name,
@@ -234,6 +246,11 @@ namespace Cityton.Service
         {
             int minimalGroupSize = await this.companyRepository.getMinimalSize(comapanyId);
             return await this.groupRepository.GetMinorGroups(4);
+        }
+
+        public async Task<bool> Edit()
+        {
+            
         }
 
         /* ************************************************** */

@@ -1,5 +1,3 @@
-import { CreateGroupsComponent } from './../../components/groups/create-groups/create-groups.component';
-import { CreateComponent } from './../../../groups/pages/create/create.component';
 import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,7 +6,9 @@ import { Observable, of } from 'rxjs';
 import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
+import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
 
+import { CreateGroupsComponent } from './../../components/groups/create-groups/create-groups.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -61,6 +61,10 @@ export class GroupsComponent implements OnInit {
 
       this.groupService.createByAdmin(result.name, creatorId, membersWithoutCreator).subscribe();
     });
+  }
+
+  editGroup(data: GroupToEdit) {
+    this.groupService.edit(data).subscribe();
   }
 
   private refreshMinorGroups() {

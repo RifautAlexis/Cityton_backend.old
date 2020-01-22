@@ -68,9 +68,9 @@ export class InformationComponent implements OnInit {
 
   private refresh() {
 
-    const id: string = this.activatedRoute.snapshot.paramMap.get("id");
+    const id: number = Number(this.activatedRoute.snapshot.paramMap.get("id"));
 
-    this.groupService.get(id).subscribe(
+    this.groupService.getDetails(id).subscribe(
       (group: GroupDetails) => {
 
         this.group = group;

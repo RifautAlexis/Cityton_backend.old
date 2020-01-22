@@ -83,5 +83,15 @@ namespace Cityton.Data.Mapper
             return data.Select(pg => pg.ToMembershipRequestDTO()).ToList();
         }
 
+        public static GroupInfosEdit ToGroupInfosEdit(this Group data)
+        {
+            return new GroupInfosEdit {
+                Id = data.Id,
+                Name = data.Name,
+                Creator = data.Members.Where(pg => pg.IsCreator).Select(pg => pg.User).FirstOrDefault().ToMinimalDTO(),
+                Members = data.Members.Where(pg => pg.Status == Status.Accepted && !pg.IsCreator).Select(pg => pg.User).ToMinimalDTO()
+            };
+        }
+
     }
 }
