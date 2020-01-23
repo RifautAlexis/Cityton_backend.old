@@ -16,7 +16,6 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
 import { SearchGroupsComponent } from './components/groups/search-groups/search-groups.component';
 import { MinorGroupsComponent } from './components/groups/minor-groups/minor-groups.component';
 import { CreateGroupsComponent } from './components/groups/create-groups/create-groups.component';
-import { EditGroupsComponent } from './components/groups/edit-groups/edit-groups.component';
 
 import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material';
 
@@ -32,8 +31,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material'
     GroupsComponent,
     SearchGroupsComponent,
     MinorGroupsComponent,
-    CreateGroupsComponent,
-    EditGroupsComponent
+    CreateGroupsComponent
   ],
   imports: [
     CommonModule,
@@ -42,8 +40,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material'
   ],
   entryComponents: [
     EditUserComponent,
-    CreateGroupsComponent,
-    EditGroupsComponent
+    CreateGroupsComponent
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },

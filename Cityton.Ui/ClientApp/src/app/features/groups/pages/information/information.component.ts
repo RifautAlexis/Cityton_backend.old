@@ -8,6 +8,10 @@ import { AuthService } from '@core/services/auth.service';
 
 import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
 import { IUser as User } from '@shared/models/User';
+import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
+
+import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-information',
@@ -29,7 +33,8 @@ export class InformationComponent implements OnInit {
     private groupService: GroupService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -66,6 +71,25 @@ export class InformationComponent implements OnInit {
     }
   }
 
+  openEditGroup(groupId: number): void {
+
+    this.groupService.getMinimal(Number(groupId)).subscribe(
+      (groupMinimal: GroupToEdit) => {
+
+        const dialogRef = this.dialog.open(EditGroupsComponent, {
+          width: '450px',
+          data: groupMinimal
+        });
+
+        dialogRef.afterClosed().subscribe((result: GroupToEdit) => {
+          if (result != null) this.groupService.edit(result).subscribe();
+        });
+
+      }
+    );
+
+  }
+
   private refresh() {
 
     const id: number = Number(this.activatedRoute.snapshot.paramMap.get("id"));
@@ -85,6 +109,8 @@ export class InformationComponent implements OnInit {
           this.isMember = false;
           this.requestId = -1;
         }
+
+        console.log(group);
 
       }
     );

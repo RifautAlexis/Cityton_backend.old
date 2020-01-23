@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { IUser as User } from '@shared/models/User';
 import { IUserRegister as UserRegister } from '@shared/models/UserRegister';
+import { Role } from '@shared/models/Enum';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -78,10 +79,17 @@ export class AuthService {
     return decodedToken.unique_name;
   }
 
-  getUserRole(): string {
+  getUserRole(): Role {
     let token: string = localStorage.getItem('currentToken');
     let decodedToken: Token = jwtdecode(token);
-    return decodedToken.role;
+
+    if (decodedToken.role === "Admin") {
+      return Role.Admin;
+    } else if (decodedToken.role === "Checker") {
+      return Role.Checker;
+    } else if (decodedToken.role === "Member") {
+      return Role.Member;
+    }
   }
 
 }

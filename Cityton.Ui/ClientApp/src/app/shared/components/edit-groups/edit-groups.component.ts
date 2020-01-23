@@ -4,10 +4,12 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 import { UserService } from '@core/services/user.service';
 import { CompanyService } from '@core/services/company.service';
+import { AuthService } from '@core/services/auth.service';
 
 import { IUserMinimal as UserMinimal } from '@shared/models/UserMinimal';
 import { ICompany as Company } from '@shared/models/Company';
 import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
+import { Role } from '@shared/models/Enum';
 
 import { Observable, forkJoin, BehaviorSubject } from 'rxjs';
 
@@ -24,15 +26,15 @@ export class EditGroupsComponent implements OnInit {
 
   resultSRequests$: Observable<[UserMinimal[], Company]>;
 
-  // usersSelected: UserMinimal[] = [];
-  // creatorSelected: UserMinimal;
-
   usersWithoutGroup: UserMinimal[];
+
+  isMember: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<EditGroupsComponent>,
     private userService: UserService,
     private companyService: CompanyService,
+    private authService: AuthService,
     @Inject(MAT_DIALOG_DATA) public data: GroupToEdit
   ) { }
 
@@ -51,6 +53,8 @@ export class EditGroupsComponent implements OnInit {
 
       }
     );
+
+    this.isMember = this.authService.getUserRole() === Role.Member;
 
   }
 
@@ -105,7 +109,7 @@ export class EditGroupsComponent implements OnInit {
   }
 
   cancel() {
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 
 }

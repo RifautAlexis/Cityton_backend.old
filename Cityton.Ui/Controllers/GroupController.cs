@@ -71,7 +71,7 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Get(int id)
         {
 
-            Group group = await this._groupService.Get(id);
+            Group group = await this._groupService.GetWithRequestUser(id);
 
             if (group == null) return BadRequest();
 

@@ -163,7 +163,7 @@ namespace Cityton.Ui.Controllers
             return Ok();
         }
         
-        [Authorized(Role.Admin)]
+        [Authorized(Role.Member, Role.Admin)]
         [HttpGet("getUsersWithoutGroup/{toSearch}")]
         [HttpGet("getUsersWithoutGroup")]
         public async Task<IActionResult> GetUsersWithoutGroup(string toSearch = "")

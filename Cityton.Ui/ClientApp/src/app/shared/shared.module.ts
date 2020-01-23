@@ -6,10 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
 
+import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
+
 @NgModule({
   declarations: [
+    EditGroupsComponent
   ],
   entryComponents: [
+    EditGroupsComponent
   ],
   imports: [
     HttpClientModule,

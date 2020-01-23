@@ -38,7 +38,7 @@ namespace Cityton.Ui.Controllers
             _userService = userService;
         }
 
-        [Authorized(Role.Admin)]
+        [Authorized(Role.Member, Role.Admin)]
         [HttpGet("")]
         public async Task<IActionResult> GetSettings()
         {

@@ -5,7 +5,7 @@ import { GroupService } from '@core/services/group.service';
 import { IGroup as Group } from '@shared/models/Group';
 import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
 
-import { EditGroupsComponent } from './../edit-groups/edit-groups.component';
+import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -39,7 +39,7 @@ export class MinorGroupsComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result: GroupToEdit) => {
-          this.toEdit.emit(result);
+          if (result != null) this.toEdit.emit(result);
         });
 
       }

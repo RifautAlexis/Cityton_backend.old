@@ -22,7 +22,7 @@
     <h2> Select a creator </h2>
     <mat-selection-list class="listUsers" #listMember [(ngModel)]="selectedCreator">
       <mat-list-option *ngFor="let user of selectedUsers" [value]="user"
-        [disabled]="selectedCreator[0] != null && user.id != selectedCreator[0].id">
+        [disabled]="isMember || (selectedCreator[0] != null && user.id != selectedCreator[0].id)">
         {{user.username}}
       </mat-list-option>
     </mat-selection-list>
