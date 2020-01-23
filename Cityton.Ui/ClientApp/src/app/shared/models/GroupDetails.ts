@@ -3,7 +3,7 @@ import { Status } from '@shared/models/Enum';
 export interface IGroupDetails {
   maxGroupSize: number;
   groupDetails: {
-    id: number;
+    groupId: number;
     name: string;
     createdAt: Date;
     members: IUser[];

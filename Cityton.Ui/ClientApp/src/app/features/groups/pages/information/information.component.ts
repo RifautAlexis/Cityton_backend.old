@@ -7,7 +7,6 @@ import { GroupService } from '@core/services/group.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
-import { IUser as User } from '@shared/models/User';
 import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
 
 import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
@@ -109,8 +108,6 @@ export class InformationComponent implements OnInit {
           this.isMember = false;
           this.requestId = -1;
         }
-
-        console.log(group);
 
       }
     );
