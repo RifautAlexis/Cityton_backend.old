@@ -58,6 +58,13 @@ export class EditGroupsComponent implements OnInit {
 
   }
 
+  checkCreator(newValues: UserMinimal[]) {
+
+    if (this.selectedCreator !== undefined && this.selectedCreator !== null) {
+      this.selectedCreator[0] = null;
+    }
+  }
+
   compare(obj01: UserMinimal, obj02: UserMinimal) {
     return obj01.username.localeCompare(obj02.username, 'en', {sensitivity: 'base'})
   }

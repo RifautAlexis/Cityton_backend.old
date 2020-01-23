@@ -9,7 +9,7 @@
 
   <!-- ******************************************************** -->
 
-  <mat-selection-list class="listUsers" #listUser [(ngModel)]="selectedUsers">
+  <mat-selection-list class="listUsers" #listUser [(ngModel)]="selectedUsers" (ngModelChange)="checkCreator($event)">
     <mat-list-option *ngFor="let user of usersWithoutGroup" [value]="user"
       [disabled]="selectedUsers.length >= resultSRequests[1].maxGroupSize && !usersSelectedContains(user.id)">
       {{user.username}}
