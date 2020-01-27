@@ -87,4 +87,10 @@ export class GroupsComponent implements OnInit {
     this.groups$ = this.groupService.searchGroups(toSearch);
   }
 
+  private searchGroup(toSearch: string) {
+    this.searchField = toSearch;
+
+    this.search();
+  }
+
 }

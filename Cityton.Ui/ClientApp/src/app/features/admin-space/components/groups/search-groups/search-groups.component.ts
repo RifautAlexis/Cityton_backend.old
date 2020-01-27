@@ -15,6 +15,7 @@ import { IGroup as Group } from '@shared/models/Group';
 export class SearchGroupsComponent implements OnInit {
 
   @Output() parentDeleteGroup: EventEmitter<number> = new EventEmitter();
+  @Output() toSearch: EventEmitter<string> = new EventEmitter();
 
   @Input() groups: Group[];
   @Input() searchField: string;
@@ -25,12 +26,14 @@ export class SearchGroupsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.searchField);
   }
 
   onSubmit() {
-    let toSearch: string = this.searchField ? this.searchField : "";
-
-    this.router.navigate(['admin/groups'], { queryParams: {toSearch: toSearch} });
+    // let toSearch: string = this.searchField ? this.searchField : "";
+    console.log(this.searchField);
+    // this.router.navigate(['admin/groups'], { queryParams: {toSearch: this.searchField} });
+    this.toSearch.emit(this.searchField);
   }
 
   editGroup(groupId: string) {
