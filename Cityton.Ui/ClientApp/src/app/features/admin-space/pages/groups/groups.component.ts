@@ -55,12 +55,16 @@ export class GroupsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      let creatorId: number = result.creator;
 
-      let membersWithoutCreator: Array<number> = result.members;
-      membersWithoutCreator = membersWithoutCreator.filter(id => id !== creatorId);
+      if (result !== undefined) {
+        let creatorId: number = result.creator;
 
-      this.groupService.createByAdmin(result.name, creatorId, membersWithoutCreator).subscribe();
+        let membersWithoutCreator: Array<number> = result.members;
+        membersWithoutCreator = membersWithoutCreator.filter(id => id !== creatorId);
+
+        this.groupService.createByAdmin(result.name, creatorId, membersWithoutCreator).subscribe();
+      }
+
     });
   }
 

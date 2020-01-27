@@ -6,6 +6,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
+import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
+
+import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search-groups',
@@ -14,6 +18,7 @@ import { IGroup as Group } from '@shared/models/Group';
 })
 export class SearchGroupsComponent implements OnInit {
 
+  @Output() toEdit: EventEmitter<GroupToEdit> = new EventEmitter();
   @Output() parentDeleteGroup: EventEmitter<number> = new EventEmitter();
   @Output() toSearch: EventEmitter<string> = new EventEmitter();
 
@@ -23,7 +28,8 @@ export class SearchGroupsComponent implements OnInit {
   constructor(
     private groupService: GroupService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     console.log(this.searchField);
@@ -36,7 +42,22 @@ export class SearchGroupsComponent implements OnInit {
     this.toSearch.emit(this.searchField);
   }
 
-  editGroup(groupId: string) {
+  openEditGroup(groupId: number): void {
+
+    this.groupService.getMinimal(Number(groupId)).subscribe(
+      (groupMinimal: GroupToEdit) => {
+
+        const dialogRef = this.dialog.open(EditGroupsComponent, {
+          width: '450px',
+          data: groupMinimal
+        });
+
+        dialogRef.afterClosed().subscribe((result: GroupToEdit) => {
+          if (result != null) this.toEdit.emit(result);
+        });
+
+      }
+    );
 
   }
 

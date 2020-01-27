@@ -30,7 +30,8 @@
 
   <!-- ******************************************************** -->
 
-  <mat-card>
+  <mat-card
+    *ngIf="(name != undefined && name != '') || (selectedUsers != undefined && selectedUsers != null && selectedUsers.length > 0)">
 
     <mat-card-header>
       <mat-card-title> {{groupName.value}} </mat-card-title>
@@ -44,12 +45,13 @@
 
     </mat-card-content>
 
-  </mat-card>
+    </mat-card>
 
-  <br>
+    <br>
 
-  <button mat-raised-button color="accent" type="button" (click)="submit()"
-    [disabled]="!(isGroupValidate(resultSRequests[1].minGroupSize, resultSRequests[1].maxGroupSize))"> Submit </button>
-  <button mat-raised-button color="accent" type="button" (click)="cancel()"> Cancel </button>
+    <button mat-raised-button color="accent" type="button" (click)="submit()"
+      [disabled]="!(isGroupValidate(resultSRequests[1].minGroupSize, resultSRequests[1].maxGroupSize))"> Submit
+    </button>
+    <button mat-raised-button color="accent" type="button" (click)="cancel()"> Cancel </button>
 
 </section>

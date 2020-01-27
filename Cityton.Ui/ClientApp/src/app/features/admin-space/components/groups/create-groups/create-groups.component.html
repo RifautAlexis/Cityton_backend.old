@@ -3,14 +3,15 @@
   <h1> Create a group </h1>
 
   <mat-form-field>
-    <input matInput type="text" placeholder="Name" [(ngModel)]="name" #groupName>
+    <input matInput type="text" placeholder="Name" [(ngModel)]="name" #groupName (ngModelChange)="checkError()">
     <mat-hint> At least 3 characters </mat-hint>
+
   </mat-form-field>
+  <span> {{nameError}} </span>
 
   <!-- ******************************************************** -->
 
-  <mat-selection-list class="listUsers" #listUser
-    (selectionChange)="selectMembers(listUser.selectedOptions.selected)">
+  <mat-selection-list class="listUsers" #listUser (selectionChange)="selectMembers(listUser.selectedOptions.selected)">
     <mat-list-option *ngFor="let user of resultSRequests[0]" [value]="user"
       [disabled]="usersSelected.length >= resultSRequests[1].maxGroupSize && !usersSelectedContains(user.id)">
       {{user.username}}
@@ -32,7 +33,8 @@
 
   <!-- ******************************************************** -->
 
-  <mat-card>
+  <mat-card
+    *ngIf="(name != undefined && name != '') || (usersSelected != undefined && usersSelected != null && usersSelected.length > 0)">
 
     <mat-card-header>
       <mat-card-title> {{groupName.value}} </mat-card-title>

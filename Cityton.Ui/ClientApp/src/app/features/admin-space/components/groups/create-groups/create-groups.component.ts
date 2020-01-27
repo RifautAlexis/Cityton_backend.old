@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 import { UserService } from '@core/services/user.service';
 import { CompanyService } from '@core/services/company.service';
+import { GroupService } from '@core/services/group.service';
 
 import { IUserMinimal as UserMinimal } from '@shared/models/UserMinimal';
 import { ICompany as Company } from '@shared/models/Company';
@@ -24,16 +25,39 @@ export class CreateGroupsComponent implements OnInit {
   usersSelected: UserMinimal[] = [];
   creatorSelected: UserMinimal;
 
+  nameError: string;
+
   constructor(
     public dialogRef: MatDialogRef<CreateGroupsComponent>,
     private userService: UserService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private groupService: GroupService
   ) { }
 
   ngOnInit() {
 
     this.resultSRequests$ = forkJoin(this.userService.getUsersWithoutGroup(), this.companyService.getSettings());
 
+  }
+
+  checkError() {
+    if (this.name === '') {
+      this.nameError = "Is required";
+
+    } else if (this.name.length < 3) {
+      this.nameError = "Have to be greater or equals to 3 characters";
+    } else {
+
+      this.groupService.existName(this.name).subscribe(
+        (nameExist: boolean) => {
+          if (nameExist) this.nameError = "This name is already taken";
+        }
+      )
+
+    }
+
+    console.log(this.name);
+    console.log(this.nameError);
   }
 
   selectMembers(choices: MatListOption[]) {
