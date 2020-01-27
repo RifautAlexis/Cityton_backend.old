@@ -16,8 +16,12 @@ namespace Cityton.Service.Validators.DTOs
                 .NotEmpty()
                 .Length(3, 50).WithMessage("Have to contains between 3 to 50 characters !")
                 .MustAsync(async (name, cancellation) => !(await groupService.ExistName(name)));
-            RuleFor(gba => gba.CreatorId).MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)));
-            RuleForEach(gba => gba.MembersId).MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)));
+            RuleFor(gba => gba.CreatorId).GreaterThan(0).MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)));
+            // RuleFor(gba => gba.MembersId).Must(members => members.Count > 4);
+            RuleForEach(gba => gba.MembersId)
+                .GreaterThan(0)
+                .MustAsync(async (creatorId, cancellation) => !(await groupService.IsAccepted(creatorId)))
+                .WithMessage("{PropertyValue} is already taken !");
             // Verifier taille groupe (min et max) !!!
         }
 

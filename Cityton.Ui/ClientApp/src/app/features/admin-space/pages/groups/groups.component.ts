@@ -7,6 +7,7 @@ import { GroupService } from '@core/services/group.service';
 
 import { IGroup as Group } from '@shared/models/Group';
 import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
+import { IGroupDetails as GroupDetails } from '@shared/models/GroupDetails';
 
 import { CreateGroupsComponent } from './../../components/groups/create-groups/create-groups.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -64,7 +65,11 @@ export class GroupsComponent implements OnInit {
   }
 
   editGroup(data: any) {
-    this.groupService.edit(data).subscribe();
+    this.groupService.edit(data).subscribe(
+      (groupDetails: GroupDetails) => {
+        this.refreshMinorGroups();
+      }
+    );
   }
 
   private refreshMinorGroups() {

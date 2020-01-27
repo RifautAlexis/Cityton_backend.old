@@ -43,6 +43,7 @@ export class EditGroupsComponent implements OnInit {
 
     this.resultSRequests$.subscribe(
       (data: [UserMinimal[], Company]) => {
+
         this.selectedCreator = [this.data.creator];
         this.selectedUsers = [this.data.creator, ...this.data.members];
         [...this.selectedUsers].sort((current, next) => this.compare(current, next));
@@ -60,19 +61,23 @@ export class EditGroupsComponent implements OnInit {
 
   checkCreator(newValues: UserMinimal[]) {
 
-    if (this.selectedCreator !== undefined && this.selectedCreator !== null) {
+    // if (this.selectedCreator !== undefined && this.selectedCreator !== null) {
+    if ((this.selectedCreator[0] !== null && this.selectedCreator[0] !== undefined) && !this.selectedUsers.some(user => user.id == this.selectedCreator[0].id)) {
       this.selectedCreator[0] = null;
     }
   }
 
   compare(obj01: UserMinimal, obj02: UserMinimal) {
-    return obj01.username.localeCompare(obj02.username, 'en', {sensitivity: 'base'})
+    return obj01.username.localeCompare(obj02.username, 'en', { sensitivity: 'base' })
   }
 
   selectMembers(choices: MatListOption[]) {
 
     this.selectedUsers = choices.map(choice => choice.value);
-
+    console.log(this.selectedCreator);
+    console.log(this.selectedUsers);
+    console.log(this.selectedCreator[0] !== null && this.selectedCreator[0] !== undefined);
+    console.log(!this.selectedUsers.some(user => user.id == this.selectedCreator[0].id));
     if ((this.selectedCreator[0] !== null && this.selectedCreator[0] !== undefined) && !this.selectedUsers.some(user => user.id == this.selectedCreator[0].id)) {
       this.selectedCreator[0] = null;
     }
@@ -94,9 +99,17 @@ export class EditGroupsComponent implements OnInit {
   }
 
   isGroupValidate(minGroupSize: number, maxGroupSize: number): boolean {
-    return (this.name !== undefined && this.name.length >= 3 &&
-      this.selectedUsers.length >= minGroupSize && this.selectedUsers.length <= maxGroupSize &&
-      this.selectedCreator[0] != undefined && this.selectedCreator[0] != null);
+    // console.log((this.name !== undefined && this.name.length >= 3),
+    // (this.selectedUsers !== undefined && this.selectedUsers.length >= minGroupSize && this.selectedUsers.length <= maxGroupSize),
+    // (this.selectedCreator[0] != undefined && this.selectedCreator[0] != null)
+    // );
+
+    // console.log(this.selectedCreator[0]);
+
+    return ((this.name !== undefined && this.name.length >= 3) &&
+      (this.selectedUsers !== undefined && this.selectedUsers.length >= minGroupSize && this.selectedUsers.length <= maxGroupSize) &&
+      (this.selectedCreator[0] != undefined && this.selectedCreator[0] != null));
+    return false;
   }
 
   CompareUsers(user01: UserMinimal, user02: UserMinimal) {
