@@ -37,7 +37,7 @@ namespace Cityton.Repository
 
         public async Task<List<ParticipantGroup>> GetByUser(int userId)
         {
-            return await context.ParticipantGroups.Where(pg => pg.UserId == userId).ToListAsync();
+            return await context.ParticipantGroups.Where(pg => pg.UserId == userId).Include(pg => pg.User).ToListAsync();
         }
 
         public async Task<ParticipantGroup> GetRequestFromCreator(int groupId)

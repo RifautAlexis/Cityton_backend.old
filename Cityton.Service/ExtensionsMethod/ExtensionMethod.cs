@@ -6,6 +6,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Cityton.Service
 {
@@ -75,6 +76,14 @@ namespace Cityton.Service
             user.Token = tokenString;
 
             return tokenString;
+        }
+
+        public static async Task ForEachAsync<T>(this List<T> list, Func<T, Task> func)
+        {
+            foreach (var value in list)
+            {
+                await func(value);
+            }
         }
 
     }

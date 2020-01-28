@@ -270,9 +270,15 @@ namespace Cityton.Service
             );
 
             List<int> membersToAdd = currentMembers.Except(originalMembers).ToList();
+
+            foreach (var userId in membersToAdd)
+            {
+                await RemoveAllRequests(userId);
+            }
             membersToAdd.ForEach(
                 (userId) =>
                 {
+
                     // User user = await this.userRepository.Get(userId);
 
                     if (userId != groupToEdit.Creator.Id)
@@ -302,13 +308,25 @@ namespace Cityton.Service
                 }
             );
 
-            
             group.Name = groupToEdit.Name;
 
             await this.groupRepository.Update(group);
         }
 
-        public async Task<bool> IsConformSize(int membersSize) {
+        private async Task RemoveAllRequests(int userId)
+        {
+            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(userId);
+            requests.ForEach(
+                (request) =>
+                {
+                    this.participantGroupRepository.Remove(request);
+                }
+            );
+            await this.participantGroupRepository.SaveChanges();
+        }
+
+        public async Task<bool> IsConformSize(int membersSize)
+        {
 
             Company company = await this.companyRepository.Get(1);
 
