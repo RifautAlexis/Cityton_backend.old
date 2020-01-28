@@ -23,7 +23,7 @@ export class GroupsComponent implements OnInit {
   minorGroups: Group[];
 
   groups$: Observable<Group[]> = of([]);
-  searchField: string;
+  searchField: string = "";
 
   constructor(
     private groupService: GroupService,
@@ -35,6 +35,7 @@ export class GroupsComponent implements OnInit {
     this.refreshMinorGroups();
 
     this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
+    console.log(this.searchField);
     if (this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0) {
       this.search();
     }
@@ -86,9 +87,9 @@ export class GroupsComponent implements OnInit {
   }
 
   private search() {
-    let toSearch: string = this.searchField ? this.searchField : "";
+    // let toSearch: string = this.searchField ? this.searchField : "";
 
-    this.groups$ = this.groupService.searchGroups(toSearch);
+    this.groups$ = this.groupService.searchGroups(this.searchField);
   }
 
   private searchGroup(toSearch: string) {
