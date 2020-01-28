@@ -7,7 +7,16 @@
     <mat-form-field>
       <input matNativeControl type="text" placeholder="Name" #groupName formControlName="name">
       <mat-hint> At least 3 characters </mat-hint>
+
+      <mat-error *ngIf="editGroupForm.get('name').hasError('required')"> Is Required </mat-error>
+      <mat-error *ngIf="editGroupForm.get('name').hasError('minlength')"> At least 3 characters </mat-error>
+
     </mat-form-field>
+
+    <ng-container *ngIf="editGroupForm.get('name').invalid">
+      <mat-error *ngIf="editGroupForm.get('name').errors?.uniqueName"> This name is already taken
+      </mat-error>
+    </ng-container>
 
     <!-- ******************************************************** -->
 
@@ -16,6 +25,9 @@
         [disabled]="getterForm('membersSelected').length >= resultSRequests[1].maxGroupSize && !usersSelectedContains(user.id)">
         {{user.username}}
       </mat-list-option>
+
+      <mat-error *ngIf="editGroupForm.get('membersSelected').hasError('required')"> Is Required </mat-error>
+
     </mat-selection-list>
 
     <!-- ******************************************************** -->

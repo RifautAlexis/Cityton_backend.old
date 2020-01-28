@@ -7,7 +7,16 @@
     <mat-form-field>
       <input matInput type="text" placeholder="Name" #groupName formControlName="name">
       <mat-hint> At least 3 characters </mat-hint>
+
+      <mat-error *ngIf="createGroupForm.get('name').hasError('required')"> Is Required </mat-error>
+      <mat-error *ngIf="createGroupForm.get('name').hasError('minlength')"> At least 3 characters </mat-error>
+
     </mat-form-field>
+
+    <ng-container *ngIf="createGroupForm.get('name').invalid">
+      <mat-error *ngIf="createGroupForm.get('name').errors?.uniqueName"> This name is already taken
+      </mat-error>
+    </ng-container>
 
     <!-- ******************************************************** -->
 
