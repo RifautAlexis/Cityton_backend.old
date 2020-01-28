@@ -58,7 +58,7 @@ export class UserService {
   }
 
   getUsersWithoutGroup(): Observable<UserMinimal[]> {
-    return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup/' + "");
+    return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup');
   }
 
 }

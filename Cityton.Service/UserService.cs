@@ -32,7 +32,7 @@ namespace Cityton.Service
         Task<bool> ExistPhoneNumber(string username);
         Task<bool> ExistEmail(string email);
         Task Delete(User user);
-        Task<List<User>> GetUsersWithoutGroup(string toSearch);
+        Task<List<User>> GetUsersWithoutGroup();
         Task<User> GetWithRequest(int userId);
     }
 
@@ -187,9 +187,9 @@ namespace Cityton.Service
             await userRepository.Delete(user);
         }
 
-        public async Task<List<User>> GetUsersWithoutGroup(string toSearch)
+        public async Task<List<User>> GetUsersWithoutGroup()
         {
-            return await userRepository.GetUsersWithoutGroup(toSearch);
+            return await userRepository.GetUsersWithoutGroup();
         }
 
         public async Task<User> GetWithRequest(int userId)

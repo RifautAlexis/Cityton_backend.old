@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -84,8 +85,8 @@ export class CreateGroupsComponent implements OnInit {
   submit() {
     this.dialogRef.close({
     name: this.getterForm("name"),
-    creator: this.getterForm("creatorSelected")[0],
-    members: this.getterForm("membersSelected")
+    creator: this.getterForm("creatorSelected")[0].id,
+    members: this.getterForm("membersSelected").map(member => member.id)
     });
   }
 

@@ -200,9 +200,9 @@ namespace Cityton.Ui.Controllers
 
             if (!ModelState.IsValid) return BadRequest(this.ModelState);
 
-            int groupId = await this._groupService.CreateByAdmin(newGroupByAdmin);
+            // int groupId = await this._groupService.CreateByAdmin(newGroupByAdmin);
 
-            return Ok(groupId);
+            return Ok(newGroupByAdmin);
 
         }
 

@@ -43,6 +43,7 @@ namespace Cityton.Service
         Task Delete(Group group);
         Task<List<Group>> GetMinorGroups(int comapanyId);
         Task Edit(GroupInfosEdit groupToEdit);
+        Task<bool> IsConformSize(int membersSize);
     }
 
     public class GroupService : IGroupService
@@ -305,6 +306,14 @@ namespace Cityton.Service
             group.Name = groupToEdit.Name;
 
             await this.groupRepository.Update(group);
+        }
+
+        public async Task<bool> IsConformSize(int membersSize) {
+
+            Company company = await this.companyRepository.Get(1);
+
+            return membersSize >= company.MinGroupSize && membersSize <= company.MaxGroupSize;
+
         }
 
         /* ************************************************** */
