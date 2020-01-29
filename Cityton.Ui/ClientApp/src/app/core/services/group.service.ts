@@ -64,15 +64,22 @@ export class GroupService {
     let group = {
       name: name,
       creatorId: creatorId,
-      membersId: membersId,
-      createdAt: new Date()
+      membersId: membersId
     }
 
     return this.http.post<number>(environment.apiUrl + 'group/createByAdmin', group);
   }
 
-  edit(group: GroupToEdit): Observable<GroupDetails>{
-    return this.http.post<GroupDetails>(environment.apiUrl + 'group/edit', group);
+  edit(group: any): Observable<any>{
+
+    // let groupToEdit = {
+    //   id: group.id,
+    //   name: group.name,
+    //   creatorId: group.creator.id,
+    //   MembersId: group.members.map(member => member.id)
+    // }
+
+    return this.http.post<any>(environment.apiUrl + 'group/edit', group);
   }
 
   searchGroups(toSearch: string): Observable<Group[]> {

@@ -71,7 +71,7 @@ export class GroupsComponent implements OnInit {
 
   editGroup(data: any) {
     this.groupService.edit(data).subscribe(
-      (groupDetails: GroupDetails) => {
+      (groupDetails: any) => {
         this.refreshMinorGroups();
       }
     );

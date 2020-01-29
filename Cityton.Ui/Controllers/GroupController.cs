@@ -269,22 +269,23 @@ namespace Cityton.Ui.Controllers
 
         [Authorized(Role.Member, Role.Admin)]
         [HttpPost("edit")]
-        public async Task<IActionResult> Edit(GroupInfosEdit groupInfo)
+        public async Task<IActionResult> Edit(GroupEdit groupEdit)
         {
+            
+            GroupEditValidator validator = new GroupEditValidator(this._groupService);
+            ValidationResult results = await validator.ValidateAsync(groupEdit);
 
-            // VALIDATOR
+            results.AddToModelState(ModelState, "GroupEdit");
+
+            if (!ModelState.IsValid) return BadRequest(this.ModelState);
 
             int connectedUserId = int.Parse(User.Identity.Name);
 
             User connectedUser = await this._userService.GetWithRequest(connectedUserId);
 
             if (connectedUser.Role != Role.Admin && (connectedUser.Role == Role.Member && !connectedUser.ParticipantGroups.Any(pg => pg.IsCreator))) return BadRequest("You are not an admin or the creator of this group !");
-            
-            // Validator
 
-            // Group group = await this._groupService.Edit(groupInfo);
-
-            await this._groupService.Edit(groupInfo);
+            await this._groupService.Edit(groupEdit);
             
             return Ok();
         }

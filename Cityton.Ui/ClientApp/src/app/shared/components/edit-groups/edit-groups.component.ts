@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit, Inject, } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
@@ -85,7 +86,7 @@ export class EditGroupsComponent implements OnInit {
 
   }
 
-  compare(obj01: UserMinimal, obj02: UserMinimal) {
+  private compare(obj01: UserMinimal, obj02: UserMinimal) {
     return obj01.username.localeCompare(obj02.username, 'en', { sensitivity: 'base' })
   }
 
@@ -93,14 +94,35 @@ export class EditGroupsComponent implements OnInit {
     return this.getterForm('membersSelected').some(user => user.id === userId)
   }
 
+  checkCreator(userId: number) {
+    if (this.getterForm("creatorSelected")[0] !== null && this.getterForm("creatorSelected")[0] !== undefined && this.getterForm("creatorSelected")[0].id === userId) {
+      this.getterForm("creatorSelected")[0] = null;
+    }
+
+  }
+
   // ***************************************** //
+  display() {
+    console.log(
+      this.getterForm("creatorSelected"),
+      this.getterForm("creatorSelected")[0],
+      this.getterForm("membersSelected")
+    );
+  }
 
   submit() {
+    console.log(
+      this.data.id,
+      this.getterForm("name"),
+      this.getterForm("creatorSelected")[0].id,
+      this.getterForm("membersSelected").map(usersMinimal => usersMinimal.id)
+    );
+
     this.dialogRef.close({
-    id: this.data.id,
-    name: this.getterForm("name"),
-    creator: this.getterForm("creatorSelected")[0],
-    members: this.getterForm("membersSelected")
+      id: this.data.id,
+      name: this.getterForm("name"),
+      creatorId: this.getterForm("creatorSelected")[0].id,
+      membersId: this.getterForm("membersSelected").map(usersMinimal => usersMinimal.id)
     });
   }
 

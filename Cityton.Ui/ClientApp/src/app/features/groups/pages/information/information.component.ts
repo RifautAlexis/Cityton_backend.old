@@ -80,7 +80,7 @@ export class InformationComponent implements OnInit {
           data: groupMinimal
         });
 
-        dialogRef.afterClosed().subscribe((result: GroupToEdit) => {
+        dialogRef.afterClosed().subscribe((result: any) => {
           if (result != null) this.groupService.edit(result).subscribe();
         });
 

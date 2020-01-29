@@ -42,8 +42,11 @@ namespace Cityton.Service
         Task<List<Group>> Search(string toSearch);
         Task Delete(Group group);
         Task<List<Group>> GetMinorGroups(int comapanyId);
-        Task Edit(GroupInfosEdit groupToEdit);
+        Task Edit(GroupEdit groupToEdit);
         Task<bool> IsConformSize(int membersSize);
+        Task<bool> ExistNameEdit(int groupId, string name);
+        Task<bool> IsAcceptedEdit(int groupId, int userId);
+        Task<bool> IsAcceptedEdit(int groupId, IEnumerable<int> usersId);
     }
 
     public class GroupService : IGroupService
@@ -189,7 +192,8 @@ namespace Cityton.Service
 
         public async Task<int> CreateByMember(GroupByMember groupByMember, User connectedUser)
         {
-            Group newGroup = new Group{
+            Group newGroup = new Group
+            {
                 Name = groupByMember.Name,
                 CreatedAt = DateTime.Now
             };
@@ -209,7 +213,7 @@ namespace Cityton.Service
             var newGroup = new Group
             {
                 Name = newGroupByAdmin.Name,
-                CreatedAt = newGroupByAdmin.CreatedAt
+                CreatedAt = DateTime.Now
             };
 
             await this.groupRepository.Insert(newGroup);
@@ -249,7 +253,7 @@ namespace Cityton.Service
             return await this.groupRepository.GetMinorGroups(4);
         }
 
-        public async Task Edit(GroupInfosEdit groupToEdit)
+        public async Task Edit(GroupEdit groupToEdit)
         {
             Group group = await this.groupRepository.Get(groupToEdit.Id);
 
@@ -257,8 +261,8 @@ namespace Cityton.Service
 
             List<int> originalMembers = orignalGroup.Members.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.User).Select(user => user.Id).ToList();
 
-            List<int> currentMembers = groupToEdit.Members.Select(pg => pg.Id).ToList();
-            currentMembers.Add(groupToEdit.Creator.Id);
+            List<int> currentMembers = groupToEdit.MembersId;
+            currentMembers.Add(groupToEdit.CreatorId);
 
             List<int> membersToDelete = originalMembers.Except(currentMembers).ToList();
             membersToDelete.ForEach(
@@ -266,7 +270,6 @@ namespace Cityton.Service
                 {
                     ParticipantGroup requestAccepted = group.Members.FirstOrDefault(pg => pg.UserId == userId);
                     group.Members.Remove(requestAccepted);
-                    // await this.DeleteRequests(userId);
                 }
             );
 
@@ -280,9 +283,7 @@ namespace Cityton.Service
                 (userId) =>
                 {
 
-                    // User user = await this.userRepository.Get(userId);
-
-                    if (userId != groupToEdit.Creator.Id)
+                    if (userId != groupToEdit.CreatorId)
                     {
                         group.Members.Add(new ParticipantGroup
                         {
@@ -292,7 +293,7 @@ namespace Cityton.Service
                             BelongingGroupId = group.Id,
                             UserId = userId
                         });
-                        // await this.CreateAcceptedMembership(false, orignalGroup, userId);
+
                     }
                     else
                     {
@@ -304,7 +305,7 @@ namespace Cityton.Service
                             BelongingGroupId = group.Id,
                             UserId = userId
                         });
-                        // await this.CreateAcceptedMembership(true, orignalGroup, userId);
+                        
                     }
                 }
             );
@@ -333,6 +334,29 @@ namespace Cityton.Service
 
             return membersSize >= company.MinGroupSize && membersSize <= company.MaxGroupSize;
 
+        }
+
+        public async Task<bool> ExistNameEdit(int groupId, string groupName)
+        {
+            Group group = await this.groupRepository.GetByName(groupName);
+            return group != null && group.Id != groupId;
+        }
+
+        public async Task<bool> IsAcceptedEdit(int groupId, int userId)
+        {
+            ParticipantGroup participantGroup = await this.participantGroupRepository.IsAccepted(userId);
+
+            return participantGroup != null && participantGroup.BelongingGroupId != groupId;
+        }
+
+        public async Task<bool> IsAcceptedEdit(int groupId, IEnumerable<int> usersId)
+        {
+            foreach (var userId in usersId)
+            {
+                if (await this.IsAcceptedEdit(groupId, userId)) return true;
+            }
+
+            return false;
         }
 
         /* ************************************************** */
