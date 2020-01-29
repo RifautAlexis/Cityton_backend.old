@@ -21,7 +21,7 @@ export class InformationComponent implements OnInit {
 
   group: GroupDetails;
   creator: string;
-  connectedUserId: string;
+  connectedUserId: number;
 
   isCreator: boolean = false;
   isMember: boolean = false;
@@ -97,9 +97,9 @@ export class InformationComponent implements OnInit {
       (group: GroupDetails) => {
 
         this.group = group;
-        this.isCreator = group.groupDetails.creatorId == Number(this.connectedUserId);
+        this.isCreator = group.groupDetails.creatorId == this.connectedUserId;
 
-        let currentMember: any = group.groupDetails.members.find(user => user.userId == Number(this.connectedUserId)); // GroupDetails.IUser
+        let currentMember: any = group.groupDetails.members.find(user => user.userId == this.connectedUserId); // GroupDetails.IUser
         if (currentMember !== undefined) {
           this.isMember = true;
           this.requestId = currentMember.requestId;

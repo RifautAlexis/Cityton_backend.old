@@ -168,22 +168,20 @@ namespace Cityton.Ui.Controllers
         }
 
         [Authorized(Role.Member)]
-        [HttpPost("createByMember/")]
-        public async Task<IActionResult> Create(Group newGroupByMember)
+        [HttpPost("createByMember")]
+        public async Task<IActionResult> Create(GroupByMember newGroupByMember)
         {
-            // VALIDATOR
+            GroupByMemberValidator validator = new GroupByMemberValidator(this._groupService);
+            ValidationResult results = await validator.ValidateAsync(newGroupByMember);
 
-            Group group = await this._groupService.GetByName(newGroupByMember.Name);
+            results.AddToModelState(ModelState, "NewGroupByMember");
 
-            if (group != null) return BadRequest("This name already exist");
+            if (!ModelState.IsValid) return BadRequest(this.ModelState);
 
             int connectedUserId = int.Parse(User.Identity.Name);
-            ParticipantGroup requestAccepted = await this._groupService.GetRequestAcceptedByUserId(connectedUserId);
-            if (requestAccepted != null) return BadRequest("you are already in a group !");
-
             User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
 
-            int groupId = await this._groupService.Create(newGroupByMember, connectedUser);
+            int groupId = await this._groupService.CreateByMember(newGroupByMember, connectedUser);
 
             return Ok(groupId);
 

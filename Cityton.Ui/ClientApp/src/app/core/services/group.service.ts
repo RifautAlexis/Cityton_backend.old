@@ -49,11 +49,11 @@ export class GroupService {
     return this.http.get<boolean>(environment.apiUrl + 'group/existName/' + name);
   }
 
-  createByMember(name: string): Observable<number> {
+  createByMember(name: string, creatorId: number): Observable<number> {
 
     let group = {
       name: name,
-      createdAt: new Date()
+      creatorId: creatorId
     }
 
     return this.http.post<number>(environment.apiUrl + 'group/createByMember', group);

@@ -54,8 +54,9 @@ export class CreateComponent implements OnInit {
     }
 
     let name: string = this.createGroupForm.controls.name.value
+    let creatorId: number = this.authService.getUserId();
 
-    this.groupService.createByMember(name).subscribe(
+    this.groupService.createByMember(name, creatorId).subscribe(
       (groupId: number) => {
         this.router.navigate(['groups/details', groupId]);
       },

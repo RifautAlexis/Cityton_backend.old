@@ -73,10 +73,10 @@ export class AuthService {
     return this.http.get<User>(environment.apiUrl + 'authenticate');
   }
 
-  getUserId(): string {
+  getUserId(): number {
     let token: string = localStorage.getItem('currentToken');
     let decodedToken: Token = jwtdecode(token);
-    return decodedToken.unique_name;
+    return Number(decodedToken.unique_name);
   }
 
   getUserRole(): Role {
