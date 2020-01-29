@@ -22,6 +22,7 @@ export class NavMenuComponent implements OnInit {
 
   isInAGroup: boolean;
   isAMember: boolean;
+  isAdmin: boolean;
 
   constructor(
     private authService: AuthService,
@@ -30,7 +31,7 @@ export class NavMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.info);
+    this.isAdmin = this.authService.getUserRole() === Role.Admin;
 
   }
 
@@ -43,9 +44,6 @@ export class NavMenuComponent implements OnInit {
             this.info = user;
             this.isInAGroup = user.groupId > 0;
             this.isAMember = user.role == Role.Member;
-            console.log(this.isInAGroup);
-            console.log(this.isAMember);
-            console.log(user.role);
           }
         );
 

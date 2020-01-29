@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IsConnectedGuard } from '@core/guards/auth.gard/isConnected.guard';
 import { IsNotConnectedGuard } from '@core/guards/auth.gard/isNotConnected.guard';
+import { IsAdminGuard } from '@core/guards/isAdmin.guard';
 
 import { NavMenuComponent } from '@core/components/nav-menu/nav-menu.component';
 import { HomeComponent } from '@features/home/pages/home/home.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
 
       { path: 'chat', component: NavMenuComponent, loadChildren: () => ChatModule, canActivate: [IsConnectedGuard] },
       { path: 'settings', component: NavMenuComponent, loadChildren: () => SettingsModule, canActivate: [IsConnectedGuard] },
-      { path: 'admin', component: NavMenuComponent, loadChildren: () => AdminSpaceModule, canActivate: [IsConnectedGuard] },
+      { path: 'admin', component: NavMenuComponent, loadChildren: () => AdminSpaceModule, canActivate: [IsConnectedGuard, IsAdminGuard] },
       { path: 'groups', component: NavMenuComponent, loadChildren: () => GroupsModule, canActivate: [IsConnectedGuard] },
 
     // ]

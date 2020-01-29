@@ -38,7 +38,7 @@
           </i>
         </button>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item *ngIf="isAdmin">
         <button mat-fab (click)="selectMenu('Admin space')">
           <i class="material-icons">
             security
@@ -85,11 +85,10 @@
           <ng-container *ngSwitchCase="'Groups'">
 
             <mat-list>
-              <!-- <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
-              <mat-list-item [routerLink]="['/myGroup']"> My group </mat-list-item> -->
               <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
               <mat-list-item (click)="ToMyGroup()" *ngIf="isInAGroup"> My group </mat-list-item>
-              <mat-list-item [routerLink]="['/groups/create']" *ngIf="!isInAGroup && isAMember"> Create a group </mat-list-item>
+              <mat-list-item [routerLink]="['/groups/create']" *ngIf="!isInAGroup && isAMember"> Create a group
+              </mat-list-item>
             </mat-list>
 
           </ng-container>
@@ -113,7 +112,6 @@
           <ng-container *ngSwitchCase="'Admin space'">
 
             <mat-list>
-              <!-- <mat-list-item [routerLink]="['/admin/groups']"> Groups </mat-list-item>
               <mat-list-item [routerLink]="['/admin/challenges']"> Challenges </mat-list-item> -->
               <mat-list-item [routerLink]="['/admin/groups']"> Groups </mat-list-item>
               <mat-list-item> Challenges </mat-list-item>
