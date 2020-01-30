@@ -126,14 +126,6 @@ namespace Cityton.Repository
                 users
             );
 
-            modelBuilder.Entity<Challenge>().HasData(
-                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
-                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
-                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Name = "Ô belles boules", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 4 },
-                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Name = "Grande mais petite", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 03), AuthorId = 4 },
-                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 04), AuthorId = 9 }
-            );
-
             modelBuilder.Entity<Group>().HasData(
                 groups
             );
@@ -142,7 +134,73 @@ namespace Cityton.Repository
                 participantsGroup
             );
 
+            modelBuilder.Entity<Challenge>().HasData(
+                new Challenge { Id = 1, Statement = "Faire une photo avec un chien", Name = "Chien trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 1 },
+                new Challenge { Id = 2, Statement = "Avoir le numéro de quelqu'un", Name = "Début d'un amour", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 05), AuthorId = 1 },
+                new Challenge { Id = 3, Statement = "Faire une vidéo devant l'Atomium", Name = "Ô belles boules", Status = Status.Accepted, CreatedAt = new DateTime(2019, 01, 02), AuthorId = 6 },
+                new Challenge { Id = 4, Statement = "Faire une photo sur la grande place", Name = "Grande mais petite", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 03), AuthorId = 25 },
+                new Challenge { Id = 5, Statement = "Faire une vidéo en mangeant une gauffre", Name = "Bonne et bien chaude", Status = Status.Waiting, CreatedAt = new DateTime(2019, 01, 04), AuthorId = 14 },
+                new Challenge { Id = 6, Statement = "Faire une photo avec un chat", Name = "Chat trop chou", Status = Status.Accepted, CreatedAt = new DateTime(2020, 01, 02), AuthorId = 16 },
+                new Challenge { Id = 7, Statement = "Faire une photo devant la statue XXX", Name = "Ô belle statue", Status = Status.Accepted, CreatedAt = new DateTime(2020, 07, 14), AuthorId = 38 },
+                new Challenge { Id = 8, Statement = "Faire une vidéo devant le monument XXX", Name = "Toi que l'on ne connait pas", Status = Status.Waiting, CreatedAt = new DateTime(2019, 09, 25), AuthorId = 40 },
+                new Challenge { Id = 9, Statement = "Faire une photo avec des touristes", Name = "De nouveaux amis !", Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 03), AuthorId = 31 },
+                new Challenge { Id = 10, Statement = "Faire une photo en sautant", Name = "Jump ! Jump ! Jump !", Status = Status.Accepted, CreatedAt = new DateTime(2020, 01, 30), AuthorId = 31 },
+                new Challenge { Id = 11, Statement = "Faire une photo Avec un inconnu en lui faisant un bisou", Name = "Belle inconnu", Status = Status.Waiting, CreatedAt = new DateTime(2019, 08, 23), AuthorId = null },
+                new Challenge { Id = 12, Statement = "Faire une photo sur la place XXX", Name = "Ho une place ! Photo, photo !", Status = Status.Accepted, CreatedAt = new DateTime(2019, 07, 13), AuthorId = null },
+                new Challenge { Id = 13, Statement = "Faire une photo dans un photo bombing", Name = "Inception", Status = Status.Accepted, CreatedAt = new DateTime(2020, 01, 09), AuthorId = null }
+            );
 
+            modelBuilder.Entity<Achievement>().HasData(
+                new Achievement { Id = 1, UnlockedAt = new DateTime(2019, 01, 09), WinnerId = 18, FromChallengeId = 1 },
+                new Achievement { Id = 2, UnlockedAt = new DateTime(2019, 01, 09), WinnerId = 25, FromChallengeId = 1 },
+                new Achievement { Id = 3, UnlockedAt = new DateTime(2019, 04, 15), WinnerId = 32, FromChallengeId = 10 },
+                new Achievement { Id = 4, UnlockedAt = new DateTime(2019, 04, 15), WinnerId = 32, FromChallengeId = 2 },
+                new Achievement { Id = 5, UnlockedAt = new DateTime(2019, 04, 15), WinnerId = 32, FromChallengeId = 6 },
+                new Achievement { Id = 6, UnlockedAt = new DateTime(2019, 04, 16), WinnerId = 26, FromChallengeId = 6 },
+                new Achievement { Id = 7, UnlockedAt = new DateTime(2019, 05, 28), WinnerId = 40, FromChallengeId = 2 },
+                new Achievement { Id = 8, UnlockedAt = new DateTime(2019, 05, 28), WinnerId = 14, FromChallengeId = 2 },
+                new Achievement { Id = 9, UnlockedAt = new DateTime(2019, 08, 20), WinnerId = 19, FromChallengeId = 1 },
+                new Achievement { Id = 10, UnlockedAt = new DateTime(2019, 08, 20), WinnerId = 19, FromChallengeId = 3 },
+                new Achievement { Id = 11, UnlockedAt = new DateTime(2019, 08, 20), WinnerId = 11, FromChallengeId = 3 },
+                new Achievement { Id = 12, UnlockedAt = new DateTime(2019, 08, 20), WinnerId = 17, FromChallengeId = 3 },
+                new Achievement { Id = 13, UnlockedAt = new DateTime(2019, 08, 20), WinnerId = 28, FromChallengeId = 3 },
+                new Achievement { Id = 14, UnlockedAt = new DateTime(2019, 09, 14), WinnerId = 9, FromChallengeId = 3 },
+                new Achievement { Id = 16, UnlockedAt = new DateTime(2019, 10, 04), WinnerId = 36, FromChallengeId = 1 },
+                new Achievement { Id = 17, UnlockedAt = new DateTime(2019, 10, 04), WinnerId = 36, FromChallengeId = 6 },
+                new Achievement { Id = 18, UnlockedAt = new DateTime(2019, 12, 08), WinnerId = 26, FromChallengeId = 9 },
+                new Achievement { Id = 19, UnlockedAt = new DateTime(2019, 12, 09), WinnerId = 25, FromChallengeId = 7 },
+                new Achievement { Id = 20, UnlockedAt = new DateTime(2019, 12, 10), WinnerId = 27, FromChallengeId = 7 },
+                new Achievement { Id = 21, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 9, FromChallengeId = 1 },
+                new Achievement { Id = 22, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 48, FromChallengeId = 1 },
+                new Achievement { Id = 23, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 24, FromChallengeId = 1 },
+                new Achievement { Id = 24, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 29, FromChallengeId = 1 },
+                new Achievement { Id = 25, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 9, FromChallengeId = 2 },
+                new Achievement { Id = 26, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 48, FromChallengeId = 2 },
+                new Achievement { Id = 27, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 24, FromChallengeId = 2 },
+                new Achievement { Id = 28, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 29, FromChallengeId = 2 },
+                new Achievement { Id = 29, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 9 },
+                new Achievement { Id = 30, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 4 },
+                new Achievement { Id = 31, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 2 }
+            );
+
+            modelBuilder.Entity<ChallengeGiven>().HasData(
+                new ChallengeGiven { Id = 1, Status = StatusChallenge.Validated, ChallengeId = 1, ChallengedGroupId = 1 },
+                new ChallengeGiven { Id = 2, Status = StatusChallenge.Validated, ChallengeId = 2, ChallengedGroupId = 1 },
+                new ChallengeGiven { Id = 3, Status = StatusChallenge.InProgress, ChallengeId = 3, ChallengedGroupId = 1 },
+                new ChallengeGiven { Id = 4, Status = StatusChallenge.Rejected, ChallengeId = 7, ChallengedGroupId = 1 },
+                new ChallengeGiven { Id = 5, Status = StatusChallenge.Rejected, ChallengeId = 9, ChallengedGroupId = 1 },
+                new ChallengeGiven { Id = 6, Status = StatusChallenge.InProgress, ChallengeId = 1, ChallengedGroupId = 2 },
+                new ChallengeGiven { Id = 7, Status = StatusChallenge.InProgress, ChallengeId = 7, ChallengedGroupId = 2 },
+                new ChallengeGiven { Id = 8, Status = StatusChallenge.InProgress, ChallengeId = 2, ChallengedGroupId = 2 },
+                new ChallengeGiven { Id = 9, Status = StatusChallenge.Validated, ChallengeId = 9, ChallengedGroupId = 3 },
+                new ChallengeGiven { Id = 10, Status = StatusChallenge.Validated, ChallengeId = 4, ChallengedGroupId = 3 },
+                new ChallengeGiven { Id = 11, Status = StatusChallenge.Validated, ChallengeId = 2, ChallengedGroupId = 3 },
+                new ChallengeGiven { Id = 12, Status = StatusChallenge.InProgress, ChallengeId = 1, ChallengedGroupId = 4 },
+                new ChallengeGiven { Id = 13, Status = StatusChallenge.InProgress, ChallengeId = 9, ChallengedGroupId = 4 },
+                new ChallengeGiven { Id = 14, Status = StatusChallenge.Rejected, ChallengeId = 2, ChallengedGroupId = 5 },
+                new ChallengeGiven { Id = 15, Status = StatusChallenge.Rejected, ChallengeId = 3, ChallengedGroupId = 5 },
+                new ChallengeGiven { Id = 16, Status = StatusChallenge.InProgress, ChallengeId = 1, ChallengedGroupId = 5 }
+            );
 
             /*
             *   Discussion
