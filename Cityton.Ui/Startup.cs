@@ -96,12 +96,14 @@ namespace Cityton.Ui
             services.AddScoped(typeof(ICompanyRepository), typeof(CompanyRepository));
             services.AddScoped(typeof(IGroupRepository), typeof(GroupRepository));
             services.AddScoped(typeof(IParticipantGroupRepository), typeof(ParticipantGroupRepository));
+            services.AddScoped(typeof(IChallengeRepository), typeof(ChallengeRepository));
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IGroupService, GroupService>();
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IChallengeService, ChallengeService>();
 
             services.AddControllers().AddFluentValidation();
 

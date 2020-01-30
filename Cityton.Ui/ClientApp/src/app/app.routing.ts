@@ -12,6 +12,7 @@ import { ChatModule } from '@features/chat/chat.module';
 import { SettingsModule } from '@features/settings/settings.module';
 import { AdminSpaceModule } from '@features/admin-space/admin-space.module';
 import { GroupsModule } from '@features/groups/groups.module';
+import { ChallengesModule } from '@features/challenges/challenges.module';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'settings', component: NavMenuComponent, loadChildren: () => SettingsModule, canActivate: [IsConnectedGuard] },
       { path: 'admin', component: NavMenuComponent, loadChildren: () => AdminSpaceModule, canActivate: [IsConnectedGuard, IsAdminGuard] },
       { path: 'groups', component: NavMenuComponent, loadChildren: () => GroupsModule, canActivate: [IsConnectedGuard] },
+      { path: 'challenges', component: NavMenuComponent, loadChildren: () => ChallengesModule, canActivate: [IsConnectedGuard] },
 
     // ]
   // },

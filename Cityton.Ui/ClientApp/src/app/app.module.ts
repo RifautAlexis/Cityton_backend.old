@@ -13,6 +13,7 @@ import{ ChatModule } from '@features/chat/chat.module';
 import{ HomeModule } from '@features/home/home.module';
 import{ SettingsModule } from '@features/settings/settings.module';
 import{ GroupsModule } from '@features/groups/groups.module';
+import{ ChallengesModule } from '@features/challenges/challenges.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import{ GroupsModule } from '@features/groups/groups.module';
     ChatModule,
     HomeModule,
     SettingsModule,
-    GroupsModule
+    GroupsModule,
+    ChallengesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
