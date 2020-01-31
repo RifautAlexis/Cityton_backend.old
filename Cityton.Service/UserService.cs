@@ -34,6 +34,7 @@ namespace Cityton.Service
         Task Delete(User user);
         Task<List<User>> GetUsersWithoutGroup();
         Task<User> GetWithRequest(int userId);
+        Task<User> GetWithChallenge(int userId);
     }
 
     public class UserService : IUserService
@@ -157,34 +158,25 @@ namespace Cityton.Service
             return await userRepository.GetByUsername(username) != null;
         }
 
-        // public static async Task<bool> ExistUsername(string username)
-        // {
-        //     return await ExistUsername(username);
-        // }
-
         public async Task<bool> ExistPhoneNumber(string phoneNumber)
         {
             return await userRepository.GetByPhoneNumber(phoneNumber) != null;
         }
-
-        // public static async Task<bool> ExistPhoneNumber(string phoneNumber)
-        // {
-        //     return await ExistPhoneNumber(phoneNumber);
-        // }
 
         public async Task<bool> ExistEmail(string email)
         {
             return await userRepository.GetByEmail(email) != null;
         }
 
-        // public static async Task<bool> ExistEmail(string email)
-        // {
-        //     return await ExistEmail(email);
-        // }
-
         public async Task Delete(User user)
         {
-            await userRepository.Delete(user);
+            foreach (var challengesCreated in user.Challenges)
+            {
+                challengesCreated.AuthorId = null;
+            }
+            await userRepository.Update(user);
+
+            // await userRepository.Delete(user);
         }
 
         public async Task<List<User>> GetUsersWithoutGroup()
@@ -195,6 +187,11 @@ namespace Cityton.Service
         public async Task<User> GetWithRequest(int userId)
         {
             return await userRepository.GetWithRequests(userId);
+        }
+
+        public async Task<User> GetWithChallenge(int userId)
+        {
+            return await userRepository.GetWithChallenge(userId);
         }
 
     }

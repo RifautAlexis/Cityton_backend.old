@@ -152,12 +152,12 @@ namespace Cityton.Ui.Controllers
         [HttpDelete("{userId}")]
         public async Task<IActionResult> Delete(int userId)
         {
-            if (userId > 0) return BadRequest("");
+            if (userId <= 0) return BadRequest("Id have to be superior to 0");
 
-            User user = await this._userService.Get(userId);
+            User user = await this._userService.GetWithChallenge(userId);
 
-            if (user == null) return BadRequest("");
-
+            if (user == null) return BadRequest("No user has be fiund with this Id");
+            
             await this._userService.Delete(user);
 
             return Ok();
