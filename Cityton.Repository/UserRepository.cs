@@ -24,7 +24,7 @@ namespace Cityton.Repository
         Task<List<User>> GetAllByPhoneNumber(string email);
         Task<List<User>> GetByUsernameRole(string username, string filterRole);
         Task<List<User>> GetUsersWithoutGroup();
-        Task<User> GetWithChallenge(int userId);
+        Task<User> Get_Challenges_Achievements(int userId);
 
     }
 
@@ -89,11 +89,12 @@ namespace Cityton.Repository
             return await context.Users.Where(user => user.Role == Role.Member && ( user.ParticipantGroups.Count() == 0 || !user.ParticipantGroups.Any(pg => pg.Status == Status.Accepted))).ToListAsync();
         }
 
-        public async Task<User> GetWithChallenge(int userId)
+        public async Task<User> Get_Challenges_Achievements(int userId)
         {
             return await context.Users
                 .Where(user => user.Id == userId)
                 .Include(user => user.Challenges)
+                .Include(user => user.Achievements)
                 .FirstOrDefaultAsync();
         }
 

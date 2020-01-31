@@ -72,6 +72,8 @@ namespace Cityton.Service
             this._appSettings = config;
         }
 
+        #region Getters Group
+
         public async Task<List<Group>> GetAll()
         {
             return await this.groupRepository.GetAll();
@@ -92,103 +94,16 @@ namespace Cityton.Service
             return this.groupRepository.GetWithRequestUser(id);
         }
 
-        public async Task<ValidationResult> MembershipRequest(int groupId, User connectedUser)
+        public async Task<List<Group>> GetMinorGroups(int comapanyId)
         {
-
-            Group group = await this.groupRepository.Get(groupId);
-
-            var membershipRequest = new ParticipantGroup
-            {
-                IsCreator = false,
-                Status = Status.Waiting,
-                BelongingGroup = group,
-                User = connectedUser,
-                BelongingGroupId = group.Id,
-                UserId = connectedUser.Id
-            };
-
-            await this.participantGroupRepository.Insert(membershipRequest);
-
-            return null;
+            int minimalGroupSize = await this.companyRepository.getMinimalSize(comapanyId);
+            return await this.groupRepository.GetMinorGroups(4);
         }
 
-        public async Task<bool> ExistRequest(ParticipantGroup data)
-        {
-            ParticipantGroup participantGroup = await this.participantGroupRepository.Get(data.BelongingGroupId, data.UserId);
+        #endregion
 
-            if (participantGroup == null) return false;
+        #region Actions on Group
 
-            if (data.Status == participantGroup.Status) return true;
-
-            return false;
-
-        }
-
-        public async Task<bool> IsAccepted(int userId)
-        {
-            ParticipantGroup participantGroup = await this.participantGroupRepository.IsAccepted(userId);
-
-            return participantGroup != null;
-        }
-
-        public async Task<ParticipantGroup> GetRequest(int id)
-        {
-            return await this.participantGroupRepository.Get(id);
-        }
-
-        public async Task AcceptRequest(ParticipantGroup participantGroup)
-        {
-            participantGroup.Status = Status.Accepted;
-            await this.participantGroupRepository.Update(participantGroup);
-
-            List<ParticipantGroup> allRequests = await this.participantGroupRepository.GetByUser(participantGroup.UserId);
-            allRequests.Remove(participantGroup);
-
-            foreach (var request in allRequests)
-            {
-                this.participantGroupRepository.Remove(request);
-            }
-
-            await this.participantGroupRepository.SaveChanges();
-        }
-
-        public async Task DeleteRequest(ParticipantGroup participantGroup)
-        {
-
-            Group group = null;
-
-            if (participantGroup.IsCreator)
-            {
-                group = await this.groupRepository.GetWithRequestUser(participantGroup.BelongingGroupId);
-
-                group.Members.Clear();
-
-                await this.groupRepository.Delete(group);
-
-            }
-            else
-                await this.participantGroupRepository.Delete(participantGroup);
-
-        }
-
-        public async Task<User> GetCreator(int groupId)
-        {
-            ParticipantGroup request = await this.participantGroupRepository.GetRequestFromCreator(groupId);
-
-            return request.User;
-        }
-
-        public async Task<Group> GetByName(string name)
-        {
-            return await this.groupRepository.GetByName(name);
-        }
-
-        public async Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId)
-        {
-            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(connectedUserId);
-
-            return requests.Where(pg => pg.Status == Status.Accepted).FirstOrDefault();
-        }
 
         public async Task<int> CreateByMember(GroupByMember groupByMember, User connectedUser)
         {
@@ -232,11 +147,6 @@ namespace Cityton.Service
             return group.Id;
         }
 
-        public async Task<bool> ExistName(string name)
-        {
-            return await this.groupRepository.GetByName(name) != null;
-        }
-
         public async Task<List<Group>> Search(string toSearch)
         {
             return await this.groupRepository.Search(toSearch);
@@ -245,12 +155,6 @@ namespace Cityton.Service
         public async Task Delete(Group group)
         {
             await this.groupRepository.Delete(group);
-        }
-
-        public async Task<List<Group>> GetMinorGroups(int comapanyId)
-        {
-            int minimalGroupSize = await this.companyRepository.getMinimalSize(comapanyId);
-            return await this.groupRepository.GetMinorGroups(4);
         }
 
         public async Task Edit(GroupEdit groupToEdit)
@@ -305,7 +209,7 @@ namespace Cityton.Service
                             BelongingGroupId = group.Id,
                             UserId = userId
                         });
-                        
+
                     }
                 }
             );
@@ -315,16 +219,13 @@ namespace Cityton.Service
             await this.groupRepository.Update(group);
         }
 
-        private async Task RemoveAllRequests(int userId)
+        #endregion
+
+        #region Checkers Groups
+
+        public async Task<bool> ExistName(string name)
         {
-            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(userId);
-            requests.ForEach(
-                (request) =>
-                {
-                    this.participantGroupRepository.Remove(request);
-                }
-            );
-            await this.participantGroupRepository.SaveChanges();
+            return await this.groupRepository.GetByName(name) != null;
         }
 
         public async Task<bool> IsConformSize(int membersSize)
@@ -359,19 +260,138 @@ namespace Cityton.Service
             return false;
         }
 
-        /* ************************************************** */
+        #endregion
 
-        private async Task DeleteRequests(int userId)
+        #region Getters ParticipantGroup
+
+        public async Task<ParticipantGroup> GetRequest(int id)
         {
-            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(userId);
+            return await this.participantGroupRepository.Get(id);
+        }
 
-            foreach (var request in requests)
+        #endregion
+
+        #region Checkers ParticipantGroup
+
+        public async Task<bool> ExistRequest(ParticipantGroup data)
+        {
+            ParticipantGroup participantGroup = await this.participantGroupRepository.Get(data.BelongingGroupId, data.UserId);
+
+            if (participantGroup == null) return false;
+
+            if (data.Status == participantGroup.Status) return true;
+
+            return false;
+
+        }
+
+        public async Task<bool> IsAccepted(int userId)
+        {
+            ParticipantGroup participantGroup = await this.participantGroupRepository.IsAccepted(userId);
+
+            return participantGroup != null;
+        }
+
+        public async Task<User> GetCreator(int groupId)
+        {
+            ParticipantGroup request = await this.participantGroupRepository.GetRequestFromCreator(groupId);
+
+            return request.User;
+        }
+
+        public async Task<Group> GetByName(string name)
+        {
+            return await this.groupRepository.GetByName(name);
+        }
+
+        public async Task<ParticipantGroup> GetRequestAcceptedByUserId(int connectedUserId)
+        {
+            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(connectedUserId);
+
+            return requests.Where(pg => pg.Status == Status.Accepted).FirstOrDefault();
+        }
+
+        #endregion
+
+        #region Actions on ParticipantGroup
+
+        /// <summary>
+        /// Create a request to join a group
+        /// </summary>
+        public async Task<ValidationResult> MembershipRequest(int groupId, User connectedUser)
+        {
+
+            Group group = await this.groupRepository.Get(groupId);
+
+            var membershipRequest = new ParticipantGroup
+            {
+                IsCreator = false,
+                Status = Status.Waiting,
+                BelongingGroup = group,
+                User = connectedUser,
+                BelongingGroupId = group.Id,
+                UserId = connectedUser.Id
+            };
+
+            await this.participantGroupRepository.Insert(membershipRequest);
+
+            return null;
+        }
+
+        /// <summary>
+        /// Accept a user to join a group
+        /// </summary>
+        public async Task AcceptRequest(ParticipantGroup participantGroup)
+        {
+            participantGroup.Status = Status.Accepted;
+            await this.participantGroupRepository.Update(participantGroup);
+
+            List<ParticipantGroup> allRequests = await this.participantGroupRepository.GetByUser(participantGroup.UserId);
+            allRequests.Remove(participantGroup);
+
+            foreach (var request in allRequests)
             {
                 this.participantGroupRepository.Remove(request);
             }
 
             await this.participantGroupRepository.SaveChanges();
         }
+
+        public async Task DeleteRequest(ParticipantGroup participantGroup)
+        {
+
+            Group group = null;
+
+            if (participantGroup.IsCreator)
+            {
+                group = await this.groupRepository.GetWithRequestUserWithChallengeGiven(participantGroup.BelongingGroupId);
+
+                group.Members.Clear();
+                group.ChallengesGiven.Clear();
+
+                await this.groupRepository.Delete(group);
+
+            }
+            else
+                await this.participantGroupRepository.Delete(participantGroup);
+
+        }
+
+        private async Task RemoveAllRequests(int userId)
+        {
+            List<ParticipantGroup> requests = await this.participantGroupRepository.GetByUser(userId);
+            requests.ForEach(
+                (request) =>
+                {
+                    this.participantGroupRepository.Remove(request);
+                }
+            );
+            await this.participantGroupRepository.SaveChanges();
+        }
+
+        #endregion
+
+        /* ************************************************** */
 
         private async Task CreateAcceptedMembership(bool isCreator, Group group, int userId)
         {

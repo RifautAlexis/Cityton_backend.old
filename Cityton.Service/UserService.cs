@@ -34,7 +34,7 @@ namespace Cityton.Service
         Task Delete(User user);
         Task<List<User>> GetUsersWithoutGroup();
         Task<User> GetWithRequest(int userId);
-        Task<User> GetWithChallenge(int userId);
+        Task<User> Get_Challenges_Achievements(int userId);
     }
 
     public class UserService : IUserService
@@ -42,13 +42,16 @@ namespace Cityton.Service
 
         private IUserRepository userRepository;
         private readonly IConfiguration _appSettings;
+        private readonly IGroupService groupService;
 
         public UserService(
             IUserRepository userRepository,
-            IConfiguration config)
+            IConfiguration config,
+            IGroupService groupService)
         {
             this.userRepository = userRepository;
             this._appSettings = config;
+            this.groupService = groupService;
         }
 
         public async Task<User> UpdateToken(User user)
@@ -174,9 +177,19 @@ namespace Cityton.Service
             {
                 challengesCreated.AuthorId = null;
             }
+
+            foreach (var achievement in user.Achievements)
+            {
+                achievement.WinnerId = null;
+            }
             await userRepository.Update(user);
 
-            // await userRepository.Delete(user);
+            foreach (var request in user.ParticipantGroups)
+            {
+                await this.groupService.DeleteRequest(request);
+            }
+
+            await userRepository.Delete(user);
         }
 
         public async Task<List<User>> GetUsersWithoutGroup()
@@ -189,9 +202,9 @@ namespace Cityton.Service
             return await userRepository.GetWithRequests(userId);
         }
 
-        public async Task<User> GetWithChallenge(int userId)
+        public async Task<User> Get_Challenges_Achievements(int userId)
         {
-            return await userRepository.GetWithChallenge(userId);
+            return await userRepository.Get_Challenges_Achievements(userId);
         }
 
     }

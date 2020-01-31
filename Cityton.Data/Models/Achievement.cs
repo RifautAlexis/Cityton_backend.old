@@ -15,7 +15,7 @@ namespace Cityton.Data.Models
 
         /*****/
 
-        public int WinnerId { get; set; }
+        public int? WinnerId { get; set; }
         public int FromChallengeId { get; set; }
     }
 }

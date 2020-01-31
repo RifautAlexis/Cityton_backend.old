@@ -154,7 +154,7 @@ namespace Cityton.Ui.Controllers
         {
             if (userId <= 0) return BadRequest("Id have to be superior to 0");
 
-            User user = await this._userService.GetWithChallenge(userId);
+            User user = await this._userService.Get_Challenges_Achievements(userId);
 
             if (user == null) return BadRequest("No user has be fiund with this Id");
             

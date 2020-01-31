@@ -16,6 +16,7 @@ namespace Cityton.Repository
 
         Task<Group> GetWithRequest(int id);
         Task<Group> GetWithRequestUser(int id);
+        Task<Group> GetWithRequestUserWithChallengeGiven(int id);
         Task<Group> GetByName(string name);
         Task<List<Group>> Search(string toSearch);
         Task<List<Group>> GetMinorGroups(int minimalGroupSize);
@@ -48,6 +49,16 @@ namespace Cityton.Repository
                 .Where(g => g.Id == id)
                 .Include(g => g.Members)
                     .ThenInclude(pg => pg.User)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Group> GetWithRequestUserWithChallengeGiven(int id)
+        {
+            return await context.Groups
+                .Where(g => g.Id == id)
+                .Include(g => g.Members)
+                    .ThenInclude(pg => pg.User)
+                .Include(g => g.ChallengesGiven)
                 .FirstOrDefaultAsync();
         }
 
