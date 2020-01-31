@@ -35,6 +35,7 @@ namespace Cityton.Service
         Task<List<User>> GetUsersWithoutGroup();
         Task<User> GetWithRequest(int userId);
         Task<User> Get_Challenges_Achievements(int userId);
+        Task<User> Get_Achievements(int userId);
     }
 
     public class UserService : IUserService
@@ -205,6 +206,11 @@ namespace Cityton.Service
         public async Task<User> Get_Challenges_Achievements(int userId)
         {
             return await userRepository.Get_Challenges_Achievements(userId);
+        }
+
+        public async Task<User> Get_Achievements(int userId)
+        {
+            return await userRepository.Get_Achievements(userId);
         }
 
     }

@@ -4,38 +4,25 @@
 
   <ng-container *ngFor="let challenge of challengeList">
 
-    <mat-card>
+    <mat-card [ngStyle]="{'border':challenge.unlockedAt != null ? '3px solid green' : '0px' }">
 
       <mat-card-header>
-        <mat-card-title> {{group.statement}} </mat-card-title>
+        <mat-card-title> {{challenge.title}} </mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
 
-        <div *ngFor="let member of group.members" class="username">
-          {{ member.username }}
+        {{ challenge.statement }}
+
+        <div id="author">
+          {{ challenge.author }}
         </div>
 
-        <!-- <mat-list>
-          <mat-list-item *ngFor="let member of group.members" class="username">
-            {{ member.username }}
-          </mat-list-item>
-        </mat-list> -->
+        <div id="unlockedAt">
+          {{ challenge.unlockedAt }}
+        </div>
 
       </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-button *ngIf="!group.hasRequested && group.members.length < groupList.maxGroupSize" (click)="sendRequest(group.id)">
-          <i class="material-icons">
-            add_circle_outline
-          </i>
-        </button>
-        <a mat-button [routerLink]="['/groups/details', group.id]">
-          <i class="material-icons">
-            help_outline
-          </i>
-        </a>
-      </mat-card-actions>
 
     </mat-card>
 

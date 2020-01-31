@@ -25,6 +25,7 @@ namespace Cityton.Repository
         Task<List<User>> GetByUsernameRole(string username, string filterRole);
         Task<List<User>> GetUsersWithoutGroup();
         Task<User> Get_Challenges_Achievements(int userId);
+        Task<User> Get_Achievements(int userId);
 
     }
 
@@ -85,8 +86,8 @@ namespace Cityton.Repository
 
         public async Task<List<User>> GetUsersWithoutGroup()
         {
-            
-            return await context.Users.Where(user => user.Role == Role.Member && ( user.ParticipantGroups.Count() == 0 || !user.ParticipantGroups.Any(pg => pg.Status == Status.Accepted))).ToListAsync();
+
+            return await context.Users.Where(user => user.Role == Role.Member && (user.ParticipantGroups.Count() == 0 || !user.ParticipantGroups.Any(pg => pg.Status == Status.Accepted))).ToListAsync();
         }
 
         public async Task<User> Get_Challenges_Achievements(int userId)
@@ -94,6 +95,14 @@ namespace Cityton.Repository
             return await context.Users
                 .Where(user => user.Id == userId)
                 .Include(user => user.Challenges)
+                .Include(user => user.Achievements)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<User> Get_Achievements(int userId)
+        {
+            return await context.Users
+                .Where(user => user.Id == userId)
                 .Include(user => user.Achievements)
                 .FirstOrDefaultAsync();
         }

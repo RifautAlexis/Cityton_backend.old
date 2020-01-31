@@ -10,7 +10,7 @@ namespace Cityton.Service
 
     public interface IChallengeService
     {
-        Task<IEnumerable<Challenge>> GetAll();
+        Task<IEnumerable<Challenge>> GetAllAccepted_Author();
     }
 
     public class ChallengeService : IChallengeService
@@ -22,9 +22,9 @@ namespace Cityton.Service
             this.challengeRepository = challengeRepository;
         }
 
-        public async Task<IEnumerable<Challenge>> GetAll()
+        public async Task<IEnumerable<Challenge>> GetAllAccepted_Author()
         {
-            return await challengeRepository.GetAll();
+            return await challengeRepository.GetAllAccepted_Author();
         }
 
     }

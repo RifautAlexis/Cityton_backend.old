@@ -1,4 +1,5 @@
 using Cityton.Data.Models;
+using Cityton.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,20 @@ namespace Cityton.Repository
 
     public interface IChallengeRepository : IRepository<Challenge>
     {
-
+        Task<IEnumerable<Challenge>> GetAllAccepted_Author();
     }
 
     public class ChallengeRepository : Repository<Challenge>, IChallengeRepository
     {
         public ChallengeRepository(ApplicationContext context) : base(context) { }
+
+        public async Task<IEnumerable<Challenge>> GetAllAccepted_Author()
+        {
+            return await context.Challenges
+                .Where(ch => ch.Status == Status.Accepted)
+                .Include(ch => ch.Author)
+                .ToListAsync();
+        }
     }
+
 }

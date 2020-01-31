@@ -32,14 +32,17 @@ namespace Cityton.Ui.Controllers
 
         private readonly IConfiguration _appSettings;
         private IChallengeService _challengeService;
+        private IUserService _userService;
 
         public ChallengeController(
             IConfiguration config,
-            IChallengeService challengeService
+            IChallengeService challengeService,
+            IUserService userService
         )
         {
             _appSettings = config;
             _challengeService = challengeService;
+            _userService = userService;
         }
 
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
@@ -47,17 +50,27 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> GetAll()
         {
 
-            IEnumerable<Challenge> challenges = await this._challengeService.GetAll();
+            IEnumerable<Challenge> challenges = await this._challengeService.GetAllAccepted_Author();
+            // return Ok(challenges);
+            int connectedUserId = int.Parse(User.Identity.Name);
 
-            // int connectedUserId = int.Parse(User.Identity.Name);
+            User connectedUser = await this._userService.Get_Achievements(connectedUserId);
 
-            // User connectedUser = await this._userService.Get(connectedUserId);
-
-            // Company company = await this._companyService.Get(connectedUser.CompanyId);
-
-            // return Ok(new { maxGroupSize = company.MaxGroupSize, groups = groups.ToDTO(connectedUserId) });
-
-            return Ok();
+            return Ok(
+              challenges.Select(ch => new ChallengeDTO
+                {
+                    Id = ch.Id,
+                    Title = ch.Name,
+                    Statement = ch.Statement,
+                    Author = ch.Author != null ? ch.Author.Username : "Uknown",
+                    UnlockedAt = connectedUser.Achievements.Where(a => a.FromChallengeId == ch.Id).Select(a => (DateTime?)a.UnlockedAt).FirstOrDefault()
+                    // Author = data.Author.Username,
+                    // UnlockedAt = user.Achievements.Where(a => a.FromChallengeId == data.Id).Select(a => a.UnlockedAt).FirstOrDefault()
+                }
+              ).ToList()
+            );
+            
+            // return Ok(challenges.ToDTO(connectedUser));
 
         }
 
