@@ -180,7 +180,12 @@ namespace Cityton.Repository
                 new Achievement { Id = 28, UnlockedAt = new DateTime(2020, 01, 13), WinnerId = 29, FromChallengeId = 2 },
                 new Achievement { Id = 29, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 9 },
                 new Achievement { Id = 30, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 4 },
-                new Achievement { Id = 31, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 2 }
+                new Achievement { Id = 31, UnlockedAt = new DateTime(2020, 01, 15), WinnerId = 12, FromChallengeId = 2 },
+                new Achievement { Id = 32, UnlockedAt = new DateTime(2019, 02, 10), WinnerId = null, FromChallengeId = 2 },
+                new Achievement { Id = 33, UnlockedAt = new DateTime(2019, 02, 10), WinnerId = null, FromChallengeId = 3 },
+                new Achievement { Id = 34, UnlockedAt = new DateTime(2019, 07, 25), WinnerId = null, FromChallengeId = 3 },
+                new Achievement { Id = 35, UnlockedAt = new DateTime(2019, 02, 10), WinnerId = null, FromChallengeId = 9 },
+                new Achievement { Id = 36, UnlockedAt = new DateTime(2019, 10, 30), WinnerId = null, FromChallengeId = 1 }
             );
 
             modelBuilder.Entity<ChallengeGiven>().HasData(
