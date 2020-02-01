@@ -12,18 +12,19 @@ namespace Cityton.Repository
 
     public interface IChallengeRepository : IRepository<Challenge>
     {
-        Task<IEnumerable<Challenge>> GetAllAccepted_Author();
+        Task<IEnumerable<Challenge>> GetAllAccepted_Author_Achivements();
     }
 
     public class ChallengeRepository : Repository<Challenge>, IChallengeRepository
     {
         public ChallengeRepository(ApplicationContext context) : base(context) { }
 
-        public async Task<IEnumerable<Challenge>> GetAllAccepted_Author()
+        public async Task<IEnumerable<Challenge>> GetAllAccepted_Author_Achivements()
         {
             return await context.Challenges
                 .Where(ch => ch.Status == Status.Accepted)
                 .Include(ch => ch.Author)
+                .Include(ch => ch.Achievements)
                 .ToListAsync();
         }
     }

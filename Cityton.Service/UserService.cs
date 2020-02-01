@@ -26,6 +26,7 @@ namespace Cityton.Service
         Task<User> GetByUsername(string username);
         Task<User> GetByEmail(string email);
         Task<User> GetByPhoneNumber(string phoneNumber);
+        Task<List<User>> GetAll();
         Task<List<User>> Search(string sl, string q);
         Task<string> UploadProfilePicture(int userId, IFormFile file);
         Task<bool> ExistUsername(string username);
@@ -116,6 +117,11 @@ namespace Cityton.Service
         public async Task<User> GetByPhoneNumber(string phoneNumber)
         {
             return await userRepository.GetByPhoneNumber(phoneNumber);
+        }
+
+        public async Task<List<User>> GetAll()
+        {
+            return await userRepository.GetAll();
         }
 
         public async Task<List<User>> Search(string securityLevel, string username)

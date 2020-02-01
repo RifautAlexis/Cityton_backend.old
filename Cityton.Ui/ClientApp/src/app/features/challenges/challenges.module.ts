@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ChallengesRoutingModule } from './challenges-routing.module';
 
 import { AllChallengesComponent } from './pages/all-challenges/all-challenges.component';
+import { GlobalStatsComponent } from './pages/global-stats/global-stats.Component';
 
 @NgModule({
   declarations: [
-    AllChallengesComponent
+    AllChallengesComponent,
+    GlobalStatsComponent
   ],
   imports: [
     CommonModule,

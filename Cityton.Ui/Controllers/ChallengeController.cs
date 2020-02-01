@@ -50,27 +50,16 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> GetAll()
         {
 
-            IEnumerable<Challenge> challenges = await this._challengeService.GetAllAccepted_Author();
-            // return Ok(challenges);
+            IEnumerable<Challenge> challenges = await this._challengeService.GetAllAccepted_Author_Achivements();
+
             int connectedUserId = int.Parse(User.Identity.Name);
 
-            User connectedUser = await this._userService.Get_Achievements(connectedUserId);
+            User connectedUser = await this._userService.Get(connectedUserId);
 
-            return Ok(
-              challenges.Select(ch => new ChallengeDTO
-                {
-                    Id = ch.Id,
-                    Title = ch.Name,
-                    Statement = ch.Statement,
-                    Author = ch.Author != null ? ch.Author.Username : "Uknown",
-                    UnlockedAt = connectedUser.Achievements.Where(a => a.FromChallengeId == ch.Id).Select(a => (DateTime?)a.UnlockedAt).FirstOrDefault()
-                    // Author = data.Author.Username,
-                    // UnlockedAt = user.Achievements.Where(a => a.FromChallengeId == data.Id).Select(a => a.UnlockedAt).FirstOrDefault()
-                }
-              ).ToList()
-            );
-            
-            // return Ok(challenges.ToDTO(connectedUser));
+            List<User> users = await this._userService.GetAll();
+            double nbTotalUsers = users.Count();
+
+            return Ok(challenges.ToDTO(connectedUser, nbTotalUsers));
 
         }
 

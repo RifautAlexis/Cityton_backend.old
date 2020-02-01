@@ -8,4 +8,5 @@ interface IChallenge {
   statement: string;
   author: string;
   unlockedAt: Date;
+  successRate: number;
 }

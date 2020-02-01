@@ -13,6 +13,7 @@ namespace Cityton.Data.DTOs
         public string Statement { get; set; }
         public string Author { get; set; }
         public DateTime? UnlockedAt { get; set; }
+        public double SuccessRate { get; set; }
 
     }
 }
