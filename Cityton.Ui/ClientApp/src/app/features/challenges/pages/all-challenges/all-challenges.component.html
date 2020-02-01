@@ -2,7 +2,7 @@
 
   <h1> All Groups </h1>
 
-  <ng-container *ngFor="let challenge of challengeList">
+  <ng-container *ngFor="let challenge of unlockedChallenges">
 
     <mat-card [ngStyle]="{'border':challenge.unlockedAt != null ? '3px solid green' : '0px' }">
 
@@ -14,12 +14,36 @@
 
         {{ challenge.statement }}
 
-        <div id="author">
+        <div class="author">
           {{ challenge.author }}
         </div>
 
-        <div id="unlockedAt">
-          {{ challenge.unlockedAt }}
+        <div id="unlockedAt" *ngIf="challenge.unlockedAt">
+          Unlocked {{ challenge.unlockedAt | date:"dd/MM/yyyy @ HH:mm" }}
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </ng-container>
+
+  <mat-divider></mat-divider>
+
+  <ng-container *ngFor="let challenge of lockedChallenges">
+
+    <mat-card [ngStyle]="{'border':challenge.unlockedAt != null ? '3px solid green' : '0px' }">
+
+      <mat-card-header>
+        <mat-card-title> {{challenge.title}} </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+
+        {{ challenge.statement }}
+
+        <div class="author">
+          {{ challenge.author }}
         </div>
 
       </mat-card-content>

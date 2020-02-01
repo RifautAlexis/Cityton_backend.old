@@ -1,8 +1,4 @@
-export interface IChallengeList {
-  groups: IChallenge[];
-}
-
-interface IChallenge {
+export interface IChallenge {
   id: number;
   title: string;
   statement: string;

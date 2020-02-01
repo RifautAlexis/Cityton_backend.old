@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ChallengeService } from '@core/services/challenge.service';
 
-import { IChallengeList as ChallengeList } from '@shared/models/ChallengeList';
+import { IChallenge as Challenge } from '@shared/models/Challenge';
 
 @Component({
   selector: 'app-global-stats',
@@ -14,7 +14,7 @@ import { IChallengeList as ChallengeList } from '@shared/models/ChallengeList';
 
 export class GlobalStatsComponent implements OnInit {
 
-  challengeList$: Observable<ChallengeList>;
+  challengeList$: Observable<Challenge[]>;
 
   constructor(private challengeService: ChallengeService) { }
 
