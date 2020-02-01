@@ -6,8 +6,13 @@ mat-divider {
   margin: 25px 0 25px 0;
 }
 
-mat-card-content {
+#progressChallenges {
 
+  width: max-content;
+
+}
+
+mat-card-content {
   .author {
     position: absolute;
     top: 15px;

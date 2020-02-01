@@ -1,6 +1,6 @@
 <section *ngIf="(challengeList$ | async) as challengeList">
 
-  <h1> All Groups </h1>
+  <h1> Global challenges stats </h1>
 
   <ng-container *ngFor="let challenge of challengeList">
 
@@ -19,7 +19,7 @@
         </div>
 
         <div id="pourcentage">
-          {{ (challenge.successRate /100) | percent:'1.1-1' }}
+          {{ (challenge.successRate / 100) | percent:'1.1-1' }}
         </div>
 
       </mat-card-content>

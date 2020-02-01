@@ -87,7 +87,8 @@
             <mat-list>
               <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
               <mat-list-item (click)="ToMyGroup()" *ngIf="isInAGroup"> My group </mat-list-item>
-              <mat-list-item [routerLink]="['/groups/create']" *ngIf="!isInAGroup && isAMember"> Create a group
+              <mat-list-item [routerLink]="['/groups/create']" *ngIf="!isInAGroup && isAMember">
+                Create a group
               </mat-list-item>
             </mat-list>
 
@@ -95,8 +96,11 @@
           <ng-container *ngSwitchCase="'Challenges'">
 
             <mat-list>
-              <mat-list-item [routerLink]="['/challenges']"> All challenges </mat-list-item>
+              <mat-list-item *ngIf="isAMember" [routerLink]="['/challenges']"> All challenges </mat-list-item>
               <mat-list-item [routerLink]="['/challenges/stats']"> Global stats </mat-list-item>
+              <mat-list-item [routerLink]="['/challenges/create']">
+                Create a challenge
+              </mat-list-item>
             </mat-list>
 
           </ng-container>

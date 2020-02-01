@@ -63,5 +63,35 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [Authorized(Role.Member, Role.Admin)]
+        [HttpGet("existName/{name}")]
+        public async Task<IActionResult> ExistName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return BadRequest("");
+
+            return Ok(await this._challengeService.ExistName(name));
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(ChallengeCreate newChallenge)
+        {
+            ChallengeCreateValidator validator = new ChallengeCreateValidator(this._challengeService);
+            ValidationResult results = await validator.ValidateAsync(newChallenge);
+
+            results.AddToModelState(ModelState, "ChallengeCreate");
+
+            if (!ModelState.IsValid) return BadRequest(this.ModelState);
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+            User connectedUser = await this._userService.Get(int.Parse(User.Identity.Name));
+
+            int ChallengeId = await this._challengeService.Create(newChallenge, connectedUser);
+
+            return Ok(ChallengeId);
+
+        }
+
     }
 }

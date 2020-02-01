@@ -13,7 +13,8 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatGridListModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 import {
@@ -39,7 +40,8 @@ const modules = [
   MatGridListModule,
   LayoutModule,
   FlexLayoutModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatProgressBarModule
 ];
 
 @NgModule({

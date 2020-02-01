@@ -18,6 +18,10 @@ export class AllChallengesComponent implements OnInit {
   unlockedChallenges: Challenge[];
   lockedChallenges: Challenge[];
 
+  nbUnlockedChallenges: number;
+  nbLockedChallenges: number;
+  percentSucceedChallenges: number;
+
   constructor(private challengeService: ChallengeService) { }
 
   ngOnInit() {
@@ -27,6 +31,10 @@ export class AllChallengesComponent implements OnInit {
       (challenges: Challenge[]) => {
         this.unlockedChallenges = challenges.filter(ch => ch.unlockedAt !== null);
         this.lockedChallenges = challenges.filter(ch => ch.unlockedAt === null);
+
+        this.nbUnlockedChallenges = this.unlockedChallenges !== undefined && this.unlockedChallenges.length > 0 ? this.unlockedChallenges.length : 0 ;
+        this.nbLockedChallenges = this.lockedChallenges !== undefined && this.lockedChallenges.length > 0 ? this.lockedChallenges.length : 0 ;
+        this.percentSucceedChallenges = this.nbUnlockedChallenges / (this.nbUnlockedChallenges + this.nbLockedChallenges);
       }
     );
   }
