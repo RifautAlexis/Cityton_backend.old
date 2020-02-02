@@ -6,11 +6,13 @@ import { ChallengesRoutingModule } from './challenges-routing.module';
 
 import { AllChallengesComponent } from './pages/all-challenges/all-challenges.component';
 import { GlobalStatsComponent } from './pages/global-stats/global-stats.Component';
+import { CreateChallengeComponent } from './pages/create-challenge/create-challenge.component';
 
 @NgModule({
   declarations: [
     AllChallengesComponent,
-    GlobalStatsComponent
+    GlobalStatsComponent,
+    CreateChallengeComponent
   ],
   imports: [
     CommonModule,
