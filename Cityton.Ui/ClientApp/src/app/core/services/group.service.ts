@@ -70,15 +70,7 @@ export class GroupService {
     return this.http.post<number>(environment.apiUrl + 'group/createByAdmin', group);
   }
 
-  edit(group: any): Observable<any>{
-
-    // let groupToEdit = {
-    //   id: group.id,
-    //   name: group.name,
-    //   creatorId: group.creator.id,
-    //   MembersId: group.members.map(member => member.id)
-    // }
-
+  edit(group: GroupToEdit): Observable<any>{
     return this.http.post<any>(environment.apiUrl + 'group/edit', group);
   }
 

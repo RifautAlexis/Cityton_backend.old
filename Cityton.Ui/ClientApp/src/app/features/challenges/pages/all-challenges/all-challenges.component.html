@@ -41,7 +41,7 @@
 
   <ng-container *ngFor="let challenge of lockedChallenges">
 
-    <mat-card [ngStyle]="{'border':challenge.unlockedAt != null ? '3px solid green' : '0px' }">
+    <mat-card>
 
       <mat-card-header>
         <mat-card-title> {{challenge.title}} </mat-card-title>

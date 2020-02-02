@@ -36,7 +36,6 @@ export class SearchGroupsComponent implements OnInit {
   }
 
   onSubmit() {
-    // let toSearch: string = this.searchField ? this.searchField : "";
 
     this.router.navigate(['admin/groups'], { queryParams: {toSearch: this.searchField} });
 

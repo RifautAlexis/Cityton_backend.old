@@ -159,8 +159,6 @@ namespace Cityton.Service
 
         public async Task Edit(GroupEdit groupToEdit)
         {
-            Group group = await this.groupRepository.Get(groupToEdit.Id);
-
             Group orignalGroup = await this.groupRepository.GetWithRequestUser(groupToEdit.Id);
 
             List<int> originalMembers = orignalGroup.Members.Where(pg => pg.Status == Status.Accepted).Select(pg => pg.User).Select(user => user.Id).ToList();
@@ -172,8 +170,8 @@ namespace Cityton.Service
             membersToDelete.ForEach(
                 (userId) =>
                 {
-                    ParticipantGroup requestAccepted = group.Members.FirstOrDefault(pg => pg.UserId == userId);
-                    group.Members.Remove(requestAccepted);
+                    ParticipantGroup requestAccepted = orignalGroup.Members.FirstOrDefault(pg => pg.UserId == userId);
+                    orignalGroup.Members.Remove(requestAccepted);
                 }
             );
 
@@ -189,24 +187,24 @@ namespace Cityton.Service
 
                     if (userId != groupToEdit.CreatorId)
                     {
-                        group.Members.Add(new ParticipantGroup
+                        orignalGroup.Members.Add(new ParticipantGroup
                         {
                             IsCreator = false,
                             Status = Status.Accepted,
-                            BelongingGroup = group,
-                            BelongingGroupId = group.Id,
+                            BelongingGroup = orignalGroup,
+                            BelongingGroupId = orignalGroup.Id,
                             UserId = userId
                         });
 
                     }
                     else
                     {
-                        group.Members.Add(new ParticipantGroup
+                        orignalGroup.Members.Add(new ParticipantGroup
                         {
                             IsCreator = true,
                             Status = Status.Accepted,
-                            BelongingGroup = group,
-                            BelongingGroupId = group.Id,
+                            BelongingGroup = orignalGroup,
+                            BelongingGroupId = orignalGroup.Id,
                             UserId = userId
                         });
 
@@ -214,9 +212,9 @@ namespace Cityton.Service
                 }
             );
 
-            group.Name = groupToEdit.Name;
+            orignalGroup.Name = groupToEdit.Name;
 
-            await this.groupRepository.Update(group);
+            await this.groupRepository.Update(orignalGroup);
         }
 
         #endregion

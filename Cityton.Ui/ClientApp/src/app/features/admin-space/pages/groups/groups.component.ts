@@ -35,18 +35,20 @@ export class GroupsComponent implements OnInit {
     this.refreshMinorGroups();
 
     this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
-    console.log(this.searchField);
+
     if (this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0) {
       this.search();
     }
   }
 
   deleteGroup(groupId: string) {
-    this.groupService.deleteGroup(groupId).subscribe();
-
-    if (this.minorGroups.find(g => g.id === Number(groupId))) {
-      this.refreshMinorGroups();
-    }
+    this.groupService.deleteGroup(groupId).subscribe(
+      () => {
+        if (this.minorGroups.find(g => g.id === Number(groupId))) {
+          this.refreshMinorGroups();
+        }
+      }
+    );
 
   }
 
@@ -87,8 +89,6 @@ export class GroupsComponent implements OnInit {
   }
 
   private search() {
-    // let toSearch: string = this.searchField ? this.searchField : "";
-
     this.groups$ = this.groupService.searchGroups(this.searchField);
   }
 

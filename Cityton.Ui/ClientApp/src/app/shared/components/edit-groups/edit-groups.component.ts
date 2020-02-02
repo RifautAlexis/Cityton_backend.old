@@ -102,22 +102,8 @@ export class EditGroupsComponent implements OnInit {
   }
 
   // ***************************************** //
-  display() {
-    console.log(
-      this.getterForm("creatorSelected"),
-      this.getterForm("creatorSelected")[0],
-      this.getterForm("membersSelected")
-    );
-  }
 
   submit() {
-    console.log(
-      this.data.id,
-      this.getterForm("name"),
-      this.getterForm("creatorSelected")[0].id,
-      this.getterForm("membersSelected").map(usersMinimal => usersMinimal.id)
-    );
-
     this.dialogRef.close({
       id: this.data.id,
       name: this.getterForm("name"),

@@ -7,6 +7,7 @@ import { AdminSpaceRoutingModule } from './admin-space-routing.module';
 import { IODataComponent } from './pages/IO-data/IO-data.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 import { GroupsComponent } from './pages/groups/groups.component';
+import { ChallengesComponent } from './pages/challenges/challenges.component';
 
 import { SearchUserComponent } from './components/user-management/search-user/search-user.component';
 import { EditUserComponent } from './components/user-management/edit-user/edit-user.component';
@@ -16,6 +17,9 @@ import { ImportManualComponent } from './components/IO-data/import-manual/import
 import { SearchGroupsComponent } from './components/groups/search-groups/search-groups.component';
 import { MinorGroupsComponent } from './components/groups/minor-groups/minor-groups.component';
 import { CreateGroupsComponent } from './components/groups/create-groups/create-groups.component';
+import { WaitingApprovalComponent } from './components/challenges/waiting-approval/waiting-approval.component';
+import { SearchChallengesComponent } from './components/challenges/search-challenges/search-challenges.component';
+import { EditChallengesComponent } from './components/challenges/edit-challenges/edit-challenges.component';
 
 import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material';
 
@@ -31,7 +35,11 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material'
     GroupsComponent,
     SearchGroupsComponent,
     MinorGroupsComponent,
-    CreateGroupsComponent
+    CreateGroupsComponent,
+    ChallengesComponent,
+    WaitingApprovalComponent,
+    SearchChallengesComponent,
+    EditChallengesComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +48,8 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatListOption } from '@angular/material'
   ],
   entryComponents: [
     EditUserComponent,
-    CreateGroupsComponent
+    CreateGroupsComponent,
+    EditChallengesComponent
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },

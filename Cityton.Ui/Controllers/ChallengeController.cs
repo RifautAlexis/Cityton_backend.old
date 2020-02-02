@@ -74,7 +74,7 @@ namespace Cityton.Ui.Controllers
         }
 
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
-        [HttpPost("create")]
+        [HttpPost("")]
         public async Task<IActionResult> Create(ChallengeCreate newChallenge)
         {
             ChallengeCreateValidator validator = new ChallengeCreateValidator(this._challengeService);
@@ -91,6 +91,69 @@ namespace Cityton.Ui.Controllers
 
             return Ok(ChallengeId);
 
+        }
+
+        [Authorized(Role.Admin)]
+        [HttpGet("getAllWaiting")]
+        public async Task<IActionResult> GetAllWaiting()
+        {
+
+            IEnumerable<Challenge> challenges = await this._challengeService.GetAllWaiting_Author();
+
+            return Ok(challenges.ToDTO(null, null));
+        }
+
+        [Authorized(Role.Admin)]
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(string toSearch)
+        {
+
+            if (string.IsNullOrEmpty(toSearch)) return BadRequest();
+
+            List<Challenge> challenges = await _challengeService.Search(toSearch);
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            return Ok(challenges.ToDTO(null, null));
+        }
+
+        [Authorized(Role.Admin)]
+        [HttpPost("edit")]
+        public async Task<IActionResult> Edit(ChallengeEdit challengeEdit)
+        {
+            
+            ChallengeEditValidator validator = new ChallengeEditValidator(this._challengeService);
+            ValidationResult results = await validator.ValidateAsync(challengeEdit);
+
+            results.AddToModelState(ModelState, "ChallengeEdit");
+
+            if (!ModelState.IsValid) return BadRequest(this.ModelState);
+
+            int connectedUserId = int.Parse(User.Identity.Name);
+
+            User connectedUser = await this._userService.GetWithRequest(connectedUserId);
+
+            if (connectedUser.Role != Role.Admin && (connectedUser.Role == Role.Member && !connectedUser.ParticipantGroups.Any(pg => pg.IsCreator))) return BadRequest("You are not an admin or the creator of this group !");
+
+            await this._challengeService.Edit(challengeEdit);
+            
+            return Ok();
+        }
+
+        [Authorized(Role.Admin)]
+        [HttpPut("validate/{id}")]
+        public async Task<IActionResult> Validate(int id)
+        {
+
+            Challenge challenge = await this._challengeService.Get(id);
+
+            if(challenge == null) return BadRequest("No challenge with this id");
+
+            challenge.Status = Status.Accepted;
+
+            await _challengeService.Update(challenge);
+
+            return Ok();
         }
 
     }

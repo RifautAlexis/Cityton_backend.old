@@ -14,7 +14,7 @@ namespace Cityton.Service.Validators.DTOs
 
             RuleFor(gie => gie.Id)
                 .MustAsync(async (id, cancellation) => await groupService.Get(id) != null)
-                .WithMessage("{PropertyValue} don't exists !");
+                .WithMessage("{PropertyValue} doesn't exists !");
             RuleFor(gie => gie.Name)
                 .NotEmpty().WithMessage("{PropertyName} is empty")
                 .Length(3, 50).WithMessage("Have to contains between 3 to 50 characters !");

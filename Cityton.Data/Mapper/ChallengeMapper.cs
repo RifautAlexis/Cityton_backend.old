@@ -12,22 +12,22 @@ namespace Cityton.Data.Mapper
     public static class ChallengeMapper
     {
 
-        public static ChallengeDTO ToDTO(this Challenge data, User user, double nbTotalUsers)
+        public static ChallengeDTO ToDTO(this Challenge data, User user, double? nbTotalUsers)
         {
             if (data == null) return null;
 
             return new ChallengeDTO
             {
                 Id = data.Id,
-                Title = data.Name,
+                Name = data.Name,
                 Statement = data.Statement,
                 Author = data.Author != null ? data.Author.Username : "Uknown",
-                UnlockedAt = data.Achievements.Where(a => a.WinnerId == user.Id).Select(a => (DateTime?)a.UnlockedAt).FirstOrDefault(),
-                SuccessRate = (data.Achievements.Count() / nbTotalUsers) * 100
+                UnlockedAt = user != null ? data.Achievements.Where(a => a.WinnerId == user.Id).Select(a => (DateTime?)a.UnlockedAt).FirstOrDefault() : null,
+                SuccessRate = nbTotalUsers != null ? (data.Achievements.Count() / nbTotalUsers) * 100 : null
             };
         }
 
-        public static IEnumerable<ChallengeDTO> ToDTO(this IEnumerable<Challenge> data, User user, double nbTotalUsers)
+        public static IEnumerable<ChallengeDTO> ToDTO(this IEnumerable<Challenge> data, User user, double? nbTotalUsers)
         {
             return data.Select(ch => ch.ToDTO(user, nbTotalUsers)).ToList();
         }

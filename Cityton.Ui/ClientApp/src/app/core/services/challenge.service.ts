@@ -27,7 +27,38 @@ export class ChallengeService {
       statement: statement
     }
 
-    return this.http.post<number>(environment.apiUrl + 'group/createByMember', newChallenge);
+    return this.http.post<number>(environment.apiUrl + 'challenge', newChallenge);
+  }
+
+  getAllWaiting(): Observable<Challenge[]> {
+    return this.http.get<Challenge[]>(environment.apiUrl + 'challenge/getAllWaiting');
+  }
+
+  delete(challengeId: number) {
+    return this.http.delete(environment.apiUrl + 'challenge/' + challengeId);
+  }
+
+  validate(challengeId: number) {
+    return this.http.put(environment.apiUrl + 'challenge/validate/' + challengeId, {});
+  }
+
+  searchChallenges(toSearch: string): Observable<Challenge[]> {
+
+    let params = new HttpParams()
+      .set('toSearch', toSearch)
+
+    return this.http.get<Challenge[]>(environment.apiUrl + 'challenge/search', { params });
+  }
+
+  edit(challengeId: number, challengeName: string, challengeStatement: string): Observable<any>{
+
+    let challengeEdited = {
+      id: challengeId,
+      name: challengeName,
+      statement: challengeStatement
+    }
+
+    return this.http.post<any>(environment.apiUrl + 'challenge/edit', challengeEdited);
   }
 
 }

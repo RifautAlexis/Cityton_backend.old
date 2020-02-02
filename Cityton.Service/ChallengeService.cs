@@ -12,9 +12,14 @@ namespace Cityton.Service
 
     public interface IChallengeService
     {
+        Task<Challenge> Get(int challengeId);
         Task<IEnumerable<Challenge>> GetAllAccepted_Author_Achivements();
+        Task<IEnumerable<Challenge>> GetAllWaiting_Author();
         Task<bool> ExistName(string name);
         Task<int> Create(ChallengeCreate challengeCreate, User connectedUser);
+        Task<List<Challenge>> Search(string toSearch);
+        Task Edit(ChallengeEdit challengeToEdit);
+        Task Update(Challenge challengeToUpdate);
     }
 
     public class ChallengeService : IChallengeService
@@ -26,9 +31,19 @@ namespace Cityton.Service
             this.challengeRepository = challengeRepository;
         }
 
+        public async Task<Challenge> Get(int challengeId)
+        {
+            return await challengeRepository.Get(challengeId);
+        }
+
         public async Task<IEnumerable<Challenge>> GetAllAccepted_Author_Achivements()
         {
             return await challengeRepository.GetAllAccepted_Author_Achivements();
+        }
+
+        public async Task<IEnumerable<Challenge>> GetAllWaiting_Author()
+        {
+            return await challengeRepository.GetAllWaiting_Author();
         }
 
         public async Task<bool> ExistName(string name)
@@ -52,6 +67,26 @@ namespace Cityton.Service
             Challenge challenge = await this.challengeRepository.GetByName(newChallenge.Name);
 
             return challenge.Id;
+        }
+
+        public async Task<List<Challenge>> Search(string toSearch)
+        {
+            return await this.challengeRepository.Search(toSearch);
+        }
+
+        public async Task Edit(ChallengeEdit challengeToEdit)
+        {
+            Challenge originalChallenge = await this.challengeRepository.Get(challengeToEdit.Id);
+
+            originalChallenge.Name = challengeToEdit.Name;
+            originalChallenge.Statement = challengeToEdit.Statement;
+
+            await this.challengeRepository.Update(originalChallenge);
+        }
+
+        public async Task Update(Challenge challengeToUpdate)
+        {
+            await this.challengeRepository.Update(challengeToUpdate);
         }
 
     }
