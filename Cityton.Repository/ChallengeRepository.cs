@@ -49,10 +49,14 @@ namespace Cityton.Repository
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
 
             return await context.Challenges
-            .Where(g =>
-                g.Name.Contains(toSearch, comparison) ||
-                g.Statement.Contains(toSearch, comparison)
+            .Where(c =>
+                c.Name.Contains(toSearch, comparison) ||
+                c.Statement.Contains(toSearch, comparison) ||
+                (c.Author != null && c.Author.Username.Contains(toSearch, comparison)) ||
+                (c.Author == null && "Uknown".Contains(toSearch, comparison))
             )
+            .Include(c => c.Author)
+            .Include(c => c.Achievements)
             .ToListAsync();
         }
     }

@@ -156,5 +156,19 @@ namespace Cityton.Ui.Controllers
             return Ok();
         }
 
+        [Authorized(Role.Admin)]
+        [HttpDelete("{challengeId}")]
+        public async Task<IActionResult> Delete(int challengeId)
+        {
+
+            Challenge challenge = await this._challengeService.Get(challengeId);
+
+            if (challenge == null) return BadRequest("No challenge with this id !");
+
+            await this._challengeService.Delete(challenge);
+
+            return Ok();
+        }
+
     }
 }

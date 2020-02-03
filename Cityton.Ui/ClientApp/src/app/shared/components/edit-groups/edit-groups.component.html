@@ -21,7 +21,7 @@
     <!-- ******************************************************** -->
 
     <mat-selection-list class="listUsers" #listUser formControlName="membersSelected">
-      <mat-list-option *ngFor="let user of usersWithoutGroup" [value]="user" (click)="display()" (click)="checkCreator(user.id)"
+      <mat-list-option *ngFor="let user of usersWithoutGroup" [value]="user" (click)="checkCreator(user.id)"
         [disabled]="getterForm('membersSelected').length >= resultSRequests[1].maxGroupSize && !usersSelectedContains(user.id)">
         {{user.username}}
       </mat-list-option>
@@ -35,7 +35,7 @@
     <ng-container *ngIf="getterForm('membersSelected') != undefined && getterForm('membersSelected').length > 0">
       <h2> Select a creator </h2>
       <mat-selection-list class="listUsers" #listMember formControlName="creatorSelected">
-        <mat-list-option *ngFor="let user of getterForm('membersSelected')" [value]="user" (click)="display()"
+        <mat-list-option *ngFor="let user of getterForm('membersSelected')" [value]="user"
           [disabled]="isMember || getterForm('creatorSelected')[0] != null && (getterForm('creatorSelected').length == 0 || user.id != getterForm('creatorSelected')[0].id)">
           {{user.username}}
         </mat-list-option>

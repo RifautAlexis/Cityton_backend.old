@@ -20,6 +20,7 @@ namespace Cityton.Service
         Task<List<Challenge>> Search(string toSearch);
         Task Edit(ChallengeEdit challengeToEdit);
         Task Update(Challenge challengeToUpdate);
+        Task Delete(Challenge challenge);
     }
 
     public class ChallengeService : IChallengeService
@@ -87,6 +88,11 @@ namespace Cityton.Service
         public async Task Update(Challenge challengeToUpdate)
         {
             await this.challengeRepository.Update(challengeToUpdate);
+        }
+
+        public async Task Delete(Challenge challenge)
+        {
+            await this.challengeRepository.Delete(challenge);
         }
 
     }

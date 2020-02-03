@@ -33,11 +33,11 @@ export class ChallengesComponent implements OnInit {
     this.searchField = this.route.snapshot.queryParamMap.get('toSearch');
 
     if (this.searchField !== "" && this.searchField !== null && this.searchField.length !== 0) {
-      this.search();
+      this.refreshSearch();
     }
   }
 
-  delete(challengeId: number) {
+  deleteFromToApprove(challengeId: number) {
 
     this.challengeService.delete(challengeId).subscribe(
       () => {
@@ -47,17 +47,27 @@ export class ChallengesComponent implements OnInit {
 
   }
 
+  deleteFromSearch(challengeId: number) {
+
+    this.challengeService.delete(challengeId).subscribe(
+      () => {
+        this.refreshSearch();
+      }
+    );
+
+  }
+
   edit(data: any) {
     this.challengeService.edit(data.id, data.name, data.statement).subscribe(
       (result: any) => {
-        this.refreshWaitingChallenges();
+        this.refreshSearch();
       }
     );
   }
 
   validate(challengeId: number) {
     this.challengeService.validate(challengeId).subscribe(
-      () => {
+      (result: any) => {
         this.refreshWaitingChallenges();
       }
     );
@@ -67,14 +77,14 @@ export class ChallengesComponent implements OnInit {
     this.challengesToApprove$ = this.challengeService.getAllWaiting();
   }
 
-  private search() {
+  private refreshSearch() {
     this.challengesSearched$ = this.challengeService.searchChallenges(this.searchField);
   }
 
-  private searchGroup(toSearch: string) {
+  private searchChallenge(toSearch: string) {
     this.searchField = toSearch;
 
-    this.search();
+    this.refreshSearch();
   }
 
 }

@@ -62,7 +62,7 @@ export class EditChallengesComponent implements OnInit {
     this.dialogRef.close({
       id: this.data.id,
       name: this.getterForm("name"),
-      creatorId: this.getterForm("statement")
+      statement: this.getterForm("statement")
     });
   }
 
