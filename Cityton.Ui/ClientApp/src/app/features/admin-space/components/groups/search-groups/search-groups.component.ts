@@ -32,7 +32,6 @@ export class SearchGroupsComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    console.log(this.searchField);
   }
 
   onSubmit() {

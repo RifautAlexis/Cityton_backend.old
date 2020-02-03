@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '@core/services/auth.service';
 import { UserService } from '@core/services/user.service';
@@ -27,11 +27,16 @@ export class NavMenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService
   ) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.getUserRole() === Role.Admin;
+
+    // this.selectedMenu = this.route.snapshot.url[0].path;
+    // console.log(this.route.snapshot.url[0].path);
+    // console.log(this.selectedMenu);
 
   }
 
