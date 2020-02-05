@@ -26,7 +26,7 @@ using Cityton.Service.Validators.DTOs;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-
+using SignalRChat.Hubs;
 
 namespace Cityton.Ui
 {
@@ -51,6 +51,8 @@ namespace Cityton.Ui
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("Settings");
             services.Configure<Settings>(appSettingsSection);
+
+            services.AddSignalR();
 
             // configure jwt authentication
             var appSettings = appSettingsSection.Get<Settings>();
@@ -171,6 +173,7 @@ namespace Cityton.Ui
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
 
             app.UseSpa(spa =>
