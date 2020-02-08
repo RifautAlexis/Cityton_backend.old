@@ -13,6 +13,8 @@ namespace Cityton.Data.Mapping
         {
             entityBuilder.HasKey(d => d.Id);
             entityBuilder.Property(d => d.CreatedAt).IsRequired();
+            entityBuilder.Property(d => d.Name).IsRequired(false).HasMaxLength(10);
+            entityBuilder.HasIndex(u => u.Name).IsUnique();
 
             /*****/
 

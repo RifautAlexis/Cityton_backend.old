@@ -8,6 +8,7 @@ namespace Cityton.Data.Models
     {
 
         public DateTime CreatedAt { get; set; }
+        public string Name { get; set; } // peut être null => ""
 
         /*****/
 

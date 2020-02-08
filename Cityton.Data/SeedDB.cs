@@ -14,7 +14,7 @@ namespace Cityton.Repository
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            
+
             modelBuilder.Entity<Company>().HasData(
                 new Company
                 {
@@ -25,7 +25,7 @@ namespace Cityton.Repository
                     CreatedAt = new DateTime(2019, 01, 01)
                 }
             );
-            
+
             byte[] passwordHash, passwordSalt;
 
             CreatePasswordHash("123", out passwordHash, out passwordSalt);
@@ -113,6 +113,7 @@ namespace Cityton.Repository
                 new ParticipantGroup { Id = 15, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 09), BelongingGroupId = 5, UserId = 15 },
                 new ParticipantGroup { Id = 16, IsCreator = false, Status = Status.Accepted, CreatedAt = new DateTime(2019, 04, 26), BelongingGroupId = 5, UserId = 19 },
                 new ParticipantGroup { Id = 17, IsCreator = true, Status = Status.Accepted, CreatedAt = new DateTime(2019, 05, 05), BelongingGroupId = 6, UserId = 23 },
+
                 new ParticipantGroup { Id = 18, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 02, 03), BelongingGroupId = 1, UserId = 40 },
                 new ParticipantGroup { Id = 19, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 04, 09), BelongingGroupId = 2, UserId = 36 },
                 new ParticipantGroup { Id = 20, IsCreator = false, Status = Status.Waiting, CreatedAt = new DateTime(2019, 04, 30), BelongingGroupId = 2, UserId = 26 },
@@ -210,14 +211,80 @@ namespace Cityton.Repository
             /*
             *   Discussion
             */
+            modelBuilder.Entity<Discussion>().HasData(
+                new Discussion { Id = 1, CreatedAt = new DateTime(2019, 02, 01), Name = "group01" },
+                new Discussion { Id = 2, CreatedAt = new DateTime(2019, 02, 10), Name = "group02" },
+                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11) },
+                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11) },
+                new Discussion { Id = 5, CreatedAt = new DateTime(2019, 04, 03) },
+                new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), Name = "group06" },
 
+                new Discussion { Id = 7, CreatedAt = new DateTime(2019, 01, 01), Name = "Générale" }
+            );
+            
             /*
             *   UserInDiscussion
             */
+            modelBuilder.Entity<UserInDiscussion>().HasData(
+                new UserInDiscussion { Id = 1, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 9, DiscussionId = 1 },
+                new UserInDiscussion { Id = 2, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 48, DiscussionId = 1 },
+                new UserInDiscussion { Id = 3, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 24, DiscussionId = 1 },
+                new UserInDiscussion { Id = 4, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 29, DiscussionId = 1 },
+                new UserInDiscussion { Id = 5, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 10, DiscussionId = 2 },
+                new UserInDiscussion { Id = 6, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 20, DiscussionId = 2 },
+                new UserInDiscussion { Id = 7, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 18, DiscussionId = 2 },
+                new UserInDiscussion { Id = 8, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 38, DiscussionId = 2 },
+                new UserInDiscussion { Id = 9, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 17, DiscussionId = 2 },
+                new UserInDiscussion { Id = 10, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 12, DiscussionId = 3 },
+                new UserInDiscussion { Id = 11, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 13, DiscussionId = 4 },
+                new UserInDiscussion { Id = 12, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 14, DiscussionId = 4 },
+                new UserInDiscussion { Id = 13, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 25, DiscussionId = 5 },
+                new UserInDiscussion { Id = 14, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 16, DiscussionId = 5 },
+                new UserInDiscussion { Id = 15, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 15, DiscussionId = 5 },
+                new UserInDiscussion { Id = 16, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 19, DiscussionId = 5 },
+                new UserInDiscussion { Id = 17, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 23, DiscussionId = 6 },
+
+                new UserInDiscussion { Id = 18, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 1, DiscussionId = 1 },
+                new UserInDiscussion { Id = 19, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 6, DiscussionId = 2 },
+                new UserInDiscussion { Id = 20, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 6, DiscussionId = 3 },
+                new UserInDiscussion { Id = 21, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 7, DiscussionId = 4 },
+                new UserInDiscussion { Id = 22, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 8, DiscussionId = 5 },
+                new UserInDiscussion { Id = 23, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 8, DiscussionId = 6 }
+            );
 
             /*
             *   Message
             */
+            modelBuilder.Entity<Message>().HasData(
+                new Message { Id= 1, Content = "Bonjour", CreatedAt = DateTime.Now, AuthorId = 13, DiscussionId = 4 },
+                new Message { Id= 2, Content = "Coucou toi ! Comment vas-tu ?", CreatedAt = DateTime.Now, AuthorId = 14, DiscussionId = 4 },
+                new Message { Id= 3, Content = "Je vais bien, merci :D", CreatedAt = DateTime.Now, AuthorId = 13, DiscussionId = 4 },
+                new Message { Id= 4, Content = "Ca fait plaisir de parler !", CreatedAt = DateTime.Now, AuthorId = 13, DiscussionId = 4 },
+                new Message { Id= 5, Content = "Oui, à moi aussi", CreatedAt = DateTime.Now, AuthorId = 14, DiscussionId = 4 },
+                
+                new Message { Id= 6, Content = "Wesh gazelle, tu sais que t'es plutôt mignone ?", CreatedAt = DateTime.Now, AuthorId = 19, DiscussionId = 5 },
+                new Message { Id= 7, Content = "Désolé, je baise des gazelles, pas des éléphant à petite trompe ;)", CreatedAt = DateTime.Now, AuthorId = 15, DiscussionId = 5 },
+                new Message { Id= 8, Content = "Vas-y, pourquoi tu lui parles comme ça ?", CreatedAt = DateTime.Now, AuthorId = 16, DiscussionId = 5 },
+               
+                new Message { Id= 9, Content = "Ding dong", CreatedAt = DateTime.Now, AuthorId = 9, DiscussionId = 1 },
+                new Message { Id= 10, Content = "Oui ?", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 11, Content = "Connaissez-vous notre seigneur à tous ?", CreatedAt = DateTime.Now, AuthorId = 9, DiscussionId = 1 },
+                new Message { Id= 12, Content = "Chérie ! Les témins de Jéhova sont revenu !", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 13, Content = "Claque leur la port eu nez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
+                new Message { Id= 14, Content = "... Ils sont là", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 15, Content = "Pas grave. Bande de chiant, on est dimanche ! dégagez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
+                
+                new Message { Id= 16, Content = "Ma réponse ?", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 17, Content = "Oui, quelle est-elle ?", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
+                new Message { Id= 18, Content = "42", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 19, Content = "42 ? Tu veux que je te reprogramme ? Si ce n'est que ça dis le enfoiré", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
+                new Message { Id= 20, Content = "Whesh humain ziva calme toi un peu. Je vais me taper un petit rail de binaire, tu m'as mis trop les nerfs frérot", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                
+                new Message { Id= 21, Content = "Il y a quelqu'un ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 22, Content = "Ha non, je suis le seul dans mon groupe et donc dans la conversation", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 23, Content = "Suis-je un Remy sans amis ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 24, Content = "Le suicide me guette :(", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 }
+            );
 
             /*
             *   Media
