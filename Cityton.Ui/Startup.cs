@@ -44,7 +44,13 @@ namespace Cityton.Ui
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors();
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder => {
+                builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                .WithOrigins("http://localhost:4200");
+            }));
             services.AddDbContext<ApplicationContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<ApplicationContext>(x => x.UseMySql("server=remotemysql.com;user id=ol2EsK1Yz9;password=OOJ79dvEZa;port=3306;database=ol2EsK1Yz9;"));
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
@@ -174,14 +180,7 @@ namespace Cityton.Ui
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chatHub");
-            });
-
-            app.Use(async (context, next) =>
-            {
-                var hubContext = context.RequestServices
-                                        .GetRequiredService<IHubContext<ChatHub>>();
-                //...
+                endpoints.MapHub<ChatHub>("/hub/chatHub");
             });
 
             app.UseSpa(spa =>

@@ -1,8 +1,12 @@
 <section>
 
-  <p>
-    chat works!
-  </p>
-  <button (click)="sendMessage()"> Send Message </button>
+  <ng-container *ngFor="let message of messages">
+
+    {{ message }}
+
+  </ng-container>
+
+  <input type="text" placeholder="Type a message" #text/>
+  <button type="button" (click)="sendMessage(text.value)"> Send </button>
 
 </section>
