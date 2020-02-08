@@ -3,9 +3,9 @@ import { EventEmitter, Injectable, RootRenderer } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 import { HubConnection, HubConnectionBuilder } from '@Microsoft/signalr';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IMessage as Message } from '@shared/models/message';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, BehaviorSubject } from 'rxjs';
 
 import * as signalR from "@microsoft/signalr";
 
@@ -14,7 +14,11 @@ import * as signalR from "@microsoft/signalr";
 })
 export class ChatService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
+  }
+
+  getMessages(connectedUserId: number): Observable<Message[]> {
+    return this.http.get<Message[]>(environment.apiUrl + 'chat/getMessages/');
   }
 
 }

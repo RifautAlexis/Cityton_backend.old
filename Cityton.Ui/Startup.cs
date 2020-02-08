@@ -104,6 +104,7 @@ namespace Cityton.Ui
             services.AddScoped(typeof(IGroupRepository), typeof(GroupRepository));
             services.AddScoped(typeof(IParticipantGroupRepository), typeof(ParticipantGroupRepository));
             services.AddScoped(typeof(IChallengeRepository), typeof(ChallengeRepository));
+            services.AddScoped(typeof(IChatRepository), typeof(ChatRepository));
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();
@@ -111,6 +112,7 @@ namespace Cityton.Ui
             services.AddTransient<IGroupService, GroupService>();
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IChallengeService, ChallengeService>();
+            services.AddTransient<IChatService, ChatService>();
 
             services.AddSignalR();
 

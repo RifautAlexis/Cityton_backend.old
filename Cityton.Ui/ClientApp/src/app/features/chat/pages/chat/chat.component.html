@@ -1,12 +1,20 @@
-<section>
+<section *ngIf="(messages$ | async) as messages">
 
-  <ng-container *ngFor="let message of messages">
+  <mat-chip-list>
 
-    {{ message }}
+    <ng-container *ngFor="let message of messages">
 
-  </ng-container>
+      {{ message.author.username }}
+      <mat-chip>
+        {{ message.content }}
+        {{ message.createdAt }}
+      </mat-chip>
 
-  <input type="text" placeholder="Type a message" #text/>
+    </ng-container>
+
+  </mat-chip-list>
+
+  <input type="text" placeholder="Type a message" #text />
   <button type="button" (click)="sendMessage(text.value)"> Send </button>
 
 </section>

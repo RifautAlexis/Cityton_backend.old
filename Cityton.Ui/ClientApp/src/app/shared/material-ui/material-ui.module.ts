@@ -14,7 +14,8 @@ import {
   MatDividerModule,
   MatGridListModule,
   MatAutocompleteModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatChipsModule
 } from '@angular/material';
 
 import {
@@ -41,7 +42,8 @@ const modules = [
   LayoutModule,
   FlexLayoutModule,
   MatAutocompleteModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatChipsModule
 ];
 
 @NgModule({

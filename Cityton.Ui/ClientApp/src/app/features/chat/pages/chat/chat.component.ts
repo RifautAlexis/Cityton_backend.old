@@ -1,9 +1,10 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 
 import { ChatService } from '@core/services/chat.service';
+import { AuthService } from '@core/services/auth.service';
 
 import { IMessage as Message } from '@shared/models/message';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -19,14 +20,23 @@ export class ChatComponent implements OnInit {
 
   private hubConnection: signalR.HubConnection;
 
-  constructor(private chatService: ChatService) {
+  messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
+
+  constructor(private chatService: ChatService, private authService: AuthService) {
   }
 
   ngOnInit() {
     this.openConnection();
 
-    this.hubConnection.on("messageReceived", (text: string) => {
-      console.log("QQQQQQQQQ " + text + " PPPPPPPPPPPPPMMMMMMMMMM")
+    let connectedUserId: number = this.authService.getUserId();
+    this.chatService.getMessages(connectedUserId).subscribe(
+      (messages: Message[]) => {
+        this.messages$.next(messages);
+      }
+    );
+
+    this.hubConnection.on("messageReceived", (newMessage: Message) => {
+      this.messages$.next([...this.messages$.value, newMessage]);
     });
   }
 
@@ -45,13 +55,9 @@ export class ChatComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  sendMessage(text: string) {
-    console.log(text);
+  sendMessage(newMessage: string) {
     this.hubConnection
-      .send("newMessage", text)
-      .then(text => console.log(text));
-
-    // this.chatService.send();
+      .send("newMessage", newMessage)
   }
 
   // ngOnDestroy(): void {
