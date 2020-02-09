@@ -3,7 +3,7 @@
   <mat-chip-list>
 
     <ng-container *ngFor="let message of messages">
-
+      {{ message.id }}
       {{ message.author.username }}
       <mat-chip>
         {{ message.content }}

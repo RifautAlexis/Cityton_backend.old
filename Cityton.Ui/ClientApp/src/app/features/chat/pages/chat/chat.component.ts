@@ -29,7 +29,7 @@ export class ChatComponent implements OnInit {
     this.openConnection();
 
     let connectedUserId: number = this.authService.getUserId();
-    this.chatService.getMessages(connectedUserId).subscribe(
+    this.chatService.getMessages(1).subscribe(
       (messages: Message[]) => {
         this.messages$.next(messages);
       }
@@ -43,10 +43,7 @@ export class ChatComponent implements OnInit {
   openConnection() {
     this.hubConnection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Debug)
-      .withUrl('http://localhost:5000/hub/chatHub', {
-        // skipNegotiation: true,
-        // transport: signalR.HttpTransportType.WebSockets
-      })
+      .withUrl('http://localhost:5000/hub/chatHub', { accessTokenFactory: () => this.authService.currentTokenValue() })
       .build();
 
     this.hubConnection
@@ -55,13 +52,15 @@ export class ChatComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  sendMessage(newMessage: string) {
+  sendMessage(newMessage: string, discussionId: number) {
+    console.log("SEND");
     this.hubConnection
-      .send("newMessage", newMessage)
+      .send("newMessage", newMessage, 1)
+      .then(lol => console.log(lol));
   }
 
-  // ngOnDestroy(): void {
-  //   this.chatService.disconnect();
-  // }
+  ngOnDestroy(): void {
+    this.hubConnection.stop();
+  }
 
 }

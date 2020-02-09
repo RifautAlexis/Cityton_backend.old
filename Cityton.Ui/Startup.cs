@@ -44,7 +44,8 @@ namespace Cityton.Ui
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors(o => o.AddPolicy("CorsPolicy", builder => {
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
                 builder
                 .AllowAnyMethod()
                 .AllowAnyHeader()
@@ -104,7 +105,7 @@ namespace Cityton.Ui
             services.AddScoped(typeof(IGroupRepository), typeof(GroupRepository));
             services.AddScoped(typeof(IParticipantGroupRepository), typeof(ParticipantGroupRepository));
             services.AddScoped(typeof(IChallengeRepository), typeof(ChallengeRepository));
-            services.AddScoped(typeof(IChatRepository), typeof(ChatRepository));
+            services.AddScoped(typeof(IMesageRepository), typeof(MesageRepository));
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();
@@ -113,10 +114,11 @@ namespace Cityton.Ui
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IChallengeService, ChallengeService>();
             services.AddTransient<IChatService, ChatService>();
-
-            services.AddSignalR();
+            services.AddHttpContextAccessor();
 
             services.AddControllers().AddFluentValidation();
+
+            services.AddSignalR();
 
             services.AddTransient<IValidator<Company>, CompanyValidator>();
             services.AddTransient<IValidator<User>, UserValidator>();

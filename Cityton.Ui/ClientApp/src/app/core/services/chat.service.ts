@@ -17,8 +17,8 @@ export class ChatService {
   constructor(private http: HttpClient) {
   }
 
-  getMessages(connectedUserId: number): Observable<Message[]> {
-    return this.http.get<Message[]>(environment.apiUrl + 'chat/getMessages/');
+  getMessages(discussionId: number): Observable<Message[]> {
+    return this.http.get<Message[]>(environment.apiUrl + 'chat/getMessages/' + discussionId);
   }
 
 }

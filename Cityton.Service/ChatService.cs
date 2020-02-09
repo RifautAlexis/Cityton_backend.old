@@ -12,15 +12,43 @@ namespace Cityton.Service
 
     public interface IChatService
     {
+        Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId);
+        Task<int> NewMessage(string message, int connectedUSerId, int discussionId);
+        Task<Message> GetMessage(int messageAddedId);
     }
 
     public class ChatService : IChatService
     {
-        private IChatRepository chatRepository;
+        private IMesageRepository messageRepository;
 
-        public ChatService(IChatRepository chatRepository)
+        public ChatService(IMesageRepository messageRepository)
         {
-            this.chatRepository = chatRepository;
+            this.messageRepository = messageRepository;
+        }
+
+        public async Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId)
+        {
+            return await this.messageRepository.GetMessagesByDiscussion(discussionId);
+        }
+
+        public async Task<int> NewMessage(string message, int connectedUSerId, int discussionId)
+        {
+            Message messageToAdd = new Message {
+                Content = message,
+                CreatedAt = DateTime.Now,
+                AuthorId = connectedUSerId,
+                DiscussionId = discussionId,
+                MediaId = null
+            };
+
+            await this.messageRepository.Insert(messageToAdd);
+
+            return messageToAdd.Id;
+        }
+
+        public async Task<Message> GetMessage(int messageAddedId)
+        {
+            return await this.messageRepository.Get_User(messageAddedId);
         }
 
     }
