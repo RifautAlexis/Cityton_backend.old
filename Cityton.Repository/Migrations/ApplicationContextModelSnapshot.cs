@@ -802,7 +802,7 @@ namespace Cityton.Repository.Migrations
                             Id = 1,
                             AuthorId = 13,
                             Content = "Bonjour",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 36, DateTimeKind.Local).AddTicks(8112),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 698, DateTimeKind.Local).AddTicks(9443),
                             DiscussionId = 4
                         },
                         new
@@ -810,7 +810,7 @@ namespace Cityton.Repository.Migrations
                             Id = 2,
                             AuthorId = 14,
                             Content = "Coucou toi ! Comment vas-tu ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3313),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5264),
                             DiscussionId = 4
                         },
                         new
@@ -818,7 +818,7 @@ namespace Cityton.Repository.Migrations
                             Id = 3,
                             AuthorId = 13,
                             Content = "Je vais bien, merci :D",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3365),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5312),
                             DiscussionId = 4
                         },
                         new
@@ -826,7 +826,7 @@ namespace Cityton.Repository.Migrations
                             Id = 4,
                             AuthorId = 13,
                             Content = "Ca fait plaisir de parler !",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3372),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5318),
                             DiscussionId = 4
                         },
                         new
@@ -834,7 +834,7 @@ namespace Cityton.Repository.Migrations
                             Id = 5,
                             AuthorId = 14,
                             Content = "Oui, à moi aussi",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3375),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5321),
                             DiscussionId = 4
                         },
                         new
@@ -842,7 +842,7 @@ namespace Cityton.Repository.Migrations
                             Id = 6,
                             AuthorId = 19,
                             Content = "Wesh gazelle, tu sais que t'es plutôt mignone ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3379),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5325),
                             DiscussionId = 5
                         },
                         new
@@ -850,7 +850,7 @@ namespace Cityton.Repository.Migrations
                             Id = 7,
                             AuthorId = 15,
                             Content = "Désolé, je baise des gazelles, pas des éléphant à petite trompe ;)",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3383),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5329),
                             DiscussionId = 5
                         },
                         new
@@ -858,7 +858,7 @@ namespace Cityton.Repository.Migrations
                             Id = 8,
                             AuthorId = 16,
                             Content = "Vas-y, pourquoi tu lui parles comme ça ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3386),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5332),
                             DiscussionId = 5
                         },
                         new
@@ -866,7 +866,7 @@ namespace Cityton.Repository.Migrations
                             Id = 9,
                             AuthorId = 9,
                             Content = "Ding dong",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3390),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5336),
                             DiscussionId = 1
                         },
                         new
@@ -874,7 +874,7 @@ namespace Cityton.Repository.Migrations
                             Id = 10,
                             AuthorId = 24,
                             Content = "Oui ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3393),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5340),
                             DiscussionId = 1
                         },
                         new
@@ -882,7 +882,7 @@ namespace Cityton.Repository.Migrations
                             Id = 11,
                             AuthorId = 9,
                             Content = "Connaissez-vous notre seigneur à tous ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3397),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5343),
                             DiscussionId = 1
                         },
                         new
@@ -890,7 +890,7 @@ namespace Cityton.Repository.Migrations
                             Id = 12,
                             AuthorId = 24,
                             Content = "Chérie ! Les témins de Jéhova sont revenu !",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3401),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5347),
                             DiscussionId = 1
                         },
                         new
@@ -898,7 +898,7 @@ namespace Cityton.Repository.Migrations
                             Id = 13,
                             AuthorId = 29,
                             Content = "Claque leur la port eu nez !",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3405),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5350),
                             DiscussionId = 1
                         },
                         new
@@ -906,7 +906,7 @@ namespace Cityton.Repository.Migrations
                             Id = 14,
                             AuthorId = 24,
                             Content = "... Ils sont là",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3408),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5353),
                             DiscussionId = 1
                         },
                         new
@@ -914,7 +914,7 @@ namespace Cityton.Repository.Migrations
                             Id = 15,
                             AuthorId = 29,
                             Content = "Pas grave. Bande de chiant, on est dimanche ! dégagez !",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3412),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5357),
                             DiscussionId = 1
                         },
                         new
@@ -922,7 +922,7 @@ namespace Cityton.Repository.Migrations
                             Id = 16,
                             AuthorId = 20,
                             Content = "Ma réponse ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3415),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5360),
                             DiscussionId = 2
                         },
                         new
@@ -930,7 +930,7 @@ namespace Cityton.Repository.Migrations
                             Id = 17,
                             AuthorId = 38,
                             Content = "Oui, quelle est-elle ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3419),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5363),
                             DiscussionId = 2
                         },
                         new
@@ -938,7 +938,7 @@ namespace Cityton.Repository.Migrations
                             Id = 18,
                             AuthorId = 20,
                             Content = "42",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3422),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5367),
                             DiscussionId = 2
                         },
                         new
@@ -946,7 +946,7 @@ namespace Cityton.Repository.Migrations
                             Id = 19,
                             AuthorId = 38,
                             Content = "42 ? Tu veux que je te reprogramme ? Si ce n'est que ça dis le enfoiré",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3426),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5370),
                             DiscussionId = 2
                         },
                         new
@@ -954,7 +954,7 @@ namespace Cityton.Repository.Migrations
                             Id = 20,
                             AuthorId = 20,
                             Content = "Whesh humain ziva calme toi un peu. Je vais me taper un petit rail de binaire, tu m'as mis trop les nerfs frérot",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3429),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5374),
                             DiscussionId = 2
                         },
                         new
@@ -962,7 +962,7 @@ namespace Cityton.Repository.Migrations
                             Id = 21,
                             AuthorId = 23,
                             Content = "Il y a quelqu'un ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3433),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5377),
                             DiscussionId = 6
                         },
                         new
@@ -970,7 +970,7 @@ namespace Cityton.Repository.Migrations
                             Id = 22,
                             AuthorId = 23,
                             Content = "Ha non, je suis le seul dans mon groupe et donc dans la conversation",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3436),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5380),
                             DiscussionId = 6
                         },
                         new
@@ -978,7 +978,7 @@ namespace Cityton.Repository.Migrations
                             Id = 23,
                             AuthorId = 23,
                             Content = "Suis-je un Remy sans amis ?",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3440),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5384),
                             DiscussionId = 6
                         },
                         new
@@ -986,7 +986,7 @@ namespace Cityton.Repository.Migrations
                             Id = 24,
                             AuthorId = 23,
                             Content = "Le suicide me guette :(",
-                            CreatedAt = new DateTime(2020, 2, 8, 21, 12, 42, 39, DateTimeKind.Local).AddTicks(3443),
+                            CreatedAt = new DateTime(2020, 2, 12, 23, 35, 33, 701, DateTimeKind.Local).AddTicks(5387),
                             DiscussionId = 6
                         });
                 });
@@ -1302,12 +1302,12 @@ namespace Cityton.Repository.Migrations
                             Id = 1,
                             CompanyId = 1,
                             Email = "admin01@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "6019911684 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 2,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODExOTI3NjEsImV4cCI6MTU4MTc5NzU2MSwiaWF0IjoxNTgxMTkyNzYxfQ.G2PU2wGBbOZ45XMyTSZgK0g_GT75anaTvAnx60hmk1w",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNTgxNTQ2OTMzLCJleHAiOjE1ODIxNTE3MzMsImlhdCI6MTU4MTU0NjkzM30.zPx7hdi2-AZL9iULlct8aZ6qI2OqsMPT5f1k-5jmCIE",
                             Username = "admin01"
                         },
                         new
@@ -1315,12 +1315,12 @@ namespace Cityton.Repository.Migrations
                             Id = 2,
                             CompanyId = 1,
                             Email = "admin02@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3069338796 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 2,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODExOTI3NjIsImV4cCI6MTU4MTc5NzU2MiwiaWF0IjoxNTgxMTkyNzYyfQ.IxeQstWqPOsMD6G1wRFvKkOn_6eCzfTgdOR_UnedQDM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNTgxNTQ2OTMzLCJleHAiOjE1ODIxNTE3MzMsImlhdCI6MTU4MTU0NjkzM30.hmKT04vBYetiQtkCUdM94DFTbqq77wLnE73XAh_vfl4",
                             Username = "admin02"
                         },
                         new
@@ -1328,12 +1328,12 @@ namespace Cityton.Repository.Migrations
                             Id = 3,
                             CompanyId = 1,
                             Email = "admin03@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "105989609 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 2,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODExOTI3NjIsImV4cCI6MTU4MTc5NzU2MiwiaWF0IjoxNTgxMTkyNzYyfQ.Y4g3UU9WRRbp21dBgAzx5AY9VR-S3AXK556JsG6bbeM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNTgxNTQ2OTMzLCJleHAiOjE1ODIxNTE3MzMsImlhdCI6MTU4MTU0NjkzM30.XD-uwTux8VR1XjwZLNcXCrI7fl9sWOWpWPIb2pPLnuM",
                             Username = "admin03"
                         },
                         new
@@ -1341,12 +1341,12 @@ namespace Cityton.Repository.Migrations
                             Id = 4,
                             CompanyId = 1,
                             Email = "admin04@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4866078694 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 2,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODExOTI3NjIsImV4cCI6MTU4MTc5NzU2MiwiaWF0IjoxNTgxMTkyNzYyfQ.TjJmAec7iFfKEN3RWSm1CM9F3RzCLv-4EdEJCYMFevY",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0Iiwicm9sZSI6IkFkbWluIiwibmJmIjoxNTgxNTQ2OTMzLCJleHAiOjE1ODIxNTE3MzMsImlhdCI6MTU4MTU0NjkzM30.mbx1wAq7BCWoGktgOb-p80EDrOoxdLXoTBI4ll7pyT8",
                             Username = "admin04"
                         },
                         new
@@ -1354,12 +1354,12 @@ namespace Cityton.Repository.Migrations
                             Id = 5,
                             CompanyId = 1,
                             Email = "admin05@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8659710084 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 2,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODExOTI3NjIsImV4cCI6MTU4MTc5NzU2MiwiaWF0IjoxNTgxMTkyNzYyfQ.dalBzx0bWYtSs4ciUC-WNTWMqVvpsn4vvEx7KLOO-x8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI1Iiwicm9sZSI6IkFkbWluIiwibmJmIjoxNTgxNTQ2OTMzLCJleHAiOjE1ODIxNTE3MzMsImlhdCI6MTU4MTU0NjkzM30.q4-l3oBInQj-CJDYTrKQIzez-yq21jGU5A6tNvk9LRA",
                             Username = "admin05"
                         },
                         new
@@ -1367,12 +1367,12 @@ namespace Cityton.Repository.Migrations
                             Id = 6,
                             CompanyId = 1,
                             Email = "checker01@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5844956388 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 1,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjYiLCJyb2xlIjoiQ2hlY2tlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.OTJ7Zk8ap2SeWjbBUtk3o4ve4TGtSdODP1bAIyHFWVw",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6IkNoZWNrZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.3qAW3UoxCsrkiI4PLqiKDAO-UQeGru52ygxZMQDpwW8",
                             Username = "checker01"
                         },
                         new
@@ -1380,12 +1380,12 @@ namespace Cityton.Repository.Migrations
                             Id = 7,
                             CompanyId = 1,
                             Email = "checker02@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1669765414 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 1,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjciLCJyb2xlIjoiQ2hlY2tlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.DTCSQpfmvOD8bb0MloODmRq5UN1Xvp7mmJM_YyMh4NQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3Iiwicm9sZSI6IkNoZWNrZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.6zYxwqWXq6fLIV13SD12VSoDEGCjoa9bjZMZvAs5Xis",
                             Username = "checker02"
                         },
                         new
@@ -1393,12 +1393,12 @@ namespace Cityton.Repository.Migrations
                             Id = 8,
                             CompanyId = 1,
                             Email = "checker03@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5598781614 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 1,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjgiLCJyb2xlIjoiQ2hlY2tlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.gQLIPDW1l91L5V0bG9JV-AH2ZpkubZbX528NxzKIlto",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4Iiwicm9sZSI6IkNoZWNrZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.2jpIn3tWFsovobGFI6Ug-YtUtqTMnJhcOy4cPNbES3c",
                             Username = "checker03"
                         },
                         new
@@ -1406,12 +1406,12 @@ namespace Cityton.Repository.Migrations
                             Id = 9,
                             CompanyId = 1,
                             Email = "member01@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3272464106 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjkiLCJyb2xlIjoiTWVtYmVyIiwibmJmIjoxNTgxMTkyNzYyLCJleHAiOjE1ODE3OTc1NjIsImlhdCI6MTU4MTE5Mjc2Mn0.XTYRI8MqK223oAWzf4DOQd1wZWPmR7vXDik3Fg8jXX8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTU0NjkzMywiZXhwIjoxNTgyMTUxNzMzLCJpYXQiOjE1ODE1NDY5MzN9.OYstzmJUshLOgj2mpjkE29SdzGYRlCl23nEf3NMnfrs",
                             Username = "member01"
                         },
                         new
@@ -1419,12 +1419,12 @@ namespace Cityton.Repository.Migrations
                             Id = 10,
                             CompanyId = 1,
                             Email = "member02@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5414887288 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEwIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.Ypq-Cz-ri9JA_v6F6ZK89okkXsrl0JffBNpxw-my3jk",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.ncpPc6QfnPT0drUsFTahQvp0R1MKs2Dt4-teqZHHTW8",
                             Username = "member02"
                         },
                         new
@@ -1432,12 +1432,12 @@ namespace Cityton.Repository.Migrations
                             Id = 11,
                             CompanyId = 1,
                             Email = "member03@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4786399505 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjExIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.2CT-BlZjGthqbSDAO7QbueBTYOvAw9T-xvS7c__X_Fw",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.LYSH1QmTki6dps9NKTNuifXFMYo2wrzj5QApXHmzTlI",
                             Username = "member03"
                         },
                         new
@@ -1445,12 +1445,12 @@ namespace Cityton.Repository.Migrations
                             Id = 12,
                             CompanyId = 1,
                             Email = "member04@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "2358305614 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEyIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.iiWdeZrxYXdFdlI6IUwve0PqNZbrTW9BdKJJ-uGc6CM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.FB8G9xXygoe2bZzbHDvoRAcYdf7sCpdlpWi0LAyFt-c",
                             Username = "member04"
                         },
                         new
@@ -1458,12 +1458,12 @@ namespace Cityton.Repository.Migrations
                             Id = 13,
                             CompanyId = 1,
                             Email = "member05@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1064846605 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.2BYJJ7n8HuTjiK7Mhzhk2RmGo16e3PEzmGPCbXh-48M",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.3By8HLIeS9axuzpA5_xyPCWQqG1-CIKTao07xiXrhp0",
                             Username = "member05"
                         },
                         new
@@ -1471,12 +1471,12 @@ namespace Cityton.Repository.Migrations
                             Id = 14,
                             CompanyId = 1,
                             Email = "member06@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4686272886 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE0Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9._cKFXV2p2Rw3PiYLXwAJl3Qd6UdEytyblQnwWuy03Jc",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxNCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.VwDsr9f_BLZDw8EFZ06tU4feecWLJfQ7GVk5TnAzJjg",
                             Username = "member06"
                         },
                         new
@@ -1484,12 +1484,12 @@ namespace Cityton.Repository.Migrations
                             Id = 15,
                             CompanyId = 1,
                             Email = "member07@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5071973872 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE1Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.uL19yXVFSo9lqtTPde4rrohpH9hu0rTLDVGmou84p_k",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxNSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.KoV220U0IzWcEz6IWbPNmovDWYvqb-XzNqpJ9YCPE8s",
                             Username = "member07"
                         },
                         new
@@ -1497,12 +1497,12 @@ namespace Cityton.Repository.Migrations
                             Id = 16,
                             CompanyId = 1,
                             Email = "member08@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "334355105 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE2Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.lD-aBKnkPAMpHWno4E3FjaRBitpMJK23FTcV7S9QwHM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxNiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.-eENnVWXjSWA6SFT3fDkWg5oc_Yt8UoX4icXdJJlLVY",
                             Username = "member08"
                         },
                         new
@@ -1510,12 +1510,12 @@ namespace Cityton.Repository.Migrations
                             Id = 17,
                             CompanyId = 1,
                             Email = "member09@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5471673152 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE3Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.xwkhw5udfr_jVLzDR7r8ACuTPnasyk0ch09tkayTUCQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxNyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.XXERqttoeE_CR5VIax0W1lwdhsfnh8elMRw4BBaQGXA",
                             Username = "member09"
                         },
                         new
@@ -1523,12 +1523,12 @@ namespace Cityton.Repository.Migrations
                             Id = 18,
                             CompanyId = 1,
                             Email = "member10@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8758801056",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE4Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.I8K_-NcXf0AjMAym1Yz_lQwS0OE8VxSBWIUHM3b2znQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxOCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.uYqd4lnPS1J1NgHRnKMO0hFUsTMup9En89HLhjSP-PY",
                             Username = "member10"
                         },
                         new
@@ -1536,12 +1536,12 @@ namespace Cityton.Repository.Migrations
                             Id = 19,
                             CompanyId = 1,
                             Email = "member11@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1644035575 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjE5Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.R-d4RkRgyr443QwJ2E-CqzvzjhgrN5iwlJ_zxlzNrqw",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxOSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.05HSt2W6rvsXK0ZGqhA3dW_NQVERAumEwmzpWFAHyPE",
                             Username = "member11"
                         },
                         new
@@ -1549,12 +1549,12 @@ namespace Cityton.Repository.Migrations
                             Id = 20,
                             CompanyId = 1,
                             Email = "member12@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8414315717 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIwIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.5sZZpzAVC_Lw-T307Zfv-jLWfMUvEiNOd0LFN-CgJUU",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.VUZRBNejKsNrk1zH2n1wza5U__sDip2q8mrdRcTX-0E",
                             Username = "member12"
                         },
                         new
@@ -1562,12 +1562,12 @@ namespace Cityton.Repository.Migrations
                             Id = 21,
                             CompanyId = 1,
                             Email = "member13@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4867164497 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIxIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.RQWgtGJJtcwPa8r-sMjZBEZ8gYnFOHJl0cNgYL_Mth8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.zGCuKS53_Qtpda-79hkQIE1kvzvEVj6caUb_32N6SxM",
                             Username = "member13"
                         },
                         new
@@ -1575,12 +1575,12 @@ namespace Cityton.Repository.Migrations
                             Id = 22,
                             CompanyId = 1,
                             Email = "member14@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4375563597 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIyIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.ud9p-lW7q35zQRPFljODVTG22-A5clJ6Q8fhVdl4I8I",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.Vilu_uM7n9Ylh2WBtifGWkKmq8-LQlasm4hIZMIYqAI",
                             Username = "member14"
                         },
                         new
@@ -1588,12 +1588,12 @@ namespace Cityton.Repository.Migrations
                             Id = 23,
                             CompanyId = 1,
                             Email = "member15@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1303405992 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjIzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.5y_u37LBoDxuZcBZWyGFz1XCGdTwa_UidteaZs9cLIs",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.3ig9ak9VSJFvEilr-HsVbGHt5pcCuZ9tkc7_d-eCqyA",
                             Username = "member15"
                         },
                         new
@@ -1601,12 +1601,12 @@ namespace Cityton.Repository.Migrations
                             Id = 24,
                             CompanyId = 1,
                             Email = "member16@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8743387328 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI0Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.pAk7SmLhU9944sbNDWcYQJYtPLnivX13AshHoXDCTuI",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyNCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.q5aCAng33INnQozxpqIioJegxwV8ML7wZa_jToh78OU",
                             Username = "member16"
                         },
                         new
@@ -1614,12 +1614,12 @@ namespace Cityton.Repository.Migrations
                             Id = 25,
                             CompanyId = 1,
                             Email = "member17@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1653986846 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI1Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.anZg7ECYVvb03ORu6qifVcPNJoB4i8K0wjyjatjViN8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyNSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.P43-7lJJ3XmZZs7ZHOtQrJq3Okwht1FvQ3aEA29sAc8",
                             Username = "member17"
                         },
                         new
@@ -1627,12 +1627,12 @@ namespace Cityton.Repository.Migrations
                             Id = 26,
                             CompanyId = 1,
                             Email = "member18@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "2923858299 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI2Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.8sC5sFN6LNP2sebNxepLF3tvj3P-X8hRcCBVlsNPvEg",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyNiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.Oe1VwQOSGusSOoWOcGHoSJJMtY_B2lhhNn2Xc2j7gSE",
                             Username = "member18"
                         },
                         new
@@ -1640,12 +1640,12 @@ namespace Cityton.Repository.Migrations
                             Id = 27,
                             CompanyId = 1,
                             Email = "member19@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3534047331 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI3Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.V9D3z6156t8nS9nMxz6XeH0Cp5QOKi27oRD4kK1lnDM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyNyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.Qit5tTvrVH6G-Cjdv40IwHbT9O66Y4TsuD2fvwJtyUM",
                             Username = "member19"
                         },
                         new
@@ -1653,12 +1653,12 @@ namespace Cityton.Repository.Migrations
                             Id = 28,
                             CompanyId = 1,
                             Email = "member20@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "2817549444 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI4Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.bFZImyDHnNZ2q0nQOfsDKmwI7khZRvggISfcpT43dLQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyOCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.qTcZ209e7NDgj7tmwmrN9WtWqafBlPufj6td8uyvZcs",
                             Username = "member20"
                         },
                         new
@@ -1666,12 +1666,12 @@ namespace Cityton.Repository.Migrations
                             Id = 29,
                             CompanyId = 1,
                             Email = "member21@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8865276623 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjI5Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.CysT6ReQdAOAEu5J5F67NNcUMocBBYilCQy29jacku8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyOSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.Lc-KCV-ap7Mc81F5E--TsYAuuYJEFxhLK3OC0JzlzBc",
                             Username = "member21"
                         },
                         new
@@ -1679,12 +1679,12 @@ namespace Cityton.Repository.Migrations
                             Id = 30,
                             CompanyId = 1,
                             Email = "member22@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5491062337 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjMwIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.e600IPZ1HKUJhh8iFOwOUsSxsG51gtHdymjIykZW8hI",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.pgV9KMYPE51ncspovfee4DAXWi1aaSlMOZJlSHtp3Eo",
                             Username = "member22"
                         },
                         new
@@ -1692,12 +1692,12 @@ namespace Cityton.Repository.Migrations
                             Id = 31,
                             CompanyId = 1,
                             Email = "member23@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8547534376 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjMxIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.xITZvG2dCpUKsipE2MWPCjeWR3gzGblXiotLVdF4YlA",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.R9C2JFX_XrHO-FFt4D9Lvq5DLZTaSK_dkwb_WQZvomA",
                             Username = "member23"
                         },
                         new
@@ -1705,12 +1705,12 @@ namespace Cityton.Repository.Migrations
                             Id = 32,
                             CompanyId = 1,
                             Email = "member24@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1691707740 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjMyIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.Kmud4to_ha8zvzk4CIW0em-kKiNOGx8BwMFJyOGOa7s",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.lqdNfG4tG0RZgR4-6RUQ2biYjFS5sLCCmSjYp-Mcuh4",
                             Username = "member24"
                         },
                         new
@@ -1718,12 +1718,12 @@ namespace Cityton.Repository.Migrations
                             Id = 33,
                             CompanyId = 1,
                             Email = "member25@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3483061802 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjMzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.hz8Dh49qZckfOU6JGl8cDQxY2HfZsXd5lt6PEFXNI-o",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.MaFJ8uS-knFrEIm7vdbz17EW37D4j4y_YY3wLuS0yoA",
                             Username = "member25"
                         },
                         new
@@ -1731,12 +1731,12 @@ namespace Cityton.Repository.Migrations
                             Id = 34,
                             CompanyId = 1,
                             Email = "member26@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5955468148 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM0Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.o0di_Vj8mBRVrYNuJOpNnnvGkX8ShoP0lDwwRc3Kp84",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzNCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.YZvIt_6UNKF9Kr-TvhzIcRLjrmJOjGA-C-VjOvF45nI",
                             Username = "member26"
                         },
                         new
@@ -1744,12 +1744,12 @@ namespace Cityton.Repository.Migrations
                             Id = 35,
                             CompanyId = 1,
                             Email = "member27@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4206283982 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM1Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.e4yC1SK8jWr59QBWpu-5MnKjzvi2YhBjN_kL727jhl8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzNSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.qTKN5xRr5cA-g6SWgkrZ-KN5fEneR3avyPjlhmnJ2LA",
                             Username = "member27"
                         },
                         new
@@ -1757,12 +1757,12 @@ namespace Cityton.Repository.Migrations
                             Id = 36,
                             CompanyId = 1,
                             Email = "member28@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "2088176734",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM2Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.UOfzFeg7E7_gE1DOE2SFlRZ_qWHw87SQPmnucRAMukA",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzNiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.p1Xm20QvVXJ1hwIAvVcryGbr2b37q9NFMI6_yGSSHkA",
                             Username = "member28"
                         },
                         new
@@ -1770,12 +1770,12 @@ namespace Cityton.Repository.Migrations
                             Id = 37,
                             CompanyId = 1,
                             Email = "member29@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5838001888 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM3Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.IivHR5fBNFsjELI3w_9a5Rdj8hfs1qqEcOAguUDq4DQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzNyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.9AMbdSL1_UXvP7fEzXz376cifulZJpnj7-8xqmveGBE",
                             Username = "member29"
                         },
                         new
@@ -1783,12 +1783,12 @@ namespace Cityton.Repository.Migrations
                             Id = 38,
                             CompanyId = 1,
                             Email = "member30@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5475604706",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM4Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.CwCx9cOnIEJj6dNy6VnrIpKf6r_CItmKBpBGl8GdDEQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzOCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.lXvIwuAoT23gW3MKPUh7ur0GM98hD263wlltpKVvY2U",
                             Username = "member30"
                         },
                         new
@@ -1796,12 +1796,12 @@ namespace Cityton.Repository.Migrations
                             Id = 39,
                             CompanyId = 1,
                             Email = "member31@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3419759237 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjM5Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.CIJA-kAACyeH7PxOE659tWv2iFuf_yFyUpZfqPjEfiA",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzOSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.jctSthkBQePxftjWxrCJH5A36-XPbmyt2jDQ50DhnDQ",
                             Username = "member31"
                         },
                         new
@@ -1809,12 +1809,12 @@ namespace Cityton.Repository.Migrations
                             Id = 40,
                             CompanyId = 1,
                             Email = "member32@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8137152193 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQwIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.gqWmEdFgKYXrgTyOrdJIRcVZS17PCD0xmBgDNiDVwZE",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0MCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.3hF-783sbNz_nkAcZjAZXKWFCYfh8byIyYJGpgMW7IE",
                             Username = "member32"
                         },
                         new
@@ -1822,12 +1822,12 @@ namespace Cityton.Repository.Migrations
                             Id = 41,
                             CompanyId = 1,
                             Email = "member33@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "9675495629 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQxIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.m0UB50w23xIm3xf6H4qxX_LmcRCPHyLH3M9k6dolEXI",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0MSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.0lrgzCZQfHoBRcKq82Wx3QDXRlgvcuNpUOrFGkKQo1I",
                             Username = "member33"
                         },
                         new
@@ -1835,12 +1835,12 @@ namespace Cityton.Repository.Migrations
                             Id = 42,
                             CompanyId = 1,
                             Email = "member34@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "5161342920 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQyIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.megj_09Ti6zmZu83mrbMZFdRA8jcVf0McAelCbyZL_U",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0MiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.hkmBU81czuNEYqhHDKEYhvUblV-z5_HWgxHMebhn8rA",
                             Username = "member34"
                         },
                         new
@@ -1848,12 +1848,12 @@ namespace Cityton.Repository.Migrations
                             Id = 43,
                             CompanyId = 1,
                             Email = "member35@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "4616055914 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.B_EHsL2FtLUNn9vGSG_lrN9VCWJCARI5bluSpEx17xM",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0MyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.8e8PurasaIP-21OZxiCnPu_JtNUV-56LnZQzcIi0o6Q",
                             Username = "member35"
                         },
                         new
@@ -1861,12 +1861,12 @@ namespace Cityton.Repository.Migrations
                             Id = 44,
                             CompanyId = 1,
                             Email = "member36@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "1531092443 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ0Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.qZUo_vHBdTHF8cl9Td6oP9rTVOvgpulJLp2iZ3RpdrQ",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0NCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.rn3OsLt8NgxrfHgQ4NJIUPnZS7HGPj_3EdQCD103gEY",
                             Username = "member36"
                         },
                         new
@@ -1874,12 +1874,12 @@ namespace Cityton.Repository.Migrations
                             Id = 45,
                             CompanyId = 1,
                             Email = "member37@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "3324710359 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ1Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.SifYItBZv0z37vtnicCDsoVTD45NKCP2HLpE9Ln2bHY",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0NSIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.ygqBNfXoUzvpGOkSMPBOTvTy9FlEBBzO_bkNwVUA8Ww",
                             Username = "member37"
                         },
                         new
@@ -1887,12 +1887,12 @@ namespace Cityton.Repository.Migrations
                             Id = 46,
                             CompanyId = 1,
                             Email = "member38@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "8667200845 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ2Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.IrFsYDiqZdRokx-01K0VzdbO340PLOB4iuU7_XTWDYY",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0NiIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.sY9wYX7ApvahEsAQy1OVqRB4iHR58JZVcrnLLxPqK5g",
                             Username = "member38"
                         },
                         new
@@ -1900,12 +1900,12 @@ namespace Cityton.Repository.Migrations
                             Id = 47,
                             CompanyId = 1,
                             Email = "member39@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "7849609736",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ3Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.8hL99-A4vuugDdT2Cc7x0H5Z-Vgrvs0kfC8emjb4wxY",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0NyIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.Z6iL0vmrUuPzEBaC0lX0U8A5UgktPdQoOn5PjvoJlNo",
                             Username = "member39"
                         },
                         new
@@ -1913,12 +1913,12 @@ namespace Cityton.Repository.Migrations
                             Id = 48,
                             CompanyId = 1,
                             Email = "member40@gmail.com",
-                            PasswordHash = new byte[] { 178, 180, 147, 74, 157, 70, 209, 197, 214, 233, 25, 15, 162, 52, 211, 138, 103, 64, 106, 5, 120, 16, 159, 49, 14, 191, 67, 9, 76, 215, 194, 126, 204, 42, 36, 135, 30, 3, 35, 17, 103, 180, 28, 32, 228, 230, 254, 218, 50, 81, 180, 239, 32, 78, 26, 100, 115, 206, 77, 12, 113, 189, 31, 134 },
-                            PasswordSalt = new byte[] { 16, 137, 134, 47, 146, 181, 225, 120, 87, 230, 250, 55, 236, 243, 110, 186, 137, 59, 97, 220, 107, 242, 171, 158, 13, 115, 197, 84, 199, 246, 132, 45, 21, 59, 159, 102, 243, 12, 59, 49, 117, 154, 157, 59, 53, 187, 2, 6, 205, 244, 84, 227, 148, 241, 118, 67, 47, 75, 66, 209, 28, 43, 198, 41, 20, 213, 218, 161, 103, 86, 126, 6, 91, 191, 145, 10, 147, 145, 105, 233, 208, 128, 150, 103, 39, 163, 220, 11, 148, 83, 76, 154, 22, 64, 114, 176, 90, 176, 158, 86, 139, 106, 79, 190, 234, 135, 199, 101, 231, 205, 224, 196, 98, 234, 238, 253, 55, 232, 215, 201, 11, 20, 89, 241, 104, 31, 40, 200 },
+                            PasswordHash = new byte[] { 0, 114, 53, 183, 140, 254, 104, 59, 191, 0, 219, 49, 31, 190, 72, 61, 57, 13, 81, 111, 240, 18, 31, 29, 168, 35, 240, 98, 121, 255, 20, 150, 214, 48, 160, 74, 2, 215, 123, 15, 96, 211, 109, 145, 54, 213, 31, 140, 45, 69, 156, 153, 217, 97, 110, 13, 237, 25, 159, 121, 93, 133, 198, 167 },
+                            PasswordSalt = new byte[] { 57, 22, 233, 124, 10, 1, 131, 252, 75, 139, 5, 52, 153, 154, 230, 92, 50, 108, 233, 10, 157, 175, 181, 173, 33, 18, 202, 192, 194, 236, 168, 206, 17, 55, 49, 108, 191, 168, 221, 237, 172, 81, 154, 227, 61, 188, 211, 84, 43, 88, 190, 161, 140, 117, 135, 102, 211, 47, 184, 208, 247, 71, 14, 12, 228, 156, 240, 194, 244, 131, 105, 197, 237, 6, 53, 114, 229, 155, 38, 200, 172, 28, 75, 250, 53, 74, 50, 169, 126, 76, 221, 109, 137, 171, 63, 215, 92, 222, 219, 254, 117, 100, 152, 204, 33, 122, 130, 80, 81, 19, 28, 216, 89, 140, 105, 179, 145, 152, 156, 46, 200, 114, 45, 197, 132, 41, 252, 214 },
                             PhoneNumber = "6559816496 ",
                             Picture = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png",
                             Role = 0,
-                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ4Iiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTU4MTE5Mjc2MiwiZXhwIjoxNTgxNzk3NTYyLCJpYXQiOjE1ODExOTI3NjJ9.-afoVesgIyBZQ-BmzZI5xOaNbyeqzetQTskjdA6ZrZ8",
+                            Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0OCIsInJvbGUiOiJNZW1iZXIiLCJuYmYiOjE1ODE1NDY5MzMsImV4cCI6MTU4MjE1MTczMywiaWF0IjoxNTgxNTQ2OTMzfQ.He1kkhw8c-lzhPe0_u5cYRpx2l8dZA_vgsf_bfVaar4",
                             Username = "member40"
                         });
                 });

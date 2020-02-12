@@ -28,6 +28,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using SignalRChat.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Primitives;
 
 namespace Cityton.Ui
 {
@@ -95,6 +96,26 @@ namespace Cityton.Ui
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
                     ValidateAudience = false
+                };
+
+                x.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
+                        var accessToken = context.Request.Query["access_token"].ToString();
+
+                        if (!string.IsNullOrEmpty(accessToken))
+                        {
+                            System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
+
+                            context.Token = accessToken;
+                            System.Console.WriteLine(context.Token);
+                            System.Console.WriteLine("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+                        }
+                        System.Console.WriteLine("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+                        return Task.CompletedTask;
+                    }
                 };
             });
 
@@ -177,6 +198,21 @@ namespace Cityton.Ui
             app.UseRouting();
 
             app.UseCors(options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
+            // app.Use(async (context, next) =>
+            // {
+            //     if (context.Request.Path.Value.StartsWith("/hub/chatHub"))
+            //     {
+            //         var bearerToken = context.Request.Query["access_token"].ToString();
+
+            //         if (!String.IsNullOrEmpty(bearerToken))
+            //             context.Request.Headers.Add("Authorization", new string[] { "bearer " + bearerToken });
+            //     }
+
+            //     await next();
+            // });
+
+            app.UseWebSockets();
 
             app.UseAuthentication();
             app.UseAuthorization();
