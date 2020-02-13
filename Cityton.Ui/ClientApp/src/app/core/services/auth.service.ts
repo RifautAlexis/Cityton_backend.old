@@ -19,7 +19,7 @@ export class AuthService {
   private currentToken: BehaviorSubject<string>;
 
   constructor(private http: HttpClient) {
-    const data = JSON.parse(localStorage.getItem('currentToken'));
+    const data = localStorage.getItem('currentToken');
 
     this.currentToken = new BehaviorSubject<string>(data ? data : null);
   }
@@ -35,8 +35,9 @@ export class AuthService {
   login(email: string, password: string): Observable<string> {
     return this.http.post<string>(environment.apiUrl + 'authenticate/login', { email, password })
       .pipe(map((data: any) => {
-
-        let token = JSON.stringify(data.token);
+        console.log(data);
+        console.log(data.token);
+        let token = data.token;
 
         if (token) {
           localStorage.setItem('currentToken', token);
@@ -54,7 +55,7 @@ export class AuthService {
       .pipe(map((token: string) => {
 
         if (token) {
-          localStorage.setItem('currentToken', JSON.stringify(token));
+          localStorage.setItem('currentToken', token);
           this.currentToken.next(token);
         }
 

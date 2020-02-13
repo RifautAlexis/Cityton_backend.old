@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit {
   openConnection() {
     this.hubConnection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Debug)
+      .configureLogging(signalR.LogLevel.Information)
       .withUrl('http://localhost:5000/hub/chatHub', { accessTokenFactory: () => this.authService.currentTokenValue() })
       .build();
 

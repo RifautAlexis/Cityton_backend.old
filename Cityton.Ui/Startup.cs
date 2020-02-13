@@ -71,23 +71,6 @@ namespace Cityton.Ui
             })
             .AddJwtBearer(x =>
             {
-                //x.Events = new JwtBearerEvents
-                //{
-                //    OnTokenValidated = context =>
-                //    {
-                //        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-                //        Console.WriteLine("DDDDDDDDDDDDDDDDDDDDD");
-                //        var userId = int.Parse(context.Principal.Identity.Name);
-                //        Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
-                //        var user = userService.Get(userId);
-                //        if (user == null)
-                //        {
-                //            // return unauthorized if user no longer exists
-                //            context.Fail("Unauthorized");
-                //        }
-                //        return Task.CompletedTask;
-                //    }
-                //};
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
@@ -102,22 +85,22 @@ namespace Cityton.Ui
                 {
                     OnMessageReceived = context =>
                     {
-                        System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
-                        var accessToken = context.Request.Query["access_token"].ToString();
+                        var accessToken = context.Request.Query["access_token"];
 
-                        if (!string.IsNullOrEmpty(accessToken))
+                    // If the request is for our hub...
+                    var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) &&
+                            (path.StartsWithSegments("/hubs/chat")))
                         {
-                            System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFFF");
-
-                            context.Token = accessToken;
-                            System.Console.WriteLine(context.Token);
-                            System.Console.WriteLine("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+                        // Read the token out of the query string
+                        context.Token = accessToken;
                         }
-                        System.Console.WriteLine("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
                         return Task.CompletedTask;
                     }
                 };
             });
+
+            services.AddMemoryCache();
 
             // configure DI for application services
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -173,6 +156,7 @@ namespace Cityton.Ui
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -198,19 +182,6 @@ namespace Cityton.Ui
             app.UseRouting();
 
             app.UseCors(options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-
-            // app.Use(async (context, next) =>
-            // {
-            //     if (context.Request.Path.Value.StartsWith("/hub/chatHub"))
-            //     {
-            //         var bearerToken = context.Request.Query["access_token"].ToString();
-
-            //         if (!String.IsNullOrEmpty(bearerToken))
-            //             context.Request.Headers.Add("Authorization", new string[] { "bearer " + bearerToken });
-            //     }
-
-            //     await next();
-            // });
 
             app.UseWebSockets();
 
