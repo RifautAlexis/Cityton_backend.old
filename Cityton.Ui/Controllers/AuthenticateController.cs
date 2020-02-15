@@ -96,7 +96,6 @@ namespace Cityton.Ui.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetConnectedUser()
         {
-
             User connectedUser = await this._userService.GetToTransformInDTO(int.Parse(User.Identity.Name));
 
             return Ok(connectedUser.ToDTO());

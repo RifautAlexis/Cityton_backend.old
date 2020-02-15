@@ -52,37 +52,45 @@ namespace SignalRChat.Hubs
             if (this.IsAuthorized(jwt))
             {
                 this.decodeToken(jwt, out int userId, out Role role);
-
-                if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int value))
+                
+                if (usersConnectedToChat.ContainsKey(Context.ConnectionId))
                 {
 
-                    if (!usersConnectedToChat.TryAdd(Context.ConnectionId, userId))
-                    {
-                        Context.Abort();
-                        return null;
-                    }
-                    return base.OnConnectedAsync();
+                    Context.Abort();
+                    return Task.FromException(new Exception("A connection already exist, both are removed"));
+
+
                 }
+
+                usersConnectedToChat.Add(Context.ConnectionId, userId);
+                return base.OnConnectedAsync();
 
             }
 
             Context.Abort();
-            return null;
+            return Task.FromException(new Exception("You are not authorized"));
+        }
+
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+
+            usersConnectedToChat.Remove(Context.ConnectionId);
+
+            Context.Abort();
+            return base.OnDisconnectedAsync(exception);
         }
 
         public async Task NewMessage(string message, int discussionId)
         {
 
-            int connectedUSerId = int.Parse(this._contextAccessor.HttpContext.User.Identity.Name);
-            int messageAddedId = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
+            if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int connectedUSerId))
+            {
+                Context.Abort();
+            }
 
-            Message messageAdded = await this._chatService.GetMessage(messageAddedId);
-
-            // System.Console.WriteLine("AAAAAAAAAAA " + message + " ZZZZZZZZZZZZZZ");
-
+            Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
+            
             await Clients.All.SendAsync("messageReceived", messageAdded.ToDTO());
-
-            // await Clients.All.SendAsync("messageReceived", new MessageDTO { Id = 0, Content = message, Author = new UserMinimal { Id = 0, Username = "userTest" }, CreatedAt = DateTime.Now, DiscussionId = 0 });
         }
 
         /* ****************************** */
@@ -119,7 +127,7 @@ namespace SignalRChat.Hubs
             var handler = new JwtSecurityTokenHandler();
             JwtSecurityToken tokenDecoded = handler.ReadJwtToken(jwt);
 
-            userId = Int32.Parse(tokenDecoded.Claims.First(claim => claim.Type == "nameid").Value);
+            userId = Int32.Parse(tokenDecoded.Claims.First(claim => claim.Type == "unique_name").Value);
             role = (Role)Enum.Parse(typeof(Role), tokenDecoded.Claims.First(claim => claim.Type == "role").Value);
         }
     }

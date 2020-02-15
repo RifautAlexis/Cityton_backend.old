@@ -13,17 +13,18 @@ namespace Cityton.Service
     public interface IChatService
     {
         Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId);
-        Task<int> NewMessage(string message, int connectedUSerId, int discussionId);
-        Task<Message> GetMessage(int messageAddedId);
+        Task<Message> NewMessage(string message, int connectedUSerId, int discussionId);
     }
 
     public class ChatService : IChatService
     {
         private IMesageRepository messageRepository;
+        private IUserRepository userRepository;
 
-        public ChatService(IMesageRepository messageRepository)
+        public ChatService(IMesageRepository messageRepository, IUserRepository userRepository)
         {
             this.messageRepository = messageRepository;
+            this.userRepository = userRepository;
         }
 
         public async Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId)
@@ -31,24 +32,21 @@ namespace Cityton.Service
             return await this.messageRepository.GetMessagesByDiscussion(discussionId);
         }
 
-        public async Task<int> NewMessage(string message, int connectedUSerId, int discussionId)
+        public async Task<Message> NewMessage(string message, int connectedUserId, int discussionId)
         {
             Message messageToAdd = new Message {
                 Content = message,
                 CreatedAt = DateTime.Now,
-                AuthorId = connectedUSerId,
+                AuthorId = connectedUserId,
                 DiscussionId = discussionId,
                 MediaId = null
             };
 
             await this.messageRepository.Insert(messageToAdd);
 
-            return messageToAdd.Id;
-        }
+            messageToAdd.Author = await this.userRepository.Get(connectedUserId);
 
-        public async Task<Message> GetMessage(int messageAddedId)
-        {
-            return await this.messageRepository.Get_User(messageAddedId);
+            return messageToAdd;
         }
 
     }

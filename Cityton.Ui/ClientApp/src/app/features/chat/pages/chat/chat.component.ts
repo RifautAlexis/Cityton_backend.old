@@ -36,6 +36,7 @@ export class ChatComponent implements OnInit {
     );
 
     this.hubConnection.on("messageReceived", (newMessage: Message) => {
+      console.log(newMessage);
       this.messages$.next([...this.messages$.value, newMessage]);
     });
   }
@@ -49,19 +50,21 @@ export class ChatComponent implements OnInit {
 
     this.hubConnection
       .start()
-      .then(() => console.log('Connection started!'))
+      .then(() => console.log('Connection started !'))
       .catch(err => console.log(err));
   }
 
   sendMessage(newMessage: string, discussionId: number) {
     console.log("SEND");
     this.hubConnection
-      .send("newMessage", newMessage, 1)
-      .then(lol => console.log(lol));
+      .send("newMessage", newMessage, 1);
   }
 
   ngOnDestroy(): void {
-    this.hubConnection.stop();
+    this.hubConnection
+      .stop()
+      .then(() => console.log('Connection closed !'))
+      .catch(err => console.log(err));
   }
 
 }
