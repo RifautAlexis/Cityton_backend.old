@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 
 import * as signalR from "@microsoft/signalr";
 
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -18,53 +20,55 @@ import * as signalR from "@microsoft/signalr";
 
 export class ChatComponent implements OnInit {
 
-  private hubConnection: signalR.HubConnection;
-
   messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
+  threadId: number;
+  private connectionIsEstablished: boolean = false;
 
-  constructor(private chatService: ChatService, private authService: AuthService) {
+  constructor(
+    private chatService: ChatService,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute, ) {
   }
 
   ngOnInit() {
-    this.openConnection();
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.threadId = Number(params.get("threadId"));
 
-    let connectedUserId: number = this.authService.getUserId();
-    this.chatService.getMessages(1).subscribe(
-      (messages: Message[]) => {
-        this.messages$.next(messages);
+      this.chatService.getMessages(this.threadId).subscribe(
+        (messages: Message[]) => {
+          console.log(messages);
+          this.messages$.next(messages);
+        }
+      );
+    })
+
+    this.subscribeToEvent();
+  }
+
+  private subscribeToEvent() {
+
+    this.chatService.connectionEstablished.subscribe(
+      (connectionIsEstablished: boolean) => {
+        this.connectionIsEstablished = connectionIsEstablished;
+
+        console.log(this.connectionIsEstablished);
       }
     );
 
-    this.hubConnection.on("messageReceived", (newMessage: Message) => {
-      console.log(newMessage);
-      this.messages$.next([...this.messages$.value, newMessage]);
-    });
-  }
+    this.chatService.messageReceived.subscribe(
+      (newMessage: Message) => {
+        this.messages$.next([...this.messages$.value, newMessage]);
+      }
+    );
+}
 
-  openConnection() {
-    this.hubConnection = new signalR.HubConnectionBuilder()
-    .configureLogging(signalR.LogLevel.Debug)
-      .configureLogging(signalR.LogLevel.Information)
-      .withUrl('http://localhost:5000/hub/chatHub', { accessTokenFactory: () => this.authService.currentTokenValue() })
-      .build();
+sendMessage(newMessage: string) {
+  console.log("SEND");
+  this.chatService.sendMessage(newMessage, this.threadId);
+}
 
-    this.hubConnection
-      .start()
-      .then(() => console.log('Connection started !'))
-      .catch(err => console.log(err));
-  }
-
-  sendMessage(newMessage: string, discussionId: number) {
-    console.log("SEND");
-    this.hubConnection
-      .send("newMessage", newMessage, 1);
-  }
-
-  ngOnDestroy(): void {
-    this.hubConnection
-      .stop()
-      .then(() => console.log('Connection closed !'))
-      .catch(err => console.log(err));
-  }
+ngOnDestroy(): void {
+  this.chatService.closeConnection();
+}
 
 }

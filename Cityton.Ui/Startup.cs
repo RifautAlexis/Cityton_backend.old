@@ -110,6 +110,7 @@ namespace Cityton.Ui
             services.AddScoped(typeof(IParticipantGroupRepository), typeof(ParticipantGroupRepository));
             services.AddScoped(typeof(IChallengeRepository), typeof(ChallengeRepository));
             services.AddScoped(typeof(IMesageRepository), typeof(MesageRepository));
+            services.AddScoped(typeof(IDiscussionRepository), typeof(DiscussionRepository));
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();

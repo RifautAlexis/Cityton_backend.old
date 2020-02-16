@@ -14,17 +14,20 @@ namespace Cityton.Service
     {
         Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId);
         Task<Message> NewMessage(string message, int connectedUSerId, int discussionId);
+        Task<IEnumerable<Discussion>> GetThreads(int userId);
     }
 
     public class ChatService : IChatService
     {
         private IMesageRepository messageRepository;
         private IUserRepository userRepository;
+        private IDiscussionRepository discussionRepository;
 
-        public ChatService(IMesageRepository messageRepository, IUserRepository userRepository)
+        public ChatService(IMesageRepository messageRepository, IUserRepository userRepository, IDiscussionRepository discussionRepository)
         {
             this.messageRepository = messageRepository;
             this.userRepository = userRepository;
+            this.discussionRepository = discussionRepository;
         }
 
         public async Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId)
@@ -47,6 +50,11 @@ namespace Cityton.Service
             messageToAdd.Author = await this.userRepository.Get(connectedUserId);
 
             return messageToAdd;
+        }
+
+        public async Task<IEnumerable<Discussion>> GetThreads(int userId)
+        {
+            return await this.discussionRepository.GetThreads(userId);
         }
 
     }

@@ -51,15 +51,20 @@ namespace Cityton.Ui.Controllers
         {
 
             IEnumerable<Message> messages = await this._chatService.GetMessagesByDiscussion(discussionId);
-
-            // List<MessageDTO> messages = new List<MessageDTO>();
-            // messages.Add(new MessageDTO {Id = 1, Content = "Bonjour", Author = new UserMinimal {Id = 1, Username = "user01"}, CreatedAt = DateTime.Now, DiscussionId = 1});
-            // messages.Add(new MessageDTO {Id = 2, Content = "Coucou toi", Author = new UserMinimal {Id = 2, Username = "user02"}, CreatedAt = DateTime.Now, DiscussionId = 1});
-            // messages.Add(new MessageDTO {Id = 3, Content = "Comment tu vas ?", Author = new UserMinimal {Id = 1, Username = "user01"}, CreatedAt = DateTime.Now, DiscussionId = 1});
-            // messages.Add(new MessageDTO {Id = 4, Content = "Bien et toi ?", Author = new UserMinimal {Id = 2, Username = "user02"}, CreatedAt = DateTime.Now, DiscussionId = 1});
-            // messages.Add(new MessageDTO {Id = 5, Content = "Oui, ça va très bien :D", Author = new UserMinimal {Id = 1, Username = "user01"}, CreatedAt = DateTime.Now, DiscussionId = 1});
             
             return Ok(messages.ToDTO());
+
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("getThreads")]
+        public async Task<IActionResult> GetThreads()
+        {
+            int currentUserId = Int32.Parse(User.Identity.Name);
+
+            IEnumerable<Discussion> threads = await this._chatService.GetThreads(currentUserId);
+            
+            return Ok(threads.ToThreads());
 
         }
 

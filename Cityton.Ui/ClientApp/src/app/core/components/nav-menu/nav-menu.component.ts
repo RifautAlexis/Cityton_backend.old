@@ -4,9 +4,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '@core/services/auth.service';
 import { UserService } from '@core/services/user.service';
+import { ChatService } from '@core/services/chat.service';
+
+import { Role } from '@shared/models/Enum';
 
 import { IUser as User } from '@shared/models/User';
-import { Role } from '@shared/models/Enum';
+import { IThread as Thread } from '@shared/models/Thread';
+
+import { DisplayParticipantsChatPipe } from '@shared/pipes/displayParticipantsChat.pipe';
 
 @Component({
   selector: 'app-nav-menu',
@@ -17,26 +22,25 @@ import { Role } from '@shared/models/Enum';
 export class NavMenuComponent implements OnInit {
 
   selectedMenu: string = "Settings";
-  threads: any;
+  threads: Thread[];
   info: any;
 
   isInAGroup: boolean;
   isAMember: boolean;
   isAdmin: boolean;
+  currentUserId: number;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private chatService: ChatService
   ) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.getUserRole() === Role.Admin;
-
-    // this.selectedMenu = this.route.snapshot.url[0].path;
-    // console.log(this.route.snapshot.url[0].path);
-    // console.log(this.selectedMenu);
+    this.currentUserId = this.authService.getUserId();
 
   }
 
@@ -53,6 +57,16 @@ export class NavMenuComponent implements OnInit {
         );
 
       }
+
+      case "Chat": {
+        this.chatService.getThreads().subscribe(
+          (threads: Thread[]) => {
+            console.log(threads);
+            this.threads = threads;
+
+          }
+        );
+      }
       default: {
         //statements;
         break;
@@ -63,7 +77,11 @@ export class NavMenuComponent implements OnInit {
     this.selectedMenu = menu;
   }
 
-  ToMyGroup() {
+  redirectToThread(threadId: number) {
+    this.router.navigate(['chat/', threadId]);
+  }
+
+  redirectToMyGroup() {
     this.router.navigate(['groups/details', this.info.groupId]);
   }
 

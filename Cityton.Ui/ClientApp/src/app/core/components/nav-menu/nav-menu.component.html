@@ -76,9 +76,8 @@
             <mat-list>
               <ng-container *ngFor="let thread of threads">
                 <!-- <mat-list-item [routerLink]="['/register', thread.id]"> threads01 </mat-list-item> -->
-                <mat-list-item> threads01 </mat-list-item>
+                <mat-list-item (click)="redirectToThread(thread.discussionId)"> {{ thread.participants | displayParticipantsChat | truncate :20 }} </mat-list-item>
               </ng-container>
-              <mat-list-item> add </mat-list-item>
             </mat-list>
 
           </ng-container>
@@ -86,7 +85,7 @@
 
             <mat-list>
               <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
-              <mat-list-item (click)="ToMyGroup()" *ngIf="isInAGroup"> My group </mat-list-item>
+              <mat-list-item (click)="redirectToMyGroup()" *ngIf="isInAGroup"> My group </mat-list-item>
               <mat-list-item [routerLink]="['/groups/create']" *ngIf="!isInAGroup && isAMember">
                 Create a group
               </mat-list-item>

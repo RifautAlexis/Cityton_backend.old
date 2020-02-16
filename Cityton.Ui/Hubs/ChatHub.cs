@@ -67,6 +67,7 @@ namespace SignalRChat.Hubs
 
             }
 
+            if(usersConnectedToChat.ContainsKey(Context.ConnectionId)) usersConnectedToChat.Remove(Context.ConnectionId); // token expired and trying to reconnect
             Context.Abort();
             return Task.FromException(new Exception("You are not authorized"));
         }

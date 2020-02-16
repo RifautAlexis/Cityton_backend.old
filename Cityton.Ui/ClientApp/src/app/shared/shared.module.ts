@@ -8,9 +8,14 @@ import { MaterialUiModule } from '@shared/material-ui/material-ui.module';
 
 import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
 
+import { DisplayParticipantsChatPipe } from './pipes/displayParticipantsChat.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
+
 @NgModule({
   declarations: [
-    EditGroupsComponent
+    EditGroupsComponent,
+    DisplayParticipantsChatPipe,
+    TruncatePipe
   ],
   entryComponents: [
     EditGroupsComponent
@@ -30,6 +35,12 @@ import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.
     HttpClientModule,
     RouterModule,
     MaterialUiModule,
+    DisplayParticipantsChatPipe,
+    TruncatePipe
+  ],
+  providers: [
+    DisplayParticipantsChatPipe,
+    TruncatePipe
   ]
 })
 
