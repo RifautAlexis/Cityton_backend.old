@@ -22,11 +22,6 @@ using System.Collections.Generic;
 
 namespace SignalRChat.Hubs
 {
-
-    // Avoir un dictionaire => override onConnect pour avoir le userId => de là mettre le userId dans dictionnaire avec connectionId
-
-    // [Authorize(JwtBearerDefaults.AuthenticationScheme)]
-    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ChatHub : Hub
     {
 
@@ -37,7 +32,7 @@ namespace SignalRChat.Hubs
         private static Dictionary<string, int> usersConnectedToChat = new Dictionary<string, int>();
         private readonly IConfiguration _appSettings;
 
-        public ChatHub(IChatService chatService, IHttpContextAccessor contextAccessor, IConfiguration config /*, IMemoryCache memoryCache*/)
+        public ChatHub(IChatService chatService, IHttpContextAccessor contextAccessor, IConfiguration config)
         {
             this._chatService = chatService;
             this._contextAccessor = contextAccessor;
@@ -52,7 +47,7 @@ namespace SignalRChat.Hubs
             if (this.IsAuthorized(jwt))
             {
                 this.decodeToken(jwt, out int userId, out Role role);
-                
+
                 if (usersConnectedToChat.ContainsKey(Context.ConnectionId))
                 {
 
@@ -67,7 +62,7 @@ namespace SignalRChat.Hubs
 
             }
 
-            if(usersConnectedToChat.ContainsKey(Context.ConnectionId)) usersConnectedToChat.Remove(Context.ConnectionId); // token expired and trying to reconnect
+            if (usersConnectedToChat.ContainsKey(Context.ConnectionId)) usersConnectedToChat.Remove(Context.ConnectionId); // token expired and trying to reconnect
             Context.Abort();
             return Task.FromException(new Exception("You are not authorized"));
         }
@@ -90,8 +85,40 @@ namespace SignalRChat.Hubs
             }
 
             Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
-            
+
             await Clients.All.SendAsync("messageReceived", messageAdded.ToDTO());
+        }
+
+        /* ****************************** */
+
+        public async Task AddToGroup()
+        {
+            string currentConnectionId = Context.ConnectionId;
+            if (usersConnectedToChat.ContainsKey(currentConnectionId))
+            {
+                IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
+                await discussions
+                    .ToList()
+                    .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Name));
+                
+                return ;
+            } else {
+                await Task.FromException(new Exception("You ConnectionId is not authorized"));
+            }
+        }
+
+        public async Task RemoveFromGroup(string groupName)
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+
+            await Clients.Group(groupName).SendAsync("Send", $"{Context.ConnectionId} has left the group {groupName}.");
+        }
+
+        public async Task RemoveFromAllGroups()
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+
+            await Clients.Group(groupName).SendAsync("Send", $"{Context.ConnectionId} has left the group {groupName}.");
         }
 
         /* ****************************** */
