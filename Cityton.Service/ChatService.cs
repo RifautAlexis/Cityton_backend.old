@@ -15,6 +15,7 @@ namespace Cityton.Service
         Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId);
         Task<Message> NewMessage(string message, int connectedUSerId, int discussionId);
         Task<IEnumerable<Discussion>> GetThreads(int userId);
+        Task<Discussion> GetDiscussion(int discussionId);
     }
 
     public class ChatService : IChatService
@@ -37,7 +38,8 @@ namespace Cityton.Service
 
         public async Task<Message> NewMessage(string message, int connectedUserId, int discussionId)
         {
-            Message messageToAdd = new Message {
+            Message messageToAdd = new Message
+            {
                 Content = message,
                 CreatedAt = DateTime.Now,
                 AuthorId = connectedUserId,
@@ -55,6 +57,11 @@ namespace Cityton.Service
         public async Task<IEnumerable<Discussion>> GetThreads(int userId)
         {
             return await this.discussionRepository.GetThreads(userId);
+        }
+
+        public async Task<Discussion> GetDiscussion(int discussionId)
+        {
+            return await this.discussionRepository.Get(discussionId);
         }
 
     }

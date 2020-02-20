@@ -56,8 +56,18 @@ export class ChatService {
       .then(() => {
         this.connectionIsEstablished = true;
         console.log('Connection started !');
-        this.connectionEstablished.emit(this.connectionIsEstablished);
-        this.messageReceivedEvent();
+        this.hubConnection.invoke("addToGroup", null)
+          .then(
+            (succeedMessage) => {
+              console.log(succeedMessage);                                   // CATCH ???
+              this.connectionEstablished.emit(this.connectionIsEstablished);
+              this.messageReceivedEvent();
+            })
+          .catch(
+            (failMessage) => {
+              console.log(failMessage);
+            });
+
       })
       .catch(err => console.log(err));
   }
@@ -67,7 +77,20 @@ export class ChatService {
       .stop()
       .then(() => {
         console.log('Connection closed !');
-        this.connectionIsEstablished = false;
+        this.hubConnection.invoke("removeFromAllGroups")
+          .then(
+            (succeedMessage) => {                                           // CATCH ???
+              console.log(succeedMessage);
+              this.connectionIsEstablished = false;
+              this.connectionEstablished.emit(this.connectionIsEstablished);
+            }
+          )
+          .catch(
+            (failMessage) => {
+              console.log(failMessage);
+            }
+          );
+
       })
       .catch(err => console.log(err));
   }
