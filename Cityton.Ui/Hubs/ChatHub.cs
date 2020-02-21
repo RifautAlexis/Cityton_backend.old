@@ -87,7 +87,6 @@ namespace SignalRChat.Hubs
             Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
             Discussion thread = await this._chatService.GetDiscussion(discussionId);
 
-            // await Clients.All.SendAsync("messageReceived", messageAdded.ToDTO());
             await Clients.Group(thread.Name).SendAsync("messageReceived", messageAdded.ToDTO());
         }
 
@@ -95,56 +94,54 @@ namespace SignalRChat.Hubs
 
         public async Task AddToGroup()
         {
-            System.Console.WriteLine("POPOPOPOPOPOPOOPOPOPO");
             string currentConnectionId = Context.ConnectionId;
-            if (usersConnectedToChat.ContainsKey(currentConnectionId))
-            {
-                System.Console.WriteLine("OUIIIIII");
+            // if (usersConnectedToChat.ContainsKey(currentConnectionId))
+            // {
                 IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
+
                 await discussions
                     .ToList()
                     .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Name));
 
                 return;
-            }
-            else
-            {
-                System.Console.WriteLine("NOOOOOON");
-                await Task.FromException(new Exception("You ConnectionId is not authorized"));
-            }
+            // }
+            // else
+            // {
+            //     await Task.FromException(new Exception("You ConnectionId is not authorized"));
+            // }
         }
 
         public async Task RemoveFromGroup(string discussionName)
         {
             string currentConnectionId = Context.ConnectionId;
-            if (usersConnectedToChat.ContainsKey(currentConnectionId))
-            {
-                await  Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionName);
+            // if (usersConnectedToChat.ContainsKey(currentConnectionId))
+            // {
+                await Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionName);
 
                 await Task.FromResult(true);
-            }
-            else
-            {
-                await Task.FromException(new Exception("You ConnectionId is not authorized"));
-            }
+            // }
+            // else
+            // {
+            //     await Task.FromException(new Exception("You ConnectionId is not authorized"));
+            // }
         }
 
         public async Task RemoveFromAllGroups()
         {
             string currentConnectionId = Context.ConnectionId;
-            if (usersConnectedToChat.ContainsKey(currentConnectionId))
-            {
+            // if (usersConnectedToChat.ContainsKey(currentConnectionId))
+            // {
                 IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
                 await discussions
                     .ToList()
                     .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Name));
 
                 return;
-            }
-            else
-            {
-                await Task.FromException(new Exception("You ConnectionId is not authorized"));
-            }
+            // }
+            // else
+            // {
+            //     await Task.FromException(new Exception("You ConnectionId is not authorized"));
+            // }
         }
 
         /* ****************************** */
