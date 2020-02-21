@@ -1,0 +1,22 @@
+<section *ngIf="connectionIsEstablished && (messages$ | async) as messages">
+
+    <div id="chat">
+
+        <ng-container *ngFor="let message of messages">
+
+            <div class="{{authorId == message.author.id ? 'isAuthor' : 'isNotAuthor'}}">
+                {{ message.author.username }}
+                {{ message.content }}
+                {{ message.createdAt }}
+            </div>
+
+        </ng-container>
+
+    </div>
+
+    <div id="bottomChat">
+        <input type="text" placeholder="Type a message" #text />
+        <button type="button" (click)="sendMessage(text.value)"> Send </button>
+    </div>
+
+</section>

@@ -4,13 +4,8 @@ import { ChatService } from '@core/services/chat.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IMessage as Message } from '@shared/models/message';
-import { Subscription, BehaviorSubject } from 'rxjs';
-
-import { environment } from 'src/environments/environment';
-
-import * as signalR from "@microsoft/signalr";
-
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -22,6 +17,7 @@ export class ChatComponent implements OnInit {
 
   messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
   threadId: number;
+  authorId: number;
   private connectionIsEstablished: boolean = false;
 
   constructor(
@@ -31,6 +27,8 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authorId = this.authService.getUserId();
+
     this.activatedRoute.paramMap.subscribe(params => {
       this.threadId = Number(params.get("threadId"));
 
@@ -50,8 +48,6 @@ export class ChatComponent implements OnInit {
     this.chatService.connectionEstablished.subscribe(
       (connectionIsEstablished: boolean) => {
         this.connectionIsEstablished = connectionIsEstablished;
-
-        console.log(this.connectionIsEstablished);
       }
     );
 

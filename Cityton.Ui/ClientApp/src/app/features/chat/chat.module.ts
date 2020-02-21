@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatRoutingModule } from './chat-routing.module';
 
 
-import { ChatComponent } from './pages/chat/chat.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
