@@ -214,9 +214,9 @@ namespace Cityton.Repository
             modelBuilder.Entity<Discussion>().HasData(
                 new Discussion { Id = 1, CreatedAt = new DateTime(2019, 02, 01), Name = "group01" },
                 new Discussion { Id = 2, CreatedAt = new DateTime(2019, 02, 10), Name = "group02" },
-                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11) },
-                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11) },
-                new Discussion { Id = 5, CreatedAt = new DateTime(2019, 04, 03) },
+                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11), Name = "group03" },
+                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11), Name = "group04" },
+                new Discussion { Id = 5, CreatedAt = new DateTime(2019, 04, 03), Name = "group05" },
                 new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), Name = "group06" },
 
                 new Discussion { Id = 7, CreatedAt = new DateTime(2019, 01, 01), Name = "Générale" }
