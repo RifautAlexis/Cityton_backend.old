@@ -6,6 +6,7 @@ import { AuthService } from '@core/services/auth.service';
 import { IMessage as Message } from '@shared/models/message';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Role } from '@shared/models/Enum';
 
 @Component({
   selector: 'app-chat',
@@ -18,7 +19,8 @@ export class ChatComponent implements OnInit {
   messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
   threadId: number;
   authorId: number;
-  private connectionIsEstablished: boolean = false;
+  connectionIsEstablished: boolean = false;
+  isNotAMember: boolean = false;
 
   constructor(
     private chatService: ChatService,
@@ -28,6 +30,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.authorId = this.authService.getUserId();
+    this.isNotAMember = this.authService.getUserRole() !== Role.Member;
 
     this.activatedRoute.paramMap.subscribe(params => {
       this.threadId = Number(params.get("threadId"));
@@ -56,15 +59,19 @@ export class ChatComponent implements OnInit {
         this.messages$.next([...this.messages$.value, newMessage]);
       }
     );
-}
+  }
 
-sendMessage(newMessage: string) {
-  console.log("SEND");
-  this.chatService.sendMessage(newMessage, this.threadId);
-}
+  sendMessage(newMessage: string) {
+    console.log("SEND");
+    this.chatService.sendMessage(newMessage, this.threadId);
+  }
 
-ngOnDestroy(): void {
-  this.chatService.closeConnection();
-}
+  removeMessage(messageId: number) {
+    this.chatService.removeMessage(messageId);
+  }
+
+  ngOnDestroy(): void {
+    this.chatService.closeConnection();
+  }
 
 }

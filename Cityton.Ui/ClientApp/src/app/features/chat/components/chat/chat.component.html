@@ -1,22 +1,35 @@
-<section *ngIf="connectionIsEstablished && (messages$ | async) as messages">
+<section *ngIf="(messages$ | async) as messages">
+  <!-- connectionIsEstablished &&  -->
+  <div id="chat">
 
-    <div id="chat">
+    <ng-container *ngFor="let message of messages">
 
-        <ng-container *ngFor="let message of messages">
+      <div class="{{authorId == message.author.id ? 'isAuthor' : 'isNotAuthor'}}">
+        <span class="author">{{ message.author.username }}</span>
 
-            <div class="{{authorId == message.author.id ? 'isAuthor' : 'isNotAuthor'}}">
-                {{ message.author.username }}
-                {{ message.content }}
-                {{ message.createdAt }}
-            </div>
+        <button mat-button [matMenuTriggerFor]="belowMenu" *ngIf="isNotAMember">...</button>
 
-        </ng-container>
 
-    </div>
+        <div class="contentMessage">
+          {{ message.content }}
+          <!-- {{ message.createdAt }} -->
+        </div>
 
-    <div id="bottomChat">
-        <input type="text" placeholder="Type a message" #text />
-        <button type="button" (click)="sendMessage(text.value)"> Send </button>
-    </div>
+      </div>
+
+    </ng-container>
+
+  </div>
+
+  <div id="bottomChat">
+    <input type="text" placeholder="Type a message" #text />
+    <button type="button" (click)="sendMessage(text.value)"> Send </button>
+  </div>
 
 </section>
+
+<!-- Private -->
+
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item (click)="removeMessage(message.id)"> Remove</button>
+</mat-menu>

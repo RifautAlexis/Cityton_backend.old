@@ -1,0 +1,14 @@
+section {
+  display: flex;
+  flex-direction: row;
+}
+
+#left-container {
+  flex-grow: 1;
+  padding-right: 25px;
+}
+
+#right-container {
+  width: 300px;
+  border-left: 1px solid grey;
+}
