@@ -12,10 +12,13 @@ namespace Cityton.Service
 
     public interface IChatService
     {
-        Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId);
+        Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId);
+        Task<Message> GetMessage(int messageId);
         Task<Message> NewMessage(string message, int connectedUSerId, int discussionId);
         Task<IEnumerable<Discussion>> GetThreads(int userId);
         Task<Discussion> GetDiscussion(int discussionId);
+        Task<Message> RemoveMessage(int messageId);
+        Task<Message> GetMessageWithAuthor(int messageRemovedId);
     }
 
     public class ChatService : IChatService
@@ -31,9 +34,14 @@ namespace Cityton.Service
             this.discussionRepository = discussionRepository;
         }
 
-        public async Task<IEnumerable<Message>> GetMessagesByDiscussion(int discussionId)
+        public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId)
         {
-            return await this.messageRepository.GetMessagesByDiscussion(discussionId);
+            return await this.messageRepository.GetByDiscussionIdWithAuthor(discussionId);
+        }
+
+        public async Task<Message> GetMessage(int messageId)
+        {
+            return await this.messageRepository.GetMessageById(messageId);
         }
 
         public async Task<Message> NewMessage(string message, int connectedUserId, int discussionId)
@@ -62,6 +70,22 @@ namespace Cityton.Service
         public async Task<Discussion> GetDiscussion(int discussionId)
         {
             return await this.discussionRepository.Get(discussionId);
+        }
+
+        public async Task<Message> RemoveMessage(int messageId)
+        {
+            Message messageToRemove = await this.messageRepository.Get(messageId);
+
+            messageToRemove.Content = null;
+
+            await this.messageRepository.Update(messageToRemove);
+
+            return messageToRemove;
+        }
+
+        public async Task<Message> GetMessageWithAuthor(int messageRemovedId)
+        {
+            return await this.messageRepository.GetMessageWithAuthor(messageRemovedId);
         }
 
     }

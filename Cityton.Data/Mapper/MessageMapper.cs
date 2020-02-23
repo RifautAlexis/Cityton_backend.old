@@ -19,7 +19,7 @@ namespace Cityton.Data.Mapper
             return new MessageDTO
             {
                 Id = data.Id,
-                Content = data.Content,
+                Content = data.Content == null ? "Has been removed" : data.Content,
                 Author = new UserMinimal { Id = data.Author.Id, Username = data.Author.Username },
                 CreatedAt = data.CreatedAt,
                 DiscussionId = data.DiscussionId,

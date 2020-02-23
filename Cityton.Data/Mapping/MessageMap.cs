@@ -12,7 +12,7 @@ namespace Cityton.Data.Mapping
         public MessageMap(EntityTypeBuilder<Message> entityBuilder)
         {
             entityBuilder.HasKey(m => m.Id);
-            entityBuilder.Property(m => m.Content).IsRequired();
+            entityBuilder.Property(m => m.Content);
             entityBuilder.Property(m => m.CreatedAt).IsRequired();
 
             /*****/

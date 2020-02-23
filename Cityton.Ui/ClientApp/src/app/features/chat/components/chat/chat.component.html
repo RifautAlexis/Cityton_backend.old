@@ -8,7 +8,9 @@
         <span class="author">{{ message.author.username }}</span>
 
         <button mat-button [matMenuTriggerFor]="belowMenu" *ngIf="isNotAMember">...</button>
-
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item (click)="removeMessage(message.id)"> Remove</button>
+        </mat-menu>
 
         <div class="contentMessage">
           {{ message.content }}
@@ -27,9 +29,3 @@
   </div>
 
 </section>
-
-<!-- Private -->
-
-<mat-menu #belowMenu="matMenu" yPosition="below">
-  <button mat-menu-item (click)="removeMessage(message.id)"> Remove</button>
-</mat-menu>

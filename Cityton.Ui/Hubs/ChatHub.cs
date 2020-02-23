@@ -135,13 +135,22 @@ namespace SignalRChat.Hubs
                 await discussions
                     .ToList()
                     .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Name));
-
-                return;
             // }
             // else
             // {
             //     await Task.FromException(new Exception("You ConnectionId is not authorized"));
             // }
+        }
+
+        public async Task RemoveMessage(int messageId)
+        {
+            Message messageRemoved = await this._chatService.RemoveMessage(messageId);
+            
+            Discussion discussion = await this._chatService.GetDiscussion(messageRemoved.DiscussionId);
+
+            messageRemoved = await this._chatService.GetMessageWithAuthor(messageRemoved.Id);
+
+            await Clients.Group(discussion.Name).SendAsync("messageRemoved", messageRemoved.ToDTO());
         }
 
         /* ****************************** */

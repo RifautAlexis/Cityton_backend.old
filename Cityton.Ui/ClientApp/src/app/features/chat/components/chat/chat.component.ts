@@ -59,6 +59,17 @@ export class ChatComponent implements OnInit {
         this.messages$.next([...this.messages$.value, newMessage]);
       }
     );
+
+    this.chatService.messageRemoved.subscribe(
+      (messageremoved: Message) => {
+        this.messages$.next(
+          this.messages$.getValue().map(m => {
+            if (m.id === messageremoved.id) return messageremoved
+            else return m;
+          })
+        );
+      }
+    );
   }
 
   sendMessage(newMessage: string) {

@@ -50,9 +50,20 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> GetMessages(int discussionId)
         {
 
-            IEnumerable<Message> messages = await this._chatService.GetMessagesByDiscussion(discussionId);
+            IEnumerable<Message> messages = await this._chatService.GetByDiscussionIdWithAuthor(discussionId);
             
             return Ok(messages.ToDTO());
+
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("getMessage/{messageId}")]
+        public async Task<IActionResult> GetMessage(int messageId)
+        {
+
+            Message message = await this._chatService.GetMessage(messageId);
+            
+            return Ok(message.ToDTO());
 
         }
 

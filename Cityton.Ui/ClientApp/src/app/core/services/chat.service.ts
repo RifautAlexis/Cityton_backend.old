@@ -19,6 +19,7 @@ export class ChatService {
 
   messageReceived = new EventEmitter<Message>();
   connectionEstablished = new EventEmitter<Boolean>();
+  messageRemoved = new EventEmitter<Message>();
 
   private hubConnection: signalR.HubConnection;
   private connectionIsEstablished: boolean = false;
@@ -61,6 +62,7 @@ export class ChatService {
             () => {                                 // CATCH ???
               this.connectionEstablished.emit(this.connectionIsEstablished);
               this.messageReceivedEvent();
+              this.messageRemovedEvent()
             })
           .catch(
             (failMessage) => {
@@ -93,17 +95,20 @@ export class ChatService {
       .send("newMessage", newMessage, discussionId);
   }
 
-  removeMessage(messageId: number) {
-    this.hubConnection.invoke("removeMessage", messageId)
-      .then(
-        () => {
+  removeMessage(messageId: number): Promise<any> {
+    console.log(messageId)
+    return this.hubConnection.send("RemoveMessage", messageId);
+  }
 
-        }
-      )
-      .catch(
-        (failMessage) => {
-          console.log(failMessage);
-        });
+  messageRemovedEvent(){
+    this.hubConnection.on("messageRemoved", (messageRemoved: Message) => {
+      console.log(messageRemoved);
+      this.messageRemoved.emit(messageRemoved);
+    });
+  }
+
+  getMessage(messageId: number): Observable<Message> {
+    return this.http.get<Message>(environment.apiUrl + 'chat/getMessage/' + messageId);
   }
 
 }
