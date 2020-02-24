@@ -2,6 +2,12 @@
 
   <app-chat id="left-container"></app-chat>
 
-  <app-challenges id="right-container"></app-challenges>
+    <ng-container *ngIf="(challenges$ | async) as challenges">
+
+        <app-challenges id="right-container" [challenges]="challenges"></app-challenges>
+
+    </ng-container>
+
+  
 
 </section>

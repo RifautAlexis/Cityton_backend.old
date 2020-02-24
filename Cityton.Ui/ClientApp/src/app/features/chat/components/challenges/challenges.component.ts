@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { IChallenge as Challenge } from '@shared/models/Challenge';
+import { IChallengeChat as ChallengeChat } from '@shared/models/ChallengeChat';
 
 @Component({
   selector: 'app-challenges',
@@ -9,7 +9,7 @@ import { IChallenge as Challenge } from '@shared/models/Challenge';
 })
 export class ChallengesComponent implements OnInit {
 
-  @Input() challengesSearched: Challenge[];
+  @Input() challenges: ChallengeChat[];
 
   constructor() { }
 

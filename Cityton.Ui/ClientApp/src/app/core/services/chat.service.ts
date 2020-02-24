@@ -1,14 +1,14 @@
-import { EventEmitter, Injectable, RootRenderer } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
 import { AuthService } from '@core/services/auth.service';
 
-import { HubConnection, HubConnectionBuilder } from '@Microsoft/signalr';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { IMessage as Message } from '@shared/models/message';
-import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { IThread as Thread } from '@shared/models/Thread';
+import { IChallengeChat as ChallengeChat } from '@shared/models/ChallengeChat';
 
 import * as signalR from "@microsoft/signalr";
 
@@ -109,6 +109,10 @@ export class ChatService {
 
   getMessage(messageId: number): Observable<Message> {
     return this.http.get<Message>(environment.apiUrl + 'chat/getMessage/' + messageId);
+  }
+
+  getChallenges(threadId: number): Observable<ChallengeChat> {
+    return this.http.get<ChallengeChat>(environment.apiUrl + 'chat/getChallenges/' + threadId);
   }
 
 }

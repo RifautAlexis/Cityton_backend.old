@@ -32,5 +32,24 @@ namespace Cityton.Data.Mapper
             return data.Select(ch => ch.ToDTO(user, nbTotalUsers)).ToList();
         }
 
+        public static ChallengeChat ToChallengeChat(this Challenge data)
+        {
+            if (data == null) return null;
+
+            return new ChallengeChat
+            {
+                Id = data.Id,
+                Name = data.Name,
+                Statement = data.Statement,
+                Author = data.Author != null ? data.Author.Username : "Uknown",
+                Status = data.Status
+            };
+        }
+
+        public static IEnumerable<ChallengeChat> ToChallengeChat(this IEnumerable<Challenge> data)
+        {
+            return data.Select(ch => ch.ToChallengeChat()).ToList();
+        }
+
     }
 }

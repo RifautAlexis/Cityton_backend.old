@@ -79,5 +79,17 @@ namespace Cityton.Ui.Controllers
 
         }
 
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("getChallenges/{discussionId}")]
+        public async Task<IActionResult> GetChallenges(int discussionId)
+        {
+            IEnumerable<Challenge> challenges = await this._chatService.GetChallengesFromGroup(discussionId);
+            System.Console.WriteLine("AAAAAAAAAAAAAAA");
+            System.Console.WriteLine(challenges.Count());
+            System.Console.WriteLine("ZZZZZZZZZZZZZZZ");
+            return Ok(challenges.ToChallengeChat());
+
+        }
+
     }
 }

@@ -19,6 +19,7 @@ namespace Cityton.Service
         Task<Discussion> GetDiscussion(int discussionId);
         Task<Message> RemoveMessage(int messageId);
         Task<Message> GetMessageWithAuthor(int messageRemovedId);
+        Task<IEnumerable<Challenge>> GetChallengesFromGroup(int discussionId);
     }
 
     public class ChatService : IChatService
@@ -26,12 +27,19 @@ namespace Cityton.Service
         private IMesageRepository messageRepository;
         private IUserRepository userRepository;
         private IDiscussionRepository discussionRepository;
+        private IChallengeGivenRepository challengeGivenRepository;
 
-        public ChatService(IMesageRepository messageRepository, IUserRepository userRepository, IDiscussionRepository discussionRepository)
+        public ChatService(
+            IMesageRepository messageRepository,
+            IUserRepository userRepository,
+            IDiscussionRepository discussionRepository,
+            IChallengeGivenRepository challengeGivenRepository
+            )
         {
             this.messageRepository = messageRepository;
             this.userRepository = userRepository;
             this.discussionRepository = discussionRepository;
+            this.challengeGivenRepository = challengeGivenRepository;
         }
 
         public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId)
@@ -86,6 +94,25 @@ namespace Cityton.Service
         public async Task<Message> GetMessageWithAuthor(int messageRemovedId)
         {
             return await this.messageRepository.GetMessageWithAuthor(messageRemovedId);
+        }
+
+        public async Task<IEnumerable<Challenge>> GetChallengesFromGroup(int discussionId)
+        {
+            Discussion discussion = await this.discussionRepository.GetDiscussionsWithGroup(discussionId);
+            System.Console.WriteLine("EEEEEEEEEEEEEEEE");
+            System.Console.WriteLine(discussion.Id);
+            System.Console.WriteLine(discussion.Name);
+            System.Console.WriteLine(discussion.GroupId);
+            if (discussion.GroupId != null)
+            {
+                System.Console.WriteLine(discussion.GroupId);
+                IEnumerable<Challenge> test = await this.challengeGivenRepository.GetChallengesByGroupId(discussion.GroupId.Value);
+                System.Console.WriteLine(test.ToString());
+                System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFF");
+                return await this.challengeGivenRepository.GetChallengesByGroupId(discussion.GroupId.Value);
+            }
+            System.Console.WriteLine("VVVVVVVVVVVVVVVVVVV");
+            return new List<Challenge>();
         }
 
     }

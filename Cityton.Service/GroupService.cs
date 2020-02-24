@@ -69,6 +69,7 @@ namespace Cityton.Service
             this.participantGroupRepository = participantGroupRepository;
             this.companyRepository = companyRepository;
             this.userRepository = userRepository;
+
             this._appSettings = config;
         }
 

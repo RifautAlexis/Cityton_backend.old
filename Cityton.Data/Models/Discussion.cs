@@ -14,6 +14,11 @@ namespace Cityton.Data.Models
 
         public ICollection<UserInDiscussion> UsersInDiscussion { get; set; }
         public ICollection<Message> Messages { get; set; }
+        public virtual Group Group { get; set; }
+
+        /*****/
+
+        public int? GroupId { get; set; }
 
     }
 }
