@@ -83,11 +83,9 @@ namespace Cityton.Ui.Controllers
         [HttpGet("getChallenges/{discussionId}")]
         public async Task<IActionResult> GetChallenges(int discussionId)
         {
-            IEnumerable<Challenge> challenges = await this._chatService.GetChallengesFromGroup(discussionId);
-            System.Console.WriteLine("AAAAAAAAAAAAAAA");
-            System.Console.WriteLine(challenges.Count());
-            System.Console.WriteLine("ZZZZZZZZZZZZZZZ");
-            return Ok(challenges.ToChallengeChat());
+            IEnumerable<Challenge> challenges = await this._chatService.GetChallengesGivenFromGroup(discussionId);
+            
+            return Ok(challenges);
 
         }
 

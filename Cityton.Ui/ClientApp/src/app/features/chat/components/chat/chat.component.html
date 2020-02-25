@@ -2,9 +2,9 @@
   <!-- connectionIsEstablished &&  -->
   <div id="chat">
 
-    <ng-container *ngFor="let message of messages">
+    <ng-container *ngFor="let message of messages; let index = index">
 
-      <div class="{{authorId == message.author.id ? 'isAuthor' : 'isNotAuthor'}}">
+      <div>
         <span class="author">{{ message.author.username }}</span>
 
         <button mat-button [matMenuTriggerFor]="belowMenu" *ngIf="isNotAMember">...</button>
@@ -16,6 +16,8 @@
           {{ message.content }}
           <!-- {{ message.createdAt }} -->
         </div>
+
+        <mat-divider *ngIf="index < messages.length - 1"></mat-divider>
 
       </div>
 

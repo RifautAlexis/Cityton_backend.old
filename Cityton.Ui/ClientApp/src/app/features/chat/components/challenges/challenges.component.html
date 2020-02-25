@@ -15,9 +15,21 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-button> Validate </button>
-        <button mat-button> Reject </button>
-        <button mat-button> Undo </button>
+        <button mat-button (click)="validate(challenge.challengeGivenId)">
+          <i class="material-icons">
+            done
+          </i>
+        </button>
+        <button mat-button (click)="reject(challenge.challengeGivenId)">
+          <i class="material-icons">
+            clear
+          </i>
+        </button>
+        <button mat-button (click)="undo(challenge.challengeGivenId)">
+          <i class="material-icons">
+            replay
+          </i>
+        </button>
       </mat-card-actions>
 
     </mat-card>

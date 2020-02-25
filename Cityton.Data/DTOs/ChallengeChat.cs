@@ -9,7 +9,7 @@ namespace Cityton.Data.DTOs
     public class ChallengeChat
     {
 
-        public int Id { get; set; }
+        public int ChallengeGivenId { get; set; }
         public string Name { get; set; }
         public string Statement { get; set; }
         public string Author { get; set; }

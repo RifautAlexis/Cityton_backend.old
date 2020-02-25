@@ -42,8 +42,6 @@ section {
 #chat {
   display: flex;
   flex-direction: column;
-  // height: 100vh;
-  // width: 50%;
 }
 
 #chat div {
@@ -51,23 +49,7 @@ section {
   border-radius: 15px;
   margin: 5px;
   padding: 5px;
-  max-width: 300px;
-}
-
-.isAuthor {
-  align-self: flex-end;
-
-  .contentMessage {
-    background-color: blue !important;
-  }
-}
-
-.isNotAuthor {
-  align-self: flex-start;
-
-  .contentMessage {
-    background-color: gray !important;
-  }
+  // max-width: 300px;
 }
 
 .author {

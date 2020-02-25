@@ -19,7 +19,7 @@ namespace Cityton.Service
         Task<Discussion> GetDiscussion(int discussionId);
         Task<Message> RemoveMessage(int messageId);
         Task<Message> GetMessageWithAuthor(int messageRemovedId);
-        Task<IEnumerable<Challenge>> GetChallengesFromGroup(int discussionId);
+        Task<IEnumerable<Challenge>> GetChallengesGivenFromGroup(int discussionId);
     }
 
     public class ChatService : IChatService
@@ -96,23 +96,16 @@ namespace Cityton.Service
             return await this.messageRepository.GetMessageWithAuthor(messageRemovedId);
         }
 
-        public async Task<IEnumerable<Challenge>> GetChallengesFromGroup(int discussionId)
+        public async Task<IEnumerable<ChallengeChat>> GetChallengesGivenFromGroup(int discussionId)
         {
             Discussion discussion = await this.discussionRepository.GetDiscussionsWithGroup(discussionId);
-            System.Console.WriteLine("EEEEEEEEEEEEEEEE");
-            System.Console.WriteLine(discussion.Id);
-            System.Console.WriteLine(discussion.Name);
-            System.Console.WriteLine(discussion.GroupId);
+
             if (discussion.GroupId != null)
             {
-                System.Console.WriteLine(discussion.GroupId);
-                IEnumerable<Challenge> test = await this.challengeGivenRepository.GetChallengesByGroupId(discussion.GroupId.Value);
-                System.Console.WriteLine(test.ToString());
-                System.Console.WriteLine("FFFFFFFFFFFFFFFFFFFF");
-                return await this.challengeGivenRepository.GetChallengesByGroupId(discussion.GroupId.Value);
+                return await this.challengeGivenRepository.GetChallengeChatByGroupId(discussion.GroupId.Value);
             }
-            System.Console.WriteLine("VVVVVVVVVVVVVVVVVVV");
-            return new List<Challenge>();
+            
+            return new List<ChallengeChat>();
         }
 
     }
