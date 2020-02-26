@@ -10,6 +10,8 @@ import { IMessage as Message } from '@shared/models/message';
 import { IThread as Thread } from '@shared/models/Thread';
 import { IChallengeChat as ChallengeChat } from '@shared/models/ChallengeChat';
 
+import { StatusChallenge } from '@shared/models/Enum';
+
 import * as signalR from "@microsoft/signalr";
 
 @Injectable({
@@ -113,6 +115,10 @@ export class ChatService {
 
   getChallenges(threadId: number): Observable<ChallengeChat> {
     return this.http.get<ChallengeChat>(environment.apiUrl + 'chat/getChallenges/' + threadId);
+  }
+
+  updateChallengeGiven(challengeGivenId: number, newStatus: StatusChallenge) {
+    return this.http.put<any>(environment.apiUrl + 'chat/updateStatusChallenge/' + challengeGivenId, newStatus);
   }
 
 }

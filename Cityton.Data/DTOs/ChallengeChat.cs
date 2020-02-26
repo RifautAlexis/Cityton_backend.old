@@ -13,7 +13,7 @@ namespace Cityton.Data.DTOs
         public string Name { get; set; }
         public string Statement { get; set; }
         public string Author { get; set; }
-        public Status Status { get; set; }
+        public StatusChallenge Status { get; set; }
 
     }
 }

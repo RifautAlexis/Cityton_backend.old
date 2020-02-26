@@ -8,3 +8,10 @@ export enum Status {
   Waiting = 0,
   Accepted = 1
 }
+
+export enum StatusChallenge {
+  InProgress = 0,
+  Waiting = 1,
+  Validated = 2,
+  Rejected = 3
+}

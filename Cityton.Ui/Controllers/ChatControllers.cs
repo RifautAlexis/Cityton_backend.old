@@ -81,13 +81,28 @@ namespace Cityton.Ui.Controllers
 
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpGet("getChallenges/{discussionId}")]
-        public async Task<IActionResult> GetChallenges(int discussionId)
+        public async Task<IActionResult> GetChallengesChat(int discussionId)
         {
-            IEnumerable<Challenge> challenges = await this._chatService.GetChallengesGivenFromGroup(discussionId);
+            IEnumerable<ChallengeChat> challenges = await this._chatService.GetChallengesGivenFromGroup(discussionId);
             
             return Ok(challenges);
 
         }
 
+        [Authorized(Role.Checker, Role.Admin)]
+        [HttpPut("updateStatusChallenge/{challengeGivenId}")]
+        public async Task<IActionResult> updateStatusChallengeGiven(int challengeGivenId, [FromBody] StatusChallenge newStatus)
+        {
+
+            ChallengeGiven challengeGiven = await this._chatService.GetChallengeGiven(challengeGivenId);
+
+            if(challengeGiven == null) return BadRequest("No challenge with this id");
+
+            challengeGiven.Status = newStatus;
+
+            await _chatService.UpdateChallengeGiven(challengeGiven);
+
+            return Ok();
+        }
     }
 }

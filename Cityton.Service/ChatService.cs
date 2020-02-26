@@ -19,7 +19,9 @@ namespace Cityton.Service
         Task<Discussion> GetDiscussion(int discussionId);
         Task<Message> RemoveMessage(int messageId);
         Task<Message> GetMessageWithAuthor(int messageRemovedId);
-        Task<IEnumerable<Challenge>> GetChallengesGivenFromGroup(int discussionId);
+        Task<IEnumerable<ChallengeChat>> GetChallengesGivenFromGroup(int discussionId);
+        Task<ChallengeGiven> GetChallengeGiven(int ChallengeGivenId);
+        Task UpdateChallengeGiven(ChallengeGiven ChallengeGiven);
     }
 
     public class ChatService : IChatService
@@ -104,10 +106,20 @@ namespace Cityton.Service
             {
                 return await this.challengeGivenRepository.GetChallengeChatByGroupId(discussion.GroupId.Value);
             }
-            
+
             return new List<ChallengeChat>();
         }
 
+        public async Task<ChallengeGiven> GetChallengeGiven(int ChallengeGivenId)
+        {
+            return await this.challengeGivenRepository.Get(ChallengeGivenId);
+        }
+
+        public async Task UpdateChallengeGiven(ChallengeGiven ChallengeGiven)
+        {
+            await this.challengeGivenRepository.Update(ChallengeGiven);
+            
+        }
     }
 
 }

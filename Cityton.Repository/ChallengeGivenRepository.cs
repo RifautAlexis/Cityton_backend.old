@@ -33,7 +33,7 @@ namespace Cityton.Repository
                     Name = cg.Challenge.Name,
                     Statement = cg.Challenge.Statement,
                     Author = cg.Challenge.Author != null ? cg.Challenge.Author.Username : "Uknown",
-                    Status = cg.Challenge.Status
+                    Status = cg.Status
                 }
                 )
                 .ToListAsync();

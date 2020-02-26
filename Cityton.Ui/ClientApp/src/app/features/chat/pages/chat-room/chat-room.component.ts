@@ -7,38 +7,46 @@ import { Observable } from 'rxjs';
 
 import { IChallengeChat as ChallengeChat } from '@shared/models/ChallengeChat';
 
+import { StatusChallenge } from '@shared/models/Enum';
+
 @Component({
-    selector: 'app-chat-room',
-    templateUrl: './chat-room.component.html',
-    styleUrls: ['./chat-room.component.scss']
+  selector: 'app-chat-room',
+  templateUrl: './chat-room.component.html',
+  styleUrls: ['./chat-room.component.scss']
 })
 export class ChatRoomComponent implements OnInit {
 
-    threadId: number;
+  threadId: number;
 
-    challenges$: Observable<ChallengeChat>;
+  challenges$: Observable<ChallengeChat>;
 
-    constructor(
-        private chatService: ChatService,
-        private activatedRoute: ActivatedRoute
-    ) { }
+  constructor(
+    private chatService: ChatService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
-    ngOnInit() {
+  ngOnInit() {
 
-        this.activatedRoute.paramMap.subscribe(params => {
-            this.threadId = Number(params.get("threadId"));
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.threadId = Number(params.get("threadId"));
 
-            console.log(params.get("threadId"));
+      this.refreshChallenges();
 
-            this.challenges$ = this.chatService.getChallenges(this.threadId);
+    })
 
-            this.challenges$.subscribe(
-                (lol) => {console.log(lol);}
-            )
-            
-        })
 
-        
-    }
+  }
 
+  refreshChallenges() {
+    this.challenges$ = this.chatService.getChallenges(this.threadId);
+  }
+
+  updateChallenge({challengeGivenId, newStatus}) {
+    this.chatService.updateChallengeGiven(challengeGivenId, newStatus).subscribe(
+      (result: any) => {
+        this.refreshChallenges();
+        console.log(result);
+      }
+    );
+  }
 }
