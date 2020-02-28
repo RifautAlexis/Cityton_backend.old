@@ -38,7 +38,6 @@ export class ChatComponent implements OnInit {
 
             this.chatService.getMessages(this.threadId).subscribe(
                 (messages: Message[]) => {
-                    console.log(messages);
                     this.messages$.next(messages);
                 }
             );

@@ -45,7 +45,6 @@ export class ChatRoomComponent implements OnInit {
     this.chatService.updateChallengeGiven(challengeGivenId, newStatus).subscribe(
       (result: any) => {
         this.refreshChallenges();
-        console.log(result);
       }
     );
   }
