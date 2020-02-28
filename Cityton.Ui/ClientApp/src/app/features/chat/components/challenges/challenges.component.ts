@@ -15,10 +15,11 @@ export class ChallengesComponent implements OnInit {
 
   @Output() toUpdateChallenge: EventEmitter<IUpdateChallenge> = new EventEmitter();
 
+  statusChallenge: any = StatusChallenge; // Allow to use Enum in HTML
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.challenges);
   }
 
   validate(challengeGivenId: number) {

@@ -10,24 +10,22 @@
 
       <mat-card-content>
         <p>
-          {{ challenge.status }}
-          {{ StatusChallenge.InProgress }}
           {{ challenge.statement }}
         </p>
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-button *ngIf="challenge.status === InProgress" (click)="validate(challenge.challengeGivenId)">
+        <button mat-button *ngIf="challenge.status === statusChallenge.InProgress" (click)="validate(challenge.challengeGivenId)">
           <i class="material-icons">
             done
           </i>
         </button>
-        <button mat-button *ngIf="challenge.status === InProgress" (click)="reject(challenge.challengeGivenId)">
+        <button mat-button *ngIf="challenge.status === statusChallenge.InProgress" (click)="reject(challenge.challengeGivenId)">
           <i class="material-icons">
             clear
           </i>
         </button>
-        <button mat-button *ngIf="challenge.status !== InProgress" (click)="undo(challenge.challengeGivenId)">
+        <button mat-button *ngIf="challenge.status !== statusChallenge.InProgress" (click)="undo(challenge.challengeGivenId)">
           <i class="material-icons">
             replay
           </i>
