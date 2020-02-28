@@ -214,10 +214,10 @@ namespace Cityton.Repository
             modelBuilder.Entity<Discussion>().HasData(
                 new Discussion { Id = 1, CreatedAt = new DateTime(2019, 02, 01), Name = "group01", GroupId = 1 },
                 new Discussion { Id = 2, CreatedAt = new DateTime(2019, 02, 10), Name = "group02", GroupId = 2 },
-                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11), Name = "group03", GroupId = 3 },
-                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11), Name = "group04", GroupId = 4 },
+                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11), GroupId = 3 },
+                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11), GroupId = 4 },
                 new Discussion { Id = 5, CreatedAt = new DateTime(2019, 04, 03), Name = "group05", GroupId = 5 },
-                new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), Name = "group06", GroupId = 6 },
+                new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), GroupId = 6 },
 
                 new Discussion { Id = 7, CreatedAt = new DateTime(2019, 01, 01), Name = "Générale" }
             );
