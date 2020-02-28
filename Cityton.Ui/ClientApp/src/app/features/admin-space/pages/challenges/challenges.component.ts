@@ -73,18 +73,18 @@ export class ChallengesComponent implements OnInit {
     );
   }
 
+  public searchChallenge(toSearch: string) {
+    this.searchField = toSearch;
+
+    this.refreshSearch();
+  }
+
   private refreshWaitingChallenges() {
     this.challengesToApprove$ = this.challengeService.getAllWaiting();
   }
 
   private refreshSearch() {
     this.challengesSearched$ = this.challengeService.searchChallenges(this.searchField);
-  }
-
-  private searchChallenge(toSearch: string) {
-    this.searchField = toSearch;
-
-    this.refreshSearch();
   }
 
 }
