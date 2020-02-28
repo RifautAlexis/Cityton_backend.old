@@ -4,42 +4,42 @@
 
     <mat-list>
       <mat-list-item>
-        <button mat-fab (click)="selectMenu('Settings')">
+        <button mat-fab (click)="selectMenu('settings')">
           <i class="material-icons">
             build
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-fab (click)="selectMenu('Chat')">
+        <button mat-fab (click)="selectMenu('chat')">
           <i class="material-icons">
             chat
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-fab (click)="selectMenu('Groups')">
+        <button mat-fab (click)="selectMenu('groups')">
           <i class="material-icons">
             group
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-fab (click)="selectMenu('Challenges')">
+        <button mat-fab (click)="selectMenu('challenges')">
           <i class="material-icons">
             stars
           </i>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-fab (click)="selectMenu('Medias')">
+        <button mat-fab (click)="selectMenu('medias')">
           <i class="material-icons">
             perm_media
           </i>
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="isAdmin">
-        <button mat-fab (click)="selectMenu('Admin space')">
+        <button mat-fab (click)="selectMenu('admin')">
           <i class="material-icons">
             security
           </i>
@@ -64,14 +64,14 @@
 
         <ng-container [ngSwitch]="selectedMenu">
 
-          <ng-container *ngSwitchCase="'Settings'">
+          <ng-container *ngSwitchCase="'settings'">
 
             <mat-list>
               <mat-list-item [routerLink]="['/settings']"> Modify informations </mat-list-item>
             </mat-list>
 
           </ng-container>
-          <ng-container *ngSwitchCase="'Chat'">
+          <ng-container *ngSwitchCase="'chat'">
             <p>search field</p>
             <mat-list>
               <ng-container *ngFor="let thread of threads">
@@ -81,7 +81,7 @@
             </mat-list>
 
           </ng-container>
-          <ng-container *ngSwitchCase="'Groups'">
+          <ng-container *ngSwitchCase="'groups'">
 
             <mat-list>
               <mat-list-item [routerLink]="['/groups']"> See all groups </mat-list-item>
@@ -92,7 +92,7 @@
             </mat-list>
 
           </ng-container>
-          <ng-container *ngSwitchCase="'Challenges'">
+          <ng-container *ngSwitchCase="'challenges'">
 
             <mat-list>
               <mat-list-item *ngIf="isAMember" [routerLink]="['/challenges']"> All challenges </mat-list-item>
@@ -103,14 +103,14 @@
             </mat-list>
 
           </ng-container>
-          <ng-container *ngSwitchCase="'Medias'">
+          <ng-container *ngSwitchCase="'medias'">
 
             <!-- <a [routerLink]="['/medias']">Filter</a> -->
             <a>Filter</a>
 
 
           </ng-container>
-          <ng-container *ngSwitchCase="'Admin space'">
+          <ng-container *ngSwitchCase="'admin'">
 
             <mat-list>
               <mat-list-item [routerLink]="['/admin/challenges']"> Challenges </mat-list-item>

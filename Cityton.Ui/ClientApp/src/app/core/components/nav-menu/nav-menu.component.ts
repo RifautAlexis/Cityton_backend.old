@@ -33,21 +33,24 @@ export class NavMenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute,
-    private userService: UserService,
-    private chatService: ChatService
+    private chatService: ChatService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.getUserRole() === Role.Admin;
     this.currentUserId = this.authService.getUserId();
 
+    this.activatedRoute.url.subscribe(route => {
+      this.selectMenu(route[0].path);
+  })
+
   }
 
   selectMenu(menu: string) {
 
     switch (menu) {
-      case "Groups": {
+      case "groups": {
         this.authService.getConnectedUser().subscribe(
           (user: User) => {
             this.info = user;
@@ -58,10 +61,9 @@ export class NavMenuComponent implements OnInit {
 
       }
 
-      case "Chat": {
+      case "chat": {
         this.chatService.getThreads().subscribe(
           (threads: Thread[]) => {
-            console.log(threads);
             this.threads = threads;
 
           }
