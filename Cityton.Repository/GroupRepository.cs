@@ -20,6 +20,7 @@ namespace Cityton.Repository
         Task<Group> GetByName(string name);
         Task<List<Group>> Search(string toSearch);
         Task<List<Group>> GetMinorGroups(int minimalGroupSize);
+        Task<Group> GetWithMember_Discussion_UserInDiscussion_Message(int groupId);
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository
@@ -88,6 +89,18 @@ namespace Cityton.Repository
                 .Include(g => g.Members)
                     .ThenInclude(pg => pg.User)
                 .ToListAsync();
+        }
+
+        public async Task<Group> GetWithMember_Discussion_UserInDiscussion_Message(int groupId)
+        {
+            return await context.Groups
+                .Where(g => g.Id == groupId)
+                .Include(g => g.Members)
+                .Include(g => g.Discussion)
+                    .ThenInclude(d => d.UsersInDiscussion)
+                .Include(g => g.Discussion)
+                    .ThenInclude(d => d.Messages)
+                .FirstOrDefaultAsync();
         }
     }
 }

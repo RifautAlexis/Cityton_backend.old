@@ -191,10 +191,10 @@ namespace Cityton.Service
             }
             await userRepository.Update(user);
 
-            foreach (var request in user.ParticipantGroups)
-            {
-                await this.groupService.DeleteRequest(request);
-            }
+            // foreach (var request in user.ParticipantGroups)
+            // {
+            //     await this.groupService.DeleteRequest(request);
+            // }
 
             await userRepository.Delete(user);
         }

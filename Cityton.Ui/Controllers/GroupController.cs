@@ -234,7 +234,7 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> Delete(int groupId)
         {
 
-            Group group = await this._groupService.Get(groupId);
+            Group group = await this._groupService.GetWithMember_Discussion_UserInDiscussion_Message(groupId);
 
             if (group == null) return BadRequest("No group with this id !");
 

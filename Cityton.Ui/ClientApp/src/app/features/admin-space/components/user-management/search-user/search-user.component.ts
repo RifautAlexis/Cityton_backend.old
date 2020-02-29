@@ -55,7 +55,14 @@ export class SearchUserComponent implements OnInit {
   }
 
   deleteUser(userId: string) {
-    this.userService.deleteUser(userId);
+    this.userService.deleteUser(userId).subscribe(
+      () => {
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   async openEdit(userId: string) {

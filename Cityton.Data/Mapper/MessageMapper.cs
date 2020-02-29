@@ -20,7 +20,7 @@ namespace Cityton.Data.Mapper
             {
                 Id = data.Id,
                 Content = data.Content == null ? "Has been removed" : data.Content,
-                Author = new UserMinimal { Id = data.Author.Id, Username = data.Author.Username },
+                Author = new UserMinimal { Id = data.AuthorId, Username = data.AuthorId == null ? "Uknwon" : data.Author.Username },
                 CreatedAt = data.CreatedAt,
                 DiscussionId = data.DiscussionId,
             };

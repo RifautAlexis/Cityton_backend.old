@@ -87,12 +87,12 @@ namespace Cityton.Repository
             }
 
             List<Group> groups = new List<Group> {
-                new Group { Id = 1, Name = "group01", CreatedAt = new DateTime(2019, 02, 01) },
-                new Group { Id = 2, Name = "group02", CreatedAt = new DateTime(2019, 02, 10) },
-                new Group { Id = 3, Name = "group03", CreatedAt = new DateTime(2019, 03, 11) },
-                new Group { Id = 4, Name = "group04", CreatedAt = new DateTime(2019, 03, 11) },
-                new Group { Id = 5, Name = "group05", CreatedAt = new DateTime(2019, 04, 03) },
-                new Group { Id = 6, Name = "group06", CreatedAt = new DateTime(2019, 05, 05) },
+                new Group { Id = 1, Name = "group01", CreatedAt = new DateTime(2019, 02, 01), DiscussionId = 1 },
+                new Group { Id = 2, Name = "group02", CreatedAt = new DateTime(2019, 02, 10), DiscussionId = 2 },
+                new Group { Id = 3, Name = "group03", CreatedAt = new DateTime(2019, 03, 11), DiscussionId = 3 },
+                new Group { Id = 4, Name = "group04", CreatedAt = new DateTime(2019, 03, 11), DiscussionId = 4 },
+                new Group { Id = 5, Name = "group05", CreatedAt = new DateTime(2019, 04, 03), DiscussionId = 5 },
+                new Group { Id = 6, Name = "group06", CreatedAt = new DateTime(2019, 05, 05), DiscussionId = 6 },
             };
 
             List<ParticipantGroup> participantsGroup = new List<ParticipantGroup> {

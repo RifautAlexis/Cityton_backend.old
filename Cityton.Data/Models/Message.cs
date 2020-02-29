@@ -18,7 +18,7 @@ namespace Cityton.Data.Models
 
         /*****/
 
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         public int DiscussionId { get; set; }
         public int? MediaId { get; set; }
 

@@ -7,7 +7,7 @@ namespace Cityton.Data.DTOs
 {
     public class UserMinimal
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Username { get; set; }
 
     }

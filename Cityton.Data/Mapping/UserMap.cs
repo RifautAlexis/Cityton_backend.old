@@ -1,4 +1,5 @@
 ﻿using Cityton.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace Cityton.Data.Mapping
             entityBuilder.HasMany(u => u.Challenges).WithOne(c => c.Author).HasForeignKey(c => c.AuthorId);
             entityBuilder.HasMany(u => u.Achievements).WithOne(a => a.Winner).HasForeignKey(a => a.WinnerId);
             entityBuilder.HasMany(u => u.UsersInDiscussion).WithOne(uid => uid.Participant).HasForeignKey(uid => uid.ParticipantId);
-            entityBuilder.HasMany(u => u.MessagesWriten).WithOne(m => m.Author).HasForeignKey(m => m.AuthorId);
+            entityBuilder.HasMany(u => u.MessagesWriten).WithOne(m => m.Author).HasForeignKey(m => m.AuthorId).OnDelete(DeleteBehavior.SetNull);
 
             /*****/
 

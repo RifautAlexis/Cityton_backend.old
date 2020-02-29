@@ -41,6 +41,7 @@ namespace Cityton.Service
         Task<bool> ExistName(string name);
         Task<List<Group>> Search(string toSearch);
         Task Delete(Group group);
+        Task<Group> GetWithMember_Discussion_UserInDiscussion_Message(int groupId);
         Task<List<Group>> GetMinorGroups(int comapanyId);
         Task Edit(GroupEdit groupToEdit);
         Task<bool> IsConformSize(int membersSize);
@@ -56,6 +57,8 @@ namespace Cityton.Service
         private IParticipantGroupRepository participantGroupRepository;
         private ICompanyRepository companyRepository;
         private IUserRepository userRepository;
+        private IDiscussionRepository discussionRepository;
+        private IUserInDiscussionRepository userInIiscussionRepository;
         private readonly IConfiguration _appSettings;
 
         public GroupService(
@@ -63,13 +66,16 @@ namespace Cityton.Service
             IParticipantGroupRepository participantGroupRepository,
             ICompanyRepository companyRepository,
             IUserRepository userRepository,
+            IDiscussionRepository discussionRepository,
+            IUserInDiscussionRepository userInIiscussionRepository,
             IConfiguration config)
         {
             this.groupRepository = groupRepository;
             this.participantGroupRepository = participantGroupRepository;
             this.companyRepository = companyRepository;
             this.userRepository = userRepository;
-
+            this.discussionRepository = discussionRepository;
+            this.userInIiscussionRepository = userInIiscussionRepository;
             this._appSettings = config;
         }
 
@@ -155,7 +161,33 @@ namespace Cityton.Service
 
         public async Task Delete(Group group)
         {
+
+            group.Members.Clear();
+            
+            group.Discussion.UsersInDiscussion.Clear();
+            group.Discussion.Messages.Clear();
+            await this.discussionRepository.Delete(group.Discussion);
+            
+            // foreach (var participant in group.Members)
+            // {
+            //     this.participantGroupRepository.Remove(participant);
+            // }
+            // await this.participantGroupRepository.SaveChanges();
+
+            // Discussion discussion = await this.discussionRepository.Get(group.DiscussionId);
+
+            // foreach (var userInDiscussion in discussion.UsersInDiscussion)
+            // {
+            //     this.userInIiscussionRepository.Remove(userInDiscussion);
+            // }
+            // await this.participantGroupRepository.SaveChanges();
+
             await this.groupRepository.Delete(group);
+        }
+
+        public async Task<Group> GetWithMember_Discussion_UserInDiscussion_Message(int groupId)
+        {
+            return await this.groupRepository.GetWithMember_Discussion_UserInDiscussion_Message(groupId);
         }
 
         public async Task Edit(GroupEdit groupToEdit)
