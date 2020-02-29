@@ -1,88 +1,91 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ChatService } from '@core/services/chat.service';
 import { AuthService } from '@core/services/auth.service';
 
 import { IMessage as Message } from '@shared/models/message';
-import { BehaviorSubject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { Role } from '@shared/models/Enum';
 
+
+
 @Component({
-    selector: 'app-chat',
-    templateUrl: './chat.component.html',
-    styleUrls: ['./chat.component.scss']
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss']
 })
 
 export class ChatComponent implements OnInit {
 
-    messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
-    threadId: number;
-    authorId: number;
-    connectionIsEstablished: boolean = false;
-    isNotAMember: boolean = false;
+  messages$: BehaviorSubject<Message[]> = new BehaviorSubject([]);
 
-    constructor(
-        private chatService: ChatService,
-        private authService: AuthService,
-        private activatedRoute: ActivatedRoute
-    ) {
-    }
+  threadId: number;
+  authorId: number;
+  connectionIsEstablished: boolean = false;
+  isNotAMember: boolean = false;
 
-    ngOnInit() {
-        this.authorId = this.authService.getUserId();
-        this.isNotAMember = this.authService.getUserRole() !== Role.Member;
+  constructor(
+    private chatService: ChatService,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute
+  ) {
+  }
 
-        this.activatedRoute.paramMap.subscribe(params => {
-            this.threadId = Number(params.get("threadId"));
+  ngOnInit() {
+    this.authorId = this.authService.getUserId();
+    this.isNotAMember = this.authService.getUserRole() !== Role.Member;
 
-            this.chatService.getMessages(this.threadId).subscribe(
-                (messages: Message[]) => {
-                    this.messages$.next(messages);
-                }
-            );
-        })
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.threadId = Number(params.get("threadId"));
 
-        this.subscribeToEvent();
-    }
+      this.chatService.getMessages(this.threadId).subscribe(
+        (messages: Message[]) => {
+          this.messages$.next(messages);
+        }
+      );
+    })
 
-    private subscribeToEvent() {
+    this.subscribeToEvent();
+  }
 
-        this.chatService.connectionEstablished.subscribe(
-            (connectionIsEstablished: boolean) => {
-                this.connectionIsEstablished = connectionIsEstablished;
-            }
+  private subscribeToEvent() {
+
+    this.chatService.connectionEstablished.subscribe(
+      (connectionIsEstablished: boolean) => {
+        this.connectionIsEstablished = connectionIsEstablished;
+      }
+    );
+
+    this.chatService.messageReceived.subscribe(
+      (newMessage: Message) => {
+        this.messages$.next([...this.messages$.value, newMessage]);
+      }
+    );
+
+    this.chatService.messageRemoved.subscribe(
+      (messageremoved: Message) => {
+        this.messages$.next(
+          this.messages$.getValue().map(m => {
+            if (m.id === messageremoved.id) return messageremoved
+            else return m;
+          })
         );
+      }
+    );
+  }
 
-        this.chatService.messageReceived.subscribe(
-            (newMessage: Message) => {
-                this.messages$.next([...this.messages$.value, newMessage]);
-            }
-        );
+  sendMessage(newMessage: string) {
+    console.log("SEND");
+    this.chatService.sendMessage(newMessage, this.threadId);
+  }
 
-        this.chatService.messageRemoved.subscribe(
-            (messageremoved: Message) => {
-                this.messages$.next(
-                    this.messages$.getValue().map(m => {
-                        if (m.id === messageremoved.id) return messageremoved
-                        else return m;
-                    })
-                );
-            }
-        );
-    }
+  removeMessage(messageId: number) {
+    this.chatService.removeMessage(messageId);
+  }
 
-    sendMessage(newMessage: string) {
-        console.log("SEND");
-        this.chatService.sendMessage(newMessage, this.threadId);
-    }
-
-    removeMessage(messageId: number) {
-        this.chatService.removeMessage(messageId);
-    }
-
-    ngOnDestroy(): void {
-        this.chatService.closeConnection();
-    }
+  ngOnDestroy(): void {
+    this.chatService.closeConnection();
+  }
 
 }

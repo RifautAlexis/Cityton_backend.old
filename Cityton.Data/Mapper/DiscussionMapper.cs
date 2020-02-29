@@ -15,6 +15,7 @@ namespace Cityton.Data.Mapper
         {
             return (new Thread {
                 DiscussionId = data.Id,
+                Name = data.Name == null ? "" : data.Name,
                 Participants = data.UsersInDiscussion.Select(uid => uid.Participant.ToMinimalDTO()),
             });
         }

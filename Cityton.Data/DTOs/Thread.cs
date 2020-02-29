@@ -8,6 +8,7 @@ namespace Cityton.Data.DTOs
     public class Thread
     {
         public int DiscussionId { get; set; }
+        public string Name { get; set; }
         public IEnumerable<UserMinimal> Participants { get; set; }
     }
 }

@@ -6,6 +6,7 @@ import { ChatService } from '@core/services/chat.service';
 import { Observable } from 'rxjs';
 
 import { IChallengeChat as ChallengeChat } from '@shared/models/ChallengeChat';
+import { IThread as Thread } from '@shared/models/Thread';
 
 import { StatusChallenge } from '@shared/models/Enum';
 
@@ -19,6 +20,7 @@ export class ChatRoomComponent implements OnInit {
   threadId: number;
 
   challenges$: Observable<ChallengeChat>;
+  thread$: Observable<Thread>;
 
   constructor(
     private chatService: ChatService,
@@ -30,15 +32,20 @@ export class ChatRoomComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       this.threadId = Number(params.get("threadId"));
 
+      this.refreshThread();
+
       this.refreshChallenges();
 
-    })
-
+    });
 
   }
 
   refreshChallenges() {
     this.challenges$ = this.chatService.getChallenges(this.threadId);
+  }
+
+  refreshThread() {
+    this.thread$ = this.chatService.getThread(this.threadId);
   }
 
   updateChallenge({challengeGivenId, newStatus}) {
@@ -47,5 +54,14 @@ export class ChatRoomComponent implements OnInit {
         this.refreshChallenges();
       }
     );
+  }
+
+  renameThread(newName: string) {
+    console.log(newName);
+    // this.chatService.renameThread(this.threadId, newName).subscribe(
+    //   (result: any) => {
+    //     this.refreshThread();
+    //   }
+    // );
   }
 }

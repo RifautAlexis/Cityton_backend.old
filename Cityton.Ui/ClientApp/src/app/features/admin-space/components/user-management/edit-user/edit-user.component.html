@@ -27,17 +27,6 @@
       <mat-error *ngIf="this.editUserForm.errors.uniquePhoneNumber"> This phone number is already taken </mat-error>
     </ng-container>
 
-    <mat-form-field>
-      <input matInput placeholder="Email" formControlName="email">
-
-      <mat-error *ngIf="editUserForm.get('email').hasError('required')"> Email required </mat-error>
-      <mat-error *ngIf="editUserForm.get('email').hasError('email')"> Wrong email format </mat-error>
-
-    </mat-form-field>
-    <ng-container *ngIf="this.editUserForm.get('email').invalid">
-      <mat-error *ngIf="this.editUserForm.get('email').errors?.uniqueEmail"> Email is already taken. </mat-error>
-    </ng-container>
-
   </div>
 
   <div mat-dialog-actions>

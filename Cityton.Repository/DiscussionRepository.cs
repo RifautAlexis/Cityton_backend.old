@@ -14,7 +14,10 @@ namespace Cityton.Repository
     public interface IDiscussionRepository : IRepository<Discussion>
     {
         Task<IEnumerable<Discussion>> GetThreads(int userId);
+        Task<Discussion> GetThread(int threadId);
         Task<Discussion> GetDiscussionsWithGroup(int id);
+        Task<Discussion> GetDiscussionByName(string name);
+        Task<Discussion> GetDiscussionWithUID(int threadId);
     }
 
     public class DiscussionRepository : Repository<Discussion>, IDiscussionRepository
@@ -30,12 +33,36 @@ namespace Cityton.Repository
                     .ThenInclude(uid => uid.Participant)
                 .ToListAsync();
         }
+        
+        public async Task<Discussion> GetThread(int threadId)
+        {
+            return await context.Discussions
+                .Where(d => d.Id == threadId)
+                .Include(d => d.UsersInDiscussion)
+                    .ThenInclude(uid => uid.Participant)
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<Discussion> GetDiscussionsWithGroup(int id)
         {
             return await context.Discussions
                 .Where(d => d.Id == id)
                 .Include(d => d.Group)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Discussion> GetDiscussionByName(string name)
+        {
+            return await context.Discussions
+                .Where(d => d.Name == name)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Discussion> GetDiscussionWithUID(int threadId)
+        {
+            return await context.Discussions
+                .Where(d => d.Id == threadId)
+                .Include(d => d.UsersInDiscussion)
                 .FirstOrDefaultAsync();
         }
 

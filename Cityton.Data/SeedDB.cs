@@ -214,12 +214,13 @@ namespace Cityton.Repository
             modelBuilder.Entity<Discussion>().HasData(
                 new Discussion { Id = 1, CreatedAt = new DateTime(2019, 02, 01), Name = "group01", GroupId = 1 },
                 new Discussion { Id = 2, CreatedAt = new DateTime(2019, 02, 10), Name = "group02", GroupId = 2 },
-                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11), GroupId = 3 },
-                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11), GroupId = 4 },
+                new Discussion { Id = 3, CreatedAt = new DateTime(2019, 03, 11), Name = "group03", GroupId = 3 },
+                new Discussion { Id = 4, CreatedAt = new DateTime(2019, 03, 11), Name = "group04", GroupId = 4 },
                 new Discussion { Id = 5, CreatedAt = new DateTime(2019, 04, 03), Name = "group05", GroupId = 5 },
-                new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), GroupId = 6 },
+                new Discussion { Id = 6, CreatedAt = new DateTime(2019, 05, 05), Name = "group06", GroupId = 6 },
 
-                new Discussion { Id = 7, CreatedAt = new DateTime(2019, 01, 01), Name = "Générale" }
+                new Discussion { Id = 7, CreatedAt = new DateTime(2019, 01, 01), Name = "general" },
+                new Discussion { Id = 8, CreatedAt = new DateTime(2019, 01, 01), Name = "staff" }
             );
             
             /*
@@ -249,7 +250,67 @@ namespace Cityton.Repository
                 new UserInDiscussion { Id = 20, JoinedAt = new DateTime(2019, 02, 04), ParticipantId = 6, DiscussionId = 3 },
                 new UserInDiscussion { Id = 21, JoinedAt = new DateTime(2019, 02, 15), ParticipantId = 7, DiscussionId = 4 },
                 new UserInDiscussion { Id = 22, JoinedAt = new DateTime(2019, 02, 01), ParticipantId = 8, DiscussionId = 5 },
-                new UserInDiscussion { Id = 23, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 8, DiscussionId = 6 }
+                new UserInDiscussion { Id = 23, JoinedAt = new DateTime(2019, 02, 22), ParticipantId = 8, DiscussionId = 6 },
+
+                /* Discussion générale */
+                new UserInDiscussion { Id = 24, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 1, DiscussionId = 7 },
+                new UserInDiscussion { Id = 25, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 2, DiscussionId = 7 },
+                new UserInDiscussion { Id = 26, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 3, DiscussionId = 7 },
+                new UserInDiscussion { Id = 27, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 4, DiscussionId = 7 },
+                new UserInDiscussion { Id = 28, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 5, DiscussionId = 7 },
+                new UserInDiscussion { Id = 29, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 6, DiscussionId = 7 },
+                new UserInDiscussion { Id = 30, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 7, DiscussionId = 7 },
+                new UserInDiscussion { Id = 31, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 8, DiscussionId = 7 },
+                new UserInDiscussion { Id = 32, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 9, DiscussionId = 7 },
+                new UserInDiscussion { Id = 33, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 10, DiscussionId = 7 },
+                new UserInDiscussion { Id = 34, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 11, DiscussionId = 7 },
+                new UserInDiscussion { Id = 35, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 12, DiscussionId = 7 },
+                new UserInDiscussion { Id = 36, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 13, DiscussionId = 7 },
+                new UserInDiscussion { Id = 37, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 14, DiscussionId = 7 },
+                new UserInDiscussion { Id = 38, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 15, DiscussionId = 7 },
+                new UserInDiscussion { Id = 39, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 16, DiscussionId = 7 },
+                new UserInDiscussion { Id = 40, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 17, DiscussionId = 7 },
+                new UserInDiscussion { Id = 41, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 18, DiscussionId = 7 },
+                new UserInDiscussion { Id = 42, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 19, DiscussionId = 7 },
+                new UserInDiscussion { Id = 43, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 20, DiscussionId = 7 },
+                new UserInDiscussion { Id = 44, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 21, DiscussionId = 7 },
+                new UserInDiscussion { Id = 45, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 22, DiscussionId = 7 },
+                new UserInDiscussion { Id = 46, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 23, DiscussionId = 7 },
+                new UserInDiscussion { Id = 47, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 24, DiscussionId = 7 },
+                new UserInDiscussion { Id = 48, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 25, DiscussionId = 7 },
+                new UserInDiscussion { Id = 49, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 26, DiscussionId = 7 },
+                new UserInDiscussion { Id = 50, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 27, DiscussionId = 7 },
+                new UserInDiscussion { Id = 51, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 28, DiscussionId = 7 },
+                new UserInDiscussion { Id = 52, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 29, DiscussionId = 7 },
+                new UserInDiscussion { Id = 53, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 30, DiscussionId = 7 },
+                new UserInDiscussion { Id = 54, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 31, DiscussionId = 7 },
+                new UserInDiscussion { Id = 55, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 32, DiscussionId = 7 },
+                new UserInDiscussion { Id = 56, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 33, DiscussionId = 7 },
+                new UserInDiscussion { Id = 57, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 34, DiscussionId = 7 },
+                new UserInDiscussion { Id = 58, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 35, DiscussionId = 7 },
+                new UserInDiscussion { Id = 59, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 36, DiscussionId = 7 },
+                new UserInDiscussion { Id = 60, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 37, DiscussionId = 7 },
+                new UserInDiscussion { Id = 61, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 38, DiscussionId = 7 },
+                new UserInDiscussion { Id = 62, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 39, DiscussionId = 7 },
+                new UserInDiscussion { Id = 63, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 40, DiscussionId = 7 },
+                new UserInDiscussion { Id = 64, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 41, DiscussionId = 7 },
+                new UserInDiscussion { Id = 65, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 42, DiscussionId = 7 },
+                new UserInDiscussion { Id = 66, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 43, DiscussionId = 7 },
+                new UserInDiscussion { Id = 67, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 44, DiscussionId = 7 },
+                new UserInDiscussion { Id = 68, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 45, DiscussionId = 7 },
+                new UserInDiscussion { Id = 69, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 46, DiscussionId = 7 },
+                new UserInDiscussion { Id = 70, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 47, DiscussionId = 7 },
+                new UserInDiscussion { Id = 71, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 48, DiscussionId = 7 },
+            
+                /* Discussion staff team */
+                new UserInDiscussion { Id = 72, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 1, DiscussionId = 8 },
+                new UserInDiscussion { Id = 73, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 2, DiscussionId = 8 },
+                new UserInDiscussion { Id = 74, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 3, DiscussionId = 8 },
+                new UserInDiscussion { Id = 75, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 4, DiscussionId = 8 },
+                new UserInDiscussion { Id = 76, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 5, DiscussionId = 8 },
+                new UserInDiscussion { Id = 77, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 6, DiscussionId = 8 },
+                new UserInDiscussion { Id = 78, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 7, DiscussionId = 8 },
+                new UserInDiscussion { Id = 79, JoinedAt = new DateTime(2020, 01, 01), ParticipantId = 8, DiscussionId = 8 }
             );
 
             /*

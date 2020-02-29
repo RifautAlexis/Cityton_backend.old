@@ -22,7 +22,6 @@ export class EditUserComponent {
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
     private formBuilder: FormBuilder,
-    private existEmailValidator: ExistEmailValidator,
     private existPhoneNumberValidator: ExistPhoneNumberValidator,
     private existUsernameValidator: ExistUsernameValidator,
     @Inject(MAT_DIALOG_DATA) public data: User) { }
@@ -47,15 +46,6 @@ export class EditUserComponent {
         asyncValidators: [this.phoneNumberValidator]
       }
       ],
-      email: [this.data.email,
-      {
-        validators: [
-          Validators.required,
-          Validators.email
-        ],
-        asyncValidators: [this.emailValidator]
-      }
-      ]
     });
   }
 
@@ -69,10 +59,6 @@ export class EditUserComponent {
 
   private phoneNumberValidator = (control: AbstractControl) => {
     return this.existPhoneNumberValidator.validateEdit(control, this.data.phoneNumber);
-  };
-
-  private emailValidator = (control: AbstractControl) => {
-    return this.existEmailValidator.validateEdit(control, this.data.email);
   };
 
 }

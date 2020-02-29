@@ -31,12 +31,17 @@ namespace Cityton.Ui.Controllers
 
         private readonly IConfiguration _appSettings;
         private IUserService _userService;
+        private IChatService _chatService;
 
-        public UserController(IConfiguration config, IUserService userService)
+        public UserController(
+            IConfiguration config,
+            IUserService userService,
+            IChatService chatService
+        )
         {
             _appSettings = config;
             _userService = userService;
-
+            _chatService = chatService;
         }
 
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
@@ -69,7 +74,6 @@ namespace Cityton.Ui.Controllers
 
         }
 
-
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpPut("update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UserUpdateDTO userToUpdate)
@@ -83,11 +87,43 @@ namespace Cityton.Ui.Controllers
 
             if (id != userToUpdate.Id) return BadRequest();
 
+            User oldUser = await this._userService.GetByEmail(userToUpdate.Email);
+
+            if (oldUser == null) return BadRequest("No corresponding user !");
+
             UserDTO user = await _userService.Update(userToUpdate);
 
             return Ok(user);
         }
 
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpPut("changeRole/{userId}")]
+        public async Task<IActionResult> changeRole(int userId, [FromBody] Role newrole)
+        {
+
+            User oldUser = await this._userService.Get(userId);
+
+            if (oldUser == null) return this.BadRequest("This id is not corresponding to any users !");
+
+            if (!Enum.IsDefined(typeof(Role), newrole)) return this.BadRequest("This role does not exist !");
+
+            if (oldUser.Role != newrole)
+            {
+
+                Discussion threadStaff = await this._chatService.GetDiscussionByName("staff");
+
+                if (oldUser.Role == Role.Member)
+                {
+                    await this._chatService.AddInDiscussion(oldUser.Id, threadStaff.Id);
+                }
+                else if (newrole == Role.Member)
+                {
+                    await this._chatService.RemoveFromDiscussion(oldUser.Id, threadStaff.Id);
+                }
+            }
+
+            return Ok();
+        }
 
         [Authorized(Role.Member, Role.Checker, Role.Admin)]
         [HttpPut("uploadPicture/{userId}")]
@@ -157,17 +193,17 @@ namespace Cityton.Ui.Controllers
             User user = await this._userService.Get_Challenges_Achievements(userId);
 
             if (user == null) return BadRequest("No user has be fiund with this Id");
-            
+
             await this._userService.Delete(user);
 
             return Ok();
         }
-        
+
         [Authorized(Role.Member, Role.Admin)]
         [HttpGet("getUsersWithoutGroup")]
         public async Task<IActionResult> GetUsersWithoutGroup()
         {
-            
+
             List<User> users = await this._userService.GetUsersWithoutGroup();
 
             return Ok(users.ToMinimalDTO());

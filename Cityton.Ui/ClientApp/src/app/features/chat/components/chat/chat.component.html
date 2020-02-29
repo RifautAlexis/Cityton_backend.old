@@ -1,4 +1,5 @@
 <section *ngIf="(messages$ | async) as messages">
+
   <!-- connectionIsEstablished &&  -->
   <div id="chat">
 
@@ -7,7 +8,11 @@
       <div>
         <span class="author">{{ message.author.username }}</span>
 
-        <button mat-button [matMenuTriggerFor]="belowMenu" *ngIf="isNotAMember">...</button>
+        <button mat-button [matMenuTriggerFor]="belowMenu" *ngIf="isNotAMember">
+          <i class="material-icons">
+            more_horiz
+          </i>
+        </button>
         <mat-menu #belowMenu="matMenu" yPosition="below">
           <button mat-menu-item (click)="removeMessage(message.id)"> Remove</button>
         </mat-menu>

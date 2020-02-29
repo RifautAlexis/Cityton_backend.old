@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
-import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { GroupService } from '@core/services/group.service';
@@ -9,7 +8,7 @@ import { IGroup as Group } from '@shared/models/Group';
 import { IGroupToEdit as GroupToEdit } from '@shared/models/GroupToEdit';
 
 import { EditGroupsComponent } from '@shared/components/edit-groups/edit-groups.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search-groups',

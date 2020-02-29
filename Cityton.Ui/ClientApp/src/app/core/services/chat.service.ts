@@ -102,7 +102,7 @@ export class ChatService {
     return this.hubConnection.send("RemoveMessage", messageId);
   }
 
-  messageRemovedEvent(){
+  messageRemovedEvent() {
     this.hubConnection.on("messageRemoved", (messageRemoved: Message) => {
       console.log(messageRemoved);
       this.messageRemoved.emit(messageRemoved);
@@ -119,6 +119,14 @@ export class ChatService {
 
   updateChallengeGiven(challengeGivenId: number, newStatus: StatusChallenge) {
     return this.http.put<any>(environment.apiUrl + 'chat/updateStatusChallenge/' + challengeGivenId, newStatus);
+  }
+
+  getThread(threadId: number): Observable<Thread> {
+    return this.http.get<any>(environment.apiUrl + 'chat/getThread/' + threadId);
+  }
+
+  existThreadName(newName: string): Observable<boolean> {
+    return this.http.get<boolean>(environment.apiUrl + 'chat/existThreadName/' + newName);
   }
 
 }

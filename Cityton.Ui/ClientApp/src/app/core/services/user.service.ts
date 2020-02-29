@@ -6,6 +6,8 @@ import { IUser as User } from '@shared/models/User';
 import { IUserToUpdate as UserToUpdate } from '@shared/models/UserToUpdate';
 import { IUserMinimal as UserMinimal } from '@shared/models/UserMinimal';
 
+import { Role } from '@shared/models/Enum';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -59,6 +61,10 @@ export class UserService {
 
   getUsersWithoutGroup(): Observable<UserMinimal[]> {
     return this.http.get<UserMinimal[]>(environment.apiUrl + 'user/getUsersWithoutGroup');
+  }
+
+  changeSecurityLevel(userId: number, newSecurityLevel: Role){
+    return this.http.put<string>(environment.apiUrl + 'user/changeRole/' + userId, newSecurityLevel);
   }
 
 }

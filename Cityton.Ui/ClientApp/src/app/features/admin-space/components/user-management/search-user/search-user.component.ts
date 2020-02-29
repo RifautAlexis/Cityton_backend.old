@@ -50,22 +50,8 @@ export class SearchUserComponent implements OnInit {
       }));
   }
 
-  changeSecurityLevel(id: string, newSecurityLevel: string) {
-
-    let user: User = this.users.find(user => user.id.toString() == id);
-    user.role = Role[newSecurityLevel];
-
-    let userToUpdate: UserToUpdate = {
-      id: user.id,
-      username: user.username,
-      phoneNumber: user.phoneNumber,
-      email: user.email,
-      picture: user.picture,
-      role: user.role,
-      password: ""
-    };
-
-    this.userService.update(userToUpdate);
+  changeSecurityLevel(id: number, newSecurityLevel: string) {
+    this.userService.changeSecurityLevel(id, Role[newSecurityLevel]);
   }
 
   deleteUser(userId: string) {

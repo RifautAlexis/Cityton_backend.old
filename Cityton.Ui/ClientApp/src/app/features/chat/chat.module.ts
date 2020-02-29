@@ -9,12 +9,14 @@ import { ChatRoomComponent } from './pages/chat-room/chat-room.component';
 
 import { ChatComponent } from './components/chat/chat.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     ChatRoomComponent,
     ChatComponent,
-    ChallengesComponent
+    ChallengesComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

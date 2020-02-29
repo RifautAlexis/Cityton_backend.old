@@ -51,7 +51,7 @@ namespace Cityton.Ui.Controllers
         {
 
             IEnumerable<Message> messages = await this._chatService.GetByDiscussionIdWithAuthor(discussionId);
-            
+
             return Ok(messages.ToDTO());
 
         }
@@ -62,7 +62,7 @@ namespace Cityton.Ui.Controllers
         {
 
             Message message = await this._chatService.GetMessage(messageId);
-            
+
             return Ok(message.ToDTO());
 
         }
@@ -74,8 +74,18 @@ namespace Cityton.Ui.Controllers
             int currentUserId = Int32.Parse(User.Identity.Name);
 
             IEnumerable<Discussion> threads = await this._chatService.GetThreads(currentUserId);
-            
+
             return Ok(threads.ToThreads());
+
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("getThread/{threadId}")]
+        public async Task<IActionResult> GetThread(int threadId)
+        {
+            Discussion thread = await this._chatService.GetThread(threadId);
+
+            return Ok(thread.ToThread());
 
         }
 
@@ -84,25 +94,51 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> GetChallengesChat(int discussionId)
         {
             IEnumerable<ChallengeChat> challenges = await this._chatService.GetChallengesGivenFromGroup(discussionId);
-            
+
             return Ok(challenges);
 
         }
 
         [Authorized(Role.Checker, Role.Admin)]
         [HttpPut("updateStatusChallenge/{challengeGivenId}")]
-        public async Task<IActionResult> updateStatusChallengeGiven(int challengeGivenId, [FromBody] StatusChallenge newStatus)
+        public async Task<IActionResult> UpdateStatusChallengeGiven(int challengeGivenId, [FromBody] StatusChallenge newStatus)
         {
 
             ChallengeGiven challengeGiven = await this._chatService.GetChallengeGiven(challengeGivenId);
 
-            if(challengeGiven == null) return BadRequest("No challenge with this id");
+            if (challengeGiven == null) return BadRequest("No challenge with this id");
 
             challengeGiven.Status = newStatus;
 
             await _chatService.UpdateChallengeGiven(challengeGiven);
 
             return Ok();
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpPut("renameThread/{threadId}")]
+        public async Task<IActionResult> RenameThread(int threadId, [FromBody] string newName)
+        {
+
+            Discussion discussion = await this._chatService.GetDiscussion(threadId);
+
+            if (discussion == null) return BadRequest("No discussion with this id");
+
+            discussion.Name = newName;
+
+            await _chatService.UpdateDiscussion(discussion);
+
+            return Ok();
+        }
+
+        [Authorized(Role.Member, Role.Checker, Role.Admin)]
+        [HttpGet("existThreadName/{newName}")]
+        public async Task<IActionResult> ExistThreadName(string newName)
+        {
+
+            Discussion discussion = await this._chatService.GetDiscussionByName(newName);
+
+            return Ok(discussion == null);
         }
     }
 }

@@ -22,6 +22,7 @@ import { DisplayParticipantsChatPipe } from '@shared/pipes/displayParticipantsCh
 export class NavMenuComponent implements OnInit {
 
   selectedMenu: string = "Settings";
+  originalThreads: Thread[];
   threads: Thread[];
   info: any;
 
@@ -29,6 +30,8 @@ export class NavMenuComponent implements OnInit {
   isAMember: boolean;
   isAdmin: boolean;
   currentUserId: number;
+
+  searchField: string;
 
   constructor(
     private authService: AuthService,
@@ -43,7 +46,7 @@ export class NavMenuComponent implements OnInit {
 
     this.activatedRoute.url.subscribe(route => {
       this.selectMenu(route[0].path);
-  })
+    })
 
   }
 
@@ -64,7 +67,7 @@ export class NavMenuComponent implements OnInit {
       case "chat": {
         this.chatService.getThreads().subscribe(
           (threads: Thread[]) => {
-            this.threads = threads;
+            this.originalThreads = this.threads = threads;
 
           }
         );
@@ -90,6 +93,16 @@ export class NavMenuComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['']);
+  }
+
+  searchThread(toSearch: string) {
+
+    if (toSearch) {
+      this.threads = this.threads.filter(t => t.name.includes(toSearch) || t.participants.some(user => user.username.includes(toSearch)));
+    } else {
+      this.threads = this.originalThreads;
+    }
+
   }
 
 }

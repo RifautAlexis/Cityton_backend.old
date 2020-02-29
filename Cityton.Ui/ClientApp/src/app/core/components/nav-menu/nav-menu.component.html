@@ -72,11 +72,26 @@
 
           </ng-container>
           <ng-container *ngSwitchCase="'chat'">
-            <p>search field</p>
+
+            <mat-form-field>
+              <input [(ngModel)]="searchField" matInput placeholder="Search" type="search" #searchInput>
+              <button mat-button mat-raised-button matSuffix (click)="searchThread(searchInput.value)">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+
             <mat-list>
               <ng-container *ngFor="let thread of threads">
-                <!-- <mat-list-item [routerLink]="['/register', thread.id]"> threads01 </mat-list-item> -->
-                <mat-list-item (click)="redirectToThread(thread.discussionId)"> {{ thread.participants | displayParticipantsChat | truncate :20 }} </mat-list-item>
+                <mat-list-item (click)="redirectToThread(thread.discussionId)">
+
+                  <ng-container *ngIf="thread.name !== ''; else displayParticpants">
+                    {{ thread.name }}
+                  </ng-container>
+                  <ng-template #displayParticpants>
+                    {{ thread.participants | displayParticipantsChat | truncate :20 }}
+                  </ng-template>
+
+                </mat-list-item>
               </ng-container>
             </mat-list>
 

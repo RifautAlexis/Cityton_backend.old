@@ -1,12 +1,23 @@
 <section>
 
-  <app-chat id="left-container"></app-chat>
+  <section id="left-container">
 
-    <ng-container *ngIf="(challenges$ | async) as challenges">
+    <ng-container *ngIf="(thread$ | async) as thread">
 
-        <app-challenges id="right-container" [challenges]="challenges" (toUpdateChallenge)="updateChallenge($event)"></app-challenges>
+      <app-header [thread]="thread"></app-header>
 
     </ng-container>
+
+    <app-chat (toRenameThread)="renameThread($event)"></app-chat>
+
+  </section>
+
+  <ng-container *ngIf="(challenges$ | async) as challenges">
+
+    <app-challenges id="right-container" [challenges]="challenges" (toUpdateChallenge)="updateChallenge($event)">
+    </app-challenges>
+
+  </ng-container>
 
 
 

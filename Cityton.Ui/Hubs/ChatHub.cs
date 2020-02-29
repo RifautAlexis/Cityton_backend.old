@@ -87,7 +87,7 @@ namespace SignalRChat.Hubs
             Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
             Discussion thread = await this._chatService.GetDiscussion(discussionId);
 
-            await Clients.Group(thread.Name).SendAsync("messageReceived", messageAdded.ToDTO());
+            await Clients.Group(thread.Id.ToString()).SendAsync("messageReceived", messageAdded.ToDTO());
         }
 
         /* ****************************** */
@@ -101,7 +101,7 @@ namespace SignalRChat.Hubs
 
                 await discussions
                     .ToList()
-                    .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Name));
+                    .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Id.ToString()));
 
                 return;
             // }
@@ -111,12 +111,12 @@ namespace SignalRChat.Hubs
             // }
         }
 
-        public async Task RemoveFromGroup(string discussionName)
+        public async Task RemoveFromGroup(int discussionId)
         {
             string currentConnectionId = Context.ConnectionId;
             // if (usersConnectedToChat.ContainsKey(currentConnectionId))
             // {
-                await Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionName);
+                await Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionId.ToString());
 
                 await Task.FromResult(true);
             // }
@@ -134,7 +134,7 @@ namespace SignalRChat.Hubs
                 IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
                 await discussions
                     .ToList()
-                    .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Name));
+                    .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Id.ToString()));
             // }
             // else
             // {
@@ -150,7 +150,7 @@ namespace SignalRChat.Hubs
 
             messageRemoved = await this._chatService.GetMessageWithAuthor(messageRemoved.Id);
 
-            await Clients.Group(discussion.Name).SendAsync("messageRemoved", messageRemoved.ToDTO());
+            await Clients.Group(discussion.Id.ToString()).SendAsync("messageRemoved", messageRemoved.ToDTO());
         }
 
         /* ****************************** */

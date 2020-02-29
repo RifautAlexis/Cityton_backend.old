@@ -19,11 +19,20 @@ namespace Cityton.Service
 
         private IUserRepository userRepository;
         private ICompanyRepository companyRepository;
+        private IUserInDiscussionRepository userInDiscussionRepository;
+        private IDiscussionRepository discussionRepository;
 
-        public AuthService(IUserRepository userRepository, ICompanyRepository companyRepository)
+        public AuthService(
+            IUserRepository userRepository,
+            ICompanyRepository companyRepository,
+            IUserInDiscussionRepository userInDiscussionRepository,
+            IDiscussionRepository discussionRepository
+            )
         {
             this.userRepository = userRepository;
             this.companyRepository = companyRepository;
+            this.userInDiscussionRepository = userInDiscussionRepository;
+            this.discussionRepository = discussionRepository;
         }
 
         public async Task<User> Authenticate(string email, string password)
@@ -56,6 +65,15 @@ namespace Cityton.Service
 
             await companyRepository.Update(company);
             await userRepository.Update(user);
+
+            Discussion general = await this.discussionRepository.GetDiscussionByName("general");
+
+            UserInDiscussion userInGeneral = new UserInDiscussion {
+                JoinedAt = DateTime.Now,
+                DiscussionId = general.Id
+            };
+
+            await userInDiscussionRepository.Insert(userInGeneral);
 
             return user;
 
