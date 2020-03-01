@@ -18,8 +18,7 @@ import { Observable } from 'rxjs';
 
 export class ChangeEmailComponent implements OnInit {
 
-  @Input() connectedUser$: Observable<User>;
-  connectedUser: User;
+  @Input() connectedUser: User;
 
   emailForm: FormGroup;
 
@@ -30,6 +29,7 @@ export class ChangeEmailComponent implements OnInit {
     private existEmailValidator: ExistEmailValidator) { }
 
   ngOnInit() {
+
     this.emailForm = this.formBuilder.group({
       email: ['',
         {
@@ -42,11 +42,6 @@ export class ChangeEmailComponent implements OnInit {
       ]
     });
 
-    this.connectedUser$.subscribe(
-      (user: User) => {
-        this.connectedUser = user;
-      }
-    );
   }
 
   onSubmit() {

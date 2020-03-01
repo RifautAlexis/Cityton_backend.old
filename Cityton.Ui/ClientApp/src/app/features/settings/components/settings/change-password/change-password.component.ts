@@ -18,8 +18,7 @@ import { Observable } from 'rxjs';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  @Input() connectedUser$: Observable<User>;
-  connectedUser: User;
+  @Input() connectedUser: User;
 
   passwordForm: FormGroup;
 
@@ -41,12 +40,6 @@ export class ChangePasswordComponent implements OnInit {
     });
 
     this.passwordForm.setValidators(equalPasswordsValidator);
-
-    this.connectedUser$.subscribe(
-      (user: User) => {
-        this.connectedUser = user;
-      }
-    );
 
   }
 

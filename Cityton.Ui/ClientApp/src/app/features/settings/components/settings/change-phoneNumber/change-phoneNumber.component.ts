@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, NgForm, AbstractControl } from '@angular/forms';
 
 import { UserService } from '@core/services/user.service';
 import { AuthService } from '@core/services/auth.service';
@@ -18,8 +18,7 @@ import { Observable } from 'rxjs';
 
 export class ChangePhoneNumberComponent implements OnInit {
 
-  @Input() connectedUser$: Observable<User>;
-  connectedUser: User;
+  @Input() connectedUser: User;
 
   phoneNumberForm: FormGroup;
 
@@ -29,23 +28,19 @@ export class ChangePhoneNumberComponent implements OnInit {
     private existPhoneNumberValidator: ExistPhoneNumberValidator) { }
 
   ngOnInit() {
+
     this.phoneNumberForm = this.formBuilder.group({
-      phoneNumber: ['',
+      phoneNumber: [this.connectedUser.phoneNumber,
         {
           validators: [
             Validators.required,
             Validators.minLength(10)
           ],
-          asyncValidators: [this.existPhoneNumberValidator.validate]
+          asyncValidators: [this.phoneNumberValidator]
         }
       ]
     });
 
-    this.connectedUser$.subscribe(
-      (user: User) => {
-        this.connectedUser = user;
-      }
-    );
   }
 
   onSubmit() {
@@ -77,5 +72,11 @@ export class ChangePhoneNumberComponent implements OnInit {
   cancel(formToReset: FormGroup) {
     formToReset.reset();
   }
+
+  // ***************************************** //
+
+  private phoneNumberValidator = (control: AbstractControl) => {
+    return this.existPhoneNumberValidator.validateEdit(control, this.connectedUser.phoneNumber);
+  };
 
 }

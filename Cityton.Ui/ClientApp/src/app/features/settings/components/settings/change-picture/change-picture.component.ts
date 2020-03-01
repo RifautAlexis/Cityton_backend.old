@@ -16,8 +16,7 @@ import { Observable } from 'rxjs';
 
 export class ChangePictureComponent implements OnInit {
 
-  @Input() connectedUser$: Observable<User>;
-  connectedUser: User;
+  @Input() connectedUser: User;
 
   url: string | ArrayBuffer = '';
   fileData: File;
@@ -25,13 +24,6 @@ export class ChangePictureComponent implements OnInit {
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-
-    this.connectedUser$.subscribe(
-      (user: User) => {
-        this.connectedUser = user;
-        this.url = user.picture;
-      }
-    );
   }
 
   preview(files: FileList) {

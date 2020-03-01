@@ -1,10 +1,10 @@
-<section *ngIf="connectedUser$ | async">
+<section *ngIf="(connectedUser$ | async) as connectedUser">
 
-  <app-change-username [connectedUser$]="connectedUser$"></app-change-username>
+  <app-change-username [connectedUser]="connectedUser"></app-change-username>
 
   <mat-divider></mat-divider>
 
-  <app-change-phoneNumber [connectedUser$]="connectedUser$"></app-change-phoneNumber>
+  <app-change-phoneNumber [connectedUser]="connectedUser"></app-change-phoneNumber>
 
   <!-- <mat-divider></mat-divider>
 
@@ -12,10 +12,10 @@
 
   <mat-divider></mat-divider>
 
-  <app-change-password [connectedUser$]="connectedUser$"></app-change-password>
+  <app-change-password [connectedUser]="connectedUser"></app-change-password>
 
   <mat-divider></mat-divider>
 
-  <app-change-picture [connectedUser$]="connectedUser$"></app-change-picture>
+  <app-change-picture [connectedUser]="connectedUser"></app-change-picture>
 
 </section>
