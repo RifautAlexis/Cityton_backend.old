@@ -25,6 +25,8 @@ export class ChatComponent implements OnInit {
   connectionIsEstablished: boolean = false;
   isNotAMember: boolean = false;
 
+  url: string = "";
+
   constructor(
     private chatService: ChatService,
     private authService: AuthService,
@@ -41,6 +43,7 @@ export class ChatComponent implements OnInit {
 
       this.chatService.getMessages(this.threadId).subscribe(
         (messages: Message[]) => {
+          console.log(messages);
           this.messages$.next(messages);
         }
       );
@@ -77,11 +80,25 @@ export class ChatComponent implements OnInit {
 
   sendMessage(newMessage: string) {
     console.log("SEND");
-    this.chatService.sendMessage(newMessage, this.threadId);
+
+    if (newMessage !== "" || this.url !== "")
+      this.chatService.sendMessage(newMessage, this.threadId, this.url);
+
+    this.url = "";
   }
 
   removeMessage(messageId: number) {
     this.chatService.removeMessage(messageId);
+  }
+
+  onFileSelected(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   ngOnDestroy(): void {

@@ -1,6 +1,9 @@
+import { IMediaMinimal as MediaMinimal } from '@shared/models/MediaMinimal';
+
 export interface IMessage {
-  id: number
+  id: number;
   content: string;
+  media: MediaMinimal;
   author: IUser;
   createdAt: Date;
   discussionId: number;

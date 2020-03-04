@@ -19,8 +19,9 @@ namespace Cityton.Data.Mapper
             return new MessageDTO
             {
                 Id = data.Id,
-                Content = data.Content == null ? "Has been removed" : data.Content,
-                Author = new UserMinimal { Id = data.AuthorId, Username = data.AuthorId == null ? "Uknwon" : data.Author.Username },
+                Content = data.Content == null ? null : data.Content,
+                Media = data.Media == null ? null : new MediaMinimal { Id = data.Media.Id, Url = data.Media.Location },
+                Author = new UserMinimal { Id = data.AuthorId, Username = data.AuthorId == null ? "" : data.Author.Username },
                 CreatedAt = data.CreatedAt,
                 DiscussionId = data.DiscussionId,
             };

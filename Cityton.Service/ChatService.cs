@@ -13,9 +13,9 @@ namespace Cityton.Service
 
     public interface IChatService
     {
-        Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId);
+        Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor_Media(int discussionId);
         Task<Message> GetMessage(int messageId);
-        Task<Message> NewMessage(string message, int connectedUSerId, int discussionId);
+        Task<Message> NewMessage(string message, int connectedUSerId, int discussionId, string imageUrl);
         Task<IEnumerable<Discussion>> GetThreads(int userId);
         Task<Discussion> GetThread(int threadId);
         Task<Discussion> GetDiscussion(int discussionId);
@@ -37,13 +37,15 @@ namespace Cityton.Service
         private IDiscussionRepository discussionRepository;
         private IChallengeGivenRepository challengeGivenRepository;
         private IUserInDiscussionRepository userIniscussionRepository;
+        private IMediaRepository mediaRepository;
 
         public ChatService(
             IMesageRepository messageRepository,
             IUserRepository userRepository,
             IDiscussionRepository discussionRepository,
             IUserInDiscussionRepository userIniscussionRepository,
-            IChallengeGivenRepository challengeGivenRepository
+            IChallengeGivenRepository challengeGivenRepository,
+            IMediaRepository mediaRepository
             )
         {
             this.messageRepository = messageRepository;
@@ -51,11 +53,12 @@ namespace Cityton.Service
             this.discussionRepository = discussionRepository;
             this.challengeGivenRepository = challengeGivenRepository;
             this.userIniscussionRepository = userIniscussionRepository;
+            this.mediaRepository = mediaRepository;
         }
 
-        public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId)
+        public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor_Media(int discussionId)
         {
-            return await this.messageRepository.GetByDiscussionIdWithAuthor(discussionId);
+            return await this.messageRepository.GetByDiscussionIdWithAuthor_Media(discussionId);
         }
 
         public async Task<Message> GetMessage(int messageId)
@@ -63,11 +66,11 @@ namespace Cityton.Service
             return await this.messageRepository.GetMessageById(messageId);
         }
 
-        public async Task<Message> NewMessage(string message, int connectedUserId, int discussionId)
+        public async Task<Message> NewMessage(string message, int connectedUserId, int discussionId, string imageUrl)
         {
             Message messageToAdd = new Message
             {
-                Content = message,
+                Content = string.IsNullOrWhiteSpace(imageUrl) ? null : message,
                 CreatedAt = DateTime.Now,
                 AuthorId = connectedUserId,
                 DiscussionId = discussionId,
@@ -75,6 +78,26 @@ namespace Cityton.Service
             };
 
             await this.messageRepository.Insert(messageToAdd);
+
+            if (!string.IsNullOrWhiteSpace(imageUrl))
+            {
+                Media mediaToAdd = new Media {
+                    Location = imageUrl,
+                    CreatedAt = DateTime.Now,
+                    MessageId = messageToAdd.Id
+                };
+
+                await this.mediaRepository.Insert(mediaToAdd);
+
+                messageToAdd.MediaId = mediaToAdd.Id;
+
+                await this.messageRepository.Update(messageToAdd);
+
+                messageToAdd.Media = mediaToAdd;
+
+            } else {
+                messageToAdd.Media = null;
+            }
 
             messageToAdd.Author = await this.userRepository.Get(connectedUserId);
 

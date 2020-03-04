@@ -76,7 +76,7 @@ namespace SignalRChat.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task NewMessage(string message, int discussionId)
+        public async Task NewMessage(string message, int discussionId, string imageUrl)
         {
 
             if (!usersConnectedToChat.TryGetValue(Context.ConnectionId, out int connectedUSerId))
@@ -84,10 +84,14 @@ namespace SignalRChat.Hubs
                 Context.Abort();
             }
 
-            Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId);
-            Discussion thread = await this._chatService.GetDiscussion(discussionId);
+            if (string.IsNullOrWhiteSpace(message) || string.IsNullOrWhiteSpace(imageUrl))
+            {
+                Message messageAdded = await this._chatService.NewMessage(message, connectedUSerId, discussionId, imageUrl);
+                Discussion thread = await this._chatService.GetDiscussion(discussionId);
 
-            await Clients.Group(thread.Id.ToString()).SendAsync("messageReceived", messageAdded.ToDTO());
+                await Clients.Group(thread.Id.ToString()).SendAsync("messageReceived", messageAdded.ToDTO());
+            }
+
         }
 
         /* ****************************** */
@@ -97,13 +101,13 @@ namespace SignalRChat.Hubs
             string currentConnectionId = Context.ConnectionId;
             // if (usersConnectedToChat.ContainsKey(currentConnectionId))
             // {
-                IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
+            IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
 
-                await discussions
-                    .ToList()
-                    .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Id.ToString()));
+            await discussions
+                .ToList()
+                .ForEachAsync(d => Groups.AddToGroupAsync(Context.ConnectionId, d.Id.ToString()));
 
-                return;
+            return;
             // }
             // else
             // {
@@ -116,9 +120,9 @@ namespace SignalRChat.Hubs
             string currentConnectionId = Context.ConnectionId;
             // if (usersConnectedToChat.ContainsKey(currentConnectionId))
             // {
-                await Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionId.ToString());
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, discussionId.ToString());
 
-                await Task.FromResult(true);
+            await Task.FromResult(true);
             // }
             // else
             // {
@@ -131,10 +135,10 @@ namespace SignalRChat.Hubs
             string currentConnectionId = Context.ConnectionId;
             // if (usersConnectedToChat.ContainsKey(currentConnectionId))
             // {
-                IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
-                await discussions
-                    .ToList()
-                    .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Id.ToString()));
+            IEnumerable<Discussion> discussions = await this._chatService.GetThreads(usersConnectedToChat.GetValueOrDefault(currentConnectionId));
+            await discussions
+                .ToList()
+                .ForEachAsync(d => Groups.RemoveFromGroupAsync(Context.ConnectionId, d.Id.ToString()));
             // }
             // else
             // {
@@ -145,7 +149,7 @@ namespace SignalRChat.Hubs
         public async Task RemoveMessage(int messageId)
         {
             Message messageRemoved = await this._chatService.RemoveMessage(messageId);
-            
+
             Discussion discussion = await this._chatService.GetDiscussion(messageRemoved.DiscussionId);
 
             messageRemoved = await this._chatService.GetMessageWithAuthor(messageRemoved.Id);

@@ -50,7 +50,7 @@ namespace Cityton.Ui.Controllers
         public async Task<IActionResult> GetMessages(int discussionId)
         {
 
-            IEnumerable<Message> messages = await this._chatService.GetByDiscussionIdWithAuthor(discussionId);
+            IEnumerable<Message> messages = await this._chatService.GetByDiscussionIdWithAuthor_Media(discussionId);
 
             return Ok(messages.ToDTO());
 

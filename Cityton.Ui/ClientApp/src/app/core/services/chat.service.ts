@@ -91,10 +91,9 @@ export class ChatService {
     });
   }
 
-  sendMessage(newMessage: string, discussionId: number) {
-    console.log(newMessage, discussionId);
+  sendMessage(newMessage: string, discussionId: number, imageUrl: string) {
     this.hubConnection
-      .send("newMessage", newMessage, discussionId);
+      .send("newMessage", newMessage, discussionId, imageUrl);
   }
 
   removeMessage(messageId: number): Promise<any> {

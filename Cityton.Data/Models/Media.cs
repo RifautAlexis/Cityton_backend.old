@@ -8,10 +8,10 @@ namespace Cityton.Data.Models
     public class Media : BaseEntities
     {
 
-        public string Name { get; set; }
+        // public string Name { get; set; }
         public string Location { get; set; }
-        public AllowedExtension Extension { get; set; }
-        public string CreatedAt { get; set; }
+        // public AllowedExtension Extension { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         /*****/
 
@@ -19,8 +19,8 @@ namespace Cityton.Data.Models
 
         /*****/
 
-        public int? MessageId { get; set; }
-        public int ContainedInId { get; set; }
+        public int MessageId { get; set; }
+        // public int ContainedInId { get; set; }
 
 
     }

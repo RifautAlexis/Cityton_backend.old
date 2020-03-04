@@ -11,7 +11,7 @@ namespace Cityton.Repository
 
     public interface IMesageRepository : IRepository<Message>
     {
-        Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId);
+        Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor_Media(int discussionId);
         Task<Message> GetMessageById(int messageId);
         Task<Message> GetMessageWithAuthor(int messageRemovedId);
     }
@@ -21,12 +21,13 @@ namespace Cityton.Repository
 
         public MesageRepository(ApplicationContext context) : base(context) { }
 
-        public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor(int discussionId)
+        public async Task<IEnumerable<Message>> GetByDiscussionIdWithAuthor_Media(int discussionId)
         {
             return await this.context.Messages
                 .Where(message => message.DiscussionId == discussionId)
                 .OrderBy(message => message.CreatedAt)
                 .Include(message => message.Author)
+                .Include(message => message.Media)
                 .ToListAsync();
         }
 
@@ -35,6 +36,7 @@ namespace Cityton.Repository
             return await this.context.Messages
                 .Where(message => message.Id == messageId)
                 .Include(message => message.Author)
+                .Include(message => message.Media)
                 .FirstOrDefaultAsync();
         }
 
@@ -43,6 +45,7 @@ namespace Cityton.Repository
             return await this.context.Messages
                 .Where(m => m.Id == messageRemovedId)
                 .Include(m => m.Author)
+                .Include(message => message.Media)
                 .FirstOrDefaultAsync();
         }
 

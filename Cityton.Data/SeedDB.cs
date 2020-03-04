@@ -328,28 +328,49 @@ namespace Cityton.Repository
                 new Message { Id= 8, Content = "Vas-y, pourquoi tu lui parles comme ça ?", CreatedAt = DateTime.Now, AuthorId = 16, DiscussionId = 5 },
                
                 new Message { Id= 9, Content = "Ding dong", CreatedAt = DateTime.Now, AuthorId = 9, DiscussionId = 1 },
-                new Message { Id= 10, Content = "Oui ?", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
-                new Message { Id= 11, Content = "Connaissez-vous notre seigneur à tous ?", CreatedAt = DateTime.Now, AuthorId = 9, DiscussionId = 1 },
-                new Message { Id= 12, Content = "Chérie ! Les témins de Jéhova sont revenu !", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
-                new Message { Id= 13, Content = "Claque leur la port eu nez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
-                new Message { Id= 14, Content = "... Ils sont là", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
-                new Message { Id= 15, Content = "Pas grave. Bande de chiant, on est dimanche ! dégagez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
+                new Message { Id= 10, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 1 },
+                new Message { Id= 11, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 2 },
+                new Message { Id= 12, Content = "Oui ?", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 13, Content = "Connaissez-vous notre seigneur à tous ?", CreatedAt = DateTime.Now, AuthorId = 9, DiscussionId = 1 },
+                new Message { Id= 14, Content = "Chérie ! Les témins de Jéhova sont revenu !", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 15, Content = "Claque leur la port eu nez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
+                new Message { Id= 16, Content = "... Ils sont là", CreatedAt = DateTime.Now, AuthorId = 24, DiscussionId = 1 },
+                new Message { Id= 17, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 3 },
+                new Message { Id= 18, Content = "Pas grave. Bande de chiant, on est dimanche ! dégagez !", CreatedAt = DateTime.Now, AuthorId = 29, DiscussionId = 1 },
+                new Message { Id= 19, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 4 },
+                new Message { Id= 20, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 5 },
+                new Message { Id= 21, Content = null, CreatedAt = DateTime.Now, AuthorId = 48, DiscussionId = 1, MediaId = 6 },
                 
-                new Message { Id= 16, Content = "Ma réponse ?", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
-                new Message { Id= 17, Content = "Oui, quelle est-elle ?", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
-                new Message { Id= 18, Content = "42", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
-                new Message { Id= 19, Content = "42 ? Tu veux que je te reprogramme ? Si ce n'est que ça dis le enfoiré", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
-                new Message { Id= 20, Content = "Whesh humain ziva calme toi un peu. Je vais me taper un petit rail de binaire, tu m'as mis trop les nerfs frérot", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 22, Content = "Ma réponse ?", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 23, Content = "Oui, quelle est-elle ?", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
+                new Message { Id= 24, Content = "42", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 25, Content = "42 ? Tu veux que je te reprogramme ? Si ce n'est que ça dis le enfoiré", CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2 },
+                new Message { Id= 26, Content = "Whesh humain ziva calme toi un peu. Je vais me taper un petit rail de binaire, tu m'as mis trop les nerfs frérot", CreatedAt = DateTime.Now, AuthorId = 20, DiscussionId = 2 },
+                new Message { Id= 27, Content = null, CreatedAt = DateTime.Now, AuthorId = 18, DiscussionId = 2, MediaId = 7 },
+                new Message { Id= 28, Content = null, CreatedAt = DateTime.Now, AuthorId = 18, DiscussionId = 2, MediaId = 8 },
+                new Message { Id= 29, Content = null, CreatedAt = DateTime.Now, AuthorId = 38, DiscussionId = 2, MediaId = 9 },
                 
-                new Message { Id= 21, Content = "Il y a quelqu'un ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
-                new Message { Id= 22, Content = "Ha non, je suis le seul dans mon groupe et donc dans la conversation", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
-                new Message { Id= 23, Content = "Suis-je un Remy sans amis ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
-                new Message { Id= 24, Content = "Le suicide me guette :(", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 }
+                new Message { Id= 30, Content = "Il y a quelqu'un ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 31, Content = "Ha non, je suis le seul dans mon groupe et donc dans la conversation", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 32, Content = "Suis-je un Remy sans amis ?", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 },
+                new Message { Id= 33, Content = "Le suicide me guette :(", CreatedAt = DateTime.Now, AuthorId = 23, DiscussionId = 6 }
             );
 
             /*
             *   Media
             */
+            modelBuilder.Entity<Media>().HasData(
+                new Media { Id = 1, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 10 },
+                new Media { Id = 2, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 11 },
+                new Media { Id = 3, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 17 },
+                new Media { Id = 4, Location = null,  CreatedAt = DateTime.Now, MessageId = 19 },
+                new Media { Id = 5, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 20 },
+                new Media { Id = 6, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 21 },
+
+                new Media { Id = 7, Location = null, CreatedAt = DateTime.Now, MessageId = 27 },
+                new Media { Id = 8, Location = "https://res.cloudinary.com/dakczk6el/image/upload/v1576003103/default.png", CreatedAt = DateTime.Now, MessageId = 28 },
+                new Media { Id = 9, Location = null, CreatedAt = DateTime.Now, MessageId = 29 }
+            );
 
         }
 

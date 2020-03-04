@@ -12,11 +12,11 @@ namespace Cityton.Data.Mapping
         {
             entityBuilder.HasKey(m => m.Id);
 
-            entityBuilder.Property(m => m.Name).IsRequired();
-            entityBuilder.HasIndex(m => m.Name).IsUnique();
+            // entityBuilder.Property(m => m.Name).IsRequired();
+            // entityBuilder.HasIndex(m => m.Name).IsUnique();
 
-            entityBuilder.Property(m => m.Location).IsRequired();
-            entityBuilder.Property(m => m.Extension).IsRequired();
+            // entityBuilder.Property(m => m.Location).IsRequired();
+            // entityBuilder.Property(m => m.Extension).IsRequired();
             entityBuilder.Property(m => m.CreatedAt).IsRequired();
 
             /*****/

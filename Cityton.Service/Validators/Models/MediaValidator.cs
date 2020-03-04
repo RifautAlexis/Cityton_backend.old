@@ -12,9 +12,9 @@ namespace Cityton.Service.Validators
 
         public MediaValidator()
         {
-            RuleFor(media => media.Name).NotEmpty().MinimumLength(3);
+            // RuleFor(media => media.Name).NotEmpty().MinimumLength(3);
             RuleFor(media => media.Location).NotEmpty();
-            RuleFor(media => media.Extension).NotNull().IsInEnum();
+            // RuleFor(media => media.Extension).NotNull().IsInEnum();
             RuleFor(media => media.CreatedAt).NotNull();
         }
 
