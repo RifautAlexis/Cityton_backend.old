@@ -24,6 +24,7 @@ export class ChangePictureComponent implements OnInit {
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
+      this.url = this.connectedUser.picture;
   }
 
   preview(files: FileList) {

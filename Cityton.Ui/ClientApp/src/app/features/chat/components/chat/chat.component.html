@@ -17,19 +17,6 @@
           <button mat-menu-item (click)="removeMessage(message.id)"> Remove </button>
         </mat-menu>
 
-        <!-- content && media && media.url
-        content && media && !media.url
-        content && !media
-        !content && media && media.url
-        !content && media && !media.url
-        !content && !media -->
-
-        <!-- media && media.url && content
-        media && media.url && !content
-        media && !media.url && !content
-        !media && content
-        !media && !content -->
-
         <div class="contentMessage">
 
           <ng-container *ngIf="message.content || message.media; else contentRemoved">
