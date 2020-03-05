@@ -1,7 +1,2 @@
-cd Cityton.Ui/ClientApp
-start "ng serve" ng serve --watch=true
-
-cd ..
+cd Cityton.Ui
 start "dotnet watch run" dotnet watch run
-
-start chrome http://localhost:4200
